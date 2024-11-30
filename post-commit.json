@@ -1,0 +1,218 @@
+{
+  "blobs": [],
+  "blocks": {
+    "blocks": {
+      "zdpuAmVf5UwWdfZ5P2CKaqCbSTruGAtTE5o4PiFpkpDajFaG5": {
+        "e": [
+          {
+            "k": "app.bsky.graph.follow/3lbkgrqmnx72p",
+            "p": 0,
+            "t": "zdpuAowwyHoQ2199DAUvqgkXgwmHRQHdBvKp6uBcwJiqCfMBj",
+            "v": "zdpuAxzFkLeg4VMEZhas2BSugSdafAfro26FLwsbEPywMBX7Q"
+          }
+        ],
+        "l": "zdpuAqB8Y4TQ9dKvuGsehinXsW9DYvV6aov6v4747N17qYmPd"
+      },
+      "zdpuApqF4j8s5czh4GSQqFhHDs28QgBSSVfibLB79DLX63paw": {
+        "e": [
+          {
+            "k": "app.bsky.feed.like/3lbtixvb2xq2y",
+            "p": 0,
+            "t": "zdpuAxu7F5qPxECorY2BapgmbmJU16Nny6RRRjHx1vXB4L9Xo",
+            "v": "zdpuAkjLU7VUXp5yLN6xDdokPxRNzg5avcYCiUcz2BpmHaWED"
+          },
+          {
+            "k": "post/3lbknhp7w322d",
+            "p": 14,
+            "t": "zdpuAq5u4qbn5md6ouHFq95xAEpkb9SotLSiu1p9fXdJT6JxD",
+            "v": "zdpuArxXi73NPYmF8DcEARAhxAjsrB5xrPPJAH5TgiWbzKrWJ"
+          }
+        ],
+        "l": "zdpuAq4dikvHArbaVSFWFtVYgJJp2k81n3299A848wXgWZHr1"
+      },
+      "zdpuAq5u4qbn5md6ouHFq95xAEpkb9SotLSiu1p9fXdJT6JxD": {
+        "e": [
+          {
+            "k": "app.bsky.feed.post/3lbmajsni222x",
+            "p": 0,
+            "t": null,
+            "v": "zdpuAxidrvmYdiEMtzZN3H3vh786iSvGiohe6wrdyMDxt3Ezr"
+          },
+          {
+            "k": "cwv6cp22j",
+            "p": 23,
+            "t": null,
+            "v": "zdpuAuR1v95RVM4eanZK42Xm1TFygKDxGAHdipPe6r5hpCjhH"
+          },
+          {
+            "k": "dasaoc22j",
+            "p": 23,
+            "t": null,
+            "v": "zdpuAqYBbSMjA6dgspAvyjgMjc9byDyAuSUB7XGge9nH1enNW"
+          },
+          {
+            "k": "ojj2ujck2b",
+            "p": 22,
+            "t": null,
+            "v": "zdpuAw8grTZP1k1S7mHAgMenFqrV1wR1cXCMxbx6qV5n7kK2E"
+          },
+          {
+            "k": "mnn2s22n",
+            "p": 24,
+            "t": null,
+            "v": "zdpuAmYckQwNb7SA4kyZCjFSySprkytPgCoMxH9aZX7YwTQFs"
+          },
+          {
+            "k": "pl46ztjc2q",
+            "p": 22,
+            "t": null,
+            "v": "zdpuB26h85r5QgpkSAcaHTYY1DY5pCzDeu6M8YZRPyKj8YX7A"
+          },
+          {
+            "k": "tiwbb5jc2o",
+            "p": 22,
+            "t": null,
+            "v": "zdpuAsAwkPzABTExATY4ArkV6GtJUYjaf2CcRy5jV8VPkLUh8"
+          }
+        ],
+        "l": null
+      },
+      "zdpuAqB8Y4TQ9dKvuGsehinXsW9DYvV6aov6v4747N17qYmPd": {
+        "e": [
+          {
+            "k": "app.bsky.graph.follow/3lbkgprkzp32x",
+            "p": 0,
+            "t": null,
+            "v": "zdpuAy8WAQRstSJRdGvwh6YpNDx6TrsCwpWZY7QrELERRT5yn"
+          },
+          {
+            "k": "rilylr2x",
+            "p": 27,
+            "t": null,
+            "v": "zdpuAkUGDnGE6xYABT4w4eQzA2AkqwKvvRwKWYUBRRSehtxc5"
+          },
+          {
+            "k": "lhzyl2e",
+            "p": 28,
+            "t": null,
+            "v": "zdpuAtPxeyPUsCeBATkQFBLgAa2KReKV2NZCKVkMZCUK6k4uK"
+          }
+        ],
+        "l": null
+      },
+      "zdpuAtfHGvtkkvf6mDQnudepwug5yHigNvEfGnczQ7zUVvvva": {
+        "data": "zdpuAupWF79NEt4uYr4cmoU91fCEPdFRzgZSP1QSyM7Ec1reG",
+        "did": "did:plc:ftmpnfwmxtsettfimaoggcyl",
+        "prev": null,
+        "rev": "3lbv5ahw4pr2f",
+        "sig": "b64:Pg+8S+YwMHPHuGx/BCHco81RZ/E8McAMzuq42PQTfvh0TjBUTPRPX7vpNyk4CDGx+z2iM130k4afGsjD77HQ6A",
+        "version": 3
+      },
+      "zdpuAtuGNUz4M9FkNvpQt1yXE5PmB7vDAMJmBC2Liy1LEyCMm": {
+        "e": [],
+        "l": "zdpuAwKBZ7Fpz2FT5xWH7SZNDHT9f3JgS1WAMTzMuPmYhThTB"
+      },
+      "zdpuAupWF79NEt4uYr4cmoU91fCEPdFRzgZSP1QSyM7Ec1reG": {
+        "e": [
+          {
+            "k": "app.bsky.graph.follow/3lbkgw3v5vg2i",
+            "p": 0,
+            "t": "zdpuAyKZhdxFxTgsfq74Rq3ghg4GmvGAaNQLLs8ATG3VETKL2",
+            "v": "zdpuAxZDyodPfC4k8D1pqTipdC3DjPFSS5da1xDrBAAyZQsKZ"
+          }
+        ],
+        "l": "zdpuAtuGNUz4M9FkNvpQt1yXE5PmB7vDAMJmBC2Liy1LEyCMm"
+      },
+      "zdpuAwKBZ7Fpz2FT5xWH7SZNDHT9f3JgS1WAMTzMuPmYhThTB": {
+        "e": [
+          {
+            "k": "app.bsky.feed.like/3lbpkr6upgs26",
+            "p": 0,
+            "t": "zdpuArgfq7moVRWJP9EsZzCqcaWNDXxjFevZjVti9hudFwpug",
+            "v": "zdpuAnpGZrXjMBMXBM7YRNioxrtEXCfASAX8vtEcyZhHtW2p1"
+          },
+          {
+            "k": "qbyf4nub2i",
+            "p": 22,
+            "t": "zdpuApqF4j8s5czh4GSQqFhHDs28QgBSSVfibLB79DLX63paw",
+            "v": "zdpuB3NqCNpy13gA9vtHPkZefdsqsxZxSXjtpYWSuFipAc4GR"
+          },
+          {
+            "k": "post/3lbv5agfqwk2f",
+            "p": 14,
+            "t": "zdpuAmVf5UwWdfZ5P2CKaqCbSTruGAtTE5o4PiFpkpDajFaG5",
+            "v": "zdpuAyf7TkBE2AKuY6J6fnVFesRoFvTLQuVwKNtLQyASaE2Ja"
+          },
+          {
+            "k": "graph.follow/3lbkgvhlmdd2w",
+            "p": 9,
+            "t": "zdpuAma6qUvYYbGhz4qpRQdSro7C684NE5xvp4kKhi6MHHJWW",
+            "v": "zdpuAqmw5hp3NvMMKdgZfmeFnFXZYCM35trgENmzm7mRuJVgq"
+          }
+        ],
+        "l": "zdpuArxM3fuUFKKqyx9VabZRfMdfXprrS44AF5j3HU6QPDNCb"
+      },
+      "zdpuAyf7TkBE2AKuY6J6fnVFesRoFvTLQuVwKNtLQyASaE2Ja": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-11-26T22:59:22.180Z",
+        "embed": {
+          "$type": "app.bsky.embed.recordWithMedia",
+          "media": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 2000,
+                  "width": 1297
+                },
+                "image": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": "zb2rhc3R4nZ4SkTczjChQVJYnpEy6y9bjc9pP5nan2P2i8QFZ",
+                  "size": 321463
+                }
+              }
+            ]
+          },
+          "record": {
+            "$type": "app.bsky.embed.record",
+            "record": {
+              "cid": "bafyreidejmydyc7xqwlpu6bthn7bfy3kre7yoqjvyuewqrs6ph6juliszm",
+              "uri": "at://did:plc:ftmpnfwmxtsettfimaoggcyl/app.bsky.feed.post/3lbtiwbb5jc2o"
+            }
+          }
+        },
+        "langs": [
+          "fr"
+        ],
+        "text": "Vous préférez avec ou sans poils ?"
+      }
+    },
+    "length": 58,
+    "roots": [
+      "zdpuAtfHGvtkkvf6mDQnudepwug5yHigNvEfGnczQ7zUVvvva"
+    ],
+    "version": 1
+  },
+  "commit": "zdpuAtfHGvtkkvf6mDQnudepwug5yHigNvEfGnczQ7zUVvvva",
+  "ops": [
+    {
+      "action": "create",
+      "cid": "zdpuAyf7TkBE2AKuY6J6fnVFesRoFvTLQuVwKNtLQyASaE2Ja",
+      "path": {
+        "coll": "app.bsky.feed.post",
+        "rest": null,
+        "rkey": "3lbv5agfqwk2f"
+      }
+    }
+  ],
+  "prev": null,
+  "rebase": false,
+  "repo": "did:plc:ftmpnfwmxtsettfimaoggcyl",
+  "rev": "3lbv5ahw4pr2f",
+  "seq": 652771499,
+  "since": "3lbuqfoo7be2i",
+  "time": "2024-11-26T22:59:24.208Z",
+  "tooBig": false
+}

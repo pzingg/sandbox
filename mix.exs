@@ -60,7 +60,7 @@ defmodule Sandbox.MixProject do
       {:finch, "~> 0.19"},
       {:req, "~> 0.5"},
       {:ssl_verify_fun, "~> 1.1.7", manager: :rebar3, override: true},
-      {:oauth2, path: "../oauth2"},
+      {:oauth2, git: "https://github.com/pzingg/oauth2.git", branch: "dpop"},
       {:cachex, "~> 4.0"},
       {:ecto, "~> 3.12"},
       {:ngrok, "~> 1.0", only: [:dev, :test]}

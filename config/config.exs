@@ -21,6 +21,10 @@ config :sandbox, SandboxWeb.Endpoint,
   pubsub_server: Sandbox.PubSub,
   live_view: [signing_salt: "bVr20ZsN"]
 
+# Configures the OAuth client (not used)
+config :sandbox, Sandbox.Bluesky,
+  scope: "atproto transition:generic"
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

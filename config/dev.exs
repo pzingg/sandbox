@@ -54,6 +54,9 @@ config :sandbox, SandboxWeb.Endpoint,
 # Enable dev routes for dashboard and mailbox
 config :sandbox, dev_routes: true
 
+# Show OAuth2 request parameters
+config :oauth2, debug: true
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 

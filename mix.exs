@@ -5,7 +5,7 @@ defmodule Sandbox.MixProject do
     [
       app: :sandbox,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.17",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -56,7 +56,14 @@ defmodule Sandbox.MixProject do
       {:cbor, "~> 1.0"},
       {:cid, "~> 0.0"},
       {:binary, "~> 0.0"},
-      {:number, "~> 1.0"}
+      {:number, "~> 1.0"},
+      {:finch, "~> 0.19"},
+      {:req, "~> 0.5"},
+      {:ssl_verify_fun, "~> 1.1.7", manager: :rebar3, override: true},
+      {:oauth2, path: "../oauth2"},
+      {:cachex, "~> 4.0"},
+      {:ecto, "~> 3.12"},
+      {:ngrok, "~> 1.0", only: [:dev, :test]}
     ]
   end
 

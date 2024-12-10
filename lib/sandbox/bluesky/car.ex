@@ -1,4 +1,4 @@
-defmodule Sandbox.Firehose.CAR do
+defmodule Sandbox.Bluesky.CAR do
   @moduledoc """
   A module for decoding CAR files.
   """
@@ -31,7 +31,7 @@ defmodule Sandbox.Firehose.CAR do
     An operation value.
     """
 
-    alias Sandbox.Firehose.CAR.Path
+    alias Sandbox.Bluesky.CAR.Path
 
     @derive Jason.Encoder
     defstruct [:action, :cid, :path]
@@ -50,7 +50,7 @@ defmodule Sandbox.Firehose.CAR do
     end
   end
 
-  @all_collections [
+  def all_collections, do: [
     "app.bsky.actor.profile",
     "app.bsky.feed.generator",
     "app.bsky.feed.like",
@@ -68,13 +68,9 @@ defmodule Sandbox.Firehose.CAR do
     "chat.bsky.actor.declaration"
   ]
 
-  @post_collections [
+  def post_collections, do: [
     "app.bsky.feed.post",
     "app.bsky.feed.repost"
-  ]
-
-  @unsafe_keys [
-    "sig"
   ]
 
   @derive Jason.Encoder
@@ -110,7 +106,7 @@ defmodule Sandbox.Firehose.CAR do
   end
 
   def create_post?(%Op{action: :create, path: %Path{coll: coll}}) when is_binary(coll) do
-    Enum.member?(@post_collections, coll)
+    coll in post_collections()
   end
 
   def create_post?(_op), do: false

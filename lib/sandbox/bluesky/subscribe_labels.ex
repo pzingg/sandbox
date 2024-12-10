@@ -1,4 +1,4 @@
-defmodule Sandbox.Firehose.SubscribeLabels do
+defmodule Sandbox.Bluesky.SubscribeLabels do
   defmodule Info do
   end
 

@@ -5,7 +5,7 @@ import Config
 config :sandbox, SandboxWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "Ex4EYp866xppswt+PTm2jkQtEzLFEXnMdHy5xOWS1kMrsVuCfApKXgJGXt3136bm",
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warning

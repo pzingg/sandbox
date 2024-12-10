@@ -13,16 +13,25 @@ defmodule SandboxWeb.SandboxLive do
     <h1>Build A Sandbox</h1>
 
     <div id="sandbox">
-      <.live_component module={SandboxCalculatorComponent} id="calc"
-        coupon="10.0" />
+      <.live_component module={SandboxCalculatorComponent} id="calc" coupon="10.0" />
 
       <%= if @weight do %>
-        <.live_component module={QuoteComponent} id="quote1"
-        title="Our Best Deal:"
-        material="sand" weight={@weight} price={@price} />
-        <.live_component module={QuoteComponent} id="quote2"
-        title="Not Such a Good Deal:"
-        material="sand" weight={@weight} price={@price * 2} />
+        <.live_component
+          module={QuoteComponent}
+          id="quote1"
+          title="Our Best Deal:"
+          material="sand"
+          weight={@weight}
+          price={@price}
+        />
+        <.live_component
+          module={QuoteComponent}
+          id="quote2"
+          title="Not Such a Good Deal:"
+          material="sand"
+          weight={@weight}
+          price={@price * 2}
+        />
       <% end %>
     </div>
     """

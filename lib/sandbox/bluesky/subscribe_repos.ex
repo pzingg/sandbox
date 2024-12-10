@@ -1,12 +1,12 @@
-defmodule Sandbox.Firehose.SubscribeRepos do
+defmodule Sandbox.Bluesky.SubscribeRepos do
   @moduledoc """
   Modules for the repos firehose.
   """
 
   require Logger
 
-  alias Sandbox.Firehose.CAR
-  alias Sandbox.Firehose.CAR.Op
+  alias Sandbox.Bluesky.CAR
+  alias Sandbox.Bluesky.CAR.Op
 
   defmodule Info do
   end

@@ -28,7 +28,7 @@ defmodule SandboxWeb.QuoteComponent do
     """
   end
 
-  def handle_event("click-me", params, socket) do
+  def handle_event("click-me", _params, socket) do
     hrs_until_expires = socket.assigns.hrs_until_expires + 24
     {:noreply, assign(socket, hrs_until_expires: hrs_until_expires)}
   end

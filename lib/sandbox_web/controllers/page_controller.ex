@@ -6,4 +6,12 @@ defmodule SandboxWeb.PageController do
     # so skip the default app layout.
     render(conn, :home, layout: false)
   end
+
+  def tos(conn, _params) do
+    render(conn, :tos)
+  end
+
+  def policy(conn, _params) do
+    render(conn, :policy)
+  end
 end

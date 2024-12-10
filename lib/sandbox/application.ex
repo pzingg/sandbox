@@ -5,6 +5,9 @@ defmodule Sandbox.Application do
 
   use Application
 
+  @ngrok_envs [:dev, :test]
+  # @ngrok_envs [:ngrok]
+
   @impl true
   def start(_type, _args) do
     children = [
@@ -13,16 +16,35 @@ defmodule Sandbox.Application do
       {Phoenix.PubSub, name: Sandbox.PubSub},
       # Start a worker by calling: Sandbox.Worker.start_link(arg)
       # {Sandbox.Worker, arg},
+      {Cachex, [:bluesky]},
       # Start to serve requests, typically the last entry
-      SandboxWeb.Endpoint,
-      # {Sandbox.Firehose.Client, stream: :repos}
+      SandboxWeb.Endpoint
     ]
+
+    mix_env = Mix.env()
+    endpoint_config = Application.get_env(:sandbox, SandboxWeb.Endpoint)
+    port = get_in(endpoint_config, [:http, :port])
+    IO.puts("Endpoint port #{mix_env} configured to #{port}")
+
+    # mix_env in [:dev, :test]
+    children =
+      if ngrok_started?() do
+        IO.puts("Ngrok will be bound to port #{port}")
+        children ++ [{Ngrok, port: port, name: Sandbox.Ngrok}]
+      else
+        children
+      end
+
+    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky)
+    set_bluesky_client_scope(bluesky_config[:scope])
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Sandbox.Supervisor]
     result = Supervisor.start_link(children, opts)
-    Sandbox.Firehose.Client.start(stream: :repos)
+
+    # To subscribe to the Bluesky Firehose:
+    # Sandbox.Bluesky.WebsocketClient.start(stream: :repos)
     result
   end
 
@@ -32,5 +54,27 @@ defmodule Sandbox.Application do
   def config_change(changed, _new, removed) do
     SandboxWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  def set_bluesky_client_scope(nil), do: :ok
+
+  def set_bluesky_client_scope(scope) do
+    :persistent_term.put("sandbox.bluesky.scope", scope)
+  end
+
+  def bluesky_client_scope do
+    :persistent_term.get("sandbox.bluesky.scope", "atproto transition:generic")
+  end
+
+  def public_url do
+    if ngrok_started?() do
+      Ngrok.public_url(Sandbox.Ngrok)
+    else
+      SandboxWeb.Endpoint.url()
+    end
+  end
+
+  defp ngrok_started? do
+    Mix.env() in @ngrok_envs
   end
 end

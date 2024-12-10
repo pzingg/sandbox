@@ -1,4 +1,4 @@
-defmodule Sandbox.Firehose.Client do
+defmodule Sandbox.Bluesky.WebsocketClient do
   @moduledoc """
   A client for Bluesky Firehose (repos or labels).
   """
@@ -7,7 +7,7 @@ defmodule Sandbox.Firehose.Client do
 
   require Logger
 
-  alias Sandbox.Firehose.{CAR, SubscribeLabels, SubscribeRepos}
+  alias Sandbox.Bluesky.{CAR, SubscribeLabels, SubscribeRepos}
 
   @repos_base_uri "wss://bsky.network/xrpc"
   @repos_method "com.atproto.sync.subscribeRepos"
@@ -81,7 +81,7 @@ defmodule Sandbox.Firehose.Client do
         log_post(post, repo)
         if post do
           json = Jason.encode!(message, pretty: true)
-          File.write('post-commit.json', json)
+          File.write("post-commit.json", json)
           exit(:normal)
         end
 

@@ -16,18 +16,18 @@ defmodule Sandbox.Bluesky.WebsocketClient do
   @labels_method "com.atproto.sync.subscribeLabels"
 
   def start(arg) do
-    Logger.info("start arg: #{inspect(arg)}")
+    Logger.debug("start arg: #{inspect(arg)}")
 
     with {:ok, stream_type, url, opts} <- parse_arguments(arg) do
-      WebSockex.start(url, __MODULE__, %{stream: stream_type}, opts)
+      WebSockex.start(url, __MODULE__, %{stream: stream_type, debug: true}, opts)
     end
   end
 
   def start_link(arg) do
-    Logger.info("start_link arg: #{inspect(arg)}")
+    Logger.debug("start_link arg: #{inspect(arg)}")
 
     with {:ok, stream_type, url, opts} <- parse_arguments(arg) do
-      WebSockex.start_link(url, __MODULE__, %{stream: stream_type}, opts)
+      WebSockex.start_link(url, __MODULE__, %{stream: stream_type, debug: true}, opts)
     end
   end
 
@@ -74,55 +74,58 @@ defmodule Sandbox.Bluesky.WebsocketClient do
     end
   end
 
-  def handle_frame({:binary, msg}, %{stream: stream_type} = state) do
-    case decode_frame(msg, stream_type) do
-      {:ok, %{repo: repo} = message} ->
-        post = CAR.find_post_block(message)
-        log_post(post, repo)
-        if post do
-          json = Jason.encode!(message, pretty: true)
-          File.write("post-commit.json", json)
-          exit(:normal)
-        end
+  def handle_frame({:binary, msg}, %{stream: stream_type, debug: debug} = state) do
+    state =
+      case decode_frame(msg, stream_type) do
+        {:ok, %{repo: repo} = message} ->
+          post = CAR.find_post_block(message)
+          log_post(post, repo)
+          if debug && post do
+            rev = message["rev"]
+            File.write("post-commit-#{rev}.json", Jason.encode!(message, pretty: true))
+            %{state | debug: false}
+          else
+            state
+          end
 
-      {:error, _reason} ->
-        # Logger.info("failed to decode a frame: #{reason}")
-        nil
+        {:error, reason} ->
+          Logger.error("Failed to decode a frame: #{inspect(reason)}")
+          state
 
-      _ ->
-        nil
-    end
+        _ ->
+          state
+      end
 
     {:ok, state}
   end
 
   def handle_frame(other, state) do
-    Logger.info("received something else: #{inspect(other)}")
+    Logger.debug("Received something else: #{inspect(other)}")
     {:ok, state}
   end
 
   def handle_cast({:send, {stream_type, msg} = frame}, state) do
-    Logger.info("sending #{stream_type} frame with payload: #{msg}")
+    Logger.debug("Sending #{stream_type} frame with payload: #{msg}")
     {:reply, frame, state}
   end
 
   def handle_cast(other, state) do
-    Logger.info("cast something else: #{inspect(other)}")
+    Logger.debug("cast something else: #{inspect(other)}")
     {:ok, state}
   end
 
   def handle_info(other, state) do
-    Logger.info("info something else: #{inspect(other)}")
+    Logger.debug("info something else: #{inspect(other)}")
     {:ok, state}
   end
 
   def handle_disconnect(%{reason: reason}, state) do
-    Logger.info("disconnect: #{inspect(reason)}")
+    Logger.debug("disconnect: #{inspect(reason)}")
     {:ok, state}
   end
 
   def terminate(reason, _state) do
-    Logger.info("socket terminating: #{inspect(reason)}")
+    Logger.debug("Socket terminating: #{inspect(reason)}")
     :ok
   end
 
@@ -161,11 +164,11 @@ defmodule Sandbox.Bluesky.WebsocketClient do
 
   def log_post(%{"$type": "app.bsky.feed.post"} = post, repo) do
     text = Map.get(post, :text)
-    _ = Logger.info("post in #{repo}: '#{text}'")
+    _ = Logger.debug("post in #{repo}: '#{text}'")
     reply = Map.get(post, :reply)
 
     if !is_nil(reply) do
-      _ = Logger.info(" ... in reply to #{reply.parent.uri}")
+      _ = Logger.debug(" ... in reply to #{reply.parent.uri}")
     end
 
     embed = Map.get(post, :embed)
@@ -173,22 +176,22 @@ defmodule Sandbox.Bluesky.WebsocketClient do
     if !is_nil(embed) do
       case Map.get(embed, :"$type") do
         "app.bsky.embed.record" ->
-          _ = Logger.info(" ... quote post of #{embed.record.uri}")
+          _ = Logger.debug(" ... quote post of #{embed.record.uri}")
 
         "app.bsky.embed.recordWithMedia" ->
-          _ = Logger.info(" ... quote post with media #{inspect(embed)}")
+          _ = Logger.debug(" ... quote post with media #{inspect(embed)}")
 
         "app.bsky.embed.images" ->
-        _ = Logger.info(" ... with #{Enum.count(embed.images)} images")
+        _ = Logger.debug(" ... with #{Enum.count(embed.images)} images")
 
         "app.bsky.embed.video" ->
-          _ = Logger.info(" ... with a video")
+          _ = Logger.debug(" ... with a video")
 
         "app.bsky.embed.external" ->
-          _ = Logger.info(" ... with preview '#{embed.external.title}' at #{embed.external.uri}")
+          _ = Logger.debug(" ... with preview '#{embed.external.title}' at #{embed.external.uri}")
 
         other when is_binary(other) ->
-          _ = Logger.info(" ... unrecognized embed type #{inspect(embed)}")
+          _ = Logger.debug(" ... unrecognized embed type #{inspect(embed)}")
 
         nil ->
           :ok
@@ -198,7 +201,7 @@ defmodule Sandbox.Bluesky.WebsocketClient do
 
   def log_post(%{"$type": "app.bsky.feed.repost"} = post, repo) do
     subject = Map.get(post, :subject)
-    _ = Logger.info("repost in #{repo}, of #{subject.uri}")
+    _ = Logger.debug("repost in #{repo}, of #{subject.uri}")
   end
 
   def log_post(_, _), do: nil

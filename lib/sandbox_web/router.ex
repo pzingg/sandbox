@@ -23,17 +23,18 @@ defmodule SandboxWeb.Router do
   end
 
   scope "/oauth", SandboxWeb do
+    pipe_through :api
+
+    get "/jwks", AuthController, :jwks
+    get "/:provider/client-metadata.json", AuthController, :client_metadata
+  end
+
+  scope "/oauth", SandboxWeb do
     pipe_through :browser
 
     get "/:provider", AuthController, :index
     get "/:provider/callback", AuthController, :callback
     delete "/logout", AuthController, :delete
-  end
-
-  scope "/oauth", SandboxWeb do
-    pipe_through :api
-
-    get "/:provider/client-metadata.json", AuthController, :client_metadata
   end
 
   scope "/", SandboxWeb do
@@ -45,11 +46,14 @@ defmodule SandboxWeb.Router do
 
     live_session :authenticated, on_mount: {MountHooks, :user} do
       live "/account", AccountLive, :index
+      live "/account/feed/following", AccountLive, :following
+      live "/account/feed/discover", AccountLive, :discover
+      live "/account/feed/friends", AccountLive, :friends
+      live "/account/feed/news", AccountLive, :news
     end
 
     live_session :default, on_mount: MountHooks do
       live "/bluesky", BlueskyLive, :index
-      live "/sandbox", SandboxLive, :index
       live "/", PageLive, :index
     end
   end

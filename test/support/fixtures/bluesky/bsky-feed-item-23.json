@@ -1,0 +1,59 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:vovinwhtulbsx4mwfw26r5ni/bafkreigxxngb5ecgrleg6cqdzvxh4viycmns5cp6zalfl4o7ivmxiavsma@jpeg",
+      "createdAt": "2024-11-15T10:51:08.071Z",
+      "did": "did:plc:vovinwhtulbsx4mwfw26r5ni",
+      "displayName": "The Guardian",
+      "handle": "theguardian.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lb5j2gw4xf2n",
+        "muted": false
+      }
+    },
+    "cid": "bafyreifn3k5yiuzrmfrwh34a3w6pbaa6ptx2hwgh6efwkvgb4mcymgdasu",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "Notifications from a new Apple product falsely suggested the BBC claimed the New York gunman Luigi Mangione had killed himself\n\nThe BBC says it has filed a complaint with the US tech giant Apple over AI-generated fake news that was shared on iPhones and…",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:vovinwhtulbsx4mwfw26r5ni/bafkreiesiyw3b6csub7ldturksa4oaa3cyjwewje27j5567ee4geyheg4y@jpeg",
+        "title": "BBC says it has complained to Apple over AI-generated fake news attributed to broadcaster",
+        "uri": "https://www.theguardian.com/media/2024/dec/14/bbc-says-it-has-complained-to-apple-over-ai-generated-fake-news-attributed-to-broadcaster?utm_source=dlvr.it&utm_medium=bluesky&CMP=bsky_gu"
+      }
+    },
+    "indexedAt": "2024-12-13T23:00:05.415Z",
+    "labels": [],
+    "likeCount": 126,
+    "quoteCount": 6,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:00:04Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "Notifications from a new Apple product falsely suggested the BBC claimed the New York gunman Luigi Mangione had killed himself\n\nThe BBC says it has filed a complaint with the US tech giant Apple over AI-generated fake news that was shared on iPhones and…",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreiesiyw3b6csub7ldturksa4oaa3cyjwewje27j5567ee4geyheg4y"
+            },
+            "size": 73994
+          },
+          "title": "BBC says it has complained to Apple over AI-generated fake news attributed to broadcaster",
+          "uri": "https://www.theguardian.com/media/2024/dec/14/bbc-says-it-has-complained-to-apple-over-ai-generated-fake-news-attributed-to-broadcaster?utm_source=dlvr.it&utm_medium=bluesky&CMP=bsky_gu"
+        }
+      },
+      "text": "BBC says it has complained to Apple over AI-generated fake news attributed to broadcaster"
+    },
+    "replyCount": 6,
+    "repostCount": 33,
+    "uri": "at://did:plc:vovinwhtulbsx4mwfw26r5ni/app.bsky.feed.post/3ld7v7dsqfa2v",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

@@ -6,6 +6,7 @@ defmodule SandboxWeb.AuthController do
   require Logger
 
   alias Sandbox.Bluesky
+  alias Sandbox.Bluesky.AuthUser
 
   @doc """
   This action is reached via `/oauth/:provider` and should redirect to the OAuth2 provider
@@ -38,6 +39,12 @@ defmodule SandboxWeb.AuthController do
     })
   end
 
+  def jwks(conn, _params) do
+    conn
+    |> put_format(:json)
+    |> render(:jwks)
+  end
+
   def delete(conn, _params) do
     conn
     |> put_flash(:info, "You have been logged out!")
@@ -57,7 +64,7 @@ defmodule SandboxWeb.AuthController do
   - `"iss"`
   """
   def callback(conn, %{"provider" => provider} = params) do
-    case redirect_from_ngrok(conn, params) do
+    case redirect_from_external(conn, params) do
       {:halt, conn} ->
         conn
 
@@ -88,7 +95,10 @@ defmodule SandboxWeb.AuthController do
 
   def callback(conn, %{"provider" => provider, "error" => _error} = params) do
     conn
-    |> put_flash(:error, "Authentication error (#{provider}): #{error_description(params)}")
+    |> put_flash(
+      :error,
+      "Authentication error (#{provider}): #{Bluesky.error_description(params)}"
+    )
     |> redirect(to: "/")
   end
 
@@ -98,13 +108,21 @@ defmodule SandboxWeb.AuthController do
     |> redirect(to: "/")
   end
 
-  defp redirect_from_ngrok(conn, params) do
-    # If we are redirected to an ngrok host, need to redirect again!
-    if is_nil(params["from_ngrok"]) && Regex.match?(~r/\.ngrok.*\.app/, conn.host) do
-      localhost = SandboxWeb.Endpoint.url()
-      local_url = "#{localhost}#{conn.request_path}?#{conn.query_string}&from_ngrok=1"
-      Logger.error("Ngrok! redirecting to #{local_url}")
-      {:halt, redirect(conn, external: local_url)}
+  # Because we rely on Phoenix sessions that are stored in cookies, we must
+  # make sure to redirect to localhost after the server redirects to an ngrok host.
+  defp redirect_from_external(conn, params) do
+    if is_nil(params["from_external"]) do
+      Logger.error("Checking for redirect. host is #{conn.host}")
+      from_ngrok? = Regex.match?(~r/\.ngrok.*\.app/, conn.host)
+      from_127? = Regex.match?(~r/127\.0\./, conn.host)
+      if from_ngrok? || from_127? do
+        localhost = SandboxWeb.Endpoint.url()
+        local_url = "#{localhost}#{conn.request_path}?#{conn.query_string}&from_external=1"
+        Logger.error("Ngrok! redirecting to #{local_url}")
+        {:halt, redirect(conn, external: local_url)}
+      else
+        {:cont, conn}
+      end
     else
       {:cont, conn}
     end
@@ -115,11 +133,18 @@ defmodule SandboxWeb.AuthController do
 
   defp get_user("bluesky", params, client) do
     case Bluesky.save_user(client, issuer: Map.get(params, "iss")) do
-      {:ok, user} ->
-        case Bluesky.get_user_profile(user) do
-          {:ok, user_with_profile} ->
-            Bluesky.update_user(user_with_profile)
-            {:ok, user_with_profile}
+      {:ok, %AuthUser{did: did} = user} ->
+        case Bluesky.get_profile(did, user) do
+          {:ok, body} ->
+            user = %AuthUser{
+              user
+              | avatar_url: body["avatar"],
+                display_name: body["displayName"],
+                profile: Jason.encode!(body)
+            }
+
+            _ = Bluesky.update_user(user)
+            {:ok, user}
 
           _error ->
             {:ok, user}
@@ -128,11 +153,5 @@ defmodule SandboxWeb.AuthController do
       error ->
         error
     end
-  end
-
-  defp error_description(params) do
-    Map.get(params, "error_description") ||
-      Map.get(params, "message") ||
-      Map.get(params, "error")
   end
 end

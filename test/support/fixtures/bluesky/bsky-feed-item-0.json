@@ -1,0 +1,141 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kyhuc5gvte6wtvcex2652v5j/bafkreigzye2lfyytszxjasxfo7tzm6vqmbvlfto2fczianpepbnrzl2ixu@jpeg",
+      "createdAt": "2024-11-18T15:10:24.580Z",
+      "did": "did:plc:kyhuc5gvte6wtvcex2652v5j",
+      "displayName": "Ken Martin",
+      "handle": "kenmartin.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreibhzb7pzeh46bw4plqc2detuyhyeedfdypbvd5xqpya7kz6vrwepe",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "all"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xjc7mkotpenvhh6ffewkdpyn/bafkreifmocqyainrhqyrla3lewf7xb6mj3vqchd73iefmumh6hs6jtdcmy@jpeg",
+          "createdAt": "2023-07-01T21:14:23.964Z",
+          "did": "did:plc:xjc7mkotpenvhh6ffewkdpyn",
+          "displayName": "MeidasTouch",
+          "handle": "meidastouch.com",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3laplmxdmuv2c",
+            "muted": false
+          }
+        },
+        "cid": "bafyreih3jvmphntzbaosdub3xbucvkz33hvfjevdx62lgednjmc34fzn74",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.images#view",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 843,
+                  "width": 1320
+                },
+                "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:xjc7mkotpenvhh6ffewkdpyn/bafkreicy3ttk452v7wpuj2yffdpwhxyhcf4dxdsd27t37x47gpzaii5qsi@jpeg",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:xjc7mkotpenvhh6ffewkdpyn/bafkreicy3ttk452v7wpuj2yffdpwhxyhcf4dxdsd27t37x47gpzaii5qsi@jpeg"
+              }
+            ]
+          }
+        ],
+        "indexedAt": "2024-12-12T16:13:49.126Z",
+        "labels": [],
+        "likeCount": 3504,
+        "quoteCount": 172,
+        "replyCount": 659,
+        "repostCount": 827,
+        "uri": "at://did:plc:xjc7mkotpenvhh6ffewkdpyn/app.bsky.feed.post/3ld4nzvng3224",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-12T16:13:46.707Z",
+          "embed": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 843,
+                  "width": 1320
+                },
+                "image": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": {
+                    "$link": "bafkreicy3ttk452v7wpuj2yffdpwhxyhcf4dxdsd27t37x47gpzaii5qsi"
+                  },
+                  "size": 275007
+                }
+              }
+            ]
+          },
+          "langs": [
+            "en"
+          ],
+          "text": "In his Time interview, Trump now says he’s not sure he can bring grocery prices down and that “it’s very hard.”"
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T21:47:59.029Z",
+    "labels": [],
+    "likeCount": 17,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T21:47:58.838Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreih3jvmphntzbaosdub3xbucvkz33hvfjevdx62lgednjmc34fzn74",
+          "uri": "at://did:plc:xjc7mkotpenvhh6ffewkdpyn/app.bsky.feed.post/3ld4nzvng3224"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "Spoiler: Donald Trump never had a real plan to bring down grocery costs for families. As Democrats, we must hold Trump accountable for his lies—and show American families we actually have their backs."
+    },
+    "replyCount": 0,
+    "repostCount": 5,
+    "uri": "at://did:plc:kyhuc5gvte6wtvcex2652v5j/app.bsky.feed.post/3ld7r6gcnas2x",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xvouj2djsp32iz2qpeafvnki/bafkreig5med5yp73ytv73s7sgr5q7ssiupiruy2pv466f42ou6qigaz5je@jpeg",
+      "createdAt": "2023-07-05T19:51:30.305Z",
+      "did": "did:plc:xvouj2djsp32iz2qpeafvnki",
+      "displayName": "Rachel Bitecofer",
+      "handle": "rachelbitecofer.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3laplpf3ydr2w",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:22:25.617Z"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+      "createdAt": "2023-04-28T06:06:32.668Z",
+      "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+      "displayName": "🦢swan kate wagner 🦢",
+      "handle": "katewagner.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+        "muted": false
+      }
+    },
+    "cid": "bafyreighgouas5yokqg5vzfqbtnskvs3f7cm7feqyvb2nzuktinhz4nyr4",
+    "indexedAt": "2024-12-13T22:56:57.325Z",
+    "labels": [],
+    "likeCount": 0,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:56:57.079Z",
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreibiaswsjsbog7rb3e45ifss5oqa4wqah4n3ki4bamwajospekv3bq",
+          "uri": "at://did:plc:4xht6mqz5yntmzbqitejyskc/app.bsky.feed.post/3ld7k446it22q"
+        },
+        "root": {
+          "cid": "bafyreifqde5lhyecb7pfq5rnz7wblkqvtslhcrjyksjadszm5s6qfey2xu",
+          "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3lcvuzt7rj22c"
+        }
+      },
+      "text": "not me I’m brave"
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3ld7uzqtobk2i",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "grandparentAuthor": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:4xht6mqz5yntmzbqitejyskc/bafkreiad36beo6alnkot3httcslttqlk3lgmygxfirrpbg3d656oqzzs6i@jpeg",
+      "createdAt": "2023-09-15T06:00:59.247Z",
+      "did": "did:plc:4xht6mqz5yntmzbqitejyskc",
+      "displayName": "Dan Donnelly",
+      "handle": "dandonnelly.ca",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:4xht6mqz5yntmzbqitejyskc/bafkreiad36beo6alnkot3httcslttqlk3lgmygxfirrpbg3d656oqzzs6i@jpeg",
+        "createdAt": "2023-09-15T06:00:59.247Z",
+        "did": "did:plc:4xht6mqz5yntmzbqitejyskc",
+        "displayName": "Dan Donnelly",
+        "handle": "dandonnelly.ca",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreibiaswsjsbog7rb3e45ifss5oqa4wqah4n3ki4bamwajospekv3bq",
+      "indexedAt": "2024-12-13T19:41:24.520Z",
+      "labels": [],
+      "likeCount": 1,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T19:41:24.915Z",
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "parent": {
+            "cid": "bafyreiejxa3nrkperv2hrxsqimxmyccsed64toro35wkobjwmcgo7v3gu4",
+            "uri": "at://did:plc:4xht6mqz5yntmzbqitejyskc/app.bsky.feed.post/3ld7jmxy4j227"
+          },
+          "root": {
+            "cid": "bafyreifqde5lhyecb7pfq5rnz7wblkqvtslhcrjyksjadszm5s6qfey2xu",
+            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3lcvuzt7rj22c"
+          }
+        },
+        "text": "I think that a lot of people feel like taking an interest beyond an eyeroll and a dismissal somehow pollutes them by proxy"
+      },
+      "replyCount": 1,
+      "repostCount": 0,
+      "uri": "at://did:plc:4xht6mqz5yntmzbqitejyskc/app.bsky.feed.post/3ld7k446it22q",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+        "createdAt": "2023-04-28T06:06:32.668Z",
+        "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+        "displayName": "🦢swan kate wagner 🦢",
+        "handle": "katewagner.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+          "muted": false
+        }
+      },
+      "cid": "bafyreifqde5lhyecb7pfq5rnz7wblkqvtslhcrjyksjadszm5s6qfey2xu",
+      "embed": {
+        "$type": "app.bsky.embed.record#view",
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "all"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:pmh3u4nps4brlrw3kc6zcjg5/bafkreig2tomeesthkpunos2kwkjxaoxplyzgsnkre4kjwpzaudnoctpg3i@jpeg",
+            "createdAt": "2023-06-16T19:22:34.276Z",
+            "did": "did:plc:pmh3u4nps4brlrw3kc6zcjg5",
+            "displayName": "rowan kaiser",
+            "handle": "rowan.monster",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreib63frziru43ke3czasu5h3yyw4jllvpuscboj5a4zd2qzdaxwm24",
+          "embeds": [],
+          "indexedAt": "2024-12-09T23:09:59.669Z",
+          "labels": [],
+          "likeCount": 404,
+          "quoteCount": 663,
+          "replyCount": 84,
+          "repostCount": 20,
+          "uri": "at://did:plc:pmh3u4nps4brlrw3kc6zcjg5/app.bsky.feed.post/3lcvtvgh5us2t",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-09T23:10:00.839Z",
+            "langs": [
+              "en"
+            ],
+            "text": "If you were a world famous assassin whose name and social media just got revealed, what take of yours would people find to declare you ideologically incoherent?"
+          }
+        }
+      },
+      "indexedAt": "2024-12-09T23:30:22.475Z",
+      "labels": [],
+      "likeCount": 132,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-09T23:30:22.188Z",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreib63frziru43ke3czasu5h3yyw4jllvpuscboj5a4zd2qzdaxwm24",
+            "uri": "at://did:plc:pmh3u4nps4brlrw3kc6zcjg5/app.bsky.feed.post/3lcvtvgh5us2t"
+          }
+        },
+        "langs": [
+          "en"
+        ],
+        "text": "dude I’ve been posting about nothing but Richard Wagner for two months it’s beyond joever for me"
+      },
+      "replyCount": 1,
+      "repostCount": 2,
+      "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3lcvuzt7rj22c",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

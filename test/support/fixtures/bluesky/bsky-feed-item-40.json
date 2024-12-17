@@ -1,0 +1,286 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:7jay7nelegipdr7ic2dlumol/bafkreie3njohx2z4rnqizc7mrydua4p3gkh532whrwvjmv2zsgffj2d3vy@jpeg",
+      "createdAt": "2023-05-14T03:10:45.060Z",
+      "did": "did:plc:7jay7nelegipdr7ic2dlumol",
+      "displayName": "Matt Zoller Seitz",
+      "handle": "mattzollerseitz.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaocdd5x2n",
+        "muted": false
+      }
+    },
+    "cid": "bafyreiezpnfjfl3wvzlxbrbxt7lny7xsg5momu5ds7nwfylmr6d25336ga",
+    "indexedAt": "2024-12-13T22:50:08.623Z",
+    "labels": [],
+    "likeCount": 1,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:50:08.323Z",
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreibrh5ntaw2qjyscoz4j7mkikzf26f2q6oyqdof3q2djokwu3oajty",
+          "uri": "at://did:plc:jlbr55qcw42djdd2aux3j6k7/app.bsky.feed.post/3ld7saqfrfk2x"
+        },
+        "root": {
+          "cid": "bafyreib5fjtu3f7xper77adt6o4f3lpmhv4vm4ysevohhsnfpojtgd4hja",
+          "uri": "at://did:plc:7jay7nelegipdr7ic2dlumol/app.bsky.feed.post/3ld7rvxgcto2l"
+        }
+      },
+      "text": "Thank you!!!"
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:7jay7nelegipdr7ic2dlumol/app.bsky.feed.post/3ld7unkzgmw2l",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "grandparentAuthor": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:7jay7nelegipdr7ic2dlumol/bafkreie3njohx2z4rnqizc7mrydua4p3gkh532whrwvjmv2zsgffj2d3vy@jpeg",
+      "createdAt": "2023-05-14T03:10:45.060Z",
+      "did": "did:plc:7jay7nelegipdr7ic2dlumol",
+      "displayName": "Matt Zoller Seitz",
+      "handle": "mattzollerseitz.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaocdd5x2n",
+        "muted": false
+      }
+    },
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:jlbr55qcw42djdd2aux3j6k7/bafkreied73ouat76eroxgh27ne3otvl5jokhvuhzeowvf4fbcysiqoia6i@jpeg",
+        "createdAt": "2023-08-31T23:00:25.312Z",
+        "did": "did:plc:jlbr55qcw42djdd2aux3j6k7",
+        "displayName": "MsInformation",
+        "handle": "msinformation.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreibrh5ntaw2qjyscoz4j7mkikzf26f2q6oyqdof3q2djokwu3oajty",
+      "indexedAt": "2024-12-13T22:07:10.618Z",
+      "labels": [],
+      "likeCount": 1,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T22:07:10.278Z",
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "parent": {
+            "cid": "bafyreib5fjtu3f7xper77adt6o4f3lpmhv4vm4ysevohhsnfpojtgd4hja",
+            "uri": "at://did:plc:7jay7nelegipdr7ic2dlumol/app.bsky.feed.post/3ld7rvxgcto2l"
+          },
+          "root": {
+            "cid": "bafyreib5fjtu3f7xper77adt6o4f3lpmhv4vm4ysevohhsnfpojtgd4hja",
+            "uri": "at://did:plc:7jay7nelegipdr7ic2dlumol/app.bsky.feed.post/3ld7rvxgcto2l"
+          }
+        },
+        "text": "Brilliant! [and brilliantly named.] Got my copy way back when, now displayed on the MZS shelf of my bookcase."
+      },
+      "replyCount": 1,
+      "repostCount": 0,
+      "uri": "at://did:plc:jlbr55qcw42djdd2aux3j6k7/app.bsky.feed.post/3ld7saqfrfk2x",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:7jay7nelegipdr7ic2dlumol/bafkreie3njohx2z4rnqizc7mrydua4p3gkh532whrwvjmv2zsgffj2d3vy@jpeg",
+        "createdAt": "2023-05-14T03:10:45.060Z",
+        "did": "did:plc:7jay7nelegipdr7ic2dlumol",
+        "displayName": "Matt Zoller Seitz",
+        "handle": "mattzollerseitz.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaocdd5x2n",
+          "muted": false
+        }
+      },
+      "cid": "bafyreib5fjtu3f7xper77adt6o4f3lpmhv4vm4ysevohhsnfpojtgd4hja",
+      "embed": {
+        "$type": "app.bsky.embed.record#view",
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "following"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:3ozga2kcmpqfoaz2cdighue3/bafkreiexoxp4e2gw74ueuo4eg7u46mq3wz3g37izyxu3a3poywxwjonw4i@jpeg",
+            "createdAt": "2023-07-09T22:52:05.025Z",
+            "did": "did:plc:3ozga2kcmpqfoaz2cdighue3",
+            "displayName": "Drawmark",
+            "handle": "drawmark.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreiczhqkjeoikhdj7vfew5hzx24alfc4ard3jkll3p72nbp3dybearq",
+          "embeds": [
+            {
+              "$type": "app.bsky.embed.images#view",
+              "images": [
+                {
+                  "alt": "My meat hook holding up a copy of\n\nMAD MEN\nCarousel\nThe Complete Critical Companion\nMATT ZOLLER SEITZ\nForeword by Megan Abbott",
+                  "aspectRatio": {
+                    "height": 2000,
+                    "width": 1500
+                  },
+                  "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:3ozga2kcmpqfoaz2cdighue3/bafkreidpgl75jwieel67uskzfvqwgy5jtjg6loeooqitbotrtpdopqqwbu@jpeg",
+                  "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:3ozga2kcmpqfoaz2cdighue3/bafkreidpgl75jwieel67uskzfvqwgy5jtjg6loeooqitbotrtpdopqqwbu@jpeg"
+                }
+              ]
+            }
+          ],
+          "indexedAt": "2024-12-13T21:43:28.817Z",
+          "labels": [],
+          "likeCount": 5,
+          "quoteCount": 1,
+          "replyCount": 1,
+          "repostCount": 1,
+          "uri": "at://did:plc:3ozga2kcmpqfoaz2cdighue3/app.bsky.feed.post/3ld7qwe6nlj2h",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-13T21:43:28.124Z",
+            "embed": {
+              "$type": "app.bsky.embed.images",
+              "images": [
+                {
+                  "alt": "My meat hook holding up a copy of\n\nMAD MEN\nCarousel\nThe Complete Critical Companion\nMATT ZOLLER SEITZ\nForeword by Megan Abbott",
+                  "aspectRatio": {
+                    "height": 2000,
+                    "width": 1500
+                  },
+                  "image": {
+                    "$type": "blob",
+                    "mimeType": "image/jpeg",
+                    "ref": {
+                      "$link": "bafkreidpgl75jwieel67uskzfvqwgy5jtjg6loeooqitbotrtpdopqqwbu"
+                    },
+                    "size": 815744
+                  }
+                }
+              ]
+            },
+            "facets": [
+              {
+                "$type": "app.bsky.richtext.facet",
+                "features": [
+                  {
+                    "$type": "app.bsky.richtext.facet#mention",
+                    "did": "did:plc:7jay7nelegipdr7ic2dlumol"
+                  }
+                ],
+                "index": {
+                  "byteEnd": 135,
+                  "byteStart": 107
+                }
+              },
+              {
+                "features": [
+                  {
+                    "$type": "app.bsky.richtext.facet#link",
+                    "uri": "https://mzs.press"
+                  }
+                ],
+                "index": {
+                  "byteEnd": 149,
+                  "byteStart": 140
+                }
+              }
+            ],
+            "langs": [
+              "en"
+            ],
+            "text": "About time for a rewatch. Just got my signed copy of Mad Men Carousel, The Complete Critical Companion, by @mattzollerseitz.bsky.social and mzs.press. \n\nAnd the method I judge every book…a top-notch packing job. To quote Bert Cooper, Season 1, Episode 12, “One never knows how loyalty is born.”"
+          }
+        }
+      },
+      "indexedAt": "2024-12-13T22:01:08.921Z",
+      "labels": [],
+      "likeCount": 21,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T22:01:08.536Z",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreiczhqkjeoikhdj7vfew5hzx24alfc4ard3jkll3p72nbp3dybearq",
+            "uri": "at://did:plc:3ozga2kcmpqfoaz2cdighue3/app.bsky.feed.post/3ld7qwe6nlj2h"
+          }
+        },
+        "facets": [
+          {
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#link",
+                "uri": "https://MZS.press"
+              }
+            ],
+            "index": {
+              "byteEnd": 22,
+              "byteStart": 13
+            }
+          }
+        ],
+        "langs": [
+          "en"
+        ],
+        "text": "Available at MZS.press"
+      },
+      "replyCount": 2,
+      "repostCount": 4,
+      "uri": "at://did:plc:7jay7nelegipdr7ic2dlumol/app.bsky.feed.post/3ld7rvxgcto2l",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

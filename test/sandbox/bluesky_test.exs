@@ -1,8 +1,8 @@
-defmodule BlueskyTest do
+defmodule Sandbox.BlueskyTest do
   use ExUnit.Case, async: true
 
   alias Sandbox.Bluesky
-  alias Sandbox.Bluesky.PushedAuthRequest
+  alias Sandbox.Bluesky.AuthRequestData
 
   test "public url" do
     url = Sandbox.Application.public_url()
@@ -158,7 +158,7 @@ defmodule BlueskyTest do
     did = "did:plc:mfv6fysngq5fkoiqozzlv642"
     params = [test_only: true, login_hint: "pzingg.bsky.social"]
 
-    assert {:ok, %PushedAuthRequest{request_headers: headers}} =
+    assert {:ok, %AuthRequestData{request_headers: headers}} =
              Bluesky.pushed_authorization_request(did, params)
 
     assert {"DPoP", _token} = List.keyfind(headers, "DPoP", 0)
@@ -168,7 +168,7 @@ defmodule BlueskyTest do
     did = "did:plc:mfv6fysngq5fkoiqozzlv642"
     params = [login_hint: "pzingg.bsky.social"]
 
-    assert {:ok, %PushedAuthRequest{authorize_params: params}} =
+    assert {:ok, %AuthRequestData{authorize_params: params}} =
              Bluesky.pushed_authorization_request(did, params)
 
     assert is_binary(params[:request_uri])

@@ -1,0 +1,110 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:serlxfuuco5zwtgjbezfqib5/bafkreigqvnmagywyhvgudo67iryryoeocbwis7yzhidr6pcvlal42n36oi@jpeg",
+      "createdAt": "2024-11-13T14:55:17.223Z",
+      "did": "did:plc:serlxfuuco5zwtgjbezfqib5",
+      "displayName": "Charlie Angus",
+      "handle": "charlieangus104.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreifeczjqqklxb2nx5dyuqlvfvyvs5rckjzhag3eds3w6ebppuelp3m",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "YouTube video by MeidasTouch",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:serlxfuuco5zwtgjbezfqib5/bafkreiewoi2hpathne5rwafmsemqiqvzaahqzbh76frieaqxu2afucg5d4@jpeg",
+        "title": "Canadian Parliament Member DROPS THE HAMMER on Trump",
+        "uri": "https://www.youtube.com/watch?v=ncPJTfEIZ9Q"
+      }
+    },
+    "indexedAt": "2024-12-13T22:20:43.728Z",
+    "labels": [],
+    "likeCount": 430,
+    "quoteCount": 7,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:20:39.091Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "YouTube video by MeidasTouch",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreiewoi2hpathne5rwafmsemqiqvzaahqzbh76frieaqxu2afucg5d4"
+            },
+            "size": 308408
+          },
+          "title": "Canadian Parliament Member DROPS THE HAMMER on Trump",
+          "uri": "https://www.youtube.com/watch?v=ncPJTfEIZ9Q"
+        }
+      },
+      "facets": [
+        {
+          "$type": "app.bsky.richtext.facet",
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#mention",
+              "did": "did:plc:goma7ac6cou66wo6cgbfbid5"
+            }
+          ],
+          "index": {
+            "byteEnd": 246,
+            "byteStart": 222
+          }
+        },
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://www.youtube.com/watch?v=ncPJTfEIZ9Q"
+            }
+          ],
+          "index": {
+            "byteEnd": 298,
+            "byteStart": 267
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "On taking on Trump, grifters and disinformation:\nWe need to stand up, get some back bone and remember who we are as a people. \nNobody is coming to save us. It's time to do the hard work of rebuilding democracy. \nThanks to @meidastouch.bsky.social for inviting me on.\nwww.youtube.com/watch?v=ncPJ..."
+    },
+    "replyCount": 33,
+    "repostCount": 86,
+    "uri": "at://did:plc:serlxfuuco5zwtgjbezfqib5/app.bsky.feed.post/3ld7sytqst22s",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xjc7mkotpenvhh6ffewkdpyn/bafkreifmocqyainrhqyrla3lewf7xb6mj3vqchd73iefmumh6hs6jtdcmy@jpeg",
+      "createdAt": "2023-07-01T21:14:23.964Z",
+      "did": "did:plc:xjc7mkotpenvhh6ffewkdpyn",
+      "displayName": "MeidasTouch",
+      "handle": "meidastouch.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3laplmxdmuv2c",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T22:56:59.824Z"
+  }
+}

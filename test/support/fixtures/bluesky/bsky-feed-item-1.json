@@ -1,0 +1,186 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:k7c4kflfshpz6l7hb2wmahaa/bafkreiapipxatvam3qjbm7t7z2cp52n6i5f354p5qz4hihzmvwqqpavc74@jpeg",
+      "createdAt": "2024-11-11T17:30:41.419Z",
+      "did": "did:plc:k7c4kflfshpz6l7hb2wmahaa",
+      "displayName": "Stephanie Zacharek",
+      "handle": "szacharek.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazasqoh5g2l",
+        "muted": false
+      }
+    },
+    "cid": "bafyreigxgi6ldpcyntax2uz56cm57rtbzbng2nqb3q2ktqrj7rukazux2a",
+    "indexedAt": "2024-12-13T23:22:24.518Z",
+    "labels": [],
+    "likeCount": 0,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:22:24.249Z",
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreihfmchsyxcwymtfhbmo7ndd5xtvvf4izmncuyfheeeuzt2kmcb4ae",
+          "uri": "at://did:plc:k7c4kflfshpz6l7hb2wmahaa/app.bsky.feed.post/3ld7wg4zktc2s"
+        },
+        "root": {
+          "cid": "bafyreidhdjgomw5a6x3xud7rbgtfezr54yljz23u5vrpasdgit3lfnsutm",
+          "uri": "at://did:plc:kcia3mwfxkukk7chouzyb5pu/app.bsky.feed.post/3ld7wccukws25"
+        }
+      },
+      "text": "(And a beautiful photo!)"
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:k7c4kflfshpz6l7hb2wmahaa/app.bsky.feed.post/3ld7whbba7c2s",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "grandparentAuthor": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kcia3mwfxkukk7chouzyb5pu/bafkreib6t76ccdmekzbzpnzhof2zbnasswtzq7mjbcalcnyurwknaamjo4@jpeg",
+      "createdAt": "2023-07-03T08:37:48.036Z",
+      "did": "did:plc:kcia3mwfxkukk7chouzyb5pu",
+      "displayName": "Anne Billson",
+      "handle": "annebillson.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:k7c4kflfshpz6l7hb2wmahaa/bafkreiapipxatvam3qjbm7t7z2cp52n6i5f354p5qz4hihzmvwqqpavc74@jpeg",
+        "createdAt": "2024-11-11T17:30:41.419Z",
+        "did": "did:plc:k7c4kflfshpz6l7hb2wmahaa",
+        "displayName": "Stephanie Zacharek",
+        "handle": "szacharek.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazasqoh5g2l",
+          "muted": false
+        }
+      },
+      "cid": "bafyreihfmchsyxcwymtfhbmo7ndd5xtvvf4izmncuyfheeeuzt2kmcb4ae",
+      "indexedAt": "2024-12-13T23:21:46.521Z",
+      "labels": [],
+      "likeCount": 0,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T23:21:46.249Z",
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "parent": {
+            "cid": "bafyreidhdjgomw5a6x3xud7rbgtfezr54yljz23u5vrpasdgit3lfnsutm",
+            "uri": "at://did:plc:kcia3mwfxkukk7chouzyb5pu/app.bsky.feed.post/3ld7wccukws25"
+          },
+          "root": {
+            "cid": "bafyreidhdjgomw5a6x3xud7rbgtfezr54yljz23u5vrpasdgit3lfnsutm",
+            "uri": "at://did:plc:kcia3mwfxkukk7chouzyb5pu/app.bsky.feed.post/3ld7wccukws25"
+          }
+        },
+        "text": "I remember when people like us looked like that!"
+      },
+      "replyCount": 1,
+      "repostCount": 0,
+      "uri": "at://did:plc:k7c4kflfshpz6l7hb2wmahaa/app.bsky.feed.post/3ld7wg4zktc2s",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kcia3mwfxkukk7chouzyb5pu/bafkreib6t76ccdmekzbzpnzhof2zbnasswtzq7mjbcalcnyurwknaamjo4@jpeg",
+        "createdAt": "2023-07-03T08:37:48.036Z",
+        "did": "did:plc:kcia3mwfxkukk7chouzyb5pu",
+        "displayName": "Anne Billson",
+        "handle": "annebillson.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreidhdjgomw5a6x3xud7rbgtfezr54yljz23u5vrpasdgit3lfnsutm",
+      "embed": {
+        "$type": "app.bsky.embed.images#view",
+        "images": [
+          {
+            "alt": "A black & white photograph, tinted blue. I am in profile, black hat pulled down over my eyes, black drop earring, black t-shirt. One of my hands, in a black lace glove, is holding a lit cigarette. The smoke coming out of my mouth is making pleasing curlicues against the black backdrop, which is somewhat crumpled & is either a sheet or maybe a plastic bin bag.",
+            "aspectRatio": {
+              "height": 1280,
+              "width": 853
+            },
+            "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:kcia3mwfxkukk7chouzyb5pu/bafkreiajpxavgx4bosp7u45dhrvonqmmvu7tlbldndluan4lpnzo4w4yc4@jpeg",
+            "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:kcia3mwfxkukk7chouzyb5pu/bafkreiajpxavgx4bosp7u45dhrvonqmmvu7tlbldndluan4lpnzo4w4yc4@jpeg"
+          }
+        ]
+      },
+      "indexedAt": "2024-12-13T23:19:40.626Z",
+      "labels": [],
+      "likeCount": 7,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T23:19:38.155Z",
+        "embed": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "A black & white photograph, tinted blue. I am in profile, black hat pulled down over my eyes, black drop earring, black t-shirt. One of my hands, in a black lace glove, is holding a lit cigarette. The smoke coming out of my mouth is making pleasing curlicues against the black backdrop, which is somewhat crumpled & is either a sheet or maybe a plastic bin bag.",
+              "aspectRatio": {
+                "height": 1280,
+                "width": 853
+              },
+              "image": {
+                "$type": "blob",
+                "mimeType": "image/jpeg",
+                "ref": {
+                  "$link": "bafkreiajpxavgx4bosp7u45dhrvonqmmvu7tlbldndluan4lpnzo4w4yc4"
+                },
+                "size": 637162
+              }
+            }
+          ]
+        },
+        "langs": [
+          "en"
+        ],
+        "text": "Early-1980s smoking selfie."
+      },
+      "replyCount": 1,
+      "repostCount": 0,
+      "uri": "at://did:plc:kcia3mwfxkukk7chouzyb5pu/app.bsky.feed.post/3ld7wccukws25",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

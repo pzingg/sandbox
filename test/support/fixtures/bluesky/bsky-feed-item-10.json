@@ -1,0 +1,254 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:up4u5facc2uzz7i5pcrfu3eh/bafkreidpmjbxldcrj5cmuvp5iesw3khcaqgiheolzzfystedslgikt4qfm@jpeg",
+      "createdAt": "2023-05-01T15:22:49.273Z",
+      "did": "did:plc:up4u5facc2uzz7i5pcrfu3eh",
+      "displayName": "Gabriella \"Biella\" Coleman",
+      "handle": "biella.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaw5gurz2j",
+        "muted": false
+      }
+    },
+    "cid": "bafyreidm43okx2ccx54rrt3dy3qohogpjehv6br7amppaprruaiqluvntm",
+    "indexedAt": "2024-12-13T23:14:37.524Z",
+    "labels": [],
+    "likeCount": 0,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:14:37.279Z",
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreiae52x5ohzaxoit7z5wzwmnxp5dvysvlcjqjrdcaiwcghhbezuqia",
+          "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld7vy5jcrs2h"
+        },
+        "root": {
+          "cid": "bafyreia4expdvlfkurxnmqg7nik5p6fivzrg5pksfvvxlsdh67znp7enjm",
+          "uri": "at://did:plc:we2cg67ujqcjgmdr27qly6mr/app.bsky.feed.post/3ld5bjniroc2q"
+        }
+      },
+      "text": "The shadow kings in SV in particular terrify me."
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld7vzdwgss2h",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "grandparentAuthor": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:we2cg67ujqcjgmdr27qly6mr/bafkreigrlcee7e7y2pldpylair3op3yv2wx6se76mjbyhtikk6tsiwhja4@jpeg",
+      "createdAt": "2024-11-15T04:32:47.876Z",
+      "did": "did:plc:we2cg67ujqcjgmdr27qly6mr",
+      "displayName": "Alexis Madrigal",
+      "handle": "alexis-madrigal.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:up4u5facc2uzz7i5pcrfu3eh/bafkreidpmjbxldcrj5cmuvp5iesw3khcaqgiheolzzfystedslgikt4qfm@jpeg",
+        "createdAt": "2023-05-01T15:22:49.273Z",
+        "did": "did:plc:up4u5facc2uzz7i5pcrfu3eh",
+        "displayName": "Gabriella \"Biella\" Coleman",
+        "handle": "biella.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaw5gurz2j",
+          "muted": false
+        }
+      },
+      "cid": "bafyreiae52x5ohzaxoit7z5wzwmnxp5dvysvlcjqjrdcaiwcghhbezuqia",
+      "indexedAt": "2024-12-13T23:13:57.425Z",
+      "labels": [],
+      "likeCount": 0,
+      "quoteCount": 1,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T23:13:57.004Z",
+        "facets": [
+          {
+            "$type": "app.bsky.richtext.facet",
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#mention",
+                "did": "did:plc:t3k3ngh34buqimtjjjhtu2xz"
+              }
+            ],
+            "index": {
+              "byteEnd": 296,
+              "byteStart": 272
+            }
+          }
+        ],
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "parent": {
+            "cid": "bafyreia4expdvlfkurxnmqg7nik5p6fivzrg5pksfvvxlsdh67znp7enjm",
+            "uri": "at://did:plc:we2cg67ujqcjgmdr27qly6mr/app.bsky.feed.post/3ld5bjniroc2q"
+          },
+          "root": {
+            "cid": "bafyreia4expdvlfkurxnmqg7nik5p6fivzrg5pksfvvxlsdh67znp7enjm",
+            "uri": "at://did:plc:we2cg67ujqcjgmdr27qly6mr/app.bsky.feed.post/3ld5bjniroc2q"
+          }
+        },
+        "text": "Agree, w/ small tweak: The US breeds different grim flavors of corporate control, from anonymous private equity vultures, to traditional monopolies, to Silicon Valley's ideological billionaire shadow-kings (Musk, Thiel, Andreessen) pushing ideology as they exploit us :(  @johngpettus.bsky.social‬"
+      },
+      "replyCount": 1,
+      "repostCount": 0,
+      "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld7vy5jcrs2h",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:we2cg67ujqcjgmdr27qly6mr/bafkreigrlcee7e7y2pldpylair3op3yv2wx6se76mjbyhtikk6tsiwhja4@jpeg",
+        "createdAt": "2024-11-15T04:32:47.876Z",
+        "did": "did:plc:we2cg67ujqcjgmdr27qly6mr",
+        "displayName": "Alexis Madrigal",
+        "handle": "alexis-madrigal.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreia4expdvlfkurxnmqg7nik5p6fivzrg5pksfvvxlsdh67znp7enjm",
+      "embed": {
+        "$type": "app.bsky.embed.record#view",
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "following"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:t3k3ngh34buqimtjjjhtu2xz/bafkreifm6ioe47ub56zpqozyg5j34liiogqubgrav7lq4jg5tvmhk7avki@jpeg",
+            "createdAt": "2023-10-03T00:56:28.086Z",
+            "did": "did:plc:t3k3ngh34buqimtjjjhtu2xz",
+            "displayName": "John Pettus",
+            "handle": "johngpettus.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreibdyp7av6zaxkcvdmtfpzgeyeqnhbgjcnsaushj7ho2bjzt7fp23i",
+          "embeds": [
+            {
+              "$type": "app.bsky.embed.record#view",
+              "record": {
+                "$type": "app.bsky.embed.record#viewRecord",
+                "author": {
+                  "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:up4u5facc2uzz7i5pcrfu3eh/bafkreidpmjbxldcrj5cmuvp5iesw3khcaqgiheolzzfystedslgikt4qfm@jpeg",
+                  "createdAt": "2023-05-01T15:22:49.273Z",
+                  "did": "did:plc:up4u5facc2uzz7i5pcrfu3eh",
+                  "displayName": "Gabriella \"Biella\" Coleman",
+                  "handle": "biella.bsky.social",
+                  "labels": [],
+                  "viewer": {
+                    "blockedBy": false,
+                    "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaw5gurz2j",
+                    "muted": false
+                  }
+                },
+                "cid": "bafyreihb7zgyebjvcqbi6ol7qwovi2xdd2dgumono5y6i7xwh5h7kmbvcq",
+                "indexedAt": "2024-12-12T21:39:41.326Z",
+                "labels": [],
+                "likeCount": 12,
+                "quoteCount": 1,
+                "replyCount": 0,
+                "repostCount": 3,
+                "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld5aaoaqxs2k",
+                "value": {
+                  "$type": "app.bsky.feed.post",
+                  "createdAt": "2024-12-12T21:39:41.188Z",
+                  "embed": {
+                    "$type": "app.bsky.embed.record",
+                    "record": {
+                      "cid": "bafyreiam5eem6anqgtmo3dcj7bvqjtkdn5jyms6awiefyrikb7l65ql7yy",
+                      "uri": "at://did:plc:smd3fsfdnphrl4bga46ejnn6/app.bsky.feed.post/3ld536emokk2l"
+                    }
+                  },
+                  "langs": [
+                    "en"
+                  ],
+                  "text": "Enough with the billionaire class. We are back to feudalism and it’s time for a reboot"
+                }
+              }
+            }
+          ],
+          "indexedAt": "2024-12-12T21:44:31.229Z",
+          "labels": [],
+          "likeCount": 5,
+          "quoteCount": 1,
+          "replyCount": 2,
+          "repostCount": 3,
+          "uri": "at://did:plc:t3k3ngh34buqimtjjjhtu2xz/app.bsky.feed.post/3ld5ajck4sc2k",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-12T21:44:30.896Z",
+            "embed": {
+              "$type": "app.bsky.embed.record",
+              "record": {
+                "cid": "bafyreihb7zgyebjvcqbi6ol7qwovi2xdd2dgumono5y6i7xwh5h7kmbvcq",
+                "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld5aaoaqxs2k"
+              }
+            },
+            "langs": [
+              "en"
+            ],
+            "text": "More people should process the reality that what we Americans call \"capitalism\" (which is actually a complex control panel of settings, not a binary switch) is currently effectively set *much* closer to feudalism than people want to think about or acknowledge.\n\nBut it doesn't have to be set that way"
+          }
+        }
+      },
+      "indexedAt": "2024-12-12T22:02:36.317Z",
+      "labels": [],
+      "likeCount": 13,
+      "quoteCount": 2,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-12T22:02:36.132Z",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreibdyp7av6zaxkcvdmtfpzgeyeqnhbgjcnsaushj7ho2bjzt7fp23i",
+            "uri": "at://did:plc:t3k3ngh34buqimtjjjhtu2xz/app.bsky.feed.post/3ld5ajck4sc2k"
+          }
+        },
+        "langs": [
+          "en"
+        ],
+        "text": "This is a good way of putting it. What I’ve taken away from the field “history of capitalism” is that there are a lot of possible capitalisms… and our current American version is a very grim version."
+      },
+      "replyCount": 2,
+      "repostCount": 1,
+      "uri": "at://did:plc:we2cg67ujqcjgmdr27qly6mr/app.bsky.feed.post/3ld5bjniroc2q",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

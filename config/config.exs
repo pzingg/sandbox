@@ -8,6 +8,7 @@
 import Config
 
 config :sandbox,
+  # ngrok_envs: [:dev, :test],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
@@ -21,9 +22,12 @@ config :sandbox, SandboxWeb.Endpoint,
   pubsub_server: Sandbox.PubSub,
   live_view: [signing_salt: "bVr20ZsN"]
 
-# Configures the OAuth client (not used)
+# Configure various Bluesky settings
+# Set `:client_type` to :confidential to use client assertions in OAuth client
 config :sandbox, Sandbox.Bluesky,
-  scope: "atproto transition:generic"
+  timezone: "America/Los_Angeles",
+  client_type: :public,
+  client_scope: "atproto transition:generic"
 
 # Configure esbuild (the version is required)
 config :esbuild,

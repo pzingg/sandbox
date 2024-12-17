@@ -11,9 +11,6 @@ defmodule SandboxWeb.Authentication do
   Function plug used for routes that require the user to be authenticated.
   """
   def require_authenticated_user(conn, _opts) do
-    session = get_session(conn)
-    Logger.debug("require auth #{conn.request_path}: session has #{inspect(session)}")
-
     cond do
       logged_in?(conn) ->
         conn

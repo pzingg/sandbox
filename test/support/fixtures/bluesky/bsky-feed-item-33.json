@@ -1,0 +1,89 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:qc6xzgctorfsm35w6i3vdebx/bafkreiezxpehwrr5npwfgtqmec36fe6on4putswlggctcr4enyqu4kbnfe@jpeg",
+      "createdAt": "2023-04-25T19:18:06.530Z",
+      "did": "did:plc:qc6xzgctorfsm35w6i3vdebx",
+      "displayName": "Ed Zitron",
+      "handle": "edzitron.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3l5mqxrh55i2v",
+        "muted": false
+      }
+    },
+    "cid": "bafyreihkuht2kf4ipjrlzq24qkrties34dvcivnuyf7dovk4ulfc6hkvwe",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "following"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:bzy5rjjduvvkxno5xe3evl3f/bafkreihbbywfxcbydyzzmwd4yfmulzlfriu2vwhgtj4cu5lnnt3byxq2yu@jpeg",
+          "createdAt": "2023-06-02T15:26:51.321Z",
+          "did": "did:plc:bzy5rjjduvvkxno5xe3evl3f",
+          "displayName": "David M. Perry",
+          "handle": "lollardfish.bsky.social",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreidijypoa6svdahkmgutglfdrqanxblfxudzojeech72pifm3hefdq",
+        "embeds": [],
+        "indexedAt": "2024-12-13T22:28:27.915Z",
+        "labels": [],
+        "likeCount": 91,
+        "quoteCount": 5,
+        "replyCount": 4,
+        "repostCount": 13,
+        "uri": "at://did:plc:bzy5rjjduvvkxno5xe3evl3f/app.bsky.feed.post/3ld7tguls2k2b",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T22:28:29.738Z",
+          "langs": [
+            "en"
+          ],
+          "text": "Any editors on here want a piece about vaccine history, the Kennedys, and the birth of my kid? Cause now it's late Friday and I can't realistically pitch again until Monday. :)"
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T22:54:33.719Z",
+    "labels": [],
+    "likeCount": 46,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:54:33.242Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreidijypoa6svdahkmgutglfdrqanxblfxudzojeech72pifm3hefdq",
+          "uri": "at://did:plc:bzy5rjjduvvkxno5xe3evl3f/app.bsky.feed.post/3ld7tguls2k2b"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "David and I share an agent who is both very good at his job and sounds like a grizzled detective, an old school Zitronhead. As a result I must request you give David money"
+    },
+    "replyCount": 1,
+    "repostCount": 1,
+    "uri": "at://did:plc:qc6xzgctorfsm35w6i3vdebx/app.bsky.feed.post/3ld7uvho4hc26",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

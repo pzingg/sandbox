@@ -1,0 +1,123 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kkf4naxqmweop7dv4l2iqqf5/bafkreiaqkfr6ikrkn2hj2tcapzmcxtkc3qo6hqwjvg4kn7r5f2cmbisstu@jpeg",
+      "createdAt": "2023-05-04T16:59:41.121Z",
+      "did": "did:plc:kkf4naxqmweop7dv4l2iqqf5",
+      "displayName": "ændra.",
+      "handle": "aendra.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreietolwqfaa7zpmxjya3iqwvcc3mwkku6nrwzn6h7hov3sscre5mxm",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.feed.defs#generatorView",
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kkf4naxqmweop7dv4l2iqqf5/bafkreihpc5pblzdure7ckh4rqwt3dvz32iedocexyw6a5kn7jsiptqom44@jpeg",
+        "cid": "bafyreianvw2d3koadfeva6mopjlla4ojjmpwsm4h5pjizdxf566hq3dbzi",
+        "creator": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "following"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kkf4naxqmweop7dv4l2iqqf5/bafkreiaqkfr6ikrkn2hj2tcapzmcxtkc3qo6hqwjvg4kn7r5f2cmbisstu@jpeg",
+          "createdAt": "2023-05-04T16:59:41.121Z",
+          "description": "[unmonitored account]\n\nOpinions my own, and usually terrible. Not a journalist. Probably a bit too sweary.\n\nshe/her/ze/hir\n\n🌐 aendra.com\n📸 aendra.photos\n🎶 soundcloud.com/aendra\n✍🏼 ft.com/æ\n💬 aendra.01",
+          "did": "did:plc:kkf4naxqmweop7dv4l2iqqf5",
+          "displayName": "ændra.",
+          "handle": "aendra.com",
+          "indexedAt": "2024-12-14T23:25:20.713Z",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "description": "Trending headlines from verified news organisations. Maintained by @aendra.com",
+        "did": "did:web:api.graze.social",
+        "displayName": "📰 Trending News",
+        "indexedAt": "2024-12-16T15:38:48.318Z",
+        "labels": [],
+        "likeCount": 2772,
+        "uri": "at://did:plc:kkf4naxqmweop7dv4l2iqqf5/app.bsky.feed.generator/news-2-0",
+        "viewer": {}
+      }
+    },
+    "indexedAt": "2024-11-28T00:29:23.618Z",
+    "labels": [],
+    "likeCount": 6378,
+    "quoteCount": 86,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-11-28T00:29:25.261Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreiewsnginpdomshmxuc5sl7alfmcbtgb2372kg7jv5d6jsjktfle7u",
+          "uri": "at://did:plc:kkf4naxqmweop7dv4l2iqqf5/app.bsky.feed.generator/news-2-0"
+        }
+      },
+      "facets": [
+        {
+          "$type": "app.bsky.richtext.facet",
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#mention",
+              "did": "did:plc:jijwtzgroy76samnivlqrpec"
+            }
+          ],
+          "index": {
+            "byteEnd": 181,
+            "byteStart": 164
+          }
+        },
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://bsky.app/profile/did:plc:kkf4naxqmweop7dv4l2iqqf5/feed/news-2-0"
+            }
+          ],
+          "index": {
+            "byteEnd": 224,
+            "byteStart": 200
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "Hot off the presses! 🔥📰\n\nThe new Trending News feed takes the 📰 News feed and sorts it by popularity. This is a work-in-progress I've been developing with @devingaffney.com, more info soon!\n\nbsky.app/profile/did:..."
+    },
+    "replyCount": 67,
+    "repostCount": 715,
+    "threadgate": {
+      "cid": "bafyreidc66clydcayjpheczuls6z5tud6drwiainmxn23fntcqgpfbyvva",
+      "lists": [],
+      "record": {
+        "$type": "app.bsky.feed.threadgate",
+        "allow": [],
+        "createdAt": "2024-12-06T22:55:54.028Z",
+        "hiddenReplies": [],
+        "post": "at://did:plc:kkf4naxqmweop7dv4l2iqqf5/app.bsky.feed.post/3lbxsqemspk2v"
+      },
+      "uri": "at://did:plc:kkf4naxqmweop7dv4l2iqqf5/app.bsky.feed.threadgate/3lbxsqemspk2v"
+    },
+    "uri": "at://did:plc:kkf4naxqmweop7dv4l2iqqf5/app.bsky.feed.post/3lbxsqemspk2v",
+    "viewer": {
+      "embeddingDisabled": false,
+      "replyDisabled": true,
+      "threadMuted": false
+    }
+  }
+}

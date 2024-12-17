@@ -1,0 +1,210 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:mheppiulkah5avntamdl4hfb/bafkreif6ozsbfadi5ivslroobdkhinezfqpvqk7stfadbyyr5cdkuzxrqq@jpeg",
+      "createdAt": "2023-04-28T00:40:44.598Z",
+      "did": "did:plc:mheppiulkah5avntamdl4hfb",
+      "displayName": "Amy Castor",
+      "handle": "amycastor.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapktzril62u",
+        "muted": false
+      }
+    },
+    "cid": "bafyreihf4ooahfy5ikj4njwfwbnd72muye3mqlnreppshkwqvmwsudo4ii",
+    "indexedAt": "2024-12-13T22:59:59.015Z",
+    "labels": [],
+    "likeCount": 1,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:59:58.528Z",
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreibc3cyriubvbqmzxo3pb3mlb3nwlk2gduewkodsyyugvnl4lnsvbm",
+          "uri": "at://did:plc:tdqolm2oruycrai57rst5jkc/app.bsky.feed.post/3ld7suto6l22t"
+        },
+        "root": {
+          "cid": "bafyreih42nyda3xpzv5kxnrdegk26unr2ate763e3daakgple5x5e52dam",
+          "uri": "at://did:plc:mheppiulkah5avntamdl4hfb/app.bsky.feed.post/3ld54la7ikc27"
+        }
+      },
+      "text": "Vox launched its Future Perfect section in October 2018, to cover the world of effective altruism."
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:mheppiulkah5avntamdl4hfb/app.bsky.feed.post/3ld7v75v3k225",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "grandparentAuthor": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:mheppiulkah5avntamdl4hfb/bafkreif6ozsbfadi5ivslroobdkhinezfqpvqk7stfadbyyr5cdkuzxrqq@jpeg",
+      "createdAt": "2023-04-28T00:40:44.598Z",
+      "did": "did:plc:mheppiulkah5avntamdl4hfb",
+      "displayName": "Amy Castor",
+      "handle": "amycastor.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapktzril62u",
+        "muted": false
+      }
+    },
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:tdqolm2oruycrai57rst5jkc/bafkreihr3ekxdwppqsncdunjtza62kou5lnoyzekqrses2x3xlcphcg4aa@jpeg",
+        "createdAt": "2023-06-01T21:43:25.719Z",
+        "did": "did:plc:tdqolm2oruycrai57rst5jkc",
+        "displayName": "🌏🐶🦕🥳 Vegetable Gremlin ⍼​👻🥦💥🏠♫",
+        "handle": "vegetablegremlin.bsky.social",
+        "labels": [
+          {
+            "cid": "bafyreihwxviq2mrpnwjaovoozn5udgfvekuqxejxnb5klgqmwlysbq356u",
+            "cts": "1970-01-01T00:00:00.000Z",
+            "src": "did:plc:tdqolm2oruycrai57rst5jkc",
+            "uri": "at://did:plc:tdqolm2oruycrai57rst5jkc/app.bsky.actor.profile/self",
+            "val": "!no-unauthenticated"
+          }
+        ],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreibc3cyriubvbqmzxo3pb3mlb3nwlk2gduewkodsyyugvnl4lnsvbm",
+      "indexedAt": "2024-12-13T22:18:25.021Z",
+      "labels": [],
+      "likeCount": 2,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T22:18:24.789Z",
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "parent": {
+            "cid": "bafyreih42nyda3xpzv5kxnrdegk26unr2ate763e3daakgple5x5e52dam",
+            "uri": "at://did:plc:mheppiulkah5avntamdl4hfb/app.bsky.feed.post/3ld54la7ikc27"
+          },
+          "root": {
+            "cid": "bafyreih42nyda3xpzv5kxnrdegk26unr2ate763e3daakgple5x5e52dam",
+            "uri": "at://did:plc:mheppiulkah5avntamdl4hfb/app.bsky.feed.post/3ld54la7ikc27"
+          }
+        },
+        "text": "\nvox has a whole effective altruism section now jesus christ"
+      },
+      "replyCount": 2,
+      "repostCount": 0,
+      "uri": "at://did:plc:tdqolm2oruycrai57rst5jkc/app.bsky.feed.post/3ld7suto6l22t",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:mheppiulkah5avntamdl4hfb/bafkreif6ozsbfadi5ivslroobdkhinezfqpvqk7stfadbyyr5cdkuzxrqq@jpeg",
+        "createdAt": "2023-04-28T00:40:44.598Z",
+        "did": "did:plc:mheppiulkah5avntamdl4hfb",
+        "displayName": "Amy Castor",
+        "handle": "amycastor.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapktzril62u",
+          "muted": false
+        }
+      },
+      "cid": "bafyreih42nyda3xpzv5kxnrdegk26unr2ate763e3daakgple5x5e52dam",
+      "embed": {
+        "$type": "app.bsky.embed.external#view",
+        "external": {
+          "description": "Future Perfect is news site Vox’s “effective altruism” section. Like EA in general, the section is funded by rich guys trying to charity-wash their reputations — most notoriously, crypto con man Sa…",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:mheppiulkah5avntamdl4hfb/bafkreihibwa6a44lu4fasfhu4ae2jgpr7imsmpqgq2oeqjqtia3craigi4@jpeg",
+          "title": "Vox: Arts funding is an outrage! Averting AI doom is much more effective altruism",
+          "uri": "https://pivot-to-ai.com/2024/12/12/vox-arts-funding-is-an-outrage-averting-ai-doom-is-much-more-effective-altruism/"
+        }
+      },
+      "indexedAt": "2024-12-12T20:34:10.030Z",
+      "labels": [],
+      "likeCount": 15,
+      "quoteCount": 2,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-12T20:34:00.598Z",
+        "embed": {
+          "$type": "app.bsky.embed.external",
+          "external": {
+            "description": "Future Perfect is news site Vox’s “effective altruism” section. Like EA in general, the section is funded by rich guys trying to charity-wash their reputations — most notoriously, crypto con man Sa…",
+            "thumb": {
+              "$type": "blob",
+              "mimeType": "image/jpeg",
+              "ref": {
+                "$link": "bafkreihibwa6a44lu4fasfhu4ae2jgpr7imsmpqgq2oeqjqtia3craigi4"
+              },
+              "size": 890949
+            },
+            "title": "Vox: Arts funding is an outrage! Averting AI doom is much more effective altruism",
+            "uri": "https://pivot-to-ai.com/2024/12/12/vox-arts-funding-is-an-outrage-averting-ai-doom-is-much-more-effective-altruism/"
+          }
+        },
+        "facets": [
+          {
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#link",
+                "uri": "https://pivot-to-ai.com/2024/12/12/vox-arts-funding-is-an-outrage-averting-ai-doom-is-much-more-effective-altruism/"
+              }
+            ],
+            "index": {
+              "byteEnd": 113,
+              "byteStart": 82
+            }
+          }
+        ],
+        "langs": [
+          "en"
+        ],
+        "text": "Vox: Arts funding is an outrage! Averting AI doom is much more effective altruism pivot-to-ai.com/2024/12/12/v..."
+      },
+      "replyCount": 2,
+      "repostCount": 4,
+      "uri": "at://did:plc:mheppiulkah5avntamdl4hfb/app.bsky.feed.post/3ld54la7ikc27",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

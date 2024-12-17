@@ -1,0 +1,148 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:2rrp7amblhg3xoly5n5huiqv/bafkreibsmfy5cp2coq2ybxi4k4vnv43oebrgzmvubjtogwlwdbvztaneky@jpeg",
+      "createdAt": "2023-05-04T02:24:32.004Z",
+      "did": "did:plc:2rrp7amblhg3xoly5n5huiqv",
+      "displayName": "Don Moynihan",
+      "handle": "donmoyn.bsky.social",
+      "labels": [
+        {
+          "cid": "bafyreie447l6if4zvdllxkmveepwjb57b7m7y6dqzujp6ekqywhr6xe37q",
+          "cts": "1970-01-01T00:00:00.000Z",
+          "src": "did:plc:2rrp7amblhg3xoly5n5huiqv",
+          "uri": "at://did:plc:2rrp7amblhg3xoly5n5huiqv/app.bsky.actor.profile/self",
+          "val": "!no-unauthenticated"
+        }
+      ],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreic6coxicyrdwaql2dc3tahoutqkkt5wa6mnyno34ozhdvejokjoty",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:ubcq5likhnvm4xfrpv7g4xbw/bafkreihy6joxcroys7rrqigjbsxlk4jpf7d5vppmzt7iyj5z3pfult4roq@jpeg",
+          "createdAt": "2024-11-10T02:03:47.211Z",
+          "did": "did:plc:ubcq5likhnvm4xfrpv7g4xbw",
+          "displayName": "Rio Tazewell",
+          "handle": "riotazewell.bsky.social",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreigpmqs65lps6u3nfof2bh7bwbotdrh2zetqnunrq3sf6sjyboydsy",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.images#view",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 524,
+                  "width": 932
+                },
+                "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:ubcq5likhnvm4xfrpv7g4xbw/bafkreihop6audiv3hdhry7ybyh5r7y6cgjjdtyoq2jqu76v4h2x5smyo2u@jpeg",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ubcq5likhnvm4xfrpv7g4xbw/bafkreihop6audiv3hdhry7ybyh5r7y6cgjjdtyoq2jqu76v4h2x5smyo2u@jpeg"
+              }
+            ]
+          }
+        ],
+        "indexedAt": "2024-12-13T21:53:19.419Z",
+        "labels": [],
+        "likeCount": 1406,
+        "quoteCount": 16,
+        "replyCount": 103,
+        "repostCount": 249,
+        "uri": "at://did:plc:ubcq5likhnvm4xfrpv7g4xbw/app.bsky.feed.post/3ld7rhwweyc25",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T21:53:18.245Z",
+          "embed": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 524,
+                  "width": 932
+                },
+                "image": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": {
+                    "$link": "bafkreihop6audiv3hdhry7ybyh5r7y6cgjjdtyoq2jqu76v4h2x5smyo2u"
+                  },
+                  "size": 481885
+                }
+              }
+            ]
+          },
+          "langs": [
+            "en"
+          ],
+          "text": "To the very end, I will never understand how January 6th, 2021, wasn’t a dealbreaker."
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T22:29:28.723Z",
+    "labels": [],
+    "likeCount": 810,
+    "quoteCount": 6,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:29:28.494Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreigpmqs65lps6u3nfof2bh7bwbotdrh2zetqnunrq3sf6sjyboydsy",
+          "uri": "at://did:plc:ubcq5likhnvm4xfrpv7g4xbw/app.bsky.feed.post/3ld7rhwweyc25"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "Not a huge believer in tipping points, but there was about a one-month period when everyone seemed truly appalled and we could have collectively agreed to ensure something like this would not happen again."
+    },
+    "replyCount": 37,
+    "repostCount": 125,
+    "uri": "at://did:plc:2rrp7amblhg3xoly5n5huiqv/app.bsky.feed.post/3ld7timmuxk2l",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:cak4klqoj3bqgk5rj6b4f5do/bafkreifrr5n5p2ixfbupo3eocykh5jzd67dy2tohi7pzllacainjgkkq5e@jpeg",
+      "createdAt": "2023-03-27T23:27:35.019Z",
+      "did": "did:plc:cak4klqoj3bqgk5rj6b4f5do",
+      "displayName": "Mike Masnick",
+      "handle": "mmasnick.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kl5ta5nymi2i",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:02:07.218Z"
+  }
+}

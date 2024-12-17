@@ -1,0 +1,342 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+      "createdAt": "2023-04-27T17:31:40.881Z",
+      "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+      "displayName": "Julia Carrie Wong",
+      "handle": "joolia.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+        "muted": false
+      }
+    },
+    "cid": "bafyreibokws2mn4n5k5tfsodyo2cpo75zpsffd5q6zfbezn34u5zes3ini",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "following"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:eclio37ymobqex2ncko63h4r/bafkreidvvqj5jymmpaeklwkpq6gi532el447mjy2yultuukypzqm5ohfju@jpeg",
+          "createdAt": "2023-06-05T18:50:31.498Z",
+          "did": "did:plc:eclio37ymobqex2ncko63h4r",
+          "displayName": "The New York Times",
+          "handle": "nytimes.com",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreid3erj26ra3uxurvmarafdacykrta5re6hmcgngkgoyxuafqzyw3y",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.images#view",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 1351,
+                  "width": 1081
+                },
+                "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:eclio37ymobqex2ncko63h4r/bafkreignqzdywyou53scpfg262lvifkzd64klcsxeso7mkyucbd4spkiaa@jpeg",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:eclio37ymobqex2ncko63h4r/bafkreignqzdywyou53scpfg262lvifkzd64klcsxeso7mkyucbd4spkiaa@jpeg"
+              }
+            ]
+          }
+        ],
+        "indexedAt": "2024-12-13T21:19:38.721Z",
+        "labels": [],
+        "likeCount": 103,
+        "quoteCount": 139,
+        "replyCount": 280,
+        "repostCount": 12,
+        "uri": "at://did:plc:eclio37ymobqex2ncko63h4r/app.bsky.feed.post/3ld7plpo4c225",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T21:19:37.374Z",
+          "embed": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 1351,
+                  "width": 1081
+                },
+                "image": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": {
+                    "$link": "bafkreignqzdywyou53scpfg262lvifkzd64klcsxeso7mkyucbd4spkiaa"
+                  },
+                  "size": 281800
+                }
+              }
+            ]
+          },
+          "facets": [
+            {
+              "features": [
+                {
+                  "$type": "app.bsky.richtext.facet#link",
+                  "uri": "https://nyti.ms/3VA4u2Y"
+                }
+              ],
+              "index": {
+                "byteEnd": 247,
+                "byteStart": 232
+              }
+            }
+          ],
+          "langs": [
+            "en"
+          ],
+          "text": "After the killing of UnitedHealthcare’s CEO, social media posts signaled to some a strong sense of dissatisfaction with the U.S. health insurance system. A poll from last year suggests that opinions on the industry are nuanced. nyti.ms/3VA4u2Y"
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T23:09:01.630Z",
+    "labels": [],
+    "likeCount": 12,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:09:01.484Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreid3erj26ra3uxurvmarafdacykrta5re6hmcgngkgoyxuafqzyw3y",
+          "uri": "at://did:plc:eclio37ymobqex2ncko63h4r/app.bsky.feed.post/3ld7plpo4c225"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://bsky.app/profile/nytimes.com/post/3ld7plpo4c225"
+            }
+          ],
+          "index": {
+            "byteEnd": 28,
+            "byteStart": 4
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreicjql4j7enkv52czvmxw77b53wq5de246fltxkpr5sxi4hq66yesi",
+          "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3ld7vnkrmo22d"
+        },
+        "root": {
+          "cid": "bafyreicjql4j7enkv52czvmxw77b53wq5de246fltxkpr5sxi4hq66yesi",
+          "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3ld7vnkrmo22d"
+        }
+      },
+      "text": "lol bsky.app/profile/nyti..."
+    },
+    "replyCount": 1,
+    "repostCount": 0,
+    "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3ld7vpdorz22d",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "all"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+        "createdAt": "2023-04-27T17:31:40.881Z",
+        "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+        "displayName": "Julia Carrie Wong",
+        "handle": "joolia.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+          "muted": false
+        }
+      },
+      "cid": "bafyreicjql4j7enkv52czvmxw77b53wq5de246fltxkpr5sxi4hq66yesi",
+      "embed": {
+        "$type": "app.bsky.embed.record#view",
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "all"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+            "createdAt": "2023-04-27T17:31:40.881Z",
+            "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+            "displayName": "Julia Carrie Wong",
+            "handle": "joolia.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+              "muted": false
+            }
+          },
+          "cid": "bafyreiawmwuygapsde7oek3wancknm76xh2d3y3w6ylynzj6uwmoglu6xa",
+          "embeds": [],
+          "indexedAt": "2024-12-06T02:47:26.919Z",
+          "labels": [],
+          "likeCount": 91,
+          "quoteCount": 1,
+          "replyCount": 5,
+          "repostCount": 8,
+          "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3lcm66ka6ic2j",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-06T02:47:26.830Z",
+            "langs": [
+              "en"
+            ],
+            "text": "I wonder if we’re going to have a news cycle of people coming out to defend for-profit health insurance that’ll be fun if it happens"
+          }
+        }
+      },
+      "indexedAt": "2024-12-13T23:08:01.926Z",
+      "labels": [],
+      "likeCount": 29,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T23:08:01.808Z",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreiawmwuygapsde7oek3wancknm76xh2d3y3w6ylynzj6uwmoglu6xa",
+            "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3lcm66ka6ic2j"
+          }
+        },
+        "langs": [
+          "en"
+        ],
+        "text": "lol"
+      },
+      "replyCount": 2,
+      "repostCount": 0,
+      "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3ld7vnkrmo22d",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "all"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+        "createdAt": "2023-04-27T17:31:40.881Z",
+        "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+        "displayName": "Julia Carrie Wong",
+        "handle": "joolia.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+          "muted": false
+        }
+      },
+      "cid": "bafyreicjql4j7enkv52czvmxw77b53wq5de246fltxkpr5sxi4hq66yesi",
+      "embed": {
+        "$type": "app.bsky.embed.record#view",
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "all"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+            "createdAt": "2023-04-27T17:31:40.881Z",
+            "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+            "displayName": "Julia Carrie Wong",
+            "handle": "joolia.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+              "muted": false
+            }
+          },
+          "cid": "bafyreiawmwuygapsde7oek3wancknm76xh2d3y3w6ylynzj6uwmoglu6xa",
+          "embeds": [],
+          "indexedAt": "2024-12-06T02:47:26.919Z",
+          "labels": [],
+          "likeCount": 91,
+          "quoteCount": 1,
+          "replyCount": 5,
+          "repostCount": 8,
+          "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3lcm66ka6ic2j",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-06T02:47:26.830Z",
+            "langs": [
+              "en"
+            ],
+            "text": "I wonder if we’re going to have a news cycle of people coming out to defend for-profit health insurance that’ll be fun if it happens"
+          }
+        }
+      },
+      "indexedAt": "2024-12-13T23:08:01.926Z",
+      "labels": [],
+      "likeCount": 29,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T23:08:01.808Z",
+        "embed": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreiawmwuygapsde7oek3wancknm76xh2d3y3w6ylynzj6uwmoglu6xa",
+            "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3lcm66ka6ic2j"
+          }
+        },
+        "langs": [
+          "en"
+        ],
+        "text": "lol"
+      },
+      "replyCount": 2,
+      "repostCount": 0,
+      "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3ld7vnkrmo22d",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

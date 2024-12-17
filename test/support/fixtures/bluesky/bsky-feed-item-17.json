@@ -1,0 +1,90 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+      "createdAt": "2023-04-27T17:31:40.881Z",
+      "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+      "displayName": "Julia Carrie Wong",
+      "handle": "joolia.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+        "muted": false
+      }
+    },
+    "cid": "bafyreicjql4j7enkv52czvmxw77b53wq5de246fltxkpr5sxi4hq66yesi",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "all"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6yde3jzbwuuxqmp2ibtrbo3e/bafkreieoiurpckgj6mtbdfbkq7x4jgczqldzx5tdsrynvcirxxi4nf7vqi@jpeg",
+          "createdAt": "2023-04-27T17:31:40.881Z",
+          "did": "did:plc:6yde3jzbwuuxqmp2ibtrbo3e",
+          "displayName": "Julia Carrie Wong",
+          "handle": "joolia.bsky.social",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lbbtq6bv3b2o",
+            "muted": false
+          }
+        },
+        "cid": "bafyreiawmwuygapsde7oek3wancknm76xh2d3y3w6ylynzj6uwmoglu6xa",
+        "embeds": [],
+        "indexedAt": "2024-12-06T02:47:26.919Z",
+        "labels": [],
+        "likeCount": 91,
+        "quoteCount": 1,
+        "replyCount": 5,
+        "repostCount": 8,
+        "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3lcm66ka6ic2j",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-06T02:47:26.830Z",
+          "langs": [
+            "en"
+          ],
+          "text": "I wonder if we’re going to have a news cycle of people coming out to defend for-profit health insurance that’ll be fun if it happens"
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T23:08:01.926Z",
+    "labels": [],
+    "likeCount": 29,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:08:01.808Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreiawmwuygapsde7oek3wancknm76xh2d3y3w6ylynzj6uwmoglu6xa",
+          "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3lcm66ka6ic2j"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "lol"
+    },
+    "replyCount": 2,
+    "repostCount": 0,
+    "uri": "at://did:plc:6yde3jzbwuuxqmp2ibtrbo3e/app.bsky.feed.post/3ld7vnkrmo22d",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

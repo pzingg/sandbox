@@ -5,8 +5,11 @@ defmodule Sandbox.Application do
 
   use Application
 
-  @ngrok_envs [:dev, :test]
-  # @ngrok_envs [:ngrok]
+  @default_client_scope "atproto transition:generic"
+  @default_timezone "America/Los_Angeles"
+
+  @default_ngrok_envs []
+  # @default_ngrok_envs [:dev, :test]
 
   @impl true
   def start(_type, _args) do
@@ -21,30 +24,27 @@ defmodule Sandbox.Application do
       SandboxWeb.Endpoint
     ]
 
-    mix_env = Mix.env()
-    endpoint_config = Application.get_env(:sandbox, SandboxWeb.Endpoint)
-    port = get_in(endpoint_config, [:http, :port])
-    IO.puts("Endpoint port #{mix_env} configured to #{port}")
-
-    # mix_env in [:dev, :test]
     children =
-      if ngrok_started?() do
+      if using_ngrok?() do
+        endpoint_config = Application.get_env(:sandbox, SandboxWeb.Endpoint)
+        port = get_in(endpoint_config, [:http, :port])
         IO.puts("Ngrok will be bound to port #{port}")
+
         children ++ [{Ngrok, port: port, name: Sandbox.Ngrok}]
       else
         children
       end
 
-    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky)
-    set_bluesky_client_scope(bluesky_config[:scope])
+    # Set "global" client scope on startup
+    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky, [])
+    scope = Keyword.get(bluesky_config, :client_scope, @default_client_scope)
+    set_bluesky_client_scope(scope)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Sandbox.Supervisor]
     result = Supervisor.start_link(children, opts)
 
-    # To subscribe to the Bluesky Firehose:
-    # Sandbox.Bluesky.WebsocketClient.start(stream: :repos)
     result
   end
 
@@ -56,6 +56,29 @@ defmodule Sandbox.Application do
     :ok
   end
 
+  def public_url do
+    if using_ngrok?() do
+      Ngrok.public_url(Sandbox.Ngrok)
+    else
+      SandboxWeb.Endpoint.url()
+    end
+  end
+
+  def timezone do
+    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky, [])
+    Keyword.get(bluesky_config, :timezone, @default_timezone)
+  end
+
+  def confidential_client? do
+    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky, [])
+    Keyword.get(bluesky_config, :client_type) == :confidential
+  end
+
+  def app_password_file do
+    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky, [])
+    Keyword.get(bluesky_config, :app_password_file)
+  end
+
   def set_bluesky_client_scope(nil), do: :ok
 
   def set_bluesky_client_scope(scope) do
@@ -63,18 +86,11 @@ defmodule Sandbox.Application do
   end
 
   def bluesky_client_scope do
-    :persistent_term.get("sandbox.bluesky.scope", "atproto transition:generic")
+    :persistent_term.get("sandbox.bluesky.scope", @default_client_scope)
   end
 
-  def public_url do
-    if ngrok_started?() do
-      Ngrok.public_url(Sandbox.Ngrok)
-    else
-      SandboxWeb.Endpoint.url()
-    end
-  end
-
-  defp ngrok_started? do
-    Mix.env() in @ngrok_envs
+  defp using_ngrok? do
+    ngrok_envs = Application.get_env(:sandbox, :ngrok_envs, @default_ngrok_envs)
+    Mix.env() in ngrok_envs
   end
 end

@@ -1,0 +1,79 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:wrilzb4mr6bzkbfvwyjga7fh/bafkreiarp2xc4q4r4wjhh25xqwpbyflvtrss6rpryhlcf2dj3b3kvnxwtu@jpeg",
+      "createdAt": "2023-06-22T14:26:39.389Z",
+      "did": "did:plc:wrilzb4mr6bzkbfvwyjga7fh",
+      "displayName": "Gretchen Leigh",
+      "handle": "gretchenleigh.zone",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreic7wygkppa7al5fjgqyfs6wysumu6i65i3asrf3dnjh4jfg46jvje",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "",
+        "title": "The Internet Archive Musiczoom Collection Continues | Internet Archive Blogs",
+        "uri": "https://blog.archive.org/2023/02/17/the-internet-archive-musiczoom-collection-continues/"
+      }
+    },
+    "indexedAt": "2024-12-13T22:13:21.520Z",
+    "labels": [],
+    "likeCount": 250,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:13:21.061Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "",
+          "title": "The Internet Archive Musiczoom Collection Continues | Internet Archive Blogs",
+          "uri": "https://blog.archive.org/2023/02/17/the-internet-archive-musiczoom-collection-continues/"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "Internet Archive is looking for some new musicians to play at our twice-weekly all-hands Zoom meetings! It's a great way for musicians to make a bit of money, introduce themselves to our music-loving employees, and support the Archive! Please DM me if you're interested."
+    },
+    "replyCount": 4,
+    "repostCount": 103,
+    "uri": "at://did:plc:wrilzb4mr6bzkbfvwyjga7fh/app.bsky.feed.post/3ld7slrz66c2k",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:73dpznbu4wqwtcyurwbiulov/bafkreiemdvhpo5rnsxktik5dkvmmc6horutcnlyoxwwrhsuaojz6qbzdyy@jpeg",
+      "createdAt": "2023-05-03T12:22:48.853Z",
+      "did": "did:plc:73dpznbu4wqwtcyurwbiulov",
+      "displayName": "Internet Archive",
+      "handle": "archive.org",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kmsmvkzfqx27",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T22:58:08.229Z"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:ln72v57ivz2g46uqf4xxqiuh/bafkreiggmfuoyybcriueenrxrhaemubfanwj77qi2nuro7fs4javp3fkom@jpeg",
+      "createdAt": "2023-05-02T20:04:45.133Z",
+      "did": "did:plc:ln72v57ivz2g46uqf4xxqiuh",
+      "displayName": "NPR",
+      "handle": "npr.org",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreich3qkm6dp4h6gnmt2k2xdcxxnyozennhol5pr2we753c6bm6pp7m",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "In Washington, D.C., a tax on residents earning more than $250,000 a year is boosting the wages of child care workers. Two years in, it's proving to be a great investment.",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ln72v57ivz2g46uqf4xxqiuh/bafkreia5aajmkrvfaualshtzaolgj6fvjivgihyqtylemze4iwqbdnroau@jpeg",
+        "title": "How D.C. tackled a child care crunch through a tax hike on the rich",
+        "uri": "https://www.npr.org/2024/12/12/nx-s1-5203084/child-care-pay-equity-tax-dc"
+      }
+    },
+    "indexedAt": "2024-12-13T20:16:44.416Z",
+    "labels": [],
+    "likeCount": 3611,
+    "quoteCount": 106,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T20:16:42.117Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "In Washington, D.C., a tax on residents earning more than $250,000 a year is boosting the wages of child care workers. Two years in, it's proving to be a great investment.",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreia5aajmkrvfaualshtzaolgj6fvjivgihyqtylemze4iwqbdnroau"
+            },
+            "size": 248568
+          },
+          "title": "How D.C. tackled a child care crunch through a tax hike on the rich",
+          "uri": "https://www.npr.org/2024/12/12/nx-s1-5203084/child-care-pay-equity-tax-dc"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "In Washington, D.C., a tax on residents earning more than $250,000 a year is boosting the wages of child care workers. Two years in, it's proving to be a great investment."
+    },
+    "replyCount": 75,
+    "repostCount": 869,
+    "uri": "at://did:plc:ln72v57ivz2g46uqf4xxqiuh/app.bsky.feed.post/3ld7m37ccx22s",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:ivn4xhafftaoizrtonzx6xio/bafkreiergjax2dcqrbtf46nob4vc7sspafmqmil2xib2dv3dnwa42yo6qm@jpeg",
+      "createdAt": "2023-05-03T21:31:26.003Z",
+      "did": "did:plc:ivn4xhafftaoizrtonzx6xio",
+      "displayName": "Anna Kornbluh",
+      "handle": "annakornbluh.bsky.social",
+      "labels": [
+        {
+          "cid": "bafyreiaynt4di32cjm4f6t7cydc4yk42ljmv5z2y5ujpng5o347xn64kl4",
+          "cts": "1970-01-01T00:00:00.000Z",
+          "src": "did:plc:ivn4xhafftaoizrtonzx6xio",
+          "uri": "at://did:plc:ivn4xhafftaoizrtonzx6xio/app.bsky.actor.profile/self",
+          "val": "!no-unauthenticated"
+        }
+      ],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3k74xv6sdsn2c",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:11:21.529Z"
+  }
+}

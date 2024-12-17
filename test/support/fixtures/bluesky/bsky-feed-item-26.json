@@ -1,0 +1,134 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:qc6xzgctorfsm35w6i3vdebx/bafkreiezxpehwrr5npwfgtqmec36fe6on4putswlggctcr4enyqu4kbnfe@jpeg",
+      "createdAt": "2023-04-25T19:18:06.530Z",
+      "did": "did:plc:qc6xzgctorfsm35w6i3vdebx",
+      "displayName": "Ed Zitron",
+      "handle": "edzitron.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3l5mqxrh55i2v",
+        "muted": false
+      }
+    },
+    "cid": "bafyreih4gzymcxi4vx67oxytpooib3ax2fwzb35dticu6ony4zv35w5tei",
+    "indexedAt": "2024-12-13T22:57:30.720Z",
+    "labels": [],
+    "likeCount": 5,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:57:30.407Z",
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreibtscn5jwy35s52o3xzzyjooc5rensoqtxfs7tulcr6dcxqm5dlse",
+          "uri": "at://did:plc:7siq4fad6bal3625hutmhxgw/app.bsky.feed.post/3ld7uyk7ues2l"
+        },
+        "root": {
+          "cid": "bafyreibtscn5jwy35s52o3xzzyjooc5rensoqtxfs7tulcr6dcxqm5dlse",
+          "uri": "at://did:plc:7siq4fad6bal3625hutmhxgw/app.bsky.feed.post/3ld7uyk7ues2l"
+        }
+      },
+      "text": "Yeah and he sucked. Totally out of rhythm"
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:qc6xzgctorfsm35w6i3vdebx/app.bsky.feed.post/3ld7v2qmr5k26",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:7siq4fad6bal3625hutmhxgw/bafkreigopshzpqlw4sxknjbdrijjekoyu2f7rq45vtsea4tow2v434edta@jpeg",
+        "createdAt": "2023-07-03T20:33:23.695Z",
+        "did": "did:plc:7siq4fad6bal3625hutmhxgw",
+        "displayName": "Danette Chavez",
+        "handle": "danettechavez.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreibtscn5jwy35s52o3xzzyjooc5rensoqtxfs7tulcr6dcxqm5dlse",
+      "indexedAt": "2024-12-13T22:56:16.815Z",
+      "labels": [],
+      "likeCount": 12,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T22:56:16.584Z",
+        "langs": [
+          "en"
+        ],
+        "text": "Have you ever danced with the devil in the pale moonlight of a 3pm Chicago sunset?"
+      },
+      "replyCount": 1,
+      "repostCount": 2,
+      "uri": "at://did:plc:7siq4fad6bal3625hutmhxgw/app.bsky.feed.post/3ld7uyk7ues2l",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:7siq4fad6bal3625hutmhxgw/bafkreigopshzpqlw4sxknjbdrijjekoyu2f7rq45vtsea4tow2v434edta@jpeg",
+        "createdAt": "2023-07-03T20:33:23.695Z",
+        "did": "did:plc:7siq4fad6bal3625hutmhxgw",
+        "displayName": "Danette Chavez",
+        "handle": "danettechavez.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "muted": false
+        }
+      },
+      "cid": "bafyreibtscn5jwy35s52o3xzzyjooc5rensoqtxfs7tulcr6dcxqm5dlse",
+      "indexedAt": "2024-12-13T22:56:16.815Z",
+      "labels": [],
+      "likeCount": 12,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T22:56:16.584Z",
+        "langs": [
+          "en"
+        ],
+        "text": "Have you ever danced with the devil in the pale moonlight of a 3pm Chicago sunset?"
+      },
+      "replyCount": 1,
+      "repostCount": 2,
+      "uri": "at://did:plc:7siq4fad6bal3625hutmhxgw/app.bsky.feed.post/3ld7uyk7ues2l",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

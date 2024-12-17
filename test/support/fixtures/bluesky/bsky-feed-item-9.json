@@ -1,0 +1,88 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:h4ugqjnmsporhkobvqbcbo2p/bafkreihlsycykcdgyyti3pvv52auoqsbl6yvv4lwv6v5zxqjtou2htghuu@jpeg",
+      "createdAt": "2023-05-27T23:40:58.126Z",
+      "did": "did:plc:h4ugqjnmsporhkobvqbcbo2p",
+      "displayName": "Robert Cruickshank",
+      "handle": "robertcruickshank.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreihfkdge2kyrvnbz3kc6adnhgpluhqpwtunks2dj46ypgzvji7sjne",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "The independent Vermont senator also called some of Robert F. Kennedy Jr.'s views \"very wrong.\"",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:h4ugqjnmsporhkobvqbcbo2p/bafkreie6xeexbrmmhxug36voc3eyis6gebutzogug6zhix4dtkd3ylx6wi@jpeg",
+        "title": "Sanders says RFK Jr. \"exactly correct\" on food issues, has not decided on Trump pick for HHS secretary",
+        "uri": "https://www.cbsnews.com/news/bernie-sanders-rfk-health-human-services/"
+      }
+    },
+    "indexedAt": "2024-12-13T23:10:01.623Z",
+    "labels": [],
+    "likeCount": 13,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:09:59.289Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "The independent Vermont senator also called some of Robert F. Kennedy Jr.'s views \"very wrong.\"",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreie6xeexbrmmhxug36voc3eyis6gebutzogug6zhix4dtkd3ylx6wi"
+            },
+            "size": 507061
+          },
+          "title": "Sanders says RFK Jr. \"exactly correct\" on food issues, has not decided on Trump pick for HHS secretary",
+          "uri": "https://www.cbsnews.com/news/bernie-sanders-rfk-health-human-services/"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "How this works: they make empty promises they don’t intend to keep on some popular things so as to neutralize opposition to their taking power. Then, once in power, they break the promises and just do the awful stuff. Bernie should see through this rather than enable it."
+    },
+    "replyCount": 1,
+    "repostCount": 3,
+    "uri": "at://did:plc:h4ugqjnmsporhkobvqbcbo2p/app.bsky.feed.post/3ld7vr2su7c2n",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:cf26plxwia7dxpm6plry3sj2/bafkreiawdztyhjec5lpau7c2fnmadeuj2wnjrhcsmk6scliw7uciif2yqi@jpeg",
+      "createdAt": "2023-06-14T14:59:46.106Z",
+      "did": "did:plc:cf26plxwia7dxpm6plry3sj2",
+      "displayName": "Murshed Zaheed",
+      "handle": "murshedz.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kl5t6zmpg52k",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:15:18.617Z"
+  }
+}

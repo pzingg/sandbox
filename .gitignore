@@ -39,3 +39,8 @@ npm-debug.log
 .vscode
 *.code-workspace
 
+# Docs and other local files
+/_json/
+
+# Secrets
+bsky-app-password.json

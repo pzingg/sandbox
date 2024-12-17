@@ -1,0 +1,102 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:mj5h6johygkjaoo3dg5q23lm/bafkreifqsw4576zytpf2psa4yyjve7xv6tt5ceiaqrogfm7vu5eypav6ce@jpeg",
+      "createdAt": "2023-07-07T18:20:29.045Z",
+      "did": "did:plc:mj5h6johygkjaoo3dg5q23lm",
+      "displayName": "Shashank Joshi",
+      "handle": "shashj.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreidaizmwjvu3nqjjsr62opoug2gtkohcpym2hcsikfbtgazimcpy6y",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:mj5h6johygkjaoo3dg5q23lm/bafkreiemr5ulsjfb7s77otfrwvmf6t6hdkxrzj4tupco2qwgnrjusnpiri@jpeg",
+        "title": "Trump's Inaugural Fund to Get Donations From Amazon, Meta and OpenAI's CEO: Live Updates",
+        "uri": "https://www.nytimes.com/live/2024/12/13/us/trump-transition-news"
+      }
+    },
+    "indexedAt": "2024-12-13T23:16:18.820Z",
+    "labels": [],
+    "likeCount": 25,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:16:15.725Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreiemr5ulsjfb7s77otfrwvmf6t6hdkxrzj4tupco2qwgnrjusnpiri"
+            },
+            "size": 270842
+          },
+          "title": "Trump's Inaugural Fund to Get Donations From Amazon, Meta and OpenAI's CEO: Live Updates",
+          "uri": "https://www.nytimes.com/live/2024/12/13/us/trump-transition-news"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://www.nytimes.com/live/2024/12/13/us/trump-transition-news"
+            }
+          ],
+          "index": {
+            "byteEnd": 275,
+            "byteStart": 244
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "The abject grovelling continues. “The chief executive of OpenAI, Sam Altman, is planning to donate $1 million to President-elect Donald J. Trump’s inaugural fund, the company said. He would join a number of tech companies and executives” www.nytimes.com/live/2024/12..."
+    },
+    "replyCount": 6,
+    "repostCount": 11,
+    "uri": "at://did:plc:mj5h6johygkjaoo3dg5q23lm/app.bsky.feed.post/3ld7w4bsric2r",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:f6hdxggxx4qfijx4sd3dnbkg/bafkreifstudt7echrwupomcsuz7yw3nqpmz5ktykorpjk7chpi5qvddkwm@jpeg",
+      "createdAt": "2023-06-06T14:16:53.147Z",
+      "did": "did:plc:f6hdxggxx4qfijx4sd3dnbkg",
+      "displayName": "Daniel Drezner",
+      "handle": "dandrezner.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kwatcoyysb2y",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:16:38.727Z"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:ivseckn32uuldbxyt3qqlsyv/bafkreievwdc5spp4qi3q2uvh7li5vfrbkrp7h2zakaswe5hfawyymf6i3u@jpeg",
+      "createdAt": "2023-04-28T15:34:10.389Z",
+      "did": "did:plc:ivseckn32uuldbxyt3qqlsyv",
+      "displayName": "Hell Gate *subscribe today!*",
+      "handle": "hellgatenyc.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkw444nw2u",
+        "muted": false
+      }
+    },
+    "cid": "bafyreidnnyhim3icrjzdyobmsn6eljombrnj7lwnafseddscvvh57ybfxm",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "Podcast Episode · The Hell Gate Podcast · 12/13/2024 · 43m",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:ivseckn32uuldbxyt3qqlsyv/bafkreibjbdoxkmwczsx2h3r2tyy5xaoeie7gkliplemjaawguuxfrnf3je@jpeg",
+        "title": "Eric Adams Is Ready to Unravel New York's Sanctuary Laws",
+        "uri": "https://podcasts.apple.com/us/podcast/eric-adams-is-ready-to-unravel-new-yorks-sanctuary-laws/id1673846089?i=1000680316873"
+      }
+    },
+    "indexedAt": "2024-12-13T22:56:29.922Z",
+    "labels": [],
+    "likeCount": 25,
+    "quoteCount": 2,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:56:28.850Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "Podcast Episode · The Hell Gate Podcast · 12/13/2024 · 43m",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreibjbdoxkmwczsx2h3r2tyy5xaoeie7gkliplemjaawguuxfrnf3je"
+            },
+            "size": 572628
+          },
+          "title": "Eric Adams Is Ready to Unravel New York's Sanctuary Laws",
+          "uri": "https://podcasts.apple.com/us/podcast/eric-adams-is-ready-to-unravel-new-yorks-sanctuary-laws/id1673846089?i=1000680316873"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://podcasts.apple.com/us/podcast/eric-adams-is-ready-to-unravel-new-yorks-sanctuary-laws/id1673846089?i=1000680316873"
+            }
+          ],
+          "index": {
+            "byteEnd": 294,
+            "byteStart": 260
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "NEW PODCAST:\n\nEric Adams claimed the NYPD wasn't ignoring the murder of a 17-year-old migrant, then he jetted off to Puerto Rico to get some Bitcoin cash, and finally he met with Trump's \"Border Czar\" to try to weaken laws that protect New York's immigrants.\n\npodcasts.apple.com/us/podcast/e..."
+    },
+    "replyCount": 4,
+    "repostCount": 7,
+    "uri": "at://did:plc:ivseckn32uuldbxyt3qqlsyv/app.bsky.feed.post/3ld7uyvw7uk2r",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

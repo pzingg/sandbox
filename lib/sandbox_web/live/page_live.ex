@@ -3,14 +3,20 @@ defmodule SandboxWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    did =
+    {did, acc_button_disabled} =
       if socket.assigns[:current_user] do
-        socket.assigns.current_user.did
+        {socket.assigns.current_user.did, false}
       else
-        ""
+        {"", true}
       end
 
-    {:ok, assign(socket, did: did, query: "", results: %{})}
+    {:ok,
+     assign(socket,
+       did: did,
+       acc_button_disabled: acc_button_disabled,
+       query: "",
+       results: %{}
+     )}
   end
 
   @impl true

@@ -1,0 +1,112 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:2orsuabrdskjpuglpru77po2/bafkreibsthdhwjpav5d65f57wmag7f3itao4erasw6cdofwf6t2zf2krma@jpeg",
+      "createdAt": "2023-05-22T19:43:09.324Z",
+      "did": "did:plc:2orsuabrdskjpuglpru77po2",
+      "displayName": "Oliver Willis",
+      "handle": "owillis.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kwkbdwplak24",
+        "muted": false
+      }
+    },
+    "cid": "bafyreid7hp6vhwh2hfem72onyxegkqbi3hi4oqrumgvpoi7fl2qaztql5e",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "following"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:gchmzqms7ibr2fkpzggmufoe/bafkreia55vmmofsr7cnedgsmtz46w3r4z5dm2ekfflsyvoinvjoawenxku@jpeg",
+          "createdAt": "2023-10-12T17:25:47.122Z",
+          "did": "did:plc:gchmzqms7ibr2fkpzggmufoe",
+          "displayName": "Daily Kos",
+          "handle": "dailykos.com",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreieuddta6jcaynttb2rceu6yekpay6t3tjzalqnjo6v73lsxijitfy",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.external#view",
+            "external": {
+              "description": "Aaron Siri, an attorney for failed presidential candidate Robert F. Kennedy Jr., filed a petition to get the federal government to rescind its approval for the polio vaccine, despite decades of ...",
+              "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:gchmzqms7ibr2fkpzggmufoe/bafkreiecqwuzj3e4p22muuyyn3nfsjaowjuta5vxkjgeyinoei2pgdoayi@jpeg",
+              "title": "We got rid of polio with vaccines. RFK's lawyer wants to bring it back",
+              "uri": "https://www.dailykos.com/stories/2024/12/13/2291765/-We-got-rid-of-polio-with-vaccines-RFK-s-lawyer-wants-to-bring-it-back"
+            }
+          }
+        ],
+        "indexedAt": "2024-12-13T22:00:03.219Z",
+        "labels": [],
+        "likeCount": 32,
+        "quoteCount": 2,
+        "replyCount": 5,
+        "repostCount": 14,
+        "uri": "at://did:plc:gchmzqms7ibr2fkpzggmufoe/app.bsky.feed.post/3ld7rtyllke2i",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T22:00:01.929Z",
+          "embed": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "description": "Aaron Siri, an attorney for failed presidential candidate Robert F. Kennedy Jr., filed a petition to get the federal government to rescind its approval for the polio vaccine, despite decades of ...",
+              "thumb": {
+                "$type": "blob",
+                "mimeType": "image/jpeg",
+                "ref": {
+                  "$link": "bafkreiecqwuzj3e4p22muuyyn3nfsjaowjuta5vxkjgeyinoei2pgdoayi"
+                },
+                "size": 72596
+              },
+              "title": "We got rid of polio with vaccines. RFK's lawyer wants to bring it back",
+              "uri": "https://www.dailykos.com/stories/2024/12/13/2291765/-We-got-rid-of-polio-with-vaccines-RFK-s-lawyer-wants-to-bring-it-back"
+            }
+          },
+          "text": "Trump’s pick to run HHS, RFK Jr., wants to cancel the polio vaccine. Yes, the one that eradicated a crippling disease."
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T23:07:09.721Z",
+    "labels": [],
+    "likeCount": 32,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:07:09.473Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreieuddta6jcaynttb2rceu6yekpay6t3tjzalqnjo6v73lsxijitfy",
+          "uri": "at://did:plc:gchmzqms7ibr2fkpzggmufoe/app.bsky.feed.post/3ld7rtyllke2i"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "By me FYI"
+    },
+    "replyCount": 1,
+    "repostCount": 6,
+    "uri": "at://did:plc:2orsuabrdskjpuglpru77po2/app.bsky.feed.post/3ld7vlyuibc2z",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

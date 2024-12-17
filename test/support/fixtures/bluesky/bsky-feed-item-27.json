@@ -1,0 +1,304 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6m7rbdgaz5vyg4bnbefi7kh6/bafkreignx2ppc2u24ah432jokrsoahsvh46j5orhburjhlb4gcxzpotdii@jpeg",
+      "createdAt": "2023-08-29T00:49:18.160Z",
+      "did": "did:plc:6m7rbdgaz5vyg4bnbefi7kh6",
+      "displayName": "Catherine Rampell",
+      "handle": "crampell.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazfy6uvuh2c",
+        "muted": false
+      }
+    },
+    "cid": "bafyreifwkwvydde3st6n2xrs7xwtkx6r6ldibf4db2brefybfpzvqv5dli",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:upkgvxvhn4ebia3arqy4ru65/bafkreibssrgtckesv4wjpr3f4pc2nyzh6v3mn723x4ec3gc3wstnule3vi@jpeg",
+          "createdAt": "2023-04-27T21:28:43.190Z",
+          "did": "did:plc:upkgvxvhn4ebia3arqy4ru65",
+          "displayName": "Jake Tapper, long-suffering Philly sports fan",
+          "handle": "jaketapper.bsky.social",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreihbyikbrndtif2nzyx3olpk4j3h6uw7rzpk54rtzvzyd4s6r6o5qq",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.images#view",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 1851,
+                  "width": 1204
+                },
+                "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:upkgvxvhn4ebia3arqy4ru65/bafkreicexgi7e5cvtsltlr75anq2ccqlt2acamw2zcj3su3kmbhq3p7niu@jpeg",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:upkgvxvhn4ebia3arqy4ru65/bafkreicexgi7e5cvtsltlr75anq2ccqlt2acamw2zcj3su3kmbhq3p7niu@jpeg"
+              }
+            ]
+          }
+        ],
+        "indexedAt": "2024-12-13T22:54:20.627Z",
+        "labels": [],
+        "likeCount": 657,
+        "quoteCount": 51,
+        "replyCount": 76,
+        "repostCount": 169,
+        "uri": "at://did:plc:upkgvxvhn4ebia3arqy4ru65/app.bsky.feed.post/3ld7uuzpqbk2e",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T22:54:18.614Z",
+          "embed": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 1851,
+                  "width": 1204
+                },
+                "image": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": {
+                    "$link": "bafkreicexgi7e5cvtsltlr75anq2ccqlt2acamw2zcj3su3kmbhq3p7niu"
+                  },
+                  "size": 988321
+                }
+              }
+            ]
+          },
+          "facets": [
+            {
+              "features": [
+                {
+                  "$type": "app.bsky.richtext.facet#link",
+                  "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+                }
+              ],
+              "index": {
+                "byteEnd": 220,
+                "byteStart": 189
+              }
+            }
+          ],
+          "langs": [
+            "en"
+          ],
+          "text": "Polio survivor Leader McConnell responds to RFK Jr aide Aaron Siri — who has called for the authorization for the Polio vaccine to be pulled — reviewing candidates for top jobs at HHS\n\nwww.nytimes.com/2024/12/13/h..."
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T22:57:17.398Z",
+    "labels": [],
+    "likeCount": 57,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:57:17.031Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreihbyikbrndtif2nzyx3olpk4j3h6uw7rzpk54rtzvzyd4s6r6o5qq",
+          "uri": "at://did:plc:upkgvxvhn4ebia3arqy4ru65/app.bsky.feed.post/3ld7uuzpqbk2e"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://bsky.app/profile/jaketapper.bsky.social/post/3ld7uuzpqbk2e"
+            }
+          ],
+          "index": {
+            "byteEnd": 44,
+            "byteStart": 20
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreig66fpvpomw4jkyvtms4orwjyuhveb2aptwngla3fi5fel5qlmp2u",
+          "uri": "at://did:plc:6m7rbdgaz5vyg4bnbefi7kh6/app.bsky.feed.post/3ld6xb3uvos2b"
+        },
+        "root": {
+          "cid": "bafyreig66fpvpomw4jkyvtms4orwjyuhveb2aptwngla3fi5fel5qlmp2u",
+          "uri": "at://did:plc:6m7rbdgaz5vyg4bnbefi7kh6/app.bsky.feed.post/3ld6xb3uvos2b"
+        }
+      },
+      "text": "McConnell responds: bsky.app/profile/jake..."
+    },
+    "replyCount": 3,
+    "repostCount": 9,
+    "uri": "at://did:plc:6m7rbdgaz5vyg4bnbefi7kh6/app.bsky.feed.post/3ld7v2dumm225",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6m7rbdgaz5vyg4bnbefi7kh6/bafkreignx2ppc2u24ah432jokrsoahsvh46j5orhburjhlb4gcxzpotdii@jpeg",
+        "createdAt": "2023-08-29T00:49:18.160Z",
+        "did": "did:plc:6m7rbdgaz5vyg4bnbefi7kh6",
+        "displayName": "Catherine Rampell",
+        "handle": "crampell.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazfy6uvuh2c",
+          "muted": false
+        }
+      },
+      "cid": "bafyreig66fpvpomw4jkyvtms4orwjyuhveb2aptwngla3fi5fel5qlmp2u",
+      "embed": {
+        "$type": "app.bsky.embed.external#view",
+        "external": {
+          "description": "Aaron Siri, who specializes in vaccine lawsuits, has been at Robert F. Kennedy Jr.’s side reviewing candidates for top jobs at the Department of Health and Human Services.",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:6m7rbdgaz5vyg4bnbefi7kh6/bafkreiatrpu2szfzsce64npo2g4rf3vi44rih7betvgksdr5hojj4yphmm@jpeg",
+          "title": "RFK Jr.’s Lawyer Has Asked the FDA to Revoke Polio Vaccine Approval",
+          "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+        }
+      },
+      "indexedAt": "2024-12-13T14:04:12.523Z",
+      "labels": [],
+      "likeCount": 298,
+      "quoteCount": 20,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T14:04:11.279Z",
+        "embed": {
+          "$type": "app.bsky.embed.external",
+          "external": {
+            "description": "Aaron Siri, who specializes in vaccine lawsuits, has been at Robert F. Kennedy Jr.’s side reviewing candidates for top jobs at the Department of Health and Human Services.",
+            "thumb": {
+              "$type": "blob",
+              "mimeType": "image/jpeg",
+              "ref": {
+                "$link": "bafkreiatrpu2szfzsce64npo2g4rf3vi44rih7betvgksdr5hojj4yphmm"
+              },
+              "size": 589547
+            },
+            "title": "RFK Jr.’s Lawyer Has Asked the FDA to Revoke Polio Vaccine Approval",
+            "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+          }
+        },
+        "facets": [
+          {
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#link",
+                "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+              }
+            ],
+            "index": {
+              "byteEnd": 74,
+              "byteStart": 43
+            }
+          }
+        ],
+        "langs": [
+          "en"
+        ],
+        "text": "I wonder what McConnell thinks about this. www.nytimes.com/2024/12/13/h..."
+      },
+      "replyCount": 46,
+      "repostCount": 51,
+      "uri": "at://did:plc:6m7rbdgaz5vyg4bnbefi7kh6/app.bsky.feed.post/3ld6xb3uvos2b",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:6m7rbdgaz5vyg4bnbefi7kh6/bafkreignx2ppc2u24ah432jokrsoahsvh46j5orhburjhlb4gcxzpotdii@jpeg",
+        "createdAt": "2023-08-29T00:49:18.160Z",
+        "did": "did:plc:6m7rbdgaz5vyg4bnbefi7kh6",
+        "displayName": "Catherine Rampell",
+        "handle": "crampell.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazfy6uvuh2c",
+          "muted": false
+        }
+      },
+      "cid": "bafyreig66fpvpomw4jkyvtms4orwjyuhveb2aptwngla3fi5fel5qlmp2u",
+      "embed": {
+        "$type": "app.bsky.embed.external#view",
+        "external": {
+          "description": "Aaron Siri, who specializes in vaccine lawsuits, has been at Robert F. Kennedy Jr.’s side reviewing candidates for top jobs at the Department of Health and Human Services.",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:6m7rbdgaz5vyg4bnbefi7kh6/bafkreiatrpu2szfzsce64npo2g4rf3vi44rih7betvgksdr5hojj4yphmm@jpeg",
+          "title": "RFK Jr.’s Lawyer Has Asked the FDA to Revoke Polio Vaccine Approval",
+          "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+        }
+      },
+      "indexedAt": "2024-12-13T14:04:12.523Z",
+      "labels": [],
+      "likeCount": 298,
+      "quoteCount": 20,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T14:04:11.279Z",
+        "embed": {
+          "$type": "app.bsky.embed.external",
+          "external": {
+            "description": "Aaron Siri, who specializes in vaccine lawsuits, has been at Robert F. Kennedy Jr.’s side reviewing candidates for top jobs at the Department of Health and Human Services.",
+            "thumb": {
+              "$type": "blob",
+              "mimeType": "image/jpeg",
+              "ref": {
+                "$link": "bafkreiatrpu2szfzsce64npo2g4rf3vi44rih7betvgksdr5hojj4yphmm"
+              },
+              "size": 589547
+            },
+            "title": "RFK Jr.’s Lawyer Has Asked the FDA to Revoke Polio Vaccine Approval",
+            "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+          }
+        },
+        "facets": [
+          {
+            "features": [
+              {
+                "$type": "app.bsky.richtext.facet#link",
+                "uri": "https://www.nytimes.com/2024/12/13/health/aaron-siri-rfk-jr-vaccines.html"
+              }
+            ],
+            "index": {
+              "byteEnd": 74,
+              "byteStart": 43
+            }
+          }
+        ],
+        "langs": [
+          "en"
+        ],
+        "text": "I wonder what McConnell thinks about this. www.nytimes.com/2024/12/13/h..."
+      },
+      "replyCount": 46,
+      "repostCount": 51,
+      "uri": "at://did:plc:6m7rbdgaz5vyg4bnbefi7kh6/app.bsky.feed.post/3ld6xb3uvos2b",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

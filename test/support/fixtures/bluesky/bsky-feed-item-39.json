@@ -1,0 +1,71 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreierrwtdsf5quwprs2xqmmh2lu2k7au2cibyegfpard6wqyjs7nd6i@jpeg",
+      "createdAt": "2023-05-16T02:37:39.269Z",
+      "did": "did:plc:5o6k7jvowuyaquloafzn3cfw",
+      "displayName": "The Tennessee Holler ",
+      "handle": "thetnholler.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkvo4feq2p",
+        "muted": false
+      }
+    },
+    "cid": "bafyreibgfb3qwgxaomqxym5ad6vkjjgo23ftbf6yklvjyn3e2zj5rxkv2u",
+    "embed": {
+      "$type": "app.bsky.embed.images#view",
+      "images": [
+        {
+          "alt": "",
+          "aspectRatio": {
+            "height": 2000,
+            "width": 2000
+          },
+          "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreiczz62czzxwdodmzaoqpdmfjoq2rx4fudlh4lvb2bdroltzpphkaa@jpeg",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreiczz62czzxwdodmzaoqpdmfjoq2rx4fudlh4lvb2bdroltzpphkaa@jpeg"
+        }
+      ]
+    },
+    "indexedAt": "2024-12-13T22:50:16.725Z",
+    "labels": [],
+    "likeCount": 206,
+    "quoteCount": 4,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:50:13.750Z",
+      "embed": {
+        "$type": "app.bsky.embed.images",
+        "images": [
+          {
+            "alt": "",
+            "aspectRatio": {
+              "height": 2000,
+              "width": 2000
+            },
+            "image": {
+              "$type": "blob",
+              "mimeType": "image/jpeg",
+              "ref": {
+                "$link": "bafkreiczz62czzxwdodmzaoqpdmfjoq2rx4fudlh4lvb2bdroltzpphkaa"
+              },
+              "size": 902667
+            }
+          }
+        ]
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "Ed policy researcher calls 💩 on @govbilllee implying his voucher scam will help students with autism 👇🏽\n\nVoucher schools don’t have those resources, and the ones that do charge extra. Implying otherwise is shameless. \n\nSupport public schools."
+    },
+    "replyCount": 7,
+    "repostCount": 51,
+    "uri": "at://did:plc:5o6k7jvowuyaquloafzn3cfw/app.bsky.feed.post/3ld7unq74as2s",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

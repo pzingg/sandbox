@@ -1,0 +1,76 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:k7c4kflfshpz6l7hb2wmahaa/bafkreiapipxatvam3qjbm7t7z2cp52n6i5f354p5qz4hihzmvwqqpavc74@jpeg",
+      "createdAt": "2024-11-11T17:30:41.419Z",
+      "did": "did:plc:k7c4kflfshpz6l7hb2wmahaa",
+      "displayName": "Stephanie Zacharek",
+      "handle": "szacharek.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazasqoh5g2l",
+        "muted": false
+      }
+    },
+    "cid": "bafyreig2scm7tr4apbrri2ee2mempvaoufzqvnw7vg3nkyyfwsrztf7tiq",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "From Daniel Craig in 'Queer' to Mikey Madison in 'Anora'",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:k7c4kflfshpz6l7hb2wmahaa/bafkreicz4ng44fawwzov7du5d6b64bbn5s2rlw3lovk7jtfd2fuvmkkupy@jpeg",
+        "title": "The 10 Best Movie Performances of 2024",
+        "uri": "https://time.com/7201920/best-movie-performances-2024/"
+      }
+    },
+    "indexedAt": "2024-12-13T22:48:30.219Z",
+    "labels": [],
+    "likeCount": 6,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:48:28.926Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "From Daniel Craig in 'Queer' to Mikey Madison in 'Anora'",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreicz4ng44fawwzov7du5d6b64bbn5s2rlw3lovk7jtfd2fuvmkkupy"
+            },
+            "size": 465249
+          },
+          "title": "The 10 Best Movie Performances of 2024",
+          "uri": "https://time.com/7201920/best-movie-performances-2024/"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://time.com/7201920/best-movie-performances-2024/"
+            }
+          ],
+          "index": {
+            "byteEnd": 130,
+            "byteStart": 106
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "From Marianne Jean-Baptiste to Edward Norton to Pamela Anderson: 10 of my favorite performances from 2024 time.com/7201920/best..."
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:k7c4kflfshpz6l7hb2wmahaa/app.bsky.feed.post/3ld7ukma43k2m",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

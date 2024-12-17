@@ -1,0 +1,149 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:up4u5facc2uzz7i5pcrfu3eh/bafkreidpmjbxldcrj5cmuvp5iesw3khcaqgiheolzzfystedslgikt4qfm@jpeg",
+      "createdAt": "2023-05-01T15:22:49.273Z",
+      "did": "did:plc:up4u5facc2uzz7i5pcrfu3eh",
+      "displayName": "Gabriella \"Biella\" Coleman",
+      "handle": "biella.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaw5gurz2j",
+        "muted": false
+      }
+    },
+    "cid": "bafyreifplaneaetxy6fdm6bx37cl5ib6uww3r4nm75zir56j46y7fjxxwe",
+    "embed": {
+      "$type": "app.bsky.embed.recordWithMedia#view",
+      "media": {
+        "$type": "app.bsky.embed.external#view",
+        "external": {
+          "description": "In February 1897 a New York City lawyer named Bradley Martin and his wife, Cornelia, decided to host a costume ball at the Waldorf Hotel. New York had",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:up4u5facc2uzz7i5pcrfu3eh/bafkreicd4lyqqirai74jqdu2vurty5ahyvn2sbngipofl3yt2tzqprkt6q@jpeg",
+          "title": "Conspicuous Destruction | Kim Phillips-Fein",
+          "uri": "https://www.nybooks.com/articles/2023/10/19/conspicuous-destruction-plunder-brendan-ballou/"
+        }
+      },
+      "record": {
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:up4u5facc2uzz7i5pcrfu3eh/bafkreidpmjbxldcrj5cmuvp5iesw3khcaqgiheolzzfystedslgikt4qfm@jpeg",
+            "createdAt": "2023-05-01T15:22:49.273Z",
+            "did": "did:plc:up4u5facc2uzz7i5pcrfu3eh",
+            "displayName": "Gabriella \"Biella\" Coleman",
+            "handle": "biella.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lazaw5gurz2j",
+              "muted": false
+            }
+          },
+          "cid": "bafyreiae52x5ohzaxoit7z5wzwmnxp5dvysvlcjqjrdcaiwcghhbezuqia",
+          "embeds": [],
+          "indexedAt": "2024-12-13T23:13:57.425Z",
+          "labels": [],
+          "likeCount": 0,
+          "quoteCount": 1,
+          "replyCount": 1,
+          "repostCount": 0,
+          "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld7vy5jcrs2h",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-13T23:13:57.004Z",
+            "facets": [
+              {
+                "$type": "app.bsky.richtext.facet",
+                "features": [
+                  {
+                    "$type": "app.bsky.richtext.facet#mention",
+                    "did": "did:plc:t3k3ngh34buqimtjjjhtu2xz"
+                  }
+                ],
+                "index": {
+                  "byteEnd": 296,
+                  "byteStart": 272
+                }
+              }
+            ],
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreia4expdvlfkurxnmqg7nik5p6fivzrg5pksfvvxlsdh67znp7enjm",
+                "uri": "at://did:plc:we2cg67ujqcjgmdr27qly6mr/app.bsky.feed.post/3ld5bjniroc2q"
+              },
+              "root": {
+                "cid": "bafyreia4expdvlfkurxnmqg7nik5p6fivzrg5pksfvvxlsdh67znp7enjm",
+                "uri": "at://did:plc:we2cg67ujqcjgmdr27qly6mr/app.bsky.feed.post/3ld5bjniroc2q"
+              }
+            },
+            "text": "Agree, w/ small tweak: The US breeds different grim flavors of corporate control, from anonymous private equity vultures, to traditional monopolies, to Silicon Valley's ideological billionaire shadow-kings (Musk, Thiel, Andreessen) pushing ideology as they exploit us :(  @johngpettus.bsky.social‬"
+          }
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T23:18:28.524Z",
+    "labels": [],
+    "likeCount": 0,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:18:26.688Z",
+      "embed": {
+        "$type": "app.bsky.embed.recordWithMedia",
+        "media": {
+          "$type": "app.bsky.embed.external",
+          "external": {
+            "description": "In February 1897 a New York City lawyer named Bradley Martin and his wife, Cornelia, decided to host a costume ball at the Waldorf Hotel. New York had",
+            "thumb": {
+              "$type": "blob",
+              "mimeType": "image/jpeg",
+              "ref": {
+                "$link": "bafkreicd4lyqqirai74jqdu2vurty5ahyvn2sbngipofl3yt2tzqprkt6q"
+              },
+              "size": 641225
+            },
+            "title": "Conspicuous Destruction | Kim Phillips-Fein",
+            "uri": "https://www.nybooks.com/articles/2023/10/19/conspicuous-destruction-plunder-brendan-ballou/"
+          }
+        },
+        "record": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreiae52x5ohzaxoit7z5wzwmnxp5dvysvlcjqjrdcaiwcghhbezuqia",
+            "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld7vy5jcrs2h"
+          }
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://www.nybooks.com/articles/2023/10/19/conspicuous-destruction-plunder-brendan-ballou/"
+            }
+          ],
+          "index": {
+            "byteEnd": 104,
+            "byteStart": 73
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "For those interested in private equity: these 2 books are the way to go: www.nybooks.com/articles/202... For the SV story, we don't yet have anything specific, substantial and good (no the California Ideology does get us to the reactionary turn, we need specifics)"
+    },
+    "replyCount": 0,
+    "repostCount": 0,
+    "uri": "at://did:plc:up4u5facc2uzz7i5pcrfu3eh/app.bsky.feed.post/3ld7wa6pg2s2h",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

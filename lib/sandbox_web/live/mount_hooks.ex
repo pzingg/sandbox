@@ -11,13 +11,9 @@ defmodule SandboxWeb.MountHooks do
   In router: `live_session :authenticated, on_mount: SandboxWeb.Authenticated`
   """
   def on_mount(:user, params, session, socket) do
-    Logger.debug("on_mount user, session has #{inspect(session)}")
-    Logger.debug("on_mount user, params are #{inspect(params)}")
-    Logger.debug("on_mount user, socket.assigns are #{inspect(socket.assigns)}")
-
     case get_user(Map.merge(session, params)) do
       {:ok, user} ->
-        Logger.debug("Assigning user")
+        Logger.debug("Assigning user in :user mount")
         {:cont, assign(socket, :current_user, user)}
 
       {:error, reason} ->
@@ -26,12 +22,10 @@ defmodule SandboxWeb.MountHooks do
     end
   end
 
-  def on_mount(tag, params, session, socket) do
-    Logger.debug("on_mount #{tag}, session has #{inspect(session)}")
-
+  def on_mount(name, params, session, socket) do
     case get_user(Map.merge(session, params)) do
       {:ok, user} ->
-        Logger.debug("Assigning user")
+        Logger.debug("Assigning user in #{inspect(name)} mount")
         {:cont, assign(socket, :current_user, user)}
 
       _ ->

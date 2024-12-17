@@ -1,0 +1,115 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:2orsuabrdskjpuglpru77po2/bafkreibsthdhwjpav5d65f57wmag7f3itao4erasw6cdofwf6t2zf2krma@jpeg",
+      "createdAt": "2023-05-22T19:43:09.324Z",
+      "did": "did:plc:2orsuabrdskjpuglpru77po2",
+      "displayName": "Oliver Willis",
+      "handle": "owillis.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kwkbdwplak24",
+        "muted": false
+      }
+    },
+    "cid": "bafyreifgzeuev7yjyaz7ppwrad7xmmuedpi4cjej4yoozmccuxyke34auy",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "following"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:eclio37ymobqex2ncko63h4r/bafkreidvvqj5jymmpaeklwkpq6gi532el447mjy2yultuukypzqm5ohfju@jpeg",
+          "createdAt": "2023-06-05T18:50:31.498Z",
+          "did": "did:plc:eclio37ymobqex2ncko63h4r",
+          "displayName": "The New York Times",
+          "handle": "nytimes.com",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreibz5kxdc4mfkspz3uyu3hupkc5k4nmo6gi4raio3rzqbpmi5nzxta",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.external#view",
+            "external": {
+              "description": "Thomas O’Brien, an epidemiologist, and Ruth O’Brien, a lawyer, juggled successful careers with raising six children, including the comedy star.",
+              "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:eclio37ymobqex2ncko63h4r/bafkreigdgsnlronv4kw2rmrkw7vclilqb3prfboh3l7rb3cfgozmhrui3m@jpeg",
+              "title": "Conan O’Brien’s Parents Die 3 Days Apart",
+              "uri": "https://www.nytimes.com/2024/12/13/arts/television/conan-obrien-parents-dead.html?smtyp=cur&smid=bsky-nytimes"
+            }
+          }
+        ],
+        "indexedAt": "2024-12-13T22:44:16.124Z",
+        "labels": [],
+        "likeCount": 678,
+        "quoteCount": 37,
+        "replyCount": 44,
+        "repostCount": 63,
+        "uri": "at://did:plc:eclio37ymobqex2ncko63h4r/app.bsky.feed.post/3ld7ud22fu22z",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T22:44:14.984Z",
+          "embed": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "description": "Thomas O’Brien, an epidemiologist, and Ruth O’Brien, a lawyer, juggled successful careers with raising six children, including the comedy star.",
+              "thumb": {
+                "$type": "blob",
+                "mimeType": "image/jpeg",
+                "ref": {
+                  "$link": "bafkreigdgsnlronv4kw2rmrkw7vclilqb3prfboh3l7rb3cfgozmhrui3m"
+                },
+                "size": 252485
+              },
+              "title": "Conan O’Brien’s Parents Die 3 Days Apart",
+              "uri": "https://www.nytimes.com/2024/12/13/arts/television/conan-obrien-parents-dead.html?smtyp=cur&smid=bsky-nytimes"
+            }
+          },
+          "langs": [
+            "en"
+          ],
+          "text": "The parents of Conan O’Brien — Thomas Francis O’Brien, 95, an epidemiologist, and Ruth Reardon O’Brien, 92, a lawyer who made strides for women in the legal field — both died at their home in Massachusetts, three days apart. They were married for 66 years."
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T23:09:45.222Z",
+    "labels": [],
+    "likeCount": 49,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:09:44.911Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreibz5kxdc4mfkspz3uyu3hupkc5k4nmo6gi4raio3rzqbpmi5nzxta",
+          "uri": "at://did:plc:eclio37ymobqex2ncko63h4r/app.bsky.feed.post/3ld7ud22fu22z"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "Sad. RIP. I loved the stories Conan told about them."
+    },
+    "replyCount": 1,
+    "repostCount": 4,
+    "uri": "at://did:plc:2orsuabrdskjpuglpru77po2/app.bsky.feed.post/3ld7vqn427k2z",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

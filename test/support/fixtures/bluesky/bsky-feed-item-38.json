@@ -1,0 +1,189 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nvfposmpmhegtyvhbs75s3pw/bafkreiefjdjiahsa4upn3zabt4bxjfculjcxsdrxzc75nqlylfx7xo2izy@jpeg",
+      "createdAt": "2023-04-27T16:31:46.732Z",
+      "did": "did:plc:nvfposmpmhegtyvhbs75s3pw",
+      "displayName": "jamelle",
+      "handle": "jamellebouie.net",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3k6ohbaxgxp22",
+        "muted": false
+      }
+    },
+    "cid": "bafyreicrojc7qf4jez5m5yhxlfndo4gtpag2clh2qccllntudlns7vp4my",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "This interview with “New York Times” columnist Jamelle Bouie was recorded in 2022.",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:nvfposmpmhegtyvhbs75s3pw/bafkreicdl6qixncin3jdlut75fhir5pedelx4mzztxq2evn55kqhp2pzam@jpeg",
+        "title": "Jamelle Bouie on Yaphet Kotto",
+        "uri": "https://www.criterionchannel.com/videos/jamelle-bouie-on-yaphet-kotto"
+      }
+    },
+    "indexedAt": "2024-12-13T22:50:56.628Z",
+    "labels": [],
+    "likeCount": 206,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:50:54.682Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "This interview with “New York Times” columnist Jamelle Bouie was recorded in 2022.",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreicdl6qixncin3jdlut75fhir5pedelx4mzztxq2evn55kqhp2pzam"
+            },
+            "size": 445834
+          },
+          "title": "Jamelle Bouie on Yaphet Kotto",
+          "uri": "https://www.criterionchannel.com/videos/jamelle-bouie-on-yaphet-kotto"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "reply": {
+        "parent": {
+          "cid": "bafyreigwhbhhroexzxfzqtvjaal6oczmejvpa3mh7qkiwnisfsxeriylle",
+          "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7trirjsk2q"
+        },
+        "root": {
+          "cid": "bafyreihhkclhm7wpfokplow2s5f6xpus3z3cgzak3plqk3ckk4cdxoondm",
+          "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7pu3z2jc2q"
+        }
+      },
+      "text": "if you’re interested i intro’ed the criterion series on yaphet kotto a few years ago"
+    },
+    "replyCount": 7,
+    "repostCount": 7,
+    "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7uoxa6xc27",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reply": {
+    "grandparentAuthor": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nvfposmpmhegtyvhbs75s3pw/bafkreiefjdjiahsa4upn3zabt4bxjfculjcxsdrxzc75nqlylfx7xo2izy@jpeg",
+      "createdAt": "2023-04-27T16:31:46.732Z",
+      "did": "did:plc:nvfposmpmhegtyvhbs75s3pw",
+      "displayName": "jamelle",
+      "handle": "jamellebouie.net",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3k6ohbaxgxp22",
+        "muted": false
+      }
+    },
+    "parent": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nvfposmpmhegtyvhbs75s3pw/bafkreiefjdjiahsa4upn3zabt4bxjfculjcxsdrxzc75nqlylfx7xo2izy@jpeg",
+        "createdAt": "2023-04-27T16:31:46.732Z",
+        "did": "did:plc:nvfposmpmhegtyvhbs75s3pw",
+        "displayName": "jamelle",
+        "handle": "jamellebouie.net",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3k6ohbaxgxp22",
+          "muted": false
+        }
+      },
+      "cid": "bafyreigwhbhhroexzxfzqtvjaal6oczmejvpa3mh7qkiwnisfsxeriylle",
+      "indexedAt": "2024-12-13T22:34:36.624Z",
+      "labels": [],
+      "likeCount": 280,
+      "quoteCount": 1,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T22:34:26.443Z",
+        "langs": [
+          "en"
+        ],
+        "reply": {
+          "parent": {
+            "cid": "bafyreibsmbovibttlyd2xblcpf4acw5oxalkxcp2tn5bxrkm4spafydqnm",
+            "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7sn5udk22q"
+          },
+          "root": {
+            "cid": "bafyreihhkclhm7wpfokplow2s5f6xpus3z3cgzak3plqk3ckk4cdxoondm",
+            "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7pu3z2jc2q"
+          }
+        },
+        "text": "(i already own the leopard but they asked me to pick a personal favorite and the leopard is a top ten movie for me)"
+      },
+      "replyCount": 15,
+      "repostCount": 1,
+      "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7trirjsk2q",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "root": {
+      "$type": "app.bsky.feed.defs#postView",
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nvfposmpmhegtyvhbs75s3pw/bafkreiefjdjiahsa4upn3zabt4bxjfculjcxsdrxzc75nqlylfx7xo2izy@jpeg",
+        "createdAt": "2023-04-27T16:31:46.732Z",
+        "did": "did:plc:nvfposmpmhegtyvhbs75s3pw",
+        "displayName": "jamelle",
+        "handle": "jamellebouie.net",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3k6ohbaxgxp22",
+          "muted": false
+        }
+      },
+      "cid": "bafyreihhkclhm7wpfokplow2s5f6xpus3z3cgzak3plqk3ckk4cdxoondm",
+      "indexedAt": "2024-12-13T21:24:20.733Z",
+      "labels": [],
+      "likeCount": 1608,
+      "quoteCount": 4,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-13T21:24:18.754Z",
+        "langs": [
+          "en"
+        ],
+        "text": "no pictures but got to make another trip to the criterion closet and picked out a pretty nifty haul"
+      },
+      "replyCount": 36,
+      "repostCount": 11,
+      "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7pu3z2jc2q",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    }
+  }
+}

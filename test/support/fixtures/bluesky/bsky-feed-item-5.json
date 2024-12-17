@@ -1,0 +1,111 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:4fdfjfnhhyeo4hsmoxpeazsg/bafkreib5f25keu6ays7zurzdm4k6hn7uxrfj36c4kseclbcf7xxcjvsayu@jpeg",
+      "createdAt": "2023-05-10T16:07:25.920Z",
+      "did": "did:plc:4fdfjfnhhyeo4hsmoxpeazsg",
+      "displayName": "Susan Rinkunas",
+      "handle": "susanrinkunas.com",
+      "labels": [
+        {
+          "cid": "bafyreidn6z2smxv3zbjyronbjsz5kwmcdiaz2gio5yplzxamipgcah5tga",
+          "cts": "1970-01-01T00:00:00.000Z",
+          "src": "did:plc:4fdfjfnhhyeo4hsmoxpeazsg",
+          "uri": "at://did:plc:4fdfjfnhhyeo4hsmoxpeazsg/app.bsky.actor.profile/self",
+          "val": "!no-unauthenticated"
+        }
+      ],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreicuntsevzfhh3ebbihjdr5wioswna2lech4eomnmimhikliywqjyy",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "Since 2007, Jezebel has been the Internet's most treasured source for everything celebrities, sex, and politics...with teeth.",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:4fdfjfnhhyeo4hsmoxpeazsg/bafkreihmtlgf4r7rjrlsix7leocwghpajwqnk4aga7xjz4ngbxf4y7xreu@jpeg",
+        "title": "Jezebel's Person of the Year Is Anyone Who Donated to an Abortion Fund",
+        "uri": "https://www.jezebel.com/jezebels-person-of-the-year-is-anyone-who-donated-to-an-abortion-fund"
+      }
+    },
+    "indexedAt": "2024-12-13T20:07:32.436Z",
+    "labels": [],
+    "likeCount": 78,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T20:07:26.076Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "Since 2007, Jezebel has been the Internet's most treasured source for everything celebrities, sex, and politics...with teeth.",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreihmtlgf4r7rjrlsix7leocwghpajwqnk4aga7xjz4ngbxf4y7xreu"
+            },
+            "size": 72028
+          },
+          "title": "Jezebel's Person of the Year Is Anyone Who Donated to an Abortion Fund",
+          "uri": "https://www.jezebel.com/jezebels-person-of-the-year-is-anyone-who-donated-to-an-abortion-fund"
+        }
+      },
+      "facets": [
+        {
+          "$type": "app.bsky.richtext.facet",
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#mention",
+              "did": "did:plc:xvb4tcxnqdkp6rtvnnlj5pcr"
+            }
+          ],
+          "index": {
+            "byteEnd": 60,
+            "byteStart": 31
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "Rejoinder to Time Magazine, by @laurentousignant.bsky.social"
+    },
+    "replyCount": 3,
+    "repostCount": 20,
+    "uri": "at://did:plc:4fdfjfnhhyeo4hsmoxpeazsg/app.bsky.feed.post/3ld7lkmze4c2m",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:74bzfmxczflvh3zpn76rtwfi/bafkreigedmtmq7khv2mcydnn7n4iipdfpkckeg7bxf6zqgcjucwdt5dgyy@jpeg",
+      "createdAt": "2023-05-13T11:34:16.033Z",
+      "did": "did:plc:74bzfmxczflvh3zpn76rtwfi",
+      "displayName": "Lyz",
+      "handle": "lyz.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapktlj6s623",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:20:20.230Z"
+  }
+}

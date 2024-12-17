@@ -1,0 +1,71 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreierrwtdsf5quwprs2xqmmh2lu2k7au2cibyegfpard6wqyjs7nd6i@jpeg",
+      "createdAt": "2023-05-16T02:37:39.269Z",
+      "did": "did:plc:5o6k7jvowuyaquloafzn3cfw",
+      "displayName": "The Tennessee Holler ",
+      "handle": "thetnholler.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkvo4feq2p",
+        "muted": false
+      }
+    },
+    "cid": "bafyreiaikhj5iglqxwk2oyv6wp5zrl5aw6hy6a5dwz5xsztoeo7ot2xixu",
+    "embed": {
+      "$type": "app.bsky.embed.images#view",
+      "images": [
+        {
+          "alt": "",
+          "aspectRatio": {
+            "height": 804,
+            "width": 1290
+          },
+          "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreibysaaocnppqx66lgrjsiq7mh3bpux452e7om5skxj6vus2k2fkda@jpeg",
+          "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreibysaaocnppqx66lgrjsiq7mh3bpux452e7om5skxj6vus2k2fkda@jpeg"
+        }
+      ]
+    },
+    "indexedAt": "2024-12-13T22:45:32.322Z",
+    "labels": [],
+    "likeCount": 188,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:45:29.913Z",
+      "embed": {
+        "$type": "app.bsky.embed.images",
+        "images": [
+          {
+            "alt": "",
+            "aspectRatio": {
+              "height": 804,
+              "width": 1290
+            },
+            "image": {
+              "$type": "blob",
+              "mimeType": "image/jpeg",
+              "ref": {
+                "$link": "bafkreibysaaocnppqx66lgrjsiq7mh3bpux452e7om5skxj6vus2k2fkda"
+              },
+              "size": 636293
+            }
+          }
+        ]
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "We agree with TN Conservative news that it’s wildly corrupt that Sen. Bo Watson’s wife is a corporate lobbyist (including on the Titans stadium deal) and he votes on bills that benefit her/them. Should be illegal. \n\nIt’s kinda funny that Bo seems to have voted in their poll tho 👇🏽🫤"
+    },
+    "replyCount": 6,
+    "repostCount": 31,
+    "uri": "at://did:plc:5o6k7jvowuyaquloafzn3cfw/app.bsky.feed.post/3ld7ufbj2pc2s",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

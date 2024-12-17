@@ -1,0 +1,97 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:swuu2eek6kylifhyyt7y7wor/bafkreifx3gu54xnae2fnw76x4jijhbwi7cgn5ciu4odelj7t7j5ybri3aa@jpeg",
+      "createdAt": "2023-05-03T17:09:25.026Z",
+      "did": "did:plc:swuu2eek6kylifhyyt7y7wor",
+      "displayName": "Trevor Timm",
+      "handle": "trevortimm.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreigrrdk6xp232tnqj4x7e4hhqe4o3lkszczpu2uqt42vwfsgv2fpia",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "We warned that the TikTok ban forgets the lessons of the Pentagon Papers case. Last week’s court decision upholding the law proved our point",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:swuu2eek6kylifhyyt7y7wor/bafkreieh43gveguv7gudvvjoonkr22b4j3mccdtq4msncikgmrwtoatru4@jpeg",
+        "title": "‘Who are we to judge,’ ask … judges, upholding TikTok ban",
+        "uri": "https://freedom.press/issues/who-are-we-to-judge-ask-judges-upholding-tiktok-ban/"
+      }
+    },
+    "indexedAt": "2024-12-13T21:11:11.219Z",
+    "labels": [],
+    "likeCount": 59,
+    "quoteCount": 3,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T21:11:08.983Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "We warned that the TikTok ban forgets the lessons of the Pentagon Papers case. Last week’s court decision upholding the law proved our point",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreieh43gveguv7gudvvjoonkr22b4j3mccdtq4msncikgmrwtoatru4"
+            },
+            "size": 624810
+          },
+          "title": "‘Who are we to judge,’ ask … judges, upholding TikTok ban",
+          "uri": "https://freedom.press/issues/who-are-we-to-judge-ask-judges-upholding-tiktok-ban/"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://freedom.press/issues/who-are-we-to-judge-ask-judges-upholding-tiktok-ban/"
+            }
+          ],
+          "index": {
+            "byteEnd": 255,
+            "byteStart": 226
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "By ignoring Supreme Court precedent and upholding the TikTok ban, appeals court judges managed to weaken the First Amendment and handed authorities expansive new powers over speech—just in time for the Trump administration. freedom.press/issues/who-a..."
+    },
+    "replyCount": 1,
+    "repostCount": 19,
+    "uri": "at://did:plc:swuu2eek6kylifhyyt7y7wor/app.bsky.feed.post/3ld7p4kt5rk2r",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:cak4klqoj3bqgk5rj6b4f5do/bafkreifrr5n5p2ixfbupo3eocykh5jzd67dy2tohi7pzllacainjgkkq5e@jpeg",
+      "createdAt": "2023-03-27T23:27:35.019Z",
+      "did": "did:plc:cak4klqoj3bqgk5rj6b4f5do",
+      "displayName": "Mike Masnick",
+      "handle": "mmasnick.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kl5ta5nymi2i",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T22:52:24.034Z"
+  }
+}

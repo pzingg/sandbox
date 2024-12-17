@@ -1,0 +1,59 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:vovinwhtulbsx4mwfw26r5ni/bafkreigxxngb5ecgrleg6cqdzvxh4viycmns5cp6zalfl4o7ivmxiavsma@jpeg",
+      "createdAt": "2024-11-15T10:51:08.071Z",
+      "did": "did:plc:vovinwhtulbsx4mwfw26r5ni",
+      "displayName": "The Guardian",
+      "handle": "theguardian.com",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lb5j2gw4xf2n",
+        "muted": false
+      }
+    },
+    "cid": "bafyreicplf3tfmglmielsx225i7g4zzeppio4jklohfxpxbzruwv7shuqe",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "Residents in several counties of the state have reported sighting drones, sometimes over military facilities\n\nSince about mid-November, hundreds of New Jersey residents have been calling law enforcement and state officials after spotting what appeared to…",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:vovinwhtulbsx4mwfw26r5ni/bafkreibdk6bkxgnyhktxkkjydgq6gnaggchhpleij3zusjwz7gtm4mkpua@jpeg",
+        "title": "What are the flying objects spotted in New Jersey?",
+        "uri": "https://www.theguardian.com/us-news/2024/dec/13/new-jersey-drones?utm_source=dlvr.it&utm_medium=bluesky&CMP=bsky_gu"
+      }
+    },
+    "indexedAt": "2024-12-13T22:51:08.819Z",
+    "labels": [],
+    "likeCount": 50,
+    "quoteCount": 4,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:51:08Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "Residents in several counties of the state have reported sighting drones, sometimes over military facilities\n\nSince about mid-November, hundreds of New Jersey residents have been calling law enforcement and state officials after spotting what appeared to…",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreibdk6bkxgnyhktxkkjydgq6gnaggchhpleij3zusjwz7gtm4mkpua"
+            },
+            "size": 78037
+          },
+          "title": "What are the flying objects spotted in New Jersey?",
+          "uri": "https://www.theguardian.com/us-news/2024/dec/13/new-jersey-drones?utm_source=dlvr.it&utm_medium=bluesky&CMP=bsky_gu"
+        }
+      },
+      "text": "What are the flying objects spotted in New Jersey?"
+    },
+    "replyCount": 16,
+    "repostCount": 10,
+    "uri": "at://did:plc:vovinwhtulbsx4mwfw26r5ni/app.bsky.feed.post/3ld7upegnp725",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nvfposmpmhegtyvhbs75s3pw/bafkreiefjdjiahsa4upn3zabt4bxjfculjcxsdrxzc75nqlylfx7xo2izy@jpeg",
+      "createdAt": "2023-04-27T16:31:46.732Z",
+      "did": "did:plc:nvfposmpmhegtyvhbs75s3pw",
+      "displayName": "jamelle",
+      "handle": "jamellebouie.net",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3k6ohbaxgxp22",
+        "muted": false
+      }
+    },
+    "cid": "bafyreieqrqk6yvsgq7iljb25by2i5poz3mhrddpilcdokhehwfjmxcxufm",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:qz6cc2mh3emtce75fxsoz3gk/bafkreibev3ntkn2f5hgduyya7fmfdv27bphrnpiuwjqdxibu7l7ic6nxly@jpeg",
+          "createdAt": "2024-11-15T19:56:15.262Z",
+          "did": "did:plc:qz6cc2mh3emtce75fxsoz3gk",
+          "displayName": "NotSurprised",
+          "handle": "notsurprised24.bsky.social",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreig4g2fq7rr7bberrpa3x34z5uhjqisk3aaqre4yburv3wurfks54m",
+        "embeds": [],
+        "indexedAt": "2024-12-13T22:53:33.433Z",
+        "labels": [],
+        "likeCount": 4,
+        "quoteCount": 3,
+        "replyCount": 12,
+        "repostCount": 0,
+        "uri": "at://did:plc:qz6cc2mh3emtce75fxsoz3gk/app.bsky.feed.post/3ld7utodt6s2v",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T22:53:33.135Z",
+          "langs": [
+            "en"
+          ],
+          "reply": {
+            "parent": {
+              "cid": "bafyreicrojc7qf4jez5m5yhxlfndo4gtpag2clh2qccllntudlns7vp4my",
+              "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7uoxa6xc27"
+            },
+            "root": {
+              "cid": "bafyreihhkclhm7wpfokplow2s5f6xpus3z3cgzak3plqk3ckk4cdxoondm",
+              "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7pu3z2jc2q"
+            }
+          },
+          "text": "Serious question: why do you write your posts without capitalization or punctuation?"
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T22:55:42.317Z",
+    "labels": [],
+    "likeCount": 1264,
+    "quoteCount": 6,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T22:55:41.878Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreig4g2fq7rr7bberrpa3x34z5uhjqisk3aaqre4yburv3wurfks54m",
+          "uri": "at://did:plc:qz6cc2mh3emtce75fxsoz3gk/app.bsky.feed.post/3ld7utodt6s2v"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "this seems to bother quite a few people but the answer is that i’m just yapping and i don’t feel the need to add punctuation or capitalization when it isn’t necessary for meaning"
+    },
+    "replyCount": 86,
+    "repostCount": 38,
+    "uri": "at://did:plc:nvfposmpmhegtyvhbs75s3pw/app.bsky.feed.post/3ld7uxj4qrk2j",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

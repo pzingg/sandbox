@@ -1,0 +1,124 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "all"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xvouj2djsp32iz2qpeafvnki/bafkreig5med5yp73ytv73s7sgr5q7ssiupiruy2pv466f42ou6qigaz5je@jpeg",
+      "createdAt": "2023-07-05T19:51:30.305Z",
+      "did": "did:plc:xvouj2djsp32iz2qpeafvnki",
+      "displayName": "Rachel Bitecofer",
+      "handle": "rachelbitecofer.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3laplpf3ydr2w",
+        "muted": false
+      }
+    },
+    "cid": "bafyreiextndwibw3lsfimforka7stob6qhuuc5gydfcm6hqkna7mrh4one",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "none"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:sx23ba2gptu5o6pkoapa5rvy/bafkreidky45m67yp7gxb5kwvey46iljipmu6bedcenh2iajwqwr7waa7cy@jpeg",
+          "createdAt": "2024-11-14T20:22:42.160Z",
+          "did": "did:plc:sx23ba2gptu5o6pkoapa5rvy",
+          "displayName": "Michael LaFond",
+          "handle": "michaellafond.bsky.social",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "muted": false
+          }
+        },
+        "cid": "bafyreig3g5trcpnaist64bqqoe5svyttapi3lwt6aaeatao7vhfecxahva",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.images#view",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 900,
+                  "width": 1600
+                },
+                "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:sx23ba2gptu5o6pkoapa5rvy/bafkreidsapzgtw3elhlhkgbspb5i5uw2qu7jlltdfio7g26i2bxryyelse@jpeg",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:sx23ba2gptu5o6pkoapa5rvy/bafkreidsapzgtw3elhlhkgbspb5i5uw2qu7jlltdfio7g26i2bxryyelse@jpeg"
+              }
+            ]
+          }
+        ],
+        "indexedAt": "2024-12-13T23:17:05.324Z",
+        "labels": [],
+        "likeCount": 8,
+        "quoteCount": 1,
+        "replyCount": 0,
+        "repostCount": 3,
+        "uri": "at://did:plc:sx23ba2gptu5o6pkoapa5rvy/app.bsky.feed.post/3ld7w5owhq22e",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T23:17:03.031Z",
+          "embed": {
+            "$type": "app.bsky.embed.images",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 900,
+                  "width": 1600
+                },
+                "image": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": {
+                    "$link": "bafkreidsapzgtw3elhlhkgbspb5i5uw2qu7jlltdfio7g26i2bxryyelse"
+                  },
+                  "size": 717928
+                }
+              }
+            ]
+          },
+          "langs": [
+            "en"
+          ],
+          "text": "Do you know what it means that business leaders, media personalities, and even leaders of nations are going to Mar-a-Lago? It means that we are fucked. Everything Trump said, he will do, because no one is willing to stop him."
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T23:22:15.022Z",
+    "labels": [],
+    "likeCount": 5,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:22:14.591Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreig3g5trcpnaist64bqqoe5svyttapi3lwt6aaeatao7vhfecxahva",
+          "uri": "at://did:plc:sx23ba2gptu5o6pkoapa5rvy/app.bsky.feed.post/3ld7w5owhq22e"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "👇👇👇"
+    },
+    "replyCount": 0,
+    "repostCount": 1,
+    "uri": "at://did:plc:xvouj2djsp32iz2qpeafvnki/app.bsky.feed.post/3ld7wgy2iks2b",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

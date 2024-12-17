@@ -13,6 +13,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        'timeline-2': '3rem auto',
+        'dl-2': '1fr / auto auto'
+      },
       colors: {
         brand: "#FD4F00",
         transparent: 'transparent',

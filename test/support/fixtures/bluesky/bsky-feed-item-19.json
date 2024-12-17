@@ -1,0 +1,81 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:f6hdxggxx4qfijx4sd3dnbkg/bafkreifstudt7echrwupomcsuz7yw3nqpmz5ktykorpjk7chpi5qvddkwm@jpeg",
+      "createdAt": "2023-06-06T14:16:53.147Z",
+      "did": "did:plc:f6hdxggxx4qfijx4sd3dnbkg",
+      "displayName": "Daniel Drezner",
+      "handle": "dandrezner.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3kwatcoyysb2y",
+        "muted": false
+      }
+    },
+    "cid": "bafyreicc6vl776fqhggnfy4vutvm7obdyw4ehiq24cbcj6l32yvuklxd2u",
+    "embed": {
+      "$type": "app.bsky.embed.external#view",
+      "external": {
+        "description": "YouTube video by TopMovieClips",
+        "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:f6hdxggxx4qfijx4sd3dnbkg/bafkreiangkwfuj2f3o3ykzbep4qvon5bm3hyzva3dsf2fzmaisvpomam4m@jpeg",
+        "title": "\"On Your Left\" Steve Rogers & Sam Wilson - Running Scene - Captain America: The Winter Soldier",
+        "uri": "https://youtu.be/7UGu2sRmSHI?si=AAwedK42STlQsdz5"
+      }
+    },
+    "indexedAt": "2024-12-13T23:06:51.718Z",
+    "labels": [],
+    "likeCount": 15,
+    "quoteCount": 0,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T23:06:50.442Z",
+      "embed": {
+        "$type": "app.bsky.embed.external",
+        "external": {
+          "description": "YouTube video by TopMovieClips",
+          "thumb": {
+            "$type": "blob",
+            "mimeType": "image/jpeg",
+            "ref": {
+              "$link": "bafkreiangkwfuj2f3o3ykzbep4qvon5bm3hyzva3dsf2fzmaisvpomam4m"
+            },
+            "size": 356236
+          },
+          "title": "\"On Your Left\" Steve Rogers & Sam Wilson - Running Scene - Captain America: The Winter Soldier",
+          "uri": "https://youtu.be/7UGu2sRmSHI?si=AAwedK42STlQsdz5"
+        }
+      },
+      "facets": [
+        {
+          "features": [
+            {
+              "$type": "app.bsky.richtext.facet#link",
+              "uri": "https://youtu.be/7UGu2sRmSHI?si=AAwedK42STlQsdz5"
+            }
+          ],
+          "index": {
+            "byteEnd": 65,
+            "byteStart": 41
+          }
+        }
+      ],
+      "langs": [
+        "en"
+      ],
+      "text": "“No polio’s good.” Yes, yes it is. youtu.be/7UGu2sRmSHI?..."
+    },
+    "replyCount": 1,
+    "repostCount": 2,
+    "uri": "at://did:plc:f6hdxggxx4qfijx4sd3dnbkg/app.bsky.feed.post/3ld7vlgpqbs2w",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

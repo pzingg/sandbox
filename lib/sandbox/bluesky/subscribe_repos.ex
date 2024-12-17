@@ -108,7 +108,7 @@ defmodule Sandbox.Bluesky.SubscribeRepos do
       attrs = Map.merge(rest, %{ops: ops, blocks: blocks})
       commit = struct(__MODULE__, attrs)
 
-      _ = Logger.info("commit: #{inspect(commit)}")
+      _ = Logger.debug("commit: #{inspect(commit)}")
 
       {:ok, commit}
     end

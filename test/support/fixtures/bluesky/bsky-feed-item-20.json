@@ -1,0 +1,151 @@
+{
+  "post": {
+    "author": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:mnk6k2i3zqwtp4c3aog7uez7/bafkreiegihqe446gon5lvfwuz6m3bu3wbfukw5nyv7kpsowlfbfnyycrc4@jpeg",
+      "createdAt": "2024-11-22T18:03:29.416Z",
+      "did": "did:plc:mnk6k2i3zqwtp4c3aog7uez7",
+      "displayName": "EconProf1",
+      "handle": "econprof1.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "muted": false
+      }
+    },
+    "cid": "bafyreihjyescxwp3gxmiyufejrvwkex6ioqlzenlsn34cdnj3q3hfuchti",
+    "embed": {
+      "$type": "app.bsky.embed.record#view",
+      "record": {
+        "$type": "app.bsky.embed.record#viewRecord",
+        "author": {
+          "associated": {
+            "chat": {
+              "allowIncoming": "all"
+            }
+          },
+          "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:k4jt6heuiamymgi46yeuxtpt/bafkreidko5lm3nqgotjllgsqmy5oxexmam2kibrv6uplbxjiwqec2wn7ry@jpeg",
+          "createdAt": "2023-07-07T02:56:43.623Z",
+          "did": "did:plc:k4jt6heuiamymgi46yeuxtpt",
+          "displayName": "ProPublica",
+          "handle": "propublica.org",
+          "labels": [],
+          "viewer": {
+            "blockedBy": false,
+            "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkvqnot22u",
+            "muted": false
+          }
+        },
+        "cid": "bafyreihbzhc3kixcmc4bcpw3jqun5t4ypilwmcmnmpuxmpq32jxffm6fky",
+        "embeds": [
+          {
+            "$type": "app.bsky.embed.external#view",
+            "external": {
+              "description": "Leaked internal documents show that the insurance giant is culling providers of applied behavior analysis from its network and scrutinizing the medical necessity of therapy. Advocates say the company’s strategy may be illegal.",
+              "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:k4jt6heuiamymgi46yeuxtpt/bafkreifzevnfrmtrjr2ob6jr4as5mqaazlibvokm6cm3g3mnnpuqjitjny@jpeg",
+              "title": "UnitedHealth Is Strategically Limiting Access to Critical Treatment for Kids With Autism",
+              "uri": "https://propub.li/3VBMgyc"
+            }
+          }
+        ],
+        "indexedAt": "2024-12-13T13:00:16.118Z",
+        "labels": [],
+        "likeCount": 908,
+        "quoteCount": 64,
+        "replyCount": 38,
+        "repostCount": 311,
+        "uri": "at://did:plc:k4jt6heuiamymgi46yeuxtpt/app.bsky.feed.post/3ld6torm7sr2l",
+        "value": {
+          "$type": "app.bsky.feed.post",
+          "createdAt": "2024-12-13T13:00:13.000Z",
+          "embed": {
+            "$type": "app.bsky.embed.external",
+            "external": {
+              "description": "Leaked internal documents show that the insurance giant is culling providers of applied behavior analysis from its network and scrutinizing the medical necessity of therapy. Advocates say the company’s strategy may be illegal.",
+              "thumb": {
+                "$type": "blob",
+                "mimeType": "image/jpeg",
+                "ref": {
+                  "$link": "bafkreifzevnfrmtrjr2ob6jr4as5mqaazlibvokm6cm3g3mnnpuqjitjny"
+                },
+                "size": 107956
+              },
+              "title": "UnitedHealth Is Strategically Limiting Access to Critical Treatment for Kids With Autism",
+              "uri": "https://propub.li/3VBMgyc"
+            }
+          },
+          "facets": [
+            {
+              "features": [
+                {
+                  "$type": "app.bsky.richtext.facet#link",
+                  "uri": "https://propub.li/3VBMgyc"
+                }
+              ],
+              "index": {
+                "byteEnd": 242,
+                "byteStart": 225
+              }
+            },
+            {
+              "features": [
+                {
+                  "$type": "app.bsky.richtext.facet#mention",
+                  "did": "did:plc:pgr2z6hxsr2ynubld4kct6xg"
+                }
+              ],
+              "index": {
+                "byteEnd": 271,
+                "byteStart": 246
+              }
+            }
+          ],
+          "langs": [],
+          "text": "\"Yes, this therapy can be expensive,” said Dan Unumb, an attorney and president of the Autism Legal Resource Center. “But solving the problem by denying kids access to medically necessary care is a terrible solution.”\n\npropub.li/3VBMgyc\nBy @anniewaldman.bsky.social"
+        }
+      }
+    },
+    "indexedAt": "2024-12-13T16:20:15.719Z",
+    "labels": [],
+    "likeCount": 57,
+    "quoteCount": 1,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-13T16:20:14.845Z",
+      "embed": {
+        "$type": "app.bsky.embed.record",
+        "record": {
+          "cid": "bafyreihbzhc3kixcmc4bcpw3jqun5t4ypilwmcmnmpuxmpq32jxffm6fky",
+          "uri": "at://did:plc:k4jt6heuiamymgi46yeuxtpt/app.bsky.feed.post/3ld6torm7sr2l"
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "Insurance companies would much rather go back to the gold old days of being able to deny coverage based on preexisting conditions."
+    },
+    "replyCount": 2,
+    "repostCount": 17,
+    "uri": "at://did:plc:mnk6k2i3zqwtp4c3aog7uez7/app.bsky.feed.post/3ld76ufb5522x",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  },
+  "reason": {
+    "$type": "app.bsky.feed.defs#reasonRepost",
+    "by": {
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreierrwtdsf5quwprs2xqmmh2lu2k7au2cibyegfpard6wqyjs7nd6i@jpeg",
+      "createdAt": "2023-05-16T02:37:39.269Z",
+      "did": "did:plc:5o6k7jvowuyaquloafzn3cfw",
+      "displayName": "The Tennessee Holler ",
+      "handle": "thetnholler.bsky.social",
+      "labels": [],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkvo4feq2p",
+        "muted": false
+      }
+    },
+    "indexedAt": "2024-12-13T23:03:46.121Z"
+  }
+}

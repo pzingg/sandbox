@@ -3,25 +3,20 @@ defmodule SandboxWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {did, acc_button_disabled} =
-      if socket.assigns[:current_user] do
-        {socket.assigns.current_user.did, false}
-      else
-        {"", true}
-      end
-
-    {:ok,
-     assign(socket,
-       did: did,
-       acc_button_disabled: acc_button_disabled,
-       query: "",
-       results: %{}
-     )}
+    {:ok, reset_query(socket)}
   end
 
   @impl true
   def handle_event("suggest", %{"q" => query}, socket) do
-    {:noreply, assign(socket, results: search(query), query: query)}
+    results = search(query)
+    lookup_button_disabled = Enum.empty?(results)
+
+    {:noreply,
+     assign(socket,
+       query: query,
+       results: results,
+       lookup_button_disabled: lookup_button_disabled
+     )}
   end
 
   @impl true
@@ -31,10 +26,12 @@ defmodule SandboxWeb.PageLive do
         {:noreply, redirect(socket, external: "https://hexdocs.pm/#{query}/#{vsn}")}
 
       _ ->
-        {:noreply,
-         socket
-         |> put_flash(:error, "No dependencies found matching \"#{query}\"")
-         |> assign(results: %{}, query: query)}
+        socket =
+          socket
+          |> put_flash(:error, "No dependencies found matching \"#{query}\"")
+          |> reset_query()
+
+        {:noreply, socket}
     end
   end
 
@@ -48,5 +45,13 @@ defmodule SandboxWeb.PageLive do
         String.starts_with?(app, query) and not List.starts_with?(desc, ~c"ERTS"),
         into: %{},
         do: {app, vsn}
+  end
+
+  defp reset_query(socket) do
+    assign(socket,
+      query: "",
+      results: %{},
+      lookup_button_disabled: true
+    )
   end
 end

@@ -9,13 +9,19 @@
   }
 
   p {
-    font-weight: 300;
-    font-size: 125%;
-    margin-bottom: 2rem;
+    @apply py-2 font-semibold leading-6 text-zinc-900;
   }
 
-  button {
+  .button {
     @apply block px-8 py-2 mx-auto mt-4 text-sm font-bold text-white uppercase transition duration-150 ease-in-out bg-blue-600 rounded;
+  }
+
+  .button:disabled {
+    @apply bg-gray-300;
+  }
+
+  .button-disabled:hover {
+    @apply bg-gray-300;
   }
 
   input[type="text"] {

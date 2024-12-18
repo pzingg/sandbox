@@ -106,7 +106,7 @@ defmodule SandboxWeb.BlueskyLive do
           <input type="text" name="scope" value={@scope} />
         </div>
         <div>{show_lookup(@lookup)}</div>
-        <button disabled={@disabled}>
+        <button class="button" type="submit" disabled={@disabled}>
           Log in to Bluesky
         </button>
       </form>

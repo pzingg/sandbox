@@ -1,0 +1,185 @@
+{
+  "post": {
+    "author": {
+      "associated": {
+        "chat": {
+          "allowIncoming": "following"
+        }
+      },
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:djdxfzbvmvjmjlj3qu32uy2i/bafkreiherykvw7u465xxt5uwcxa6szq2nhj7b6xp44x2awpnwn5tt2n26a@jpeg",
+      "createdAt": "2023-04-27T15:43:10.126Z",
+      "did": "did:plc:djdxfzbvmvjmjlj3qu32uy2i",
+      "displayName": "Dave Weigel",
+      "handle": "daveweigel.bsky.social",
+      "labels": [
+        {
+          "cid": "bafyreifss23kt2lievspunq2uwxumjzfcdmilv54ieatccm2wukikjypaq",
+          "cts": "1970-01-01T00:00:00.000Z",
+          "src": "did:plc:djdxfzbvmvjmjlj3qu32uy2i",
+          "uri": "at://did:plc:djdxfzbvmvjmjlj3qu32uy2i/app.bsky.actor.profile/self",
+          "val": "!no-unauthenticated"
+        }
+      ],
+      "viewer": {
+        "blockedBy": false,
+        "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3klac3osnel2r",
+        "muted": false
+      }
+    },
+    "cid": "bafyreigxvfgd7wfugqauuspforpgteck7vugu733bi7rppu5dsphago7nm",
+    "embed": {
+      "$type": "app.bsky.embed.recordWithMedia#view",
+      "media": {
+        "$type": "app.bsky.embed.images#view",
+        "images": [
+          {
+            "alt": "",
+            "aspectRatio": {
+              "height": 1412,
+              "width": 1280
+            },
+            "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:djdxfzbvmvjmjlj3qu32uy2i/bafkreihn5b5k3nxf3ldoycng3o2alfy6r5tvhlo4mk72fvewubu7o2e2rq@jpeg",
+            "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:djdxfzbvmvjmjlj3qu32uy2i/bafkreihn5b5k3nxf3ldoycng3o2alfy6r5tvhlo4mk72fvewubu7o2e2rq@jpeg"
+          }
+        ]
+      },
+      "record": {
+        "record": {
+          "$type": "app.bsky.embed.record#viewRecord",
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "following"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:djdxfzbvmvjmjlj3qu32uy2i/bafkreiherykvw7u465xxt5uwcxa6szq2nhj7b6xp44x2awpnwn5tt2n26a@jpeg",
+            "createdAt": "2023-04-27T15:43:10.126Z",
+            "did": "did:plc:djdxfzbvmvjmjlj3qu32uy2i",
+            "displayName": "Dave Weigel",
+            "handle": "daveweigel.bsky.social",
+            "labels": [
+              {
+                "cid": "bafyreifss23kt2lievspunq2uwxumjzfcdmilv54ieatccm2wukikjypaq",
+                "cts": "1970-01-01T00:00:00.000Z",
+                "src": "did:plc:djdxfzbvmvjmjlj3qu32uy2i",
+                "uri": "at://did:plc:djdxfzbvmvjmjlj3qu32uy2i/app.bsky.actor.profile/self",
+                "val": "!no-unauthenticated"
+              }
+            ],
+            "viewer": {
+              "blockedBy": false,
+              "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3klac3osnel2r",
+              "muted": false
+            }
+          },
+          "cid": "bafyreicnqorf4vc6m2m5uwolpqlredeniup6n72zgqb43bn5orkjm5qbwq",
+          "embeds": [
+            {
+              "$type": "app.bsky.embed.external#view",
+              "external": {
+                "description": "The decision by the top Democrat on the House Agriculture Committee to seek a 12th term sets up a clash over who will oversee farm and anti-hunger policy for the party next Congress.",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:djdxfzbvmvjmjlj3qu32uy2i/bafkreib2qha4daic4ku7igicjythvarywfynsusqzbgeenr3hgktwzya2u@jpeg",
+                "title": "‘Exhibit A for term limits’: Some Democrats question Rep. David Scott’s reelection bid",
+                "uri": "https://www.politico.com/news/2024/02/20/david-scott-reelection-questioned-democrats-00142290"
+              }
+            }
+          ],
+          "indexedAt": "2024-12-16T22:24:40.923Z",
+          "labels": [],
+          "likeCount": 316,
+          "quoteCount": 13,
+          "replyCount": 11,
+          "repostCount": 48,
+          "uri": "at://did:plc:djdxfzbvmvjmjlj3qu32uy2i/app.bsky.feed.post/3ldhemrhzis2j",
+          "value": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-16T22:24:39.576Z",
+            "embed": {
+              "$type": "app.bsky.embed.external",
+              "external": {
+                "description": "The decision by the top Democrat on the House Agriculture Committee to seek a 12th term sets up a clash over who will oversee farm and anti-hunger policy for the party next Congress.",
+                "thumb": {
+                  "$type": "blob",
+                  "mimeType": "image/jpeg",
+                  "ref": {
+                    "$link": "bafkreib2qha4daic4ku7igicjythvarywfynsusqzbgeenr3hgktwzya2u"
+                  },
+                  "size": 473824
+                },
+                "title": "‘Exhibit A for term limits’: Some Democrats question Rep. David Scott’s reelection bid",
+                "uri": "https://www.politico.com/news/2024/02/20/david-scott-reelection-questioned-democrats-00142290"
+              }
+            },
+            "facets": [
+              {
+                "features": [
+                  {
+                    "$type": "app.bsky.richtext.facet#link",
+                    "uri": "https://www.politico.com/news/2024/02/20/david-scott-reelection-questioned-democrats-00142290"
+                  }
+                ],
+                "index": {
+                  "byteEnd": 278,
+                  "byteStart": 246
+                }
+              }
+            ],
+            "langs": [
+              "en"
+            ],
+            "text": "Big news in the Dems vs. Geezers story - Minnesota Rep. Angie Craig (52) beat Georgia Rep. David Scott (79) for the ranking member gig on Ag. \n\nScott is too old to do the job, it's an open enough secret that some Ds were angry that he ran again.\nwww.politico.com/news/2024/02..."
+          }
+        }
+      }
+    },
+    "indexedAt": "2024-12-16T23:03:44.019Z",
+    "labels": [],
+    "likeCount": 190,
+    "quoteCount": 6,
+    "record": {
+      "$type": "app.bsky.feed.post",
+      "createdAt": "2024-12-16T23:03:42.284Z",
+      "embed": {
+        "$type": "app.bsky.embed.recordWithMedia",
+        "media": {
+          "$type": "app.bsky.embed.images",
+          "images": [
+            {
+              "alt": "",
+              "aspectRatio": {
+                "height": 1412,
+                "width": 1280
+              },
+              "image": {
+                "$type": "blob",
+                "mimeType": "image/jpeg",
+                "ref": {
+                  "$link": "bafkreihn5b5k3nxf3ldoycng3o2alfy6r5tvhlo4mk72fvewubu7o2e2rq"
+                },
+                "size": 944553
+              }
+            }
+          ]
+        },
+        "record": {
+          "$type": "app.bsky.embed.record",
+          "record": {
+            "cid": "bafyreicnqorf4vc6m2m5uwolpqlredeniup6n72zgqb43bn5orkjm5qbwq",
+            "uri": "at://did:plc:djdxfzbvmvjmjlj3qu32uy2i/app.bsky.feed.post/3ldhemrhzis2j"
+          }
+        }
+      },
+      "langs": [
+        "en"
+      ],
+      "text": "I deleted this post bc 1) AOC did lose the steering committee vote but 2) can still win the job once Oversight members vote. She plans to compete.\n\nIt's not over, but Pelosi's work to rescue Connolly did help him win the steering vote, which often is the ball game."
+    },
+    "replyCount": 13,
+    "repostCount": 38,
+    "uri": "at://did:plc:djdxfzbvmvjmjlj3qu32uy2i/app.bsky.feed.post/3ldhgslnx622v",
+    "viewer": {
+      "embeddingDisabled": false,
+      "threadMuted": false
+    }
+  }
+}

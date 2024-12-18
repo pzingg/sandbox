@@ -33,23 +33,27 @@ ul.examples {
 #sandbox {
   @apply max-w-xl mx-auto;
 
-  button, .button {
+  p {
+    @apply py-2 font-semibold leading-6 text-zinc-900;
+  }
+
+  .button {
     @apply block px-8 py-2 mx-auto mt-4 text-lg font-semibold text-white transition duration-150 ease-in-out bg-green-500 border border-transparent rounded-md outline-none;
   }
 
-  button:disabled, .button:disabled {
+  .button:disabled {
     @apply bg-gray-300;
   }
 
-  button:disabled:hover, .button:disabled:hover .button-disabled:hover {
+  .button-disabled:hover {
     @apply bg-gray-300;
   }
 
-  button:hover, .button:hover {
+  .button:hover {
     @apply bg-green-700;
   }
 
-  button.focus, .button:focus {
+  .button:focus {
     @apply border-green-700 outline-none ring ring-green-300;
   }
 
@@ -84,6 +88,7 @@ ul.examples {
 
   }
 }
+
 
 /*
  * Bluesky styles

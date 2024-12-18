@@ -79,6 +79,11 @@ defmodule Sandbox.Application do
     Keyword.get(bluesky_config, :app_password_file)
   end
 
+  def preferred_language do
+    bluesky_config = Application.get_env(:sandbox, Sandbox.Bluesky, [])
+    Keyword.get(bluesky_config, :preferred_language, "en")
+  end
+
   def set_bluesky_client_scope(nil), do: :ok
 
   def set_bluesky_client_scope(scope) do

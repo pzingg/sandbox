@@ -4,7 +4,18 @@
     Peace of mind from prototype to production.<br />
     Public URL: {Sandbox.Application.public_url()}
   </p>
+  <p>
+    Click
+    <a href={~p"/bluesky"}>
+      <span class="px-2 py-1 rounded-lg bg-zinc-100 hover:bg-zinc-200/80">Login</span>
+    </a>
+    in the navigation bar to log into a Bluesky server using OAuth
+  </p>
 
+  <p>
+    Or start typing the name of a dependency<br />
+    (like "timex") to try a live autocomplete search:
+  </p>
   <form phx-change="suggest" phx-submit="search">
     <input
       type="text"
@@ -19,18 +30,13 @@
         <option value={app}>{app}</option>
       <% end %>
     </datalist>
-    <button type="submit" phx-disable-with="Searching...">Go to Hexdocs</button>
+    <button
+      class="button"
+      type="submit"
+      disabled={@lookup_button_disabled}
+      phx-disable-with="Searching..."
+    >
+      Go to Hexdocs
+    </button>
   </form>
-</section>
-
-<section class="text-center row">
-  <div id="sandbox">
-    <h2>Bluesky Sandbox Navigation</h2>
-    <button type="button" class="button">
-      <.link href={~p"/bluesky"}>Log in to Bluesky</.link>
-    </button>
-    <button type="button" class="button" disabled={@acc_button_disabled}>
-      <.link href={~p"/account"}>Account</.link>
-    </button>
-  </div>
 </section>

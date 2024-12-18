@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
     <.live_title suffix=" · Phoenix Framework">
-      <%= assigns[:page_title] || "Sandbox" %>
+      {assigns[:page_title] || "Sandbox"}
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <link href="//vjs.zencdn.net/8.21.1/video-js.min.css" rel="stylesheet" />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+    <script src="//vjs.zencdn.net/8.21.1/video.min.js">
     </script>
   </head>
   <body class="bg-white">
-    <%= @inner_content %>
+    {@inner_content}
   </body>
 </html>

@@ -13,13 +13,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        'full16x9': '346px',
+        'half16x9': '171px'
+      },
       gridTemplateColumns: {
         'timeline-2': '3rem auto',
         'dl-2': '1fr / auto auto'
       },
       colors: {
-        brand: "#FD4F00",
+        brand: "#fd4f00",
         transparent: 'transparent',
+        bluesky: '#1183fd',
         white: '#ffffff',
         black: '#000000',
         gray: {

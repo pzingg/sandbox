@@ -22,9 +22,28 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+// window.VIDEOJS_NO_DYNAMIC_STYLE = true
+import videojs from "../vendor/videojs/video"
+
+let Hooks = {}
+Hooks.Video = {
+  mounted() {
+    const options = {fluid: true}
+    const id = this.el.id
+    console.log(`mounting video hook at ${id}`)
+    var _player = videojs(id, options, function onPlayerReady() {
+      videojs.log(`${id} player is ready`)
+      this.on('ended', function() {
+        videojs.log(`${id} player ended`);
+      })
+    })
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
+  hooks: Hooks,
   params: {_csrf_token: csrfToken}
 })
 

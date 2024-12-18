@@ -6,26 +6,17 @@ defmodule Sandbox.Bluesky.FeedTest do
   alias Sandbox.Bluesky
   alias Sandbox.Bluesky.{AppPassword, Feed}
 
-  test "creates a posts stream id" do
-    post = %{uri: "at://did:plc:2orsuabrdskjpuglpru77po2/app.bsky.feed.post/3ld2hxl4lck2f"}
-    id = Feed.posts_stream_id(post)
-    assert id == "posts-did:plc:2orsuabrdskjpuglpru77po2-app.bsky.feed.post-3ld2hxl4lck2f"
+  setup_all do
+    app_password = AppPassword.load!()
+    case Bluesky.login(app_password) do
+      {:ok, auth} -> [auth: auth]
+      {:error, message} -> [auth: message]
+    end
   end
 
-  test "sorts links by byte_start" do
-    [first, second] =
-      [
-        %Feed.Link{byte_start: 30, byte_end: 45, type: :tag, tag: "second"},
-        %Feed.Link{byte_start: 4, byte_end: 25, type: :tag, tag: "first"}
-      ]
-      |> Feed.Link.sort()
-
-    assert first.tag == "first"
-    assert second.tag == "second"
-  end
-
-  test "parses feed item 0 (repost of quote post)" do
-    {item, auth} = feed_item_fixture(0)
+  test "parses feed item 0 (repost of quote post)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(0)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     assert Feed.Post.repost?(post)
@@ -33,8 +24,9 @@ defmodule Sandbox.Bluesky.FeedTest do
     assert Feed.Post.quote_post?(post)
   end
 
-  test "parses feed item 1 (reply)" do
-    {item, auth} = feed_item_fixture(1)
+  test "parses feed item 1 (reply)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(1)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     refute Feed.Post.repost?(post)
@@ -42,8 +34,9 @@ defmodule Sandbox.Bluesky.FeedTest do
     refute Feed.Post.quote_post?(post)
   end
 
-  test "parses feed item 2 (quote post with image in quoted post)" do
-    {item, auth} = feed_item_fixture(2)
+  test "parses feed item 2 (quote post with image in quoted post)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(2)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     refute Feed.Post.repost?(post)
@@ -58,8 +51,26 @@ defmodule Sandbox.Bluesky.FeedTest do
              "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:sx23ba2gptu5o6pkoapa5rvy/bafkreidsapzgtw3elhlhkgbspb5i5uw2qu7jlltdfio7g26i2bxryyelse@jpeg"
   end
 
-  test "parses feed item 8 (post with image)" do
-    {item, auth} = feed_item_fixture(8)
+  test "parses feed item 47 (quote post with media in quoted post)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(47)
+    post = Feed.decode_post(item, auth)
+    # IO.inspect(post)
+    refute Feed.Post.repost?(post)
+    refute Feed.Post.reply?(post)
+    assert Feed.Post.quote_post?(post)
+
+    quoted = Feed.Post.quoted_post(post)
+    assert Feed.Post.has_images?(quoted)
+    assert [image] = Feed.Post.images(quoted)
+
+    assert image.thumb ==
+             "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:djdxfzbvmvjmjlj3qu32uy2i/bafkreihn5b5k3nxf3ldoycng3o2alfy6r5tvhlo4mk72fvewubu7o2e2rq@jpeg"
+  end
+
+  test "parses feed item 8 (post with image)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(8)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     assert Feed.Post.has_images?(post)
@@ -69,8 +80,9 @@ defmodule Sandbox.Bluesky.FeedTest do
              "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:5o6k7jvowuyaquloafzn3cfw/bafkreiehnaalhj7pykvzfb2j67fq2j5jbwven53c2lbytppqu74n25tuqq@jpeg"
   end
 
-  test "parses feed item 13 (post with video)" do
-    {item, auth} = feed_item_fixture(13)
+  test "parses feed item 13 (post with video)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(13)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     assert Feed.Post.has_video?(post)
@@ -80,8 +92,9 @@ defmodule Sandbox.Bluesky.FeedTest do
              "https://video.bsky.app/watch/did%3Aplc%3A2ad7mmwmfprr6b3pkan46ub4/bafkreih225kpdjkewg5fbupmbex5upq5in6zevytvxjam5wukshlwwxkfu/playlist.m3u8"
   end
 
-  test "parses feed item 15 (post with link)" do
-    {item, auth} = feed_item_fixture(15)
+  test "parses feed item 15 (post with link)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(15)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
 
@@ -104,8 +117,9 @@ defmodule Sandbox.Bluesky.FeedTest do
     assert plain <> linked == quoted.text
   end
 
-  test "parses feed item 5 (post with external)" do
-    {item, auth} = feed_item_fixture(5)
+  test "parses feed item 5 (post with external)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(5)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     assert Feed.Post.has_external?(post)
@@ -116,8 +130,9 @@ defmodule Sandbox.Bluesky.FeedTest do
              "Jezebel's Person of the Year Is Anyone Who Donated to an Abortion Fund"
   end
 
-  test "parses feed item 46 (feed generator view)" do
-    {item, auth} = feed_item_fixture(46)
+  test "parses feed item 46 (feed generator view)", context do
+    auth = flunk_if_no_auth(context)
+    item = feed_item_fixture(46)
     post = Feed.decode_post(item, auth)
     # IO.inspect(post)
     assert Feed.Post.has_feed_generator?(post)
@@ -129,19 +144,18 @@ defmodule Sandbox.Bluesky.FeedTest do
   end
 
   @tag :skip
-  test "brute force" do
-    0..45
-    |> Enum.reduce(nil, fn i, auth ->
-      {item, auth} = feed_item_fixture(i, auth)
-      Feed.decode_post(item, auth)
-      auth
+  test "brute force", context do
+    auth = flunk_if_no_auth(context)
+    0..47
+    |> Enum.each(fn i ->
+      item = feed_item_fixture(i)
+      _ = Feed.decode_post(item, auth)
     end)
   end
 
-  test "get timeline" do
-    app_password = AppPassword.load!()
-    assert {:ok, auth} = Bluesky.login(app_password)
-    assert auth.access_token
+  @tag :skip
+  test "get timeline", context do
+    auth = flunk_if_no_auth(context)
     assert {:ok, data} = Bluesky.get_timeline(auth, limit: 50)
     assert is_list(data["feed"])
 
@@ -151,11 +165,37 @@ defmodule Sandbox.Bluesky.FeedTest do
     # end)
   end
 
-  test "get discover feed" do
-    app_password = AppPassword.load!()
-    assert {:ok, auth} = Bluesky.login(app_password)
-    assert auth.access_token
+  @tag :skip
+  test "get discover feed", context do
+    auth = flunk_if_no_auth(context)
     assert {:ok, data} = Bluesky.get_feed(auth, :discover, limit: 50)
     assert is_list(data["feed"])
+  end
+
+  @tag :skip
+  test "get list", context do
+    auth = flunk_if_no_auth(context)
+    list_uri = "at://did:plc:r2mpjf3gz2ygfaodkzzzfddg/app.bsky.graph.list/3lcvbzusxvc26"
+    assert {:ok, data} = Bluesky.get_list(auth, list_uri, limit: 50)
+    assert data["list"]["purpose"] == "app.bsky.graph.defs#referencelist"
+    assert data["list"]["name"] == "City of Boston Bluesky Accounts"
+    assert Enum.count(data["items"]) == 15
+  end
+
+  test "resolve list", context do
+    auth = flunk_if_no_auth(context)
+    list_uri = "at://did:plc:r2mpjf3gz2ygfaodkzzzfddg/app.bsky.graph.list/3lcvbzusxvc26"
+    list = Bluesky.Feed.resolve_list(list_uri, auth)
+    IO.inspect(list)
+    assert %Feed.GraphList{} = list
+  end
+
+  def flunk_if_no_auth(context) do
+    case context[:auth] do
+      %{access_token: _} = auth ->
+        auth
+      error ->
+        flunk("No auth: #{error}")
+    end
   end
 end

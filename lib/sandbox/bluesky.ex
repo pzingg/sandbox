@@ -192,6 +192,168 @@ defmodule Sandbox.Bluesky do
     end
   end
 
+  defmodule AtURI do
+    @moduledoc false
+
+    alias Sandbox.Bluesky
+
+    #                  --scheme- --did--------------   --name----------------   --path----   --query--   --fragment--
+    @atp_uri_regex ~r/^(at:\/\/)?((?:did:[a-z0-9:%-]+)|(?:[a-z0-9][a-z0-9.:-]*))(\/[^?#\s]*)?(\?([^#\s]+))?(#([^\s]+))?$/i
+    #                   --path-----   --query--  --fragment--
+    @relative_regex ~r/^(\/[^?#\s]*)?(\?([^#\s]+))?(#([^\s]+))?$/i
+
+    def parse_any("at://" <> _rest = uri) do
+      case parse(uri) do
+        {:ok, uri} -> uri
+        _ -> %URI{}
+      end
+    end
+
+    def parse_any(uri), do: URI.parse(uri)
+
+    def parse(uri, base \\ nil) do
+      result =
+        if is_binary(base) do
+          case parse_absolute(base) do
+            {:ok, parsed} ->
+              case parse_relative(uri) do
+                {:ok, relativep} ->
+                  {:ok, Map.merge(parsed, relativep)}
+
+                :error ->
+                  {:error, "Invalid path: #{uri}"}
+              end
+
+            :error ->
+              {:error, "Invalid at-uri: #{base}"}
+          end
+        else
+          case parse_absolute(uri) do
+            {:ok, parsed} ->
+              {:ok, parsed}
+
+            :error ->
+              {:error, "Invalid at-uri: #{uri}"}
+          end
+        end
+
+      case result do
+        {:ok, parsed} ->
+          {:ok, struct(URI, parsed)}
+
+        error ->
+          error
+      end
+    end
+
+    def parse_absolute(uri) do
+      case Regex.scan(@atp_uri_regex, uri) do
+        [matches] when is_list(matches) ->
+          host = Bluesky.nil_if_empty(Enum.at(matches, 2))
+
+          {:ok,
+           %{
+             scheme: "at",
+             host: host,
+             authority: host,
+             path: Bluesky.nil_if_empty(Enum.at(matches, 3)),
+             query: Bluesky.nil_if_empty(Enum.at(matches, 5)),
+             fragment: Bluesky.nil_if_empty(Enum.at(matches, 7))
+           }}
+
+        _ ->
+          :error
+      end
+    end
+
+    def parse_relative(uri) do
+      case Regex.scan(@relative_regex, uri) do
+        [matches] when is_list(matches) ->
+          relativep =
+            [
+              path: Bluesky.nil_if_empty(Enum.at(matches, 1)),
+              query: Bluesky.nil_if_empty(Enum.at(matches, 3)),
+              fragment: Bluesky.nil_if_empty(Enum.at(matches, 5))
+            ]
+            |> Enum.filter(fn {_, v} -> !is_nil(v) end)
+            |> Map.new()
+
+          {:ok, relativep}
+
+        _ ->
+          :error
+      end
+    end
+
+    def new(handle_or_did, collection \\ nil, rkey \\ nil) do
+      str =
+        if collection do
+          handle_or_did <> "/" <> collection
+        else
+          handle_or_did
+        end
+
+      str =
+        if rkey do
+          str <> "/" <> rkey
+        else
+          str
+        end
+
+      parse(str)
+    end
+
+    def origin(%{scheme: "at"} = at_uri), do: "at://#{at_uri.host}"
+    def origin(_), do: nil
+
+    def did(%{scheme: "at"} = at_uri), do: at_uri.host
+    def did(_), do: nil
+
+    def collection(%{scheme: "at"} = at_uri) do
+      parts = String.split(at_uri.path, "/")
+      Enum.at(parts, 1)
+    end
+
+    def collection(_), do: nil
+
+    def set_collection(%{scheme: "at"} = at_uri, v) do
+      parts = String.split(at_uri.path, "/")
+
+      new_parts =
+        case Enum.take(parts, 3) do
+          [_, _coll, rkey] -> ["", v, rkey]
+          _ -> ["", v]
+        end
+
+      path = (new_parts ++ Enum.drop(parts, 3)) |> Enum.join("/")
+      %URI{at_uri | path: path}
+    end
+
+    def set_collection(uri, _v), do: uri
+
+    def rkey(%{scheme: "at"} = at_uri) do
+      parts = String.split(at_uri.path, "/")
+      Enum.at(parts, 2)
+    end
+
+    def rkey(_), do: nil
+
+    def set_rkey(%{scheme: "at"} = at_uri, v) do
+      parts = String.split(at_uri.path, "/")
+
+      new_parts =
+        case Enum.take(parts, 3) do
+          [_, coll, _rkey] -> ["", coll, v]
+          _ -> ["", "undefined", v]
+        end
+
+      path = (new_parts ++ Enum.drop(parts, 3)) |> Enum.join("/")
+      %URI{at_uri | path: path}
+    end
+
+    def set_rkey(uri, _v), do: uri
+  end
+
   @typedoc "A map or struct with at least a `:pds_url` field"
   @type unauth() :: %{required(:pds_url) => String.t()}
 
@@ -687,6 +849,37 @@ defmodule Sandbox.Bluesky do
   end
 
   @doc """
+  Makes a DPoP authorized request to the `"app.bsky.feed.getAuthorFeed"` xrpc
+  endpoint. On success, returns the response JSON data, and caches the
+  basic profile data.
+
+  ## Options
+
+  - `:limit` (default 50)
+  - `:cursor`
+  - `:filter` (default "posts_with_replies") or "posts_no_replies", "posts_with_media", "posts_and_author_threads"
+  - `:includePins` - true or false
+  """
+  @spec get_author_feed(String.t(), auth(), Keyword.t()) :: {:ok, map()} | {:error, reason()}
+  def get_author_feed(did, %{pds_url: pds_url} = user, opts \\ []) do
+    opts = Keyword.put(opts, :actor, did)
+
+    case xrpc_request(
+           :get,
+           pds_url,
+           "app.bsky.feed.getAuthorFeed",
+           opts,
+           user
+         ) do
+      {:ok, %OAuth2.Response{body: body}} ->
+        {:ok, body}
+
+      error ->
+        error
+    end
+  end
+
+  @doc """
   Makes a DPoP authorized request to the `"app.bsky.feed.getPostThread"` xrpc
   endpoint. On success, returns the response JSON data.
   """
@@ -708,9 +901,48 @@ defmodule Sandbox.Bluesky do
   end
 
   @doc """
-  Makes a DPoP authorized request to the `"app.bsky.feed.getFeed"` (or
-  in the case of the `:following` feed, `"app.bsky.feed.getTimeline"`) xrpc
+  Makes a DPoP authorized request to the `"app.bsky.graph.getList"` xrpc
   endpoint. On success, returns the response JSON data.
+
+  ## Arguments
+
+  - `list` - `at://` URI
+
+  ## Options
+
+  - `:cursor` - cursor as returned from a previous call
+  - `:limit` - number of items to return (default 50)
+  """
+  @spec get_list(auth(), String.t(), Keyword.t()) :: {:ok, map()} | {:error, reason()}
+  def get_list(%{pds_url: pds_url} = user, list, opts \\ []) do
+    opts = Keyword.put(opts, :list, list)
+
+    case xrpc_request(
+           :get,
+           pds_url,
+           "app.bsky.graph.getList",
+           opts,
+           user
+         ) do
+      {:ok, %OAuth2.Response{body: body} = _response} ->
+        # File.write("bsky-feed-#{feed}.json", Jason.encode!(body, pretty: true))
+        {:ok, body}
+
+      error ->
+        error
+    end
+  end
+
+  @doc """
+  Makes a DPoP authorized request to the `"app.bsky.feed.getFeed"` xrpc
+  endpoint. On success, returns the response JSON data.
+
+  Two special feed types:
+
+  - `:me` - calls `"app.bsky.feed.getAuthorFeed"` with the logged-in user's
+    did
+  - `:following` - calls `"app.bsky.feed.getTimeline"` for the logged-in
+    user's did
 
   ## Arguments
 
@@ -723,6 +955,11 @@ defmodule Sandbox.Bluesky do
   """
   @spec get_feed(auth(), atom() | String.t(), Keyword.t()) :: {:ok, map()} | {:error, reason()}
   def get_feed(user, feed, opts \\ [])
+
+  def get_feed(%{did: did, pds_url: _pds_url} = user, :me, opts) do
+    opts = Keyword.merge(opts, filter: "posts_no_replies", includePins: true)
+    get_author_feed(did, user, opts)
+  end
 
   def get_feed(%{pds_url: _pds_url} = user, :following, opts) do
     get_timeline(user, opts)
@@ -836,7 +1073,11 @@ defmodule Sandbox.Bluesky do
 
   def xrpc_request_params(:post, server, nsid, params) do
     url = "#{server}/xrpc/#{URI.encode(nsid)}"
-    headers = [{"Accept", "application/json"}]
+
+    headers = [
+      {"Accept", "application/json"},
+      {"Accept-Language", Sandbox.Application.preferred_language()}
+    ]
 
     {body, headers} =
       if Enum.empty?(params) do
@@ -901,8 +1142,9 @@ defmodule Sandbox.Bluesky do
                     {:error, "Invalid token response: no DPoP-Nonce header"}
                   end
                 else
+                  Logger.error("xrpc error response #{inspect(response)}")
                   error = error_description(response)
-                  {:error, "Xrpc error: #{error}"}
+                  {:error, error}
                 end
             end
 
@@ -949,7 +1191,20 @@ defmodule Sandbox.Bluesky do
     case Req.request(opts, decode_body: false) do
       {:ok, %Req.Response{status: status, headers: resp_headers, body: body}}
       when is_binary(body) ->
-        OAuth2.Request.process_body(fn _content_type -> Jason end, status, resp_headers, body)
+        case OAuth2.Request.process_body(
+               fn _content_type -> Jason end,
+               status,
+               resp_headers,
+               body
+             ) do
+          {:ok, response} ->
+            {:ok, response}
+
+          {:error, %OAuth2.Response{} = response} ->
+            Logger.error("xrpc error response #{inspect(response)}")
+            error = error_description(response)
+            {:error, error}
+        end
 
       {:ok, %Req.Response{body: body}} ->
         {:error, "Response did not return a body #{inspect(body)}"}
@@ -959,8 +1214,29 @@ defmodule Sandbox.Bluesky do
     end
   end
 
-  defp get_dpop_nonce(headers) do
-    case List.keyfind(headers, "dpop-nonce", 0) do
+  def get_dpop_nonce(headers) do
+    case get_response_header(headers, "dpop-nonce") do
+      value when is_binary(value) ->
+        value
+
+      _ ->
+        nil
+    end
+  end
+
+  def get_ratelimit_reset(headers) do
+    case get_response_header(headers, "ratelimit-reset") do
+      value when is_binary(value) ->
+        String.to_integer(value)
+        |> DateTime.from_unix!()
+
+      _ ->
+        nil
+    end
+  end
+
+  defp get_response_header(headers, key) do
+    case List.keyfind(headers, key, 0) do
       {_, value} when is_binary(value) -> value
       {_, [value | _]} when is_binary(value) -> value
       _ -> nil
@@ -1705,30 +1981,68 @@ defmodule Sandbox.Bluesky do
 
   @doc """
   Extracts the error description or other message from an `OAuth2.Response` body
-  or from query string params.
+  or from body or query string params.
   """
   @spec error_description(OAuth2.Response.t() | map()) :: String.t()
+  def error_description(%OAuth2.Response{status_code: 429} = response) do
+    retry_after =
+      get_ratelimit_reset(response.headers)
+      |> local_date()
+
+    "Rate limit exceeded, please retry after #{retry_after}"
+  end
+
+  def error_description(%OAuth2.Response{
+        status_code: 401,
+        body: %{"error_code" => "invalid_token"} = body
+      }) do
+    if String.contains?(Map.get(body, "message", ""), "exp") do
+      "Access token expired, please refresh"
+    else
+      error_description(body)
+    end
+  end
+
   def error_description(%OAuth2.Response{body: %{"error_description" => msg}}), do: msg
   def error_description(%OAuth2.Response{body: %{"message" => msg}}), do: msg
   def error_description(%OAuth2.Response{body: %{"error" => msg}}), do: msg
-  def error_description(%OAuth2.Response{status_code: code}), do: "status #{code}"
+  def error_description(%OAuth2.Response{status_code: status_code}), do: "status #{status_code}"
   def error_description(%{"error_description" => msg}), do: msg
   def error_description(%{"message" => msg}), do: msg
   def error_description(%{"error" => msg}), do: msg
   def error_description(_), do: "An internal error occurred"
+
+  def to_date(nil), do: nil
+
+  def to_date(date_str) do
+    case Timex.parse(date_str, "{RFC3339z}") do
+      {:ok, %DateTime{} = date} -> date
+      _ -> nil
+    end
+  end
+
+  def local_date(nil), do: ""
+
+  def local_date(dt) do
+    tz = Sandbox.Application.timezone()
+
+    dt
+    |> Timex.Timezone.convert(tz)
+    |> Timex.format!("{Mshort} {D} at {h12}:{m}{am}")
+  end
 
   @doc """
   Extracts just the scheme, host and port from a URL.
   """
   @spec get_origin(String.t()) :: String.t()
   def get_origin(url) do
-    uri = URI.parse(url)
+    uri = AtURI.parse_any(url)
     uri = %{uri | fragment: nil, path: nil, query: nil, userinfo: nil}
     URI.to_string(uri)
   end
 
   @doc """
-  Extracts just the host from a URL.
+  Extracts just the host from an (HTTP) URL.
 
   ## Options
 
@@ -1736,26 +2050,15 @@ defmodule Sandbox.Bluesky do
   """
   @spec get_domain(String.t(), Keyword.t()) :: String.t()
   def get_domain(url, opts \\ []) do
-    domain = get_authority(url)
+    uri = URI.parse(url)
 
     case Keyword.get(opts, :level) do
       level when is_integer(level) and level > 1 ->
-        String.split(domain, ".") |> Enum.take(-level) |> Enum.join(".")
+        String.split(uri.host, ".") |> Enum.take(-level) |> Enum.join(".")
 
       _ ->
-        domain
+        uri.host
     end
-  end
-
-  @doc """
-  Extracts just the host from a URL.
-
-  Can be used to get the DID from an "at://" URL.
-  """
-  @spec get_authority(String.t()) :: String.t()
-  def get_authority(url) do
-    uri = URI.parse(url)
-    uri.authority
   end
 
   @reserved_tlds ["", "local", "arpa", "internal", "localhost"]
@@ -1812,4 +2115,21 @@ defmodule Sandbox.Bluesky do
     #{inspect(body)}
     """
   end
+
+  def text_with_br(text) do
+    text
+    |> String.split("\n", trim: false)
+    |> Enum.intersperse({:safe, "<br/>"})
+    |> Enum.filter(fn item -> !(is_binary(item) && item == "") end)
+  end
+
+  def nil_if_empty(str) when is_binary(str) do
+    str = String.trim(str)
+    if str == "", do: nil, else: str
+  end
+
+  def nil_if_empty(value), do: value
+
+  def nil_if_emptylist([_ | _] = list), do: list
+  def nil_if_emptylist(_), do: nil
 end

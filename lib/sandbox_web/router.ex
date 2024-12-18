@@ -46,10 +46,11 @@ defmodule SandboxWeb.Router do
 
     live_session :authenticated, on_mount: {MountHooks, :user} do
       live "/account", AccountLive, :index
-      live "/account/feed/following", AccountLive, :following
-      live "/account/feed/discover", AccountLive, :discover
-      live "/account/feed/friends", AccountLive, :friends
-      live "/account/feed/news", AccountLive, :news
+      live "/feed/me", FeedLive, :me
+      live "/feed/following", FeedLive, :following
+      live "/feed/discover", FeedLive, :discover
+      live "/feed/friends", FeedLive, :friends
+      live "/feed/news", FeedLive, :news
     end
 
     live_session :default, on_mount: MountHooks do

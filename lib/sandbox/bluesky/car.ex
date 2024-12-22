@@ -300,7 +300,7 @@ defmodule Sandbox.Bluesky.CAR do
         cid_string(cid)
 
       {:error, reason} ->
-        Logger.error("failed to decode CID: #{inspect(reason)}")
+        Logger.error("Failed to decode CID: #{inspect(reason)}")
         data
     end
   end

@@ -69,7 +69,16 @@ defmodule Sandbox.Bluesky.UtilTest do
   test "intersperses br tags in text" do
     text = "Hello\n\nWorld\n\n"
     result = Bluesky.text_with_br(text)
-    assert result == ["Hello", {:safe, "<br/>"}, {:safe, "<br/>"}, "World", {:safe, "<br/>"}, {:safe, "<br/>"}]
+
+    assert result == [
+             "Hello",
+             {:safe, "<br/>"},
+             {:safe, "<br/>"},
+             "World",
+             {:safe, "<br/>"},
+             {:safe, "<br/>"}
+           ]
+
     assert safe_list_to_string(result) == "Hello<br/><br/>World<br/><br/>"
   end
 
@@ -85,7 +94,7 @@ defmodule Sandbox.Bluesky.UtilTest do
     uri =
       "https://video.bsky.app/watch/did%3Aplc%3Aornpixmpy5ts36lh7hmi7wkp/bafkreibuhzkah544ypomtnj3ig3pmwpdgyh4b7g7wa5mqx3akkjfujduii/playlist.m3u8"
 
-    id = Feed.uri_to_id(uri, "video-", 15)
+    id = Bluesky.uri_to_id(uri, "video-", 15)
     assert id == "video-bafkreibuhzkah544ypomtnj3ig3pmwpdgyh4b7g7wa5mqx3akkjfujduii-15"
   end
 
@@ -95,7 +104,7 @@ defmodule Sandbox.Bluesky.UtilTest do
       uri: "at://did:plc:2orsuabrdskjpuglpru77po2/app.bsky.feed.post/3ld2hxl4lck2f"
     }
 
-    id = Feed.posts_stream_id(post)
+    id = Feed.Post.stream_id(post)
     assert id == "posts-did-plc-2orsuabrdskjpuglpru77po2-3ld2hxl4lck2f-15"
   end
 

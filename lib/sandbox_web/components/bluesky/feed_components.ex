@@ -19,7 +19,33 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
     StarterPack
   }
 
+  attr :count, :integer, required: true
+  attr :feed_name, :string, required: true
+
+  def feed_header(assigns) do
+    ~H"""
+    <h2 class="my-4 text-2xl">
+      {@count} recent posts from <span class="font-bold">{@feed_name}</span>
+    </h2>
+    """
+  end
+
+  attr :return_to, :string, required: true
+
+  def thread_header(assigns) do
+    ~H"""
+    <h2 class="my-4 text-2xl">
+      <span class="font-bold">Thread</span>
+    </h2>
+    <button class="button" type="button">
+      <.link patch={"/feed/#{@return_to}"}>Back</.link>
+    </button>
+    """
+  end
+
   attr :post, Post, required: true
+  attr :live_action, :atom, default: nil
+  attr :rest, :global, include: ~w(phx-click)
 
   def skeet(assigns) do
     ~H"""
@@ -33,15 +59,21 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
         <.reposted_by :if={Post.repost?(@post)} by={@post.reason.by} />
       </div>
       <!-- column 1 -->
-      <div>
-        <img
-          class="w-12 h-12 rounded-full post-avatar"
-          src={@post.author.avatar}
-          alt={@post.author.display_name}
-        />
+      <div
+        class="post-avatar"
+        {@rest}
+        phx-value-reply={Post.reply?(@post)}
+        phx-value-post_uri={@post.encoded_uri}
+      >
+        <img class="w-12 h-12 rounded-full" src={@post.author.avatar} alt={@post.author.display_name} />
       </div>
       <!-- column 2 -->
-      <div>
+      <div
+        class="post-item"
+        {@rest}
+        phx-value-reply={Post.reply?(@post)}
+        phx-value-post_uri={@post.encoded_uri}
+      >
         <div class="post-header">
           <span class="font-bold post-author">{@post.author.display_name}</span>
           <span class="post-handle">@{@post.author.handle}</span>
@@ -225,7 +257,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
     <div class="my-2 rounded-xl post-images">
       <%= case @images do %>
         <% [image] -> %>
-          <.post_image image={image} />
+          <.post_image_single image={image} />
         <% [img_1, img_2] -> %>
           <.post_image_grid_2 img_1={img_1} img_2={img_2} />
         <% [img_1, img_2, img_3] -> %>
@@ -239,9 +271,14 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
 
   attr :image, Attachment, required: true
 
-  def post_image(assigns) do
+  def post_image_single(assigns) do
     ~H"""
-    <div class="my-2 post-images post-image">
+    <div
+      class="my-2 post-images post-image"
+      phx-click="modal-image"
+      phx-value-src={@image.thumb}
+      phx-value-alt={@image.alt}
+    >
       <img class="w-full rounded-xl" src={@image.thumb} alt={@image.alt} />
     </div>
     """
@@ -253,10 +290,20 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
   def post_image_grid_2(assigns) do
     ~H"""
     <div class="grid grid-cols-2 grid-rows-1 gap-1 my-2 auto-rows-fr post-images post-image-grid-2">
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_1.thumb}
+        phx-value-alt={@img_1.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-l-xl" src={@img_1.thumb} alt={@img_1.alt} />
       </div>
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_2.thumb}
+        phx-value-alt={@img_2.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-r-xl" src={@img_2.thumb} alt={@img_2.alt} />
       </div>
     </div>
@@ -270,13 +317,28 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
   def post_image_grid_3(assigns) do
     ~H"""
     <div class="grid grid-cols-2 grid-rows-2 gap-1 my-2 auto-rows-fr post-images post-image-grid-3">
-      <div class="row-span-2 post-image">
+      <div
+        class="row-span-2 post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_1.thumb}
+        phx-value-alt={@img_1.alt}
+      >
         <img class="object-cover w-full h-full16x9 rounded-l-xl" src={@img_1.thumb} alt={@img_1.alt} />
       </div>
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_2.thumb}
+        phx-value-alt={@img_2.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-tr-xl" src={@img_2.thumb} alt={@img_2.alt} />
       </div>
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_3.thumb}
+        phx-value-alt={@img_3.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-br-xl" src={@img_3.thumb} alt={@img_3.alt} />
       </div>
     </div>
@@ -291,16 +353,36 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
   def post_image_grid_4(assigns) do
     ~H"""
     <div class="grid grid-cols-2 grid-rows-2 gap-1 my-2 auto-rows-fr post-images post-image-grid-4">
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_1.thumb}
+        phx-value-alt={@img_1.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-tl-xl" src={@img_1.thumb} alt={@img_1.alt} />
       </div>
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_3.thumb}
+        phx-value-alt={@img_3.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-tr-xl" src={@img_3.thumb} alt={@img_3.alt} />
       </div>
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_2.thumb}
+        phx-value-alt={@img_2.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-bl-xl" src={@img_2.thumb} alt={@img_2.alt} />
       </div>
-      <div class="post-image">
+      <div
+        class="post-image"
+        phx-click="modal-image"
+        phx-value-src={@img_4.thumb}
+        phx-value-alt={@img_4.alt}
+      >
         <img class="object-cover w-full h-half16x9 rounded-br-xl" src={@img_4.thumb} alt={@img_4.alt} />
       </div>
     </div>
@@ -312,7 +394,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
   def post_video(assigns) do
     ~H"""
     <div
-      id={Feed.uri_to_id(@video.source, "video-container-", @video.instance)}
+      id={Bluesky.uri_to_id(@video.source, "video-container-", @video.instance)}
       class="my-2 overflow-hidden post-video-container rounded-xl"
       phx-update="ignore"
     >

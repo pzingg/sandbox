@@ -30,7 +30,7 @@ ul.examples {
   fill: currentColor;
 }
 
-#sandbox {
+#sandbox, #feed-container {
   @apply max-w-xl mx-auto;
 
   p {
@@ -38,7 +38,7 @@ ul.examples {
   }
 
   .button {
-    @apply block px-8 py-2 mx-auto mt-4 text-lg font-semibold text-white transition duration-150 ease-in-out bg-green-500 border border-transparent rounded-md outline-none;
+    @apply block px-2 py-1 rounded-lg mt-4 text-sm font-semibold text-white transition duration-150 ease-in-out bg-teal-600 border border-transparent outline-none;
   }
 
   .button:disabled {
@@ -50,11 +50,11 @@ ul.examples {
   }
 
   .button:hover {
-    @apply bg-green-700;
+    @apply bg-teal-400;
   }
 
   .button:focus {
-    @apply border-green-700 outline-none ring ring-green-300;
+    @apply border-teal-700 outline-none ring ring-teal-300;
   }
 
   form {

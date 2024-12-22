@@ -1,0 +1,47 @@
+<div id="feed-container">
+  <.modal :if={@show_modal} id="detail" show on_cancel={JS.push("modal-cancel")}>
+    <.async_result :let={modal} assign={@modal}>
+      <:loading>
+        <div class="my-4 text-lg">Loading...</div>
+      </:loading>
+      <:failed :let={reason}>
+        <div class="my-4 text-lg">Sorry. {reason}</div>
+      </:failed>
+      <%= case modal.type do %>
+        <% :image -> %>
+          <img class="w-full" src={modal.src} alt={modal.alt} />
+        <% :thread -> %>
+          <ul id="thread" class="feed">
+            <li :for={{dom_id, post} <- modal.posts} id={dom_id}>
+              <.skeet post={post} />
+            </li>
+          </ul>
+        <% other -> %>
+          <div class="my-4 text-lg">{other} content.</div>
+      <% end %>
+    </.async_result>
+  </.modal>
+
+  <.async_result :let={feed} :if={@live_action != :index} assign={@feed}>
+    <:loading>
+      <div class="my-4 text-lg">Loading <span class="font-bold">{@feed_name}</span>...</div>
+    </:loading>
+    <:failed :let={reason}>
+      <div class="my-4 text-lg">There was an error loading the feed {reason}</div>
+    </:failed>
+    <%= if @live_action == :thread do %>
+      <.thread_header return_to={@return_to} />
+    <% else %>
+      <.feed_header count={feed.count} feed_name={@feed_name} />
+    <% end %>
+    <ul id="feed" class="feed" phx-update="stream">
+      <li :for={{dom_id, post} <- @streams.posts} id={dom_id}>
+        <.skeet
+          post={post}
+          phx-click="modal-thread"
+          live_action={@live_action}
+        />
+      </li>
+    </ul>
+  </.async_result>
+</div>

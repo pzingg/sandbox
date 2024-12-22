@@ -2116,6 +2116,36 @@ defmodule Sandbox.Bluesky do
     """
   end
 
+  @doc """
+  Pulls out some signifcant path parts from a uri.
+
+  ## Notes
+
+  ID and NAME tokens must begin with a letter ([A-Za-z]) and may be followed by any number of
+  letters, digits ([0-9]), hyphens ("-"), underscores ("_"), colons (":"), and periods (".").
+  """
+  def uri_to_id(uri, prefix \\ "", instance \\ 1) do
+    %URI{path: path, authority: authority} = AtURI.parse_any(uri)
+
+    parts =
+      [authority | String.split(path, "/")]
+      |> Enum.reverse()
+      |> Enum.filter(fn part -> !String.contains?(part, ".") end)
+      |> Enum.reduce_while([], fn part, acc ->
+        acc = if part != "", do: [part | acc], else: acc
+
+        if String.length(Enum.join(acc, "")) > 25 do
+          {:halt, acc}
+        else
+          {:cont, acc}
+        end
+      end)
+
+    uri = Enum.join(parts, "-")
+    uri = Regex.replace(~r/[^-_.A-Za-z0-9]/, uri, "-")
+    "#{prefix}#{uri}-#{instance}"
+  end
+
   def text_with_br(text) do
     text
     |> String.split("\n", trim: false)
@@ -2130,6 +2160,14 @@ defmodule Sandbox.Bluesky do
 
   def nil_if_empty(value), do: value
 
-  def nil_if_emptylist([_ | _] = list), do: list
+  def nil_if_emptylist(list) when is_list(list) do
+    list = Enum.filter(list, fn item -> !is_nil(item) end)
+
+    case list do
+      [] -> nil
+      _ -> list
+    end
+  end
+
   def nil_if_emptylist(_), do: nil
 end

@@ -50,6 +50,14 @@ The JSON app password file (used for tests only) must contain these keys:
 - `"app_password"` - your registered app password
 - `"pds_url"` - normally set to "https://bsky.social"
 
+## Known issues
+
+Decoding posts with video embeds:
+
+```
+No thumb in video attachment nil
+```
+
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/

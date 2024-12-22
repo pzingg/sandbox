@@ -317,8 +317,9 @@ defmodule Sandbox.Bluesky.Feed do
         {:ok, instance} ->
           %__MODULE__{att | instance: instance}
 
-        _ ->
-          att
+        {:error, reason} ->
+          Logger.error("Failed to get autoinc #{reason}")
+          %__MODULE__{att | instance: 1}
       end
     end
   end
@@ -389,6 +390,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @type t() :: %__MODULE__{
             uri: String.t(),
+            encoded_uri: String.t(),
             cid: String.t(),
             text: String.t(),
             date: DateTime.t() | nil,
@@ -400,10 +402,11 @@ defmodule Sandbox.Bluesky.Feed do
             links: nonempty_list(Link.t()) | nil
           }
 
-    @enforce_keys [:uri]
+    @enforce_keys [:uri, :encoded_uri]
 
     defstruct [
       :uri,
+      :encoded_uri,
       :cid,
       :text,
       :date,
@@ -433,13 +436,9 @@ defmodule Sandbox.Bluesky.Feed do
       end
     end
 
-    def repost?(post) do
-      is_map(post.reason) && post.reason.type == :repost
-    end
+    def repost?(post), do: is_map(post.reason) && post.reason.type == :repost
 
-    def reply?(post) do
-      is_map(post.reply_parent)
-    end
+    def reply?(post), do: is_map(post.reply_parent)
 
     def has_images?(post), do: find_embed(post, :images) |> is_map()
 
@@ -474,34 +473,15 @@ defmodule Sandbox.Bluesky.Feed do
     end
 
     defp find_embed(_, _), do: nil
+
+    def stream_id(post), do: stream_id(post, "posts-")
+
+    def stream_id(post, prefix), do: Bluesky.uri_to_id(post.uri, prefix, post.instance)
   end
 
-  def posts_stream_id(post), do: uri_to_id(post.uri, "posts-", post.instance)
-
-  # ID and NAME tokens must begin with a letter ([A-Za-z]) and may be followed by any number of
-  # letters, digits ([0-9]), hyphens ("-"), underscores ("_"), colons (":"), and periods (".").
-  def uri_to_id(uri, prefix \\ "", instance \\ 1) do
-    %URI{path: path, authority: authority} = AtURI.parse_any(uri)
-
-    parts =
-      [authority | String.split(path, "/")]
-      |> Enum.reverse()
-      |> Enum.filter(fn part -> !String.contains?(part, ".") end)
-      |> Enum.reduce_while([], fn part, acc ->
-        acc = if part != "", do: [part | acc], else: acc
-
-        if String.length(Enum.join(acc, "")) > 25 do
-          {:halt, acc}
-        else
-          {:cont, acc}
-        end
-      end)
-
-    uri = Enum.join(parts, "-")
-    uri = Regex.replace(~r/[^-_.A-Za-z0-9]/, uri, "-")
-    "#{prefix}#{uri}-#{instance}"
-  end
-
+  @doc """
+  Decodes all the items returned from `getAuthorFeed` or `getTimeline`.
+  """
   def decode_feed(%{"feed" => feed}, auth) do
     # Reset instance counter
     Cachex.put(:bluesky, "autoinc", 0)
@@ -515,46 +495,95 @@ defmodule Sandbox.Bluesky.Feed do
     {:ok, posts}
   end
 
-  def decode_feed(_timeline), do: {:error, "No feed in timeline"}
+  def decode_feed(_feed, _auth), do: {:error, "No feed in response"}
 
-  def decode_post(%{"post" => post} = item, auth) do
-    decode_post(post, item["reply"], item["reason"], auth)
+  @doc """
+  Decodes a post as returned from `getPostThread` and all its ancestors.
+  """
+  def decode_thread(%{"thread" => thread}, auth) do
+    ancestors = decode_thread_ancestors(thread, auth, [])
+    post = decode_post(thread, auth)
+    posts = Enum.reverse([post | ancestors]) |> Bluesky.nil_if_emptylist()
+    {:ok, posts}
   end
 
-  def decode_post(%{"uri" => _, "cid" => _} = post, reply, reason, auth) do
-    build_post(post, reply, reason, auth)
+  def decode_thread(_thread, _auth), do: {:error, "No thread in response"}
+
+  def decode_thread_ancestors(post_or_thread, auth, acc) do
+    case Map.get(post_or_thread, "parent") do
+      nil ->
+        acc
+
+      parent when is_map(parent) ->
+        parent_post = decode_post(parent, auth)
+        decode_thread_ancestors(parent, auth, [parent_post | acc])
+
+      other ->
+        Logger.error("Thread parent is not a map #{inspect(other)}")
+        acc
+    end
   end
 
-  def decode_post(post, _auth, _in_thread?) do
-    Logger.error("Mising uri or cid in post #{inspect(post)}")
-    nil
-  end
+  @doc """
+  Decodes a post with its reply and reason.
 
-  def decode_post_thread(uri, auth) do
-    case Bluesky.get_post_thread(uri, auth) do
-      {:ok, %{"thread" => thread}} ->
-        case thread["$type"] do
-          "app.bsky.feed.defs#threadViewPost" ->
-            build_post(thread["post"], thread["reply"], thread["reason"], auth)
+  This is the top-level entrypoint for either the `"thread"` in the response
+  from a `getPostThread` xrpc call, or for an item from the items returned by
+  `getAuthorFeed` or `getTimeline`.
+  """
+  def decode_post(%{"post" => %{"record" => record} = post} = item, auth) when is_map(record) do
+    # This is from `getAuthorFeed` or `getTimeline`, each post has a `"record"`
+    # with a `"$type"` specifier
+    case record["$type"] do
+      nil ->
+        Logger.error("No $type in post record '#{inspect(record)}'")
+        nil
 
-          "app.bsky.feed.defs#blockedPost" ->
-            build_post_info(thread, auth)
+      "app.bsky.feed.post" ->
+        decode_post(post, item["reply"], item["reason"], auth)
 
-          "app.bsky.feed.defs#notFoundPost" ->
-            build_post_info(thread, auth)
-
-          type ->
-            Logger.error("Unknown thread type '#{type}'")
-            nil
-        end
-
-      {:error, reason} ->
-        Logger.error("decode_post_thread #{uri} failed #{inspect(reason)}")
+      other ->
+        Logger.error("Unknown post record type '#{other}'")
         nil
     end
   end
 
-  def build_post(post, reply, reason, auth) do
+  def decode_post(%{"post" => post, "$type" => ptype} = item, auth) do
+    # This is from `getPostThread`, each parent has a `"$type"` specifier
+    case ptype do
+      nil ->
+        Logger.error("No $type in thread item '#{item}'")
+        nil
+
+      "app.bsky.feed.defs#threadViewPost" ->
+        decode_post(post, item["reply"], item["reason"], auth)
+
+      "app.bsky.feed.defs#blockedPost" ->
+        build_post_info(post, auth)
+
+      "app.bsky.feed.defs#notFoundPost" ->
+        build_post_info(post, auth)
+
+      _ ->
+        Logger.error("Unknown thread post type '#{ptype}'")
+        nil
+    end
+  end
+
+  @doc """
+  Decodes a post with its reply and reason.
+  """
+  @spec decode_post(map(), map() | nil, map() | nil, Bluesky.auth()) :: Feed.Post.t() | nil
+  def decode_post(%{"uri" => _, "cid" => _} = post, reply, reason, auth) do
+    build_post(post, reply, reason, auth)
+  end
+
+  def decode_post(post, _reply, _reason, _auth) do
+    Logger.error("Mising uri or cid in post #{inspect(post)}")
+    nil
+  end
+
+  def build_post(%{"uri" => uri} = post, reply, reason, auth) do
     record = record_or_value(post, post)
 
     embeds =
@@ -600,14 +629,14 @@ defmodule Sandbox.Bluesky.Feed do
               nil
 
             "link" ->
-              uri = feature["uri"]
-              domain = Bluesky.get_origin(uri)
+              link_uri = feature["uri"]
+              domain = Bluesky.get_origin(link_uri)
 
               %Link{
                 type: :uri,
                 byte_start: byte_start,
                 byte_end: byte_end,
-                uri: uri,
+                uri: link_uri,
                 title: domain
               }
 
@@ -628,7 +657,8 @@ defmodule Sandbox.Bluesky.Feed do
       |> Enum.filter(fn link -> !is_nil(link) end)
 
     %Post{
-      uri: post["uri"],
+      uri: uri,
+      encoded_uri: SandboxWeb.encode_post_uri(uri),
       cid: post["cid"],
       author: build_author(post["author"], auth),
       date: Bluesky.to_date(record["createdAt"]),
@@ -638,6 +668,11 @@ defmodule Sandbox.Bluesky.Feed do
       embeds: Bluesky.nil_if_emptylist(embeds),
       links: Bluesky.nil_if_emptylist(links)
     }
+  end
+
+  def build_post(post, _reply, _reason, _auth) do
+    Logger.error("No uri in post #{inspect(post)}")
+    nil
   end
 
   def get_reason(reason, auth) when is_map(reason) do
@@ -669,7 +704,7 @@ defmodule Sandbox.Bluesky.Feed do
 
   def get_reason(_, _), do: nil
 
-  defp build_embed(embed, auth) do
+  def build_embed(embed, auth) do
     case embed["$type"] do
       nil ->
         Logger.error("No $type for embed #{inspect(embed)}")
@@ -677,17 +712,11 @@ defmodule Sandbox.Bluesky.Feed do
 
       # Case 1: Image
       "app.bsky.embed.images#view" ->
-        %Embed{
-          type: :images,
-          images: build_attachments(:image, embed["images"])
-        }
+        build_attachment_embed(:images, embed["images"])
 
       # Case 2: External link
       "app.bsky.embed.external#view" ->
-        %Embed{
-          type: :external,
-          external: build_attachment(:card, embed["external"])
-        }
+        build_attachment_embed(:external, embed["external"])
 
       # Case 3: Record (quote or linked post)
       "app.bsky.embed.record#view" ->
@@ -696,10 +725,7 @@ defmodule Sandbox.Bluesky.Feed do
 
       # Case 4: Video
       "app.bsky.embed.video#view" ->
-        %Embed{
-          type: :video,
-          video: build_attachment(:video, embed)
-        }
+        build_attachment_embed(:video, embed)
 
       # Case 5: Record with media
       "app.bsky.embed.recordWithMedia#view" ->
@@ -711,57 +737,6 @@ defmodule Sandbox.Bluesky.Feed do
         Logger.error("Unhandled embed type '#{etype}'")
         nil
     end
-  end
-
-  def build_attachments(type, atts) do
-    Enum.map(atts, &build_attachment(type, &1))
-  end
-
-  def build_attachment(:card, att) do
-    uri = att["uri"]
-
-    %Attachment{
-      type: :card,
-      uri: uri,
-      thumb: att["thumb"],
-      title: Bluesky.nil_if_empty(att["title"]),
-      domain: Bluesky.get_domain(uri, level: 2),
-      description: Bluesky.nil_if_empty(att["description"])
-    }
-    |> Attachment.set_instance()
-  end
-
-  # :video or :image
-  def build_attachment(type, att) do
-    {source, thumb} =
-      case type do
-        :video -> {att["playlist"], att["thumbnail"]}
-        _ -> {nil, att["thumb"]}
-      end
-
-    height = att["aspectRatio"]["height"]
-    width = att["aspectRatio"]["width"]
-
-    aspect =
-      if is_number(height) && is_number(width) &&
-           height > 0 && width > 0 &&
-           height / width > 0.8 do
-        1
-      else
-        0
-      end
-
-    %Attachment{
-      type: type,
-      cid: att["cid"],
-      height: height,
-      width: width,
-      aspect: aspect,
-      alt: att["alt"],
-      source: source,
-      thumb: thumb
-    }
-    |> Attachment.set_instance()
   end
 
   def quoted_embed(embed, media, auth) do
@@ -838,28 +813,14 @@ defmodule Sandbox.Bluesky.Feed do
             {nil, "\"Post\""}
 
           "app.bsky.embed.images#view" ->
-            {[
-               %Embed{
-                 type: :images,
-                 images: build_attachments(:image, media["images"])
-               }
-             ], "\"Post with images\""}
-
-          "app.bsky.embed.video#view" ->
-            {[
-               %Embed{
-                 type: :video,
-                 video: build_attachment(:video, media["video"])
-               }
-             ], "\"Post with video\""}
+            {[build_attachment_embed(:images, media["images"])], "\"Post with images\""}
 
           "app.bsky.embed.external#view" ->
-            {[
-               %Embed{
-                 type: :external,
-                 external: build_attachment(:card, media["external"])
-               }
-             ], "\"Post with preview\""}
+            {[build_attachment_embed(:external, media["external"])], "\"Post with preview\""}
+
+          "app.bsky.embed.video#view" ->
+            Logger.error("in embed_post video#view, media: #{inspect(media)}")
+            {[build_attachment_embed(:video, media["video"])], "\"Post with video\""}
 
           etype ->
             Logger.error("Unhandled media $type '#{etype}'")
@@ -880,6 +841,122 @@ defmodule Sandbox.Bluesky.Feed do
       end
 
     %Embed{type: :post, post: post, title: title}
+  end
+
+  def build_attachment_embed(:images, media) do
+    images = build_attachments(:image, media)
+
+    if is_nil(images) do
+      nil
+    else
+      %Embed{
+        type: :images,
+        images: images
+      }
+    end
+  end
+
+  def build_attachment_embed(:video, media) do
+    video = build_attachment(:video, media)
+
+    if is_nil(video) do
+      nil
+    else
+      %Embed{
+        type: :video,
+        video: video
+      }
+    end
+  end
+
+  def build_attachment_embed(:external, media) do
+    external = build_attachment(:card, media)
+
+    if is_nil(external) do
+      nil
+    else
+      %Embed{
+        type: :external,
+        external: external
+      }
+    end
+  end
+
+  def build_attachments(type, media) when is_list(media) do
+    media
+    |> Enum.map(&build_attachment(type, &1))
+    |> Bluesky.nil_if_emptylist()
+  end
+
+  def build_attachments(type, media) do
+    Logger.error("build_attachments #{type} not a list #{inspect(media)}")
+    nil
+  end
+
+  def build_attachment(type, att) when not is_map(att) do
+    Logger.error("No data for #{type} attachment #{inspect(att)}")
+    nil
+  end
+
+  def build_attachment(:card, %{"uri" => uri} = att) do
+    %Attachment{
+      type: :card,
+      uri: uri,
+      thumb: att["thumb"],
+      title: Bluesky.nil_if_empty(att["title"]),
+      domain: Bluesky.get_domain(uri, level: 2),
+      description: Bluesky.nil_if_empty(att["description"])
+    }
+    |> Attachment.set_instance()
+  end
+
+  def build_attachment(:image, %{"thumb" => thumb} = att) do
+    {width, height, aspect} = get_aspect(att)
+
+    %Attachment{
+      type: :image,
+      cid: att["cid"],
+      height: height,
+      width: width,
+      aspect: aspect,
+      alt: att["alt"],
+      thumb: thumb
+    }
+    |> Attachment.set_instance()
+  end
+
+  def build_attachment(:video, %{"playlist" => source} = att) do
+    {width, height, aspect} = get_aspect(att)
+
+    %Attachment{
+      type: :video,
+      cid: att["cid"],
+      height: height,
+      width: width,
+      aspect: aspect,
+      alt: att["alt"],
+      source: source,
+      thumb: att["thumbnail"]
+    }
+    |> Attachment.set_instance()
+  end
+
+  def build_attachment(type, att) do
+    Logger.error("attachment type #{type} missing required attributes #{inspect(att)}")
+    nil
+  end
+
+  def get_aspect(att) do
+    height = att["aspectRatio"]["height"]
+    width = att["aspectRatio"]["width"]
+
+    if is_number(height) && is_number(width) &&
+         height > 0 && width > 0 &&
+         height / width > 0.8 do
+      {height, width, 1}
+    else
+      {height, width, 0}
+    end
   end
 
   def embed_feed_generator(feed, auth) do
@@ -956,10 +1033,7 @@ defmodule Sandbox.Bluesky.Feed do
         |> String.replace_trailing("list", "_list")
         |> String.to_atom()
 
-      items =
-        items
-        |> Enum.map(&build_list_item(&1, auth))
-        |> Enum.filter(fn item -> !is_nil(item) end)
+      items = Enum.map(items, &build_list_item(&1, auth))
 
       %GraphList{
         type: ltype,

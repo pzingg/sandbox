@@ -65,7 +65,7 @@ defmodule SandboxWeb.CoreComponents do
               phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
               phx-key="escape"
               phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
-              class="relative hidden transition bg-white shadow-lg shadow-zinc-700/10 ring-zinc-700/10 rounded-2xl p-14 ring-1"
+              class="relative hidden py-8 pl-8 transition bg-white shadow-lg pr-14 shadow-zinc-700/10 ring-zinc-700/10 rounded-2xl ring-1"
             >
               <div class="absolute top-6 right-5">
                 <button

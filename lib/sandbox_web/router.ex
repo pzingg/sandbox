@@ -55,7 +55,7 @@ defmodule SandboxWeb.Router do
     end
 
     live_session :default, on_mount: MountHooks do
-      live "/bluesky", BlueskyLive, :index
+      live "/bluesky/login", BlueskyLive, :oauth_login
       live "/", PageLive, :index
     end
   end

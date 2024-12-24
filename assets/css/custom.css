@@ -98,9 +98,11 @@ dl {
   grid-template: 1fr / auto auto;
   justify-content: start;
 }
+
 dt {
   @apply font-bold text-right;
 }
+
 dd {
   @apply ml-1 text-left;
 }

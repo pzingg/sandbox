@@ -11,11 +11,9 @@ defmodule SandboxWeb.AuthController do
   @doc """
   This action is reached via `/oauth/:provider` and should redirect to the OAuth2 provider
   based on the chosen strategy.
-
-  TODO Need to get did, etc. and initiate new flow
   """
   def index(conn, %{"provider" => "bluesky"}) do
-    redirect(conn, to: ~p"/bluesky")
+    redirect(conn, to: ~p"/bluesky/login")
   end
 
   def index(conn, %{"provider" => provider}) do

@@ -44,13 +44,11 @@ defmodule SandboxWeb.AccountLive do
           </a>
           or one of the other feeds in the navigation bar to log see the most recent posts
         </p>
-        <div class="grid grid-cols-2">
-          <div>
+        <div class="flex">
+          <div class="flex justify-center w-full gap-4">
             <button type="button" class="button" phx-click="refresh_token">
               Refresh token
             </button>
-          </div>
-          <div>
             <button type="button" class="button" phx-click="authorize">
               Log in again
             </button>

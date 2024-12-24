@@ -398,6 +398,7 @@ defmodule Sandbox.Bluesky.Feed do
             instance: integer(),
             reply_parent: PostInfo.t() | nil,
             reason: Reason.t() | nil,
+            next_thread?: boolean(),
             embeds: nonempty_list(Embed.t()) | nil,
             links: nonempty_list(Link.t()) | nil
           }
@@ -415,6 +416,7 @@ defmodule Sandbox.Bluesky.Feed do
       :reason,
       :embeds,
       :links,
+      next_thread?: false,
       instance: 0
     ]
 
@@ -501,22 +503,24 @@ defmodule Sandbox.Bluesky.Feed do
   Decodes a post as returned from `getPostThread` and all its ancestors.
   """
   def decode_thread(%{"thread" => thread}, auth) do
-    ancestors = decode_thread_ancestors(thread, auth, [])
     post = decode_post(thread, auth)
+    ancestors = decode_thread_ancestors(thread, auth, post.author.did, [])
     posts = Enum.reverse([post | ancestors]) |> Bluesky.nil_if_emptylist()
     {:ok, posts}
   end
 
   def decode_thread(_thread, _auth), do: {:error, "No thread in response"}
 
-  def decode_thread_ancestors(post_or_thread, auth, acc) do
+  def decode_thread_ancestors(post_or_thread, auth, child_did, acc) do
     case Map.get(post_or_thread, "parent") do
       nil ->
         acc
 
       parent when is_map(parent) ->
         parent_post = decode_post(parent, auth)
-        decode_thread_ancestors(parent, auth, [parent_post | acc])
+        next_thread? = parent_post.author.did == child_did
+        parent_post = %Post{parent_post | next_thread?: next_thread?}
+        decode_thread_ancestors(parent, auth, parent_post.author.did, [parent_post | acc])
 
       other ->
         Logger.error("Thread parent is not a map #{inspect(other)}")

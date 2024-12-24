@@ -108,8 +108,8 @@ defmodule SandboxWeb.BlueskyLive do
         <div class="flex items-center pt-2">
           <div class="flex-1 block w-full">{show_lookup(@lookup)}</div>
         </div>
-        <div class="flex items-center pb-2">
-          <div class="flex-1 block w-full">
+        <div class="flex pb-2">
+          <div class="flex justify-center w-full">
             <button class="button" type="submit" disabled={@disabled}>
               Log in to Bluesky
             </button>

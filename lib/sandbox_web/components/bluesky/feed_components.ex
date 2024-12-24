@@ -49,7 +49,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
 
   def skeet(assigns) do
     ~H"""
-    <div class="grid gap-2 my-4 skeet top-level-post grid-cols-timeline-2">
+    <div class="grid gap-2 skeet top-level-post grid-cols-timeline-2">
       <!-- column 1 -->
       <div :if={Post.repost?(@post)}>
         &nbsp;
@@ -60,16 +60,25 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
       </div>
       <!-- column 1 -->
       <div
-        class="post-avatar"
+        class="flex flex-col post-avatar"
         {@rest}
         phx-value-reply={Post.reply?(@post)}
         phx-value-post_uri={@post.encoded_uri}
       >
-        <img class="w-12 h-12 rounded-full" src={@post.author.avatar} alt={@post.author.display_name} />
+        <div class="flex-none">
+          <img class="w-12 h-12 rounded-full" src={@post.author.avatar} alt={@post.author.display_name} />
+        </div>
+        <%= if @post.next_thread? do %>
+          <div class="flex-1 my-2 post-next-thread">
+            <svg class="w-full h-full next-thread-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <line class="stroke-2 stroke-bluesky" x1="50%" y1="0" x2="50%" y2="100%" vector-effect="non-scaling-stroke"/>
+            </svg>
+          </div>
+        <% end %>
       </div>
       <!-- column 2 -->
       <div
-        class="post-item"
+        class="mb-4 post-item"
         {@rest}
         phx-value-reply={Post.reply?(@post)}
         phx-value-post_uri={@post.encoded_uri}
@@ -416,7 +425,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
 
   def post_external(assigns) do
     ~H"""
-    <div class="my-4 overflow-hidden border-2 border-blue-400 rounded-xl post-external">
+    <div class="my-4 overflow-hidden border-2 border-bluesky rounded-xl post-external">
       <div :if={@external.thumb} class="mb-2 external-images">
         <img class="w-full external-image" src={@external.thumb} alt={Attachment.alt(@external)} />
       </div>
@@ -466,7 +475,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
 
   def post_list(assigns) do
     ~H"""
-    <div class="px-4 py-2 my-2 border border-blue-400 p post-list rounded-xl">
+    <div class="px-4 py-2 my-2 border border-bluesky p post-list rounded-xl">
       <div class="grid gap-2 my-2 list-info grid-cols-timeline-2">
         <div>
           <img class="w-12 h-12" src={@list.summary.avatar} />
@@ -520,7 +529,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
         <div class="flex flex-row justify-center mx-auto list-avatars">
           <div :for={item <- GraphList.avatar_list(@list)} class="w-16 h-16">
             <img
-              class="border-4 border-blue-500 rounded-full list-avatar"
+              class="border-4 rounded-full border-bluesky list-avatar"
               src={item.subject.avatar}
               alt={item.subject.display_name}
             />

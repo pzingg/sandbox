@@ -61,6 +61,7 @@ defmodule Sandbox.Bluesky.Feed do
             type: Feed.post_view_type(),
             uri: String.t(),
             author: Author.t() | nil,
+            reply_level: integer(),
             not_found: boolean(),
             blocked: boolean(),
             detached: boolean()
@@ -68,7 +69,15 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type]
 
-    defstruct [:type, :uri, :author, not_found: false, blocked: false, detached: false]
+    defstruct [
+      :type,
+      :uri,
+      :author,
+      reply_level: 0,
+      not_found: false,
+      blocked: false,
+      detached: false
+    ]
   end
 
   defmodule ListItem do
@@ -390,34 +399,42 @@ defmodule Sandbox.Bluesky.Feed do
 
     @type t() :: %__MODULE__{
             uri: String.t(),
-            encoded_uri: String.t(),
             cid: String.t(),
             text: String.t(),
             date: DateTime.t() | nil,
             author: Author.t() | nil,
             instance: integer(),
+            thread_id: String.t() | nil,
             reply_parent: PostInfo.t() | nil,
+            reply_root: PostInfo.t() | nil,
+            reply_level: integer(),
+            reply_count: integer(),
             reason: Reason.t() | nil,
             next_thread?: boolean(),
+            highlighted?: boolean(),
             embeds: nonempty_list(Embed.t()) | nil,
             links: nonempty_list(Link.t()) | nil
           }
 
-    @enforce_keys [:uri, :encoded_uri]
+    @enforce_keys [:uri]
 
     defstruct [
       :uri,
-      :encoded_uri,
       :cid,
       :text,
       :date,
       :author,
+      :thread_id,
       :reply_parent,
+      :reply_root,
       :reason,
       :embeds,
       :links,
       next_thread?: false,
-      instance: 0
+      highlighted?: false,
+      instance: 0,
+      reply_level: 0,
+      reply_count: 0
     ]
 
     def ref?(post) do
@@ -494,7 +511,7 @@ defmodule Sandbox.Bluesky.Feed do
       |> Enum.filter(fn post -> !is_nil(post) end)
       |> Enum.map(&Post.set_instance/1)
 
-    {:ok, posts}
+    %{posts: posts}
   end
 
   def decode_feed(_feed, _auth), do: {:error, "No feed in response"}
@@ -502,16 +519,34 @@ defmodule Sandbox.Bluesky.Feed do
   @doc """
   Decodes a post as returned from `getPostThread` and all its ancestors.
   """
-  def decode_thread(%{"thread" => thread}, auth) do
+  def decode_thread(data, auth, highlighted_uri \\ nil)
+
+  def decode_thread(%{"thread" => thread}, auth, highlighted_uri) do
     post = decode_post(thread, auth)
-    ancestors = decode_thread_ancestors(thread, auth, post.author.did, [])
-    posts = Enum.reverse([post | ancestors]) |> Bluesky.nil_if_emptylist()
-    {:ok, posts}
+    ancestors = decode_thread_ancestors(thread, auth, post.author.did)
+    posts = Enum.reverse([post | ancestors])
+
+    replies =
+      decode_thread_replies(thread, auth)
+      |> Enum.reverse()
+
+    posts =
+      (posts ++ replies)
+      |> Enum.map(fn
+        %Post{uri: ^highlighted_uri} = post ->
+          %Post{post | highlighted?: true}
+
+        post ->
+          post
+      end)
+      |> Bluesky.nil_if_emptylist()
+
+    %{posts: posts, post: post}
   end
 
-  def decode_thread(_thread, _auth), do: {:error, "No thread in response"}
+  def decode_thread(_thread, _auth, _highlighted_uri), do: {:error, "No thread in response"}
 
-  def decode_thread_ancestors(post_or_thread, auth, child_did, acc) do
+  def decode_thread_ancestors(post_or_thread, auth, child_did, acc \\ []) do
     case Map.get(post_or_thread, "parent") do
       nil ->
         acc
@@ -528,6 +563,26 @@ defmodule Sandbox.Bluesky.Feed do
     end
   end
 
+  def decode_thread_replies(post_or_thread, auth, level \\ 0, acc \\ []) do
+    case Map.get(post_or_thread, "replies") do
+      nil ->
+        acc
+
+      [] ->
+        acc
+
+      replies when is_list(replies) ->
+        Enum.reduce(replies, acc, fn reply, racc ->
+          reply_post = decode_post(reply, auth, level + 1)
+          decode_thread_replies(reply, auth, level + 1, [reply_post | racc])
+        end)
+
+      other ->
+        Logger.error("Thread replies is not a list #{inspect(other)}")
+        acc
+    end
+  end
+
   @doc """
   Decodes a post with its reply and reason.
 
@@ -535,7 +590,10 @@ defmodule Sandbox.Bluesky.Feed do
   from a `getPostThread` xrpc call, or for an item from the items returned by
   `getAuthorFeed` or `getTimeline`.
   """
-  def decode_post(%{"post" => %{"record" => record} = post} = item, auth) when is_map(record) do
+  def decode_post(item, auth, level \\ 0)
+
+  def decode_post(%{"post" => %{"record" => record} = post} = item, auth, level)
+      when is_map(record) do
     # This is from `getAuthorFeed` or `getTimeline`, each post has a `"record"`
     # with a `"$type"` specifier
     case record["$type"] do
@@ -544,7 +602,7 @@ defmodule Sandbox.Bluesky.Feed do
         nil
 
       "app.bsky.feed.post" ->
-        decode_post(post, item["reply"], item["reason"], auth)
+        decode_post(post, item["reply"], item["reason"], level, auth)
 
       other ->
         Logger.error("Unknown post record type '#{other}'")
@@ -552,7 +610,7 @@ defmodule Sandbox.Bluesky.Feed do
     end
   end
 
-  def decode_post(%{"post" => post, "$type" => ptype} = item, auth) do
+  def decode_post(%{"post" => post, "$type" => ptype} = item, level, auth) do
     # This is from `getPostThread`, each parent has a `"$type"` specifier
     case ptype do
       nil ->
@@ -560,13 +618,13 @@ defmodule Sandbox.Bluesky.Feed do
         nil
 
       "app.bsky.feed.defs#threadViewPost" ->
-        decode_post(post, item["reply"], item["reason"], auth)
+        decode_post(post, item["reply"], item["reason"], level, auth)
 
       "app.bsky.feed.defs#blockedPost" ->
-        build_post_info(post, auth)
+        build_post_info(post, auth, level)
 
       "app.bsky.feed.defs#notFoundPost" ->
-        build_post_info(post, auth)
+        build_post_info(post, auth, level)
 
       _ ->
         Logger.error("Unknown thread post type '#{ptype}'")
@@ -577,17 +635,22 @@ defmodule Sandbox.Bluesky.Feed do
   @doc """
   Decodes a post with its reply and reason.
   """
-  @spec decode_post(map(), map() | nil, map() | nil, Bluesky.auth()) :: Feed.Post.t() | nil
-  def decode_post(%{"uri" => _, "cid" => _} = post, reply, reason, auth) do
-    build_post(post, reply, reason, auth)
+  @spec decode_post(map(), map() | nil, map() | nil, integer(), Bluesky.auth()) ::
+          Feed.Post.t() | nil
+  def decode_post(post, reply, reason, level, auth)
+
+  def decode_post(%{"uri" => _, "cid" => _} = post, reply, reason, level, auth) do
+    build_post(post, reply, reason, level, auth)
   end
 
-  def decode_post(post, _reply, _reason, _auth) do
+  def decode_post(post, _reply, _reason, _level, _auth) do
     Logger.error("Mising uri or cid in post #{inspect(post)}")
     nil
   end
 
-  def build_post(%{"uri" => uri} = post, reply, reason, auth) do
+  def build_post(post, reply, reason, level, auth)
+
+  def build_post(%{"uri" => uri} = post, reply, reason, level, auth) do
     record = record_or_value(post, post)
 
     embeds =
@@ -662,19 +725,21 @@ defmodule Sandbox.Bluesky.Feed do
 
     %Post{
       uri: uri,
-      encoded_uri: SandboxWeb.encode_post_uri(uri),
       cid: post["cid"],
       author: build_author(post["author"], auth),
       date: Bluesky.to_date(record["createdAt"]),
       text: record["text"],
       reason: get_reason(reason, auth),
       reply_parent: build_post_info(reply["parent"], auth),
+      reply_root: build_post_info(reply["root"], auth),
+      reply_level: level,
+      reply_count: Map.get(post, "replyCount", 0),
       embeds: Bluesky.nil_if_emptylist(embeds),
       links: Bluesky.nil_if_emptylist(links)
     }
   end
 
-  def build_post(post, _reply, _reason, _auth) do
+  def build_post(post, _reply, _reason, _level, _auth) do
     Logger.error("No uri in post #{inspect(post)}")
     nil
   end
@@ -807,7 +872,7 @@ defmodule Sandbox.Bluesky.Feed do
   end
 
   def embed_post(post, media, auth) do
-    post = build_post(post, nil, nil, auth)
+    post = build_post(post, nil, nil, 0, auth)
 
     {media, title} =
       if is_map(media) do
@@ -823,8 +888,7 @@ defmodule Sandbox.Bluesky.Feed do
             {[build_attachment_embed(:external, media["external"])], "\"Post with preview\""}
 
           "app.bsky.embed.video#view" ->
-            Logger.error("in embed_post video#view, media: #{inspect(media)}")
-            {[build_attachment_embed(:video, media["video"])], "\"Post with video\""}
+            {[build_attachment_embed(:video, media)], "\"Post with video\""}
 
           etype ->
             Logger.error("Unhandled media $type '#{etype}'")
@@ -1075,9 +1139,11 @@ defmodule Sandbox.Bluesky.Feed do
     "app.bsky.embed.record#viewDetached" => [type: :detached, detached: true]
   }
 
-  def build_post_info(nil, _auth), do: nil
+  def build_post_info(record, auth, level \\ 0)
 
-  def build_post_info(%{"$type" => rtype} = record, auth) do
+  def build_post_info(nil, _auth, _level), do: nil
+
+  def build_post_info(%{"$type" => rtype} = record, auth, level) do
     case Map.get(@post_info_types, rtype) do
       nil ->
         Logger.error("Unknown post type '#{rtype}'")
@@ -1085,20 +1151,24 @@ defmodule Sandbox.Bluesky.Feed do
 
       opts ->
         opts =
-          Keyword.merge(opts, uri: record["uri"], author: build_author(record["author"], auth))
+          Keyword.merge(opts,
+            uri: record["uri"],
+            reply_level: level,
+            author: build_author(record["author"], auth)
+          )
 
         struct(PostInfo, opts)
     end
   end
 
-  def build_post_info(record, _auth) do
+  def build_post_info(record, _auth, _level) do
     Logger.error("No $type for post #{inspect(record)}")
     nil
   end
 
   def build_author(%{"did" => did} = author, auth) do
     # For users
-    author = Bluesky.try_resolve_author(author, auth)
+    author = Bluesky.resolve_author(author, auth)
 
     %Author{
       did: did,
@@ -1195,4 +1265,37 @@ defmodule Sandbox.Bluesky.Feed do
         at_uri
     end
   end
+
+  def post_thread_url(_, _), do: "#"
+
+  def encode_post_uri(post, :reply_root_uri) do
+    case post.reply_root do
+      %PostInfo{uri: uri} ->
+        encode_post_uri(uri)
+
+      _ ->
+        encode_post_uri(post.uri)
+    end
+  end
+
+  def encode_post_uri(post, _), do: encode_post_uri(post.uri)
+
+  def encode_post_uri(post_uri) when is_binary(post_uri) do
+    URI.encode_www_form(post_uri) |> Base.url_encode64(padding: false)
+  end
+
+  def encode_post_uri(_), do: nil
+
+  def decode_post_uri(post_uri) when is_binary(post_uri) do
+    case Base.url_decode64(post_uri) do
+      {:ok, uri} ->
+        URI.decode_www_form(uri)
+
+      :error ->
+        Logger.error("Failed to decode #{post_uri}")
+        nil
+    end
+  end
+
+  def decode_post_uri(_), do: nil
 end

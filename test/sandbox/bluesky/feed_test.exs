@@ -8,6 +8,7 @@ defmodule Sandbox.Bluesky.FeedTest do
 
   setup_all do
     app_password = AppPassword.load!()
+
     case Bluesky.login(app_password) do
       {:ok, auth} -> [auth: auth]
       {:error, message} -> [auth: message]
@@ -146,6 +147,7 @@ defmodule Sandbox.Bluesky.FeedTest do
   @tag :skip
   test "brute force", context do
     auth = flunk_if_no_auth(context)
+
     0..47
     |> Enum.each(fn i ->
       item = feed_item_fixture(i)
@@ -158,11 +160,6 @@ defmodule Sandbox.Bluesky.FeedTest do
     auth = flunk_if_no_auth(context)
     assert {:ok, data} = Bluesky.get_timeline(auth, limit: 50)
     assert is_list(data["feed"])
-
-    # Enum.with_index(data["feed"])
-    # |> Enum.each(fn {item, i} ->
-    #  File.write("bsky-feed-item-#{i}.json", Jason.encode!(item, pretty: true))
-    # end)
   end
 
   @tag :skip
@@ -170,6 +167,30 @@ defmodule Sandbox.Bluesky.FeedTest do
     auth = flunk_if_no_auth(context)
     assert {:ok, data} = Bluesky.get_feed(auth, :discover, limit: 50)
     assert is_list(data["feed"])
+  end
+
+  test "gets a thread from the root", context do
+    auth = flunk_if_no_auth(context)
+    uri = "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+    {:ok, data} = Bluesky.get_post_thread(uri, auth, depth: 50)
+    assert is_map(data["thread"])
+    # File.write("thread-root-full.json", Jason.encode!(data, pretty: true))
+  end
+
+  test "gets a thread from the last post", context do
+    auth = flunk_if_no_auth(context)
+    uri = "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43qudhal2o"
+    {:ok, data} = Bluesky.get_post_thread(uri, auth, depth: 50)
+    assert is_map(data["thread"])
+    # File.write("thread-last-full.json", Jason.encode!(data, pretty: true))
+  end
+
+  test "gets the last post in a thread", context do
+    auth = flunk_if_no_auth(context)
+    uri = "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43qudhal2o"
+    {:ok, data} = Bluesky.get_posts([uri], auth)
+    assert is_list(data["posts"])
+    # File.write("post-last.json", Jason.encode!(data, pretty: true))
   end
 
   @tag :skip
@@ -186,7 +207,7 @@ defmodule Sandbox.Bluesky.FeedTest do
     auth = flunk_if_no_auth(context)
     list_uri = "at://did:plc:r2mpjf3gz2ygfaodkzzzfddg/app.bsky.graph.list/3lcvbzusxvc26"
     list = Bluesky.Feed.resolve_list(list_uri, auth)
-    IO.inspect(list)
+    # IO.inspect(list)
     assert %Feed.GraphList{} = list
   end
 
@@ -194,6 +215,7 @@ defmodule Sandbox.Bluesky.FeedTest do
     case context[:auth] do
       %{access_token: _} = auth ->
         auth
+
       error ->
         flunk("No auth: #{error}")
     end

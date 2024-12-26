@@ -15,6 +15,7 @@ defmodule SandboxWeb.BlueskyLive do
     socket =
       socket
       |> assign(
+        page_title: "Sign in to Bluesky",
         scope: scope,
         input: "",
         input_type: nil,
@@ -94,7 +95,7 @@ defmodule SandboxWeb.BlueskyLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <h1>Log into your Bluesky server</h1>
+    <h1>Sign in to your Bluesky server</h1>
     <div id="sandbox">
       <form phx-change="validate" phx-submit="authorize">
         <div class="field">
@@ -111,7 +112,7 @@ defmodule SandboxWeb.BlueskyLive do
         <div class="flex pb-2">
           <div class="flex justify-center w-full">
             <button class="button" type="submit" disabled={@disabled}>
-              Log in to Bluesky
+              Sign in
             </button>
           </div>
         </div>

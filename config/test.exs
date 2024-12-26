@@ -7,8 +7,7 @@ config :sandbox, SandboxWeb.Endpoint,
   secret_key_base: "Ex4EYp866xppswt+PTm2jkQtEzLFEXnMdHy5xOWS1kMrsVuCfApKXgJGXt3136bm",
   server: true
 
-config :sandbox, Sandbox.Bluesky,
-  app_password_file: "bsky-app-password.json"
+config :sandbox, Sandbox.Bluesky, app_password_file: "bsky-app-password.json"
 
 # Print only warnings and errors during test
 config :logger, level: :warning

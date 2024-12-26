@@ -22,11 +22,15 @@ defmodule SandboxWeb.FeedLive do
       socket
       |> stream_configure(:posts, dom_id: &Feed.Post.stream_id/1)
       |> stream(:posts, [])
-      |> assign(:feed_name, "")
-      |> assign(:return_to, nil)
-      |> assign(:feed, AsyncResult.loading())
-      |> assign(:modal, AsyncResult.loading())
-      |> assign(:show_modal, false)
+      |> assign(
+        return_to: nil,
+        post_thread: nil,
+        page_title: "Feeds",
+        feed_name: "",
+        feed: AsyncResult.loading(),
+        modal: AsyncResult.loading(),
+        show_modal: false
+      )
 
     {:ok, socket}
   end
@@ -35,19 +39,21 @@ defmodule SandboxWeb.FeedLive do
   def handle_params(params, _uri, socket) do
     user = socket.assigns[:current_user]
     live_action = socket.assigns.live_action
-    post_uri = Map.get(params, "post_uri")
-    return_to = Map.get(params, "return_to")
 
     socket =
       cond do
         live_action in [:me, :following, :discover, :friends, :news] ->
-          # :current_user assigned in MountHooks.on_mount(:user)
+          title = feed_display_name(live_action, user)
 
           socket
           |> stream(:posts, [], reset: true)
-          |> assign(:feed_name, feed_display_name(live_action, user))
-          |> assign(:return_to, nil)
-          |> assign(:feed, AsyncResult.loading())
+          |> assign(
+            return_to: "/feed/#{live_action}",
+            post_thread: nil,
+            page_title: title,
+            feed_name: title,
+            feed: AsyncResult.loading()
+          )
           |> start_async(:feed, fn ->
             case Bluesky.get_feed(user, live_action, limit: 50) do
               {:ok, feed} -> Feed.decode_feed(feed, user)
@@ -55,20 +61,50 @@ defmodule SandboxWeb.FeedLive do
             end
           end)
 
-        live_action == :thread && is_binary(post_uri) ->
-          uri = SandboxWeb.decode_post_uri(post_uri)
+        live_action == :thread ->
+          title = "Thread"
+          post_uri = params["post_uri"]
 
-          socket
-          |> stream(:posts, [], reset: true)
-          |> assign(:feed_name, "Thread")
-          |> assign(:return_to, return_to)
-          |> assign(:feed, AsyncResult.loading())
-          |> start_async(:feed, fn ->
-            case Bluesky.get_post_thread(uri, user) do
-              {:ok, thread} -> Feed.decode_thread(thread, user)
-              error -> error
-            end
-          end)
+          if post_uri do
+            post_uri = Feed.decode_post_uri(post_uri)
+
+            root_uri =
+              case params["root_uri"] do
+                root_uri when is_binary(root_uri) ->
+                  Feed.decode_post_uri(root_uri)
+
+                _ ->
+                  Bluesky.resolve_root_uri(post_uri, user)
+              end
+
+            socket
+            |> stream(:posts, [], reset: true)
+            |> assign(
+              # return_to: return_to,
+              post_thread: nil,
+              page_title: title,
+              feed_name: title,
+              feed: AsyncResult.loading()
+            )
+            |> start_async(:feed, fn ->
+              case Bluesky.get_post_thread(root_uri, user, depth: 50) do
+                {:ok, thread} -> Feed.decode_thread(thread, user, post_uri)
+                error -> error
+              end
+            end)
+          else
+            %{feed: feed} = socket.assigns
+
+            socket
+            |> stream(:posts, [], reset: true)
+            |> assign(
+              # return_to: return_to,
+              post_thread: nil,
+              page_title: title,
+              feed_name: title,
+              feed: AsyncResult.failed(feed, "Missing post URI")
+            )
+          end
 
         true ->
           socket
@@ -87,16 +123,24 @@ defmodule SandboxWeb.FeedLive do
     {:noreply, socket}
   end
 
-  def handle_event("modal-thread", %{"post_uri" => post_uri, "reply" => _}, socket) do
-    # We only display thread in modal if there is a reply to the post
+  def handle_event("modal-thread", %{"post_uri" => post_uri} = params, socket) do
     user = socket.assigns[:current_user]
-    uri = SandboxWeb.decode_post_uri(post_uri)
+    post_uri = Feed.decode_post_uri(post_uri)
+
+    root_uri =
+      case params["root_uri"] do
+        root_uri when is_binary(root_uri) ->
+          Feed.decode_post_uri(root_uri)
+
+        _ ->
+          Bluesky.resolve_root_uri(post_uri, user)
+      end
 
     socket =
       socket
       |> start_async(:modal, fn ->
-        case Bluesky.get_post_thread(uri, user) do
-          {:ok, thread} -> Feed.decode_thread(thread, user)
+        case Bluesky.get_post_thread(root_uri, user, depth: 50) do
+          {:ok, thread} -> Feed.decode_thread(thread, user, post_uri)
           error -> error
         end
       end)
@@ -109,25 +153,35 @@ defmodule SandboxWeb.FeedLive do
     {:noreply, socket}
   end
 
-  def handle_event("modal-cancel", _params, socket) do
+  def handle_event("modal-cancel", params, socket) do
     socket =
       socket
       |> assign(:modal, AsyncResult.loading())
       |> assign(:show_modal, false)
 
+    socket =
+      case Map.get(params, "thread_post") do
+        url when is_binary(url) ->
+          push_patch(socket, to: url)
+
+        _ ->
+          socket
+      end
+
     {:noreply, socket}
   end
 
   @impl true
-  def handle_async(:feed, {:ok, {:ok, posts}}, socket) do
-    %{feed: feed} = socket.assigns
-    count = Enum.count(posts)
-
+  def handle_async(:feed, {:ok, %{post: thread_post, posts: posts}}, socket) do
     socket =
-      socket
-      |> stream(:posts, posts)
-      |> assign(:feed, AsyncResult.ok(feed, %{count: count}))
+      feed_result_ok(socket, posts)
+      |> assign(:thread_post, SandboxWeb.post_thread_url(thread_post))
 
+    {:noreply, socket}
+  end
+
+  def handle_async(:feed, {:ok, %{posts: posts}}, socket) do
+    socket = feed_result_ok(socket, posts)
     {:noreply, socket}
   end
 
@@ -141,14 +195,17 @@ defmodule SandboxWeb.FeedLive do
     {:noreply, assign(socket, :feed, AsyncResult.failed(feed, reason))}
   end
 
-  def handle_async(:modal, {:ok, {:ok, posts}}, socket) do
+  def handle_async(:modal, {:ok, %{post: thread_post, posts: posts}}, socket) do
     %{modal: modal} = socket.assigns
 
     posts = Enum.map(posts, fn post -> {Feed.Post.stream_id(post), post} end)
 
     socket =
       socket
-      |> assign(:modal, AsyncResult.ok(modal, %{type: :thread, posts: posts}))
+      |> assign(
+        thread_post: SandboxWeb.post_thread_url(thread_post),
+        modal: AsyncResult.ok(modal, %{type: :thread, posts: posts})
+      )
 
     {:noreply, socket}
   end
@@ -161,6 +218,15 @@ defmodule SandboxWeb.FeedLive do
   def handle_async(:modal, {:exit, reason}, socket) do
     %{modal: modal} = socket.assigns
     {:noreply, assign(socket, :modal, AsyncResult.failed(modal, reason))}
+  end
+
+  def feed_result_ok(socket, posts) do
+    %{feed: feed} = socket.assigns
+    count = Enum.count(posts)
+
+    socket
+    |> stream(:posts, posts)
+    |> assign(:feed, AsyncResult.ok(feed, %{count: count}))
   end
 
   def feed_display_name(:me, user) do

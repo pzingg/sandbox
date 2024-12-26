@@ -9,7 +9,7 @@ defmodule SandboxWeb.AccountLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket}
+    {:ok, assign(socket, :page_title, "Account")}
   end
 
   @impl true
@@ -50,7 +50,7 @@ defmodule SandboxWeb.AccountLive do
               Refresh token
             </button>
             <button type="button" class="button" phx-click="authorize">
-              Log in again
+              Sign in again
             </button>
           </div>
         </div>

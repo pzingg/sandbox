@@ -10,7 +10,9 @@ defmodule SandboxWeb.AuthJSON do
   end
 
   def jwks(_assigns) do
-    {_private_map, public_map} = Sandbox.Bluesky.get_private_jwk("__client__") |> OAuth2.JWK.to_maps()
+    {_private_map, public_map} =
+      Sandbox.Bluesky.get_private_jwk("__client__") |> OAuth2.JWK.to_maps()
+
     %{"keys" => public_map}
   end
 end

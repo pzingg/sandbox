@@ -50,14 +50,6 @@ The JSON app password file (used for tests only) must contain these keys:
 - `"app_password"` - your registered app password
 - `"pds_url"` - normally set to "https://bsky.social"
 
-## Known issues
-
-Decoding posts with video embeds:
-
-```
-No thumb in video attachment nil
-```
-
 ## Learn more
 
   * Official website: https://www.phoenixframework.org/
@@ -78,13 +70,13 @@ To subscribe to the Bluesky Firehose, call this somewhere in your code:
 Sandbox.Bluesky.WebsocketClient.start(stream: :repos)
 ```
 
-## Bluesky OAuth2 authentication
+## Bluesky OAuth client authentication
 
 The project has code to authenticate to a Bluesky Authorization Server
-according the documentation and using steps learned from the Python 
-demonstration app at 
-
-https://github.com/bluesky-social/cookbook/tree/main/python-oauth-web-app
+according to the Bluesky documentation, [here](https://atproto.com/specs/oauth) and 
+[here](https://docs.bsky.app/docs/advanced-guides/oauth-client),
+using details ported from the 
+[Bluesky Python OAuth demonstration web app]( https://github.com/bluesky-social/cookbook/tree/main/python-oauth-web-app).
 
 The code uses the `dpop` branch in a 
 [fork of the OAuth2 Elixir library](https://github.com/pzingg/oauth2).
@@ -96,18 +88,18 @@ request and response headers used in Bluesky's OAuth specification.
 The SandboxWeb Phoenix application provides the necessary callback, client 
 metadata and JWKS endpoints.
 
+## Bluesky app password client authentication
+
+Bluesky [app password](https://lifehacker.com/tech/why-you-should-be-using-bluesky-app-passwords) 
+authentication is used in tests. See the Configuration section above for 
+how to create and configure an app password file once you have obtained 
+an app password.
+
 ## Bluesky timeline
 
 The Sandbox.Feed module contains decoders for the `getTimeline` XRPC
 call, and there is a minimal Phoenix Live View UI that displays the 
 decoded timeline.
-
-### TODO
-
-- Display parsed `"app.bsky.feed.defs#generatorView"` information
-- Parse and display `"app.bsky.graph.list"` data (including lists and 
-  starter packs)
-- More tests!
 
 ## Bluesky XRPC requests
 
@@ -116,12 +108,27 @@ authenticated with a Bearer access token retrieved with the
 `"com.atproto.server.createSession"` request, and authenticated with 
 a DPoP token and nonce after OAuth2 authorization.
 
-Bluesky rate limits XRPC API calls.
+### Rate limiting errors
 
-Code should automatically check for HTTP status code 429, with
-`%{"error" => "RateLimitExceeded", "message" => "Rate Limit Exceeded"}` in
-the body, then back off and retry for a configured number of times. 
-This should be easy to do with the `Req` library used (TODO).
+The code checks for rate limit errors in XRPC responses, where:
+
+- `response.status_code == 429`
+- `response.body["error"] == "RateLimitExceeded"`
+- `response.body["message"] == "Rate Limit Exceeded"`, and
+- `response.headers` will have a member `{"ratelimit-reset", [timestamp]}`
+  where timestamp is the UNIX epoch time at which the request can be resumed
+
+### Token expiration errors
+
+If the access token for XRPC calls has expired, the response will have: 
+
+- `response.status_code == 401`
+- `response.body["error"] == "invalid_token"` and
+- `response.body["message"] == "\"exp\" claim timestamp check failed"`
+
+Currently, the code does not automatically attempt to refresh 
+an expired access token. The "Refresh token" button on the "/account" page 
+can be used to update the acces token. (TODO!)
 
 ## Bluesky Merkle Trees
 

@@ -80,6 +80,7 @@ defmodule Sandbox.Bluesky.WebsocketClient do
         {:ok, %{repo: repo} = message} ->
           post = CAR.find_post_block(message)
           log_post(post, repo)
+
           if debug && post do
             rev = message["rev"]
             File.write("post-commit-#{rev}.json", Jason.encode!(message, pretty: true))
@@ -182,7 +183,7 @@ defmodule Sandbox.Bluesky.WebsocketClient do
           _ = Logger.debug(" ... quote post with media #{inspect(embed)}")
 
         "app.bsky.embed.images" ->
-        _ = Logger.debug(" ... with #{Enum.count(embed.images)} images")
+          _ = Logger.debug(" ... with #{Enum.count(embed.images)} images")
 
         "app.bsky.embed.video" ->
           _ = Logger.debug(" ... with a video")

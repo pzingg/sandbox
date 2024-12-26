@@ -764,7 +764,7 @@ defmodule Sandbox.Bluesky do
     end
   end
 
-  def try_resolve_author(%{"did" => did} = author, auth) when is_binary(did) do
+  def resolve_author(%{"did" => did} = author, auth) when is_binary(did) do
     if is_binary(author["displayName"]) || is_binary(author["handle"]) do
       author
     else
@@ -795,7 +795,19 @@ defmodule Sandbox.Bluesky do
     end
   end
 
-  def try_resolve_author(author, _auth), do: author
+  def resolve_author(author, _auth), do: author
+
+  def resolve_root_uri(post_uri, auth) when is_binary(post_uri) do
+    with {:ok, %{"posts" => [post]}} <- get_posts([post_uri], auth),
+         root_uri when is_binary(root_uri) <- get_in(post, ["record", "reply", "root", "uri"]) do
+      root_uri
+    else
+      _ ->
+        post_uri
+    end
+  end
+
+  def resolve_root_uri(post_uri, _auth), do: post_uri
 
   @doc """
   Logs into Bluesky with a username and app password.
@@ -882,14 +894,46 @@ defmodule Sandbox.Bluesky do
   @doc """
   Makes a DPoP authorized request to the `"app.bsky.feed.getPostThread"` xrpc
   endpoint. On success, returns the response JSON data.
+
+  ## Options
+
+  - `:depth` (integer, default 6) - How many levels of reply depth should be
+    included in response.
+  - `:parentHeight` (integer, default 80) - How many levels of parent
+    (and grandparent, etc) post to include.
   """
-  @spec get_post_thread(String.t(), auth()) :: {:ok, map()} | {:error, reason()}
-  def get_post_thread(uri, %{pds_url: pds_url} = user) do
+  @spec get_post_thread(String.t(), auth(), Keyword.t()) :: {:ok, map()} | {:error, reason()}
+  def get_post_thread(uri, %{pds_url: pds_url} = user, opts \\ []) do
+    opts = Keyword.put(opts, :uri, uri)
+
     case xrpc_request(
            :get,
            pds_url,
            "app.bsky.feed.getPostThread",
-           [uri: uri, depth: 1, parentHeight: 1],
+           opts,
+           user
+         ) do
+      {:ok, %OAuth2.Response{body: body}} ->
+        {:ok, body}
+
+      error ->
+        error
+    end
+  end
+
+  @doc """
+  Makes a DPoP authorized request to the `"app.bsky.feed.getPosts"` xrpc
+  endpoint. On success, returns the response JSON data.
+  """
+  @spec get_posts([String.t()], auth()) :: {:ok, map()} | {:error, reason()}
+  def get_posts(uris, %{pds_url: pds_url} = user) do
+    params = Enum.map(uris, fn uri -> {:uris, uri} end)
+
+    case xrpc_request(
+           :get,
+           pds_url,
+           "app.bsky.feed.getPosts",
+           params,
            user
          ) do
       {:ok, %OAuth2.Response{body: body}} ->

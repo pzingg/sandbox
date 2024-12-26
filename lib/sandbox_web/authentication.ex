@@ -17,7 +17,7 @@ defmodule SandboxWeb.Authentication do
 
       true ->
         conn
-        |> put_flash(:error, "You must log in to access this page.")
+        |> put_flash(:error, "You must sign in to access this page.")
         |> redirect(to: ~p"/")
         |> halt()
     end

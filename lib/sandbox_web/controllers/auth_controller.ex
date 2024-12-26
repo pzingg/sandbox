@@ -113,6 +113,7 @@ defmodule SandboxWeb.AuthController do
       Logger.error("Checking for redirect. host is #{conn.host}")
       from_ngrok? = Regex.match?(~r/\.ngrok.*\.app/, conn.host)
       from_127? = Regex.match?(~r/127\.0\./, conn.host)
+
       if from_ngrok? || from_127? do
         localhost = SandboxWeb.Endpoint.url()
         local_url = "#{localhost}#{conn.request_path}?#{conn.query_string}&from_external=1"

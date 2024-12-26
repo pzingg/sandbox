@@ -37,9 +37,11 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
     <h2 class="my-4 text-2xl">
       <span class="font-bold">Thread</span>
     </h2>
-    <button class="button" type="button">
-      <.link patch={"/feed/#{@return_to}"}>Back</.link>
-    </button>
+    <div class="my-2">
+      <button class="button" type="button">
+        <.link patch={@return_to}>Back</.link>
+      </button>
+    </div>
     """
   end
 
@@ -63,15 +65,31 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
         class="flex flex-col post-avatar"
         {@rest}
         phx-value-reply={Post.reply?(@post)}
-        phx-value-post_uri={@post.encoded_uri}
+        phx-value-post_uri={Feed.encode_post_uri(@post, :uri)}
+        phx-value-root_uri={Feed.encode_post_uri(@post, :reply_root_uri)}
       >
         <div class="flex-none">
-          <img class="w-12 h-12 rounded-full" src={@post.author.avatar} alt={@post.author.display_name} />
+          <img
+            class="w-12 h-12 rounded-full"
+            src={@post.author.avatar}
+            alt={@post.author.display_name}
+          />
         </div>
         <%= if @post.next_thread? do %>
           <div class="flex-1 my-2 post-next-thread">
-            <svg class="w-full h-full next-thread-line" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <line class="stroke-2 stroke-bluesky" x1="50%" y1="0" x2="50%" y2="100%" vector-effect="non-scaling-stroke"/>
+            <svg
+              class="w-full h-full next-thread-line"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <line
+                class="stroke-2 stroke-bluesky"
+                x1="50%"
+                y1="0"
+                x2="50%"
+                y2="100%"
+                vector-effect="non-scaling-stroke"
+              />
             </svg>
           </div>
         <% end %>
@@ -81,12 +99,28 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
         class="mb-4 post-item"
         {@rest}
         phx-value-reply={Post.reply?(@post)}
-        phx-value-post_uri={@post.encoded_uri}
+        phx-value-post_uri={Feed.encode_post_uri(@post.uri)}
+        phx-value-root_uri={Feed.encode_post_uri(@post, :reply_root_uri)}
       >
         <div class="post-header">
           <span class="font-bold post-author">{@post.author.display_name}</span>
           <span class="post-handle">@{@post.author.handle}</span>
           <span class="text-gray-500 post-date">{Bluesky.local_date(@post.date)}</span>
+        </div>
+        <div class="flex gap-2 post-uri">
+          <%= if @post.reply_level > 0 do %>
+            <div class="flex-none">
+              <.icon class="small-icon" name="hero-list-bullet" />
+              {@post.reply_level}
+            </div>
+          <% end %>
+          <%= if @post.reply_count > 0 do %>
+            <div class="flex-none">
+              <.icon class="small-icon" name="hero-chat-bubble-oval-left-ellipsis" />
+              {@post.reply_count}
+            </div>
+          <% end %>
+          <div class="flex-1 text-bluesky">{@post.uri}</div>
         </div>
         <div class="my-2 post-body">
           <div class="post-text">

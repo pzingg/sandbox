@@ -50,28 +50,30 @@ defmodule Sandbox.Bluesky.CAR do
     end
   end
 
-  def all_collections, do: [
-    "app.bsky.actor.profile",
-    "app.bsky.feed.generator",
-    "app.bsky.feed.like",
-    "app.bsky.feed.post",
-    "app.bsky.feed.postgate",
-    "app.bsky.feed.repost",
-    "app.bsky.feed.threadgate",
-    "app.bsky.graph.block",
-    "app.bsky.graph.follow",
-    "app.bsky.graph.list",
-    "app.bsky.graph.listblock",
-    "app.bsky.graph.listitem",
-    "app.bsky.graph.starterpack",
-    "app.bsky.labeler.service",
-    "chat.bsky.actor.declaration"
-  ]
+  def all_collections,
+    do: [
+      "app.bsky.actor.profile",
+      "app.bsky.feed.generator",
+      "app.bsky.feed.like",
+      "app.bsky.feed.post",
+      "app.bsky.feed.postgate",
+      "app.bsky.feed.repost",
+      "app.bsky.feed.threadgate",
+      "app.bsky.graph.block",
+      "app.bsky.graph.follow",
+      "app.bsky.graph.list",
+      "app.bsky.graph.listblock",
+      "app.bsky.graph.listitem",
+      "app.bsky.graph.starterpack",
+      "app.bsky.labeler.service",
+      "chat.bsky.actor.declaration"
+    ]
 
-  def post_collections, do: [
-    "app.bsky.feed.post",
-    "app.bsky.feed.repost"
-  ]
+  def post_collections,
+    do: [
+      "app.bsky.feed.post",
+      "app.bsky.feed.repost"
+    ]
 
   @derive Jason.Encoder
   defstruct [:length, :roots, :version, :blocks]
@@ -143,12 +145,14 @@ defmodule Sandbox.Bluesky.CAR do
     {_len, _lbytes, rest} = decode_varint!(data)
     {cid, block_data} = decode_cid!(rest)
     {block, rest} = decode_block_data!(block_data, cid.codec)
+
     block =
       if is_map(block) && Map.has_key?(block, :sig) && is_binary(block.sig) do
         Map.put(block, :sig, "b64:" <> Base.encode64(block.sig, padding: false))
       else
         block
       end
+
     key = cid_string(cid)
     acc = Map.put(acc, key, block)
 

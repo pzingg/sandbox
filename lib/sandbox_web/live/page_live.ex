@@ -3,7 +3,12 @@ defmodule SandboxWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, reset_query(socket)}
+    socket =
+      socket
+      |> assign(:page_title, "Home")
+      |> reset_query()
+
+    {:ok, socket}
   end
 
   @impl true

@@ -128,7 +128,8 @@ defmodule Sandbox.BlueskyTest do
   end
 
   test "gets client metadata" do
-    client_id = Bluesky.client_metadata_config("atproto transition:generic") |> Map.fetch!(:client_id)
+    client_id =
+      Bluesky.client_metadata_config("atproto transition:generic") |> Map.fetch!(:client_id)
 
     if String.starts_with?(client_id, "http://localhost") do
       %URI{query: query} = URI.parse(client_id)

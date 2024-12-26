@@ -16,6 +16,14 @@
               <.skeet post={post} />
             </li>
           </ul>
+          <button
+            type="button"
+            class="button"
+            phx-click="modal-cancel"
+            phx-value-thread_post={@thread_post}
+          >
+            Open this thread in new page
+          </button>
         <% other -> %>
           <div class="my-4 text-lg">{other} content.</div>
       <% end %>
@@ -36,11 +44,7 @@
     <% end %>
     <ul id="feed" class="feed" phx-update="stream">
       <li :for={{dom_id, post} <- @streams.posts} id={dom_id}>
-        <.skeet
-          post={post}
-          phx-click="modal-thread"
-          live_action={@live_action}
-        />
+        <.skeet post={post} phx-click="modal-thread" live_action={@live_action} />
       </li>
     </ul>
   </.async_result>

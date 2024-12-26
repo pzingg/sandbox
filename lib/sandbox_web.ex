@@ -113,31 +113,14 @@ defmodule SandboxWeb do
 
   def post_thread_url(post, return_to \\ nil)
 
-  def post_thread_url(%{uri: uri}, return_to) do
-    encoded = encode_post_uri(uri)
+  def post_thread_url(%{uri: uri}, return_to) when is_binary(uri) do
+    encoded = Sandbox.Bluesky.Feed.encode_post_uri(uri)
     url = "/feed/#{encoded}/thread"
 
     if !is_nil(return_to) && return_to != :thread do
       "#{url}?#{URI.encode_query(%{return_to: return_to})}"
     else
       url
-    end
-  end
-
-  def post_thread_url(_, _), do: "#"
-
-  def encode_post_uri(post_uri) do
-    URI.encode_www_form(post_uri) |> Base.url_encode64(padding: false)
-  end
-
-  def decode_post_uri(post_uri) do
-    case Base.url_decode64(post_uri) do
-      {:ok, uri} ->
-        URI.decode_www_form(uri)
-
-      :error ->
-        Logger.error("Failed to decode #{post_uri}")
-        nil
     end
   end
 end

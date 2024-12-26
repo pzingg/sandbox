@@ -1,17 +1,11 @@
 defmodule SandboxWeb.PageController do
   use SandboxWeb, :controller
 
-  def home(conn, _params) do
-    # The home page is often custom made,
-    # so skip the default app layout.
-    render(conn, :home, layout: false)
-  end
-
   def tos(conn, _params) do
-    render(conn, :tos)
+    render(conn, :tos, page_title: "Terms of Service")
   end
 
   def policy(conn, _params) do
-    render(conn, :policy)
+    render(conn, :policy, page_title: "Privacy Policy")
   end
 end

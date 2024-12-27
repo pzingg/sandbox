@@ -41,6 +41,7 @@ npm-debug.log
 
 # Docs and other local files
 /_json/
+_*.md
 
 # Secrets
 bsky-app-password.json

@@ -47,6 +47,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:did]
 
+    @derive Jason.Encoder
     defstruct [:did, :uri, :cid, :avatar, :display_name, :handle, :name, :description]
 
     def hydrated?(author) do
@@ -61,7 +62,7 @@ defmodule Sandbox.Bluesky.Feed do
             type: Feed.post_view_type(),
             uri: String.t(),
             author: Author.t() | nil,
-            reply_level: integer(),
+            depth: integer(),
             not_found: boolean(),
             blocked: boolean(),
             detached: boolean()
@@ -69,11 +70,12 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type]
 
+    @derive Jason.Encoder
     defstruct [
       :type,
       :uri,
       :author,
-      reply_level: 0,
+      depth: 0,
       not_found: false,
       blocked: false,
       detached: false
@@ -92,6 +94,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:uri, :subject]
 
+    @derive Jason.Encoder
     defstruct [:uri, :subject]
   end
 
@@ -107,6 +110,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type, :creator, :summary]
 
+    @derive Jason.Encoder
     defstruct [:type, :items, :creator, :summary]
 
     def avatar_count(list) do
@@ -161,6 +165,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:uri]
 
+    @derive Jason.Encoder
     defstruct [:uri, :feeds, :list, :creator, :name, :description]
 
     @doc """
@@ -226,6 +231,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:creator, :summary]
 
+    @derive Jason.Encoder
     defstruct [:creator, :summary]
   end
 
@@ -246,6 +252,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type, :byte_start, :byte_end]
 
+    @derive Jason.Encoder
     defstruct [:type, :byte_start, :byte_end, :title, :uri, :tag, :mention]
 
     def hydrated?(link) do
@@ -280,6 +287,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type]
 
+    @derive Jason.Encoder
     defstruct [
       :type,
       :cid,
@@ -353,6 +361,7 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type]
 
+    @derive Jason.Encoder
     defstruct [
       :type,
       :title,
@@ -391,8 +400,11 @@ defmodule Sandbox.Bluesky.Feed do
 
     @enforce_keys [:type, :by, :date]
 
+    @derive Jason.Encoder
     defstruct [:type, :by, :date]
   end
+
+  @type thread_state() :: :thread_none | :thread_continues | :thread_last
 
   defmodule Post do
     @moduledoc false
@@ -403,37 +415,42 @@ defmodule Sandbox.Bluesky.Feed do
             text: String.t(),
             date: DateTime.t() | nil,
             author: Author.t() | nil,
+            parent: PostInfo.t() | nil,
+            parent_uri: String.t() | nil,
+            root_uri: String.t() | nil,
             instance: integer(),
-            thread_id: String.t() | nil,
-            reply_parent: PostInfo.t() | nil,
-            reply_root: PostInfo.t() | nil,
-            reply_level: integer(),
+            line_id: integer(),
+            line_seq: integer(),
+            depth: integer(),
             reply_count: integer(),
             reason: Reason.t() | nil,
-            next_thread?: boolean(),
-            highlighted?: boolean(),
+            focus?: boolean(),
+            thread_state: Feed.thread_state(),
             embeds: nonempty_list(Embed.t()) | nil,
             links: nonempty_list(Link.t()) | nil
           }
 
     @enforce_keys [:uri]
 
+    @derive Jason.Encoder
     defstruct [
       :uri,
       :cid,
       :text,
       :date,
       :author,
-      :thread_id,
-      :reply_parent,
-      :reply_root,
+      :parent,
+      :parent_uri,
+      :root_uri,
       :reason,
       :embeds,
       :links,
-      next_thread?: false,
-      highlighted?: false,
+      focus?: false,
+      thread_state: :thread_none,
       instance: 0,
-      reply_level: 0,
+      line_id: 0,
+      line_seq: 0,
+      depth: 0,
       reply_count: 0
     ]
 
@@ -443,6 +460,22 @@ defmodule Sandbox.Bluesky.Feed do
 
     def hydrated?(post) do
       is_binary(post.date)
+    end
+
+    def finalize(post, opts) do
+      focus_uri = Keyword.get(opts, :focus_uri)
+
+      post
+      |> set_focus(focus_uri)
+      |> set_instance()
+    end
+
+    def set_focus(%Post{uri: focus_uri} = post, focus_uri) when is_binary(focus_uri) do
+      %Post{post | focus?: true}
+    end
+
+    def set_focus(post, _focus_uri) do
+      %Post{post | focus?: false}
     end
 
     def set_instance(post) do
@@ -457,7 +490,9 @@ defmodule Sandbox.Bluesky.Feed do
 
     def repost?(post), do: is_map(post.reason) && post.reason.type == :repost
 
-    def reply?(post), do: is_map(post.reply_parent)
+    def reply?(post), do: is_map(post.parent)
+
+    def reply(post), do: post.parent
 
     def has_images?(post), do: find_embed(post, :images) |> is_map()
 
@@ -508,8 +543,10 @@ defmodule Sandbox.Bluesky.Feed do
     posts =
       feed
       |> Enum.map(&decode_post(&1, auth))
-      |> Enum.filter(fn post -> !is_nil(post) end)
-      |> Enum.map(&Post.set_instance/1)
+      |> Enum.filter(&(!is_nil(&1)))
+
+    posts =
+      Enum.map(posts, &Post.finalize(&1, []))
 
     %{posts: posts}
   end
@@ -518,44 +555,55 @@ defmodule Sandbox.Bluesky.Feed do
 
   @doc """
   Decodes a post as returned from `getPostThread` and all its ancestors.
+
+  ### Options
+
+  - `:focus_uri` - the at-uri of the post that is the focus of this
+    thread view. defaults to the uri of the "post" element returned
+    by `Bluesky.get_post_thread`
+  - `:raw` (boolean, default false) - if set, do not calculate branches
   """
-  def decode_thread(data, auth, highlighted_uri \\ nil)
+  def decode_thread(data, auth, opts \\ [])
 
-  def decode_thread(%{"thread" => thread}, auth, highlighted_uri) do
+  def decode_thread(%{"thread" => thread}, auth, opts) do
     post = decode_post(thread, auth)
-    ancestors = decode_thread_ancestors(thread, auth, post.author.did)
-    posts = Enum.reverse([post | ancestors])
 
-    replies =
-      decode_thread_replies(thread, auth)
-      |> Enum.reverse()
+    if is_nil(post) do
+      nil
+    else
+      opts = Keyword.put_new(opts, :focus_uri, post.uri)
+      ancestors = decode_thread_ancestors(thread, auth)
+      replies = decode_thread_replies(thread, auth)
 
-    posts =
-      (posts ++ replies)
-      |> Enum.map(fn
-        %Post{uri: ^highlighted_uri} = post ->
-          %Post{post | highlighted?: true}
+      posts =
+        [post, ancestors, replies]
+        |> List.flatten()
+        |> Enum.map(&Post.finalize(&1, opts))
 
-        post ->
-          post
-      end)
-      |> Bluesky.nil_if_emptylist()
+      if Enum.empty?(posts) || Keyword.get(opts, :raw, false) do
+        posts
+      else
+        root_handle = hd(posts).author.handle
 
-    %{posts: posts, post: post}
+        posts
+        |> build_branches(root_handle)
+        |> prune_branches(root_handle)
+        |> enumerate_branches(posts)
+      end
+    end
   end
 
-  def decode_thread(_thread, _auth, _highlighted_uri), do: {:error, "No thread in response"}
+  def decode_thread(_thread, _auth, _opts), do: {:error, "No thread in response"}
 
-  def decode_thread_ancestors(post_or_thread, auth, child_did, acc \\ []) do
+  def decode_thread_ancestors(post_or_thread, auth, depth \\ 0, acc \\ []) do
     case Map.get(post_or_thread, "parent") do
       nil ->
         acc
 
       parent when is_map(parent) ->
         parent_post = decode_post(parent, auth)
-        next_thread? = parent_post.author.did == child_did
-        parent_post = %Post{parent_post | next_thread?: next_thread?}
-        decode_thread_ancestors(parent, auth, parent_post.author.did, [parent_post | acc])
+        parent_post = %Post{parent_post | depth: depth - 1}
+        decode_thread_ancestors(parent, auth, depth - 1, [parent_post | acc])
 
       other ->
         Logger.error("Thread parent is not a map #{inspect(other)}")
@@ -563,7 +611,7 @@ defmodule Sandbox.Bluesky.Feed do
     end
   end
 
-  def decode_thread_replies(post_or_thread, auth, level \\ 0, acc \\ []) do
+  def decode_thread_replies(post_or_thread, auth, depth \\ 0, acc \\ []) do
     case Map.get(post_or_thread, "replies") do
       nil ->
         acc
@@ -573,8 +621,8 @@ defmodule Sandbox.Bluesky.Feed do
 
       replies when is_list(replies) ->
         Enum.reduce(replies, acc, fn reply, racc ->
-          reply_post = decode_post(reply, auth, level + 1)
-          decode_thread_replies(reply, auth, level + 1, [reply_post | racc])
+          reply_post = decode_post(reply, auth, depth + 1)
+          decode_thread_replies(reply, auth, depth + 1, [reply_post | racc])
         end)
 
       other ->
@@ -590,9 +638,9 @@ defmodule Sandbox.Bluesky.Feed do
   from a `getPostThread` xrpc call, or for an item from the items returned by
   `getAuthorFeed` or `getTimeline`.
   """
-  def decode_post(item, auth, level \\ 0)
+  def decode_post(item, auth, depth \\ 0)
 
-  def decode_post(%{"post" => %{"record" => record} = post} = item, auth, level)
+  def decode_post(%{"post" => %{"record" => record} = post} = item, auth, depth)
       when is_map(record) do
     # This is from `getAuthorFeed` or `getTimeline`, each post has a `"record"`
     # with a `"$type"` specifier
@@ -602,7 +650,7 @@ defmodule Sandbox.Bluesky.Feed do
         nil
 
       "app.bsky.feed.post" ->
-        decode_post(post, item["reply"], item["reason"], level, auth)
+        decode_post(post, item["reply"], item["reason"], depth, auth)
 
       other ->
         Logger.error("Unknown post record type '#{other}'")
@@ -610,7 +658,7 @@ defmodule Sandbox.Bluesky.Feed do
     end
   end
 
-  def decode_post(%{"post" => post, "$type" => ptype} = item, level, auth) do
+  def decode_post(%{"post" => post, "$type" => ptype} = item, depth, auth) do
     # This is from `getPostThread`, each parent has a `"$type"` specifier
     case ptype do
       nil ->
@@ -618,13 +666,13 @@ defmodule Sandbox.Bluesky.Feed do
         nil
 
       "app.bsky.feed.defs#threadViewPost" ->
-        decode_post(post, item["reply"], item["reason"], level, auth)
+        decode_post(post, item["reply"], item["reason"], depth, auth)
 
       "app.bsky.feed.defs#blockedPost" ->
-        build_post_info(post, auth, level)
+        build_post_info(post, auth, depth)
 
       "app.bsky.feed.defs#notFoundPost" ->
-        build_post_info(post, auth, level)
+        build_post_info(post, auth, depth)
 
       _ ->
         Logger.error("Unknown thread post type '#{ptype}'")
@@ -637,10 +685,10 @@ defmodule Sandbox.Bluesky.Feed do
   """
   @spec decode_post(map(), map() | nil, map() | nil, integer(), Bluesky.auth()) ::
           Feed.Post.t() | nil
-  def decode_post(post, reply, reason, level, auth)
+  def decode_post(post, reply, reason, depth, auth)
 
-  def decode_post(%{"uri" => _, "cid" => _} = post, reply, reason, level, auth) do
-    build_post(post, reply, reason, level, auth)
+  def decode_post(%{"uri" => _, "cid" => _} = post, reply, reason, depth, auth) do
+    build_post(post, reply, reason, depth, auth)
   end
 
   def decode_post(post, _reply, _reason, _level, _auth) do
@@ -648,9 +696,9 @@ defmodule Sandbox.Bluesky.Feed do
     nil
   end
 
-  def build_post(post, reply, reason, level, auth)
+  def build_post(post, reply, reason, depth, auth)
 
-  def build_post(%{"uri" => uri} = post, reply, reason, level, auth) do
+  def build_post(%{"uri" => uri} = post, reply, reason, depth, auth) do
     record = record_or_value(post, post)
 
     embeds =
@@ -721,7 +769,20 @@ defmodule Sandbox.Bluesky.Feed do
           end
         end)
       end)
-      |> Enum.filter(fn link -> !is_nil(link) end)
+      |> Enum.filter(&(!is_nil(&1)))
+
+    reply = reply || record["reply"]
+
+    {parent, parent_uri, root_uri} =
+      if is_map(reply) do
+        {
+          build_post_info(reply["parent"], auth),
+          get_in(reply, ["parent", "uri"]),
+          get_in(reply, ["root", "uri"])
+        }
+      else
+        {nil, nil, nil}
+      end
 
     %Post{
       uri: uri,
@@ -730,9 +791,10 @@ defmodule Sandbox.Bluesky.Feed do
       date: Bluesky.to_date(record["createdAt"]),
       text: record["text"],
       reason: get_reason(reason, auth),
-      reply_parent: build_post_info(reply["parent"], auth),
-      reply_root: build_post_info(reply["root"], auth),
-      reply_level: level,
+      parent: parent,
+      parent_uri: parent_uri,
+      root_uri: root_uri,
+      depth: depth,
       reply_count: Map.get(post, "replyCount", 0),
       embeds: Bluesky.nil_if_emptylist(embeds),
       links: Bluesky.nil_if_emptylist(links)
@@ -972,7 +1034,7 @@ defmodule Sandbox.Bluesky.Feed do
       uri: uri,
       thumb: att["thumb"],
       title: Bluesky.nil_if_empty(att["title"]),
-      domain: Bluesky.get_domain(uri, level: 2),
+      domain: Bluesky.get_domain(uri, depth: 2),
       description: Bluesky.nil_if_empty(att["description"])
     }
     |> Attachment.set_instance()
@@ -1139,11 +1201,11 @@ defmodule Sandbox.Bluesky.Feed do
     "app.bsky.embed.record#viewDetached" => [type: :detached, detached: true]
   }
 
-  def build_post_info(record, auth, level \\ 0)
+  def build_post_info(record, auth, depth \\ 0)
 
   def build_post_info(nil, _auth, _level), do: nil
 
-  def build_post_info(%{"$type" => rtype} = record, auth, level) do
+  def build_post_info(%{"$type" => rtype} = record, auth, depth) do
     case Map.get(@post_info_types, rtype) do
       nil ->
         Logger.error("Unknown post type '#{rtype}'")
@@ -1153,7 +1215,7 @@ defmodule Sandbox.Bluesky.Feed do
         opts =
           Keyword.merge(opts,
             uri: record["uri"],
-            reply_level: level,
+            depth: depth,
             author: build_author(record["author"], auth)
           )
 
@@ -1253,6 +1315,248 @@ defmodule Sandbox.Bluesky.Feed do
 
   defp maybe_prepend(acc, _, _, _), do: acc
 
+  ### Thread UI functions
+
+  defmodule BranchNode do
+    @moduledoc false
+
+    @type t() :: %__MODULE__{
+            uri: String.t(),
+            author: String.t(),
+            leaf?: boolean()
+          }
+
+    @enforce_keys [:uri, :author]
+
+    @derive Jason.Encoder
+    defstruct [:uri, :author, leaf?: false]
+  end
+
+  defmodule Branch do
+    @moduledoc false
+
+    @type t() :: %__MODULE__{
+            forked: Feed.BranchNode.t() | nil,
+            total: integer(),
+            streak: integer(),
+            author: integer(),
+            non_author: integer(),
+            items: [Feed.BranchNode.t()],
+            trunk?: boolean()
+          }
+
+    @enforce_keys [:items]
+
+    @derive {Jason.Encoder, only: [:forked, :trunk?, :items]}
+    defstruct [
+      :forked,
+      total: 0,
+      streak: 0,
+      author: 0,
+      non_author: 0,
+      items: [],
+      trunk?: false
+    ]
+  end
+
+  def build_branches(posts, root_handle) do
+    branches =
+      posts
+      |> Enum.filter(fn post -> post.reply_count == 0 end)
+      |> Enum.map(&build_branch(posts, root_handle, &1))
+      |> Enum.sort(fn %{streak: s1, author: a1, non_author: n1},
+                      %{streak: s2, author: a2, non_author: n2} ->
+        cond do
+          s1 > s2 -> true
+          s1 == s2 && a1 > a2 -> true
+          s1 == s2 && a1 == a2 && n1 < n2 -> true
+          true -> false
+        end
+      end)
+
+    case branches do
+      [] -> []
+      [first | rest] -> [%Branch{first | trunk?: true} | rest]
+    end
+  end
+
+  def prune_branches(branches, root_handle) do
+    do_prune_branches(branches, [])
+    |> Enum.reverse()
+    |> Enum.map(fn branch ->
+      if branch.trunk? do
+        branch
+      else
+        [fork | rest] = branch.items
+
+        %Branch{items: rest, forked: fork}
+        |> set_counts(root_handle)
+      end
+    end)
+  end
+
+  def enumerate_branches(branches, posts) do
+    posts =
+      for branch <- branches, item <- branch.items do
+        thread_state = if item.leaf?, do: :thread_last, else: :thread_continues
+        post = find_post(posts, item.uri)
+
+        if post do
+          %Post{post | thread_state: thread_state}
+        else
+          nil
+        end
+      end
+
+    Enum.filter(posts, &(!is_nil(&1)))
+  end
+
+  defp build_branch(posts, root_handle, leaf_post) do
+    item = %BranchNode{uri: leaf_post.uri, author: leaf_post.author.handle, leaf?: true}
+    items = parent_branch(posts, leaf_post.parent_uri, [item])
+
+    %Branch{items: items}
+    |> set_counts(root_handle)
+  end
+
+  defp parent_branch(posts, parent_uri, items) do
+    case find_post(posts, parent_uri) do
+      nil ->
+        items
+
+      post ->
+        item = %BranchNode{uri: post.uri, author: post.author.handle}
+        parent_branch(posts, post.parent_uri, [item | items])
+    end
+  end
+
+  defp do_prune_branches(branches, acc) do
+    case branches do
+      [] ->
+        acc
+
+      [best | rest] ->
+        acc = [best | acc]
+        rest = Enum.map(rest, &prune_with(acc, &1))
+        do_prune_branches(rest, acc)
+    end
+  end
+
+  defp prune_with(branches, branch) do
+    case find_fork(branches, branch) do
+      0 ->
+        branch
+
+      i ->
+        %Branch{branch | items: Enum.drop(branch.items, i)}
+    end
+  end
+
+  defp find_fork(branches, %Branch{items: test_items}) do
+    branches = Enum.map(branches, fn %Branch{items: items} -> Enum.reverse(items) end)
+
+    test_items
+    |> Enum.with_index()
+    |> Enum.reverse()
+    |> Enum.reduce_while(0, fn {%{uri: test_uri}, i}, _acc ->
+      case find_branch(branches, test_uri) do
+        nil ->
+          {:cont, 0}
+
+        _items ->
+          {:halt, i}
+      end
+    end)
+  end
+
+  defp find_branch(branches, uri) do
+    Enum.reduce_while(branches, nil, fn items, _acc ->
+      found = Enum.find(items, fn %{uri: item_uri} -> item_uri == uri end)
+
+      case found do
+        nil ->
+          {:cont, nil}
+
+        _item ->
+          {:halt, items}
+      end
+    end)
+  end
+
+  defp set_counts(%Branch{items: items} = branch, author_handle) do
+    {total, streak, author, non_author} =
+      Enum.reduce(items, {0, 0, 0, 0}, fn %{author: handle}, {t, s, a, n} ->
+        if handle == author_handle do
+          if n > 0 do
+            # already saw non-author
+            {t + 1, s, a + 1, n}
+          else
+            {t + 1, s + 1, a + 1, 0}
+          end
+        else
+          {t + 1, s, a, n + 1}
+        end
+      end)
+
+    %Branch{branch | total: total, streak: streak, author: author, non_author: non_author}
+  end
+
+  def roots(posts) do
+    min_d = min_depth(posts)
+    Enum.filter(posts, fn post -> post.depth == min_d end)
+  end
+
+  def min_depth(posts) do
+    shallowest_post =
+      posts
+      |> Enum.min(fn p1, p2 -> p1.depth < p2.depth end, %{depth: 999})
+
+    shallowest_post.depth
+  end
+
+  def max_depth(posts) do
+    deepest_post =
+      posts
+      |> Enum.max(fn p1, p2 -> p1.depth > p2.depth end, %{depth: 0})
+
+    deepest_post.depth
+  end
+
+  def unlabled(posts) do
+    Enum.filter(posts, fn post -> post.line_id == 0 end)
+  end
+
+  def find_post(_posts, nil), do: nil
+
+  def find_post(posts, uri) do
+    case Enum.filter(posts, fn post -> post.uri == uri end) do
+      [] ->
+        nil
+
+      [post] ->
+        post
+
+      more ->
+        raise RuntimeError, "Duplicate posts with uri #{uri}: #{inspect(more)}"
+        nil
+    end
+  end
+
+  def find_children(posts, uri) do
+    IO.puts("find_children #{uri}")
+
+    Enum.filter(posts, fn post ->
+      IO.puts("post #{post.uri} parent -> #{post.parent_uri}")
+      post.parent_uri == uri
+    end)
+  end
+
+  def by_authors(posts, handles) do
+    Enum.filter(posts, fn post -> post.author.handle in handles end)
+  end
+
+  ### Utility functions
+
   def display_name(at_uri, auth) do
     case AtURI.parse(at_uri) do
       {:ok, %{host: "did:" <> _rest = did}} ->
@@ -1269,7 +1573,7 @@ defmodule Sandbox.Bluesky.Feed do
   def post_thread_url(_, _), do: "#"
 
   def encode_post_uri(post, :reply_root_uri) do
-    case post.reply_root do
+    case post.root_uri do
       %PostInfo{uri: uri} ->
         encode_post_uri(uri)
 

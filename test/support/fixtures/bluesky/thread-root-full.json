@@ -1,0 +1,2024 @@
+{
+  "thread": {
+    "$type": "app.bsky.feed.defs#threadViewPost",
+    "post": {
+      "author": {
+        "associated": {
+          "chat": {
+            "allowIncoming": "following"
+          }
+        },
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+        "createdAt": "2023-04-28T06:06:32.668Z",
+        "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+        "displayName": "🦢swan kate wagner 🦢",
+        "handle": "katewagner.bsky.social",
+        "labels": [],
+        "viewer": {
+          "blockedBy": false,
+          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+          "muted": false
+        }
+      },
+      "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+      "indexedAt": "2024-12-25T03:26:25.120Z",
+      "labels": [],
+      "likeCount": 131,
+      "quoteCount": 0,
+      "record": {
+        "$type": "app.bsky.feed.post",
+        "createdAt": "2024-12-25T03:26:24.937Z",
+        "langs": [
+          "en"
+        ],
+        "text": "ok fresh thread for this: when i first read the nibelungenlied i thought 'wow this is kind of a slog' but now feel like it's a) the most rhizomatic text in the world and b) a sprawlingly complex ethical quandary in which even the righteous become violent as though violence is a slow-moving disaster"
+      },
+      "replyCount": 9,
+      "repostCount": 8,
+      "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o",
+      "viewer": {
+        "embeddingDisabled": false,
+        "threadMuted": false
+      }
+    },
+    "replies": [
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:v754vvuo6dxzvjj3ot2y77z3/bafkreienpi3jonctkpaacz2m6d3fx7nvh5dptmlkcnbnm7mdt2x6h6blim@jpeg",
+            "createdAt": "2023-08-12T04:35:35.962Z",
+            "did": "did:plc:v754vvuo6dxzvjj3ot2y77z3",
+            "displayName": "Chris Parles",
+            "handle": "cparles.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreicprkcctrjig2yambdsgow7zsswm52s3m3vrike4s46swdbr7ovhu",
+          "indexedAt": "2024-12-25T04:17:28.419Z",
+          "labels": [],
+          "likeCount": 2,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T04:17:27.911Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "Do you have a preferred (English) translation? (Is there more than one?)"
+          },
+          "replyCount": 1,
+          "repostCount": 0,
+          "uri": "at://did:plc:v754vvuo6dxzvjj3ot2y77z3/app.bsky.feed.post/3le442yudnk26",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": [
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "author": {
+                "associated": {
+                  "chat": {
+                    "allowIncoming": "following"
+                  }
+                },
+                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                "createdAt": "2023-04-28T06:06:32.668Z",
+                "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                "displayName": "🦢swan kate wagner 🦢",
+                "handle": "katewagner.bsky.social",
+                "labels": [],
+                "viewer": {
+                  "blockedBy": false,
+                  "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                  "muted": false
+                }
+              },
+              "cid": "bafyreidvnspu2pmay5xc5po4rjf4orxq3s7yu4ht2odhds3qr63mhsgq3q",
+              "indexedAt": "2024-12-25T04:33:24.720Z",
+              "labels": [],
+              "likeCount": 3,
+              "quoteCount": 0,
+              "record": {
+                "$type": "app.bsky.feed.post",
+                "createdAt": "2024-12-25T04:33:24.478Z",
+                "langs": [
+                  "en"
+                ],
+                "reply": {
+                  "parent": {
+                    "cid": "bafyreicprkcctrjig2yambdsgow7zsswm52s3m3vrike4s46swdbr7ovhu",
+                    "uri": "at://did:plc:v754vvuo6dxzvjj3ot2y77z3/app.bsky.feed.post/3le442yudnk26"
+                  },
+                  "root": {
+                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                  }
+                },
+                "text": "i simply read the penguin edition though i think the essays are bad"
+              },
+              "replyCount": 0,
+              "repostCount": 0,
+              "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le44xj4h4d2o",
+              "viewer": {
+                "embeddingDisabled": false,
+                "threadMuted": false
+              }
+            },
+            "replies": []
+          }
+        ]
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:p66jie34yptdjwglyftphkgj/bafkreieh3pk6swlmvoaio7r3oht6y422rlshlqfmemvvrvfvtynd3gpgd4@jpeg",
+            "createdAt": "2023-06-07T16:36:31.577Z",
+            "did": "did:plc:p66jie34yptdjwglyftphkgj",
+            "displayName": "Christo Silvia",
+            "handle": "christosilvia.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreibo4pa7z7ibcolv3vqdjdu6zzmu7nfbkwibvihq7ohexdvnzc3rku",
+          "indexedAt": "2024-12-25T04:08:05.317Z",
+          "labels": [],
+          "likeCount": 0,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T04:08:06.811Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "Why does Siegfried break Wotan's staff?"
+          },
+          "replyCount": 2,
+          "repostCount": 0,
+          "uri": "at://did:plc:p66jie34yptdjwglyftphkgj/app.bsky.feed.post/3le43kbqxfs2r",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": [
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "author": {
+                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xzqd6xrfj5nbr6bdttkg42rk/bafkreibgp2lh5pwzff5b6kzo3o7xlv3hgzn62a4dqmzsw7ztfp4n427cki@jpeg",
+                "createdAt": "2023-09-30T16:57:28.728Z",
+                "did": "did:plc:xzqd6xrfj5nbr6bdttkg42rk",
+                "displayName": "Jonas Viggo Pedersen",
+                "handle": "jonasvp.bsky.social",
+                "labels": [],
+                "viewer": {
+                  "blockedBy": false,
+                  "muted": false
+                }
+              },
+              "cid": "bafyreiddx45inhucd6e4xbppygee5bp5e46n5ypae5vagijupfeepp4hry",
+              "indexedAt": "2024-12-25T10:43:33.321Z",
+              "labels": [],
+              "likeCount": 2,
+              "quoteCount": 0,
+              "record": {
+                "$type": "app.bsky.feed.post",
+                "createdAt": "2024-12-25T10:43:32.884Z",
+                "langs": [
+                  "en"
+                ],
+                "reply": {
+                  "parent": {
+                    "cid": "bafyreibo4pa7z7ibcolv3vqdjdu6zzmu7nfbkwibvihq7ohexdvnzc3rku",
+                    "uri": "at://did:plc:p66jie34yptdjwglyftphkgj/app.bsky.feed.post/3le43kbqxfs2r"
+                  },
+                  "root": {
+                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                  }
+                },
+                "text": "Because Wotan said that only he who doesn’t fear his spear can go through the magic fire. \nAnd because Siegfried must break all Wotan’s treaties?"
+              },
+              "replyCount": 0,
+              "repostCount": 0,
+              "uri": "at://did:plc:xzqd6xrfj5nbr6bdttkg42rk/app.bsky.feed.post/3le4rnepal22i",
+              "viewer": {
+                "embeddingDisabled": false,
+                "threadMuted": false
+              }
+            },
+            "replies": []
+          },
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "author": {
+                "associated": {
+                  "chat": {
+                    "allowIncoming": "following"
+                  }
+                },
+                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                "createdAt": "2023-04-28T06:06:32.668Z",
+                "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                "displayName": "🦢swan kate wagner 🦢",
+                "handle": "katewagner.bsky.social",
+                "labels": [],
+                "viewer": {
+                  "blockedBy": false,
+                  "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                  "muted": false
+                }
+              },
+              "cid": "bafyreid5tm3r2fcifzlykvcd2dmghjqmtob7ptnqem4qs6mx43uxpdgng4",
+              "indexedAt": "2024-12-25T04:12:55.923Z",
+              "labels": [],
+              "likeCount": 9,
+              "quoteCount": 0,
+              "record": {
+                "$type": "app.bsky.feed.post",
+                "createdAt": "2024-12-25T04:12:55.667Z",
+                "langs": [
+                  "en"
+                ],
+                "reply": {
+                  "parent": {
+                    "cid": "bafyreibo4pa7z7ibcolv3vqdjdu6zzmu7nfbkwibvihq7ohexdvnzc3rku",
+                    "uri": "at://did:plc:p66jie34yptdjwglyftphkgj/app.bsky.feed.post/3le43kbqxfs2r"
+                  },
+                  "root": {
+                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                  }
+                },
+                "text": "bc wotan won't stop yapping"
+              },
+              "replyCount": 0,
+              "repostCount": 0,
+              "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43sva4el2o",
+              "viewer": {
+                "embeddingDisabled": false,
+                "threadMuted": false
+              }
+            },
+            "replies": []
+          }
+        ]
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nyi7h4f4jy6dwbow7jkz5rv3/bafkreibrlkbnnyn5yfns5pwhvudghd4y5hforf4vy7toevwkdz5ieodfeu@jpeg",
+            "createdAt": "2024-11-20T23:44:05.535Z",
+            "did": "did:plc:nyi7h4f4jy6dwbow7jkz5rv3",
+            "displayName": "",
+            "handle": "isogsargent.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreiar4h2yoy7mb7nlbu6mqyx42rylfp7yayyubndnvzjd5fgcchfbsy",
+          "indexedAt": "2024-12-25T05:59:26.216Z",
+          "labels": [],
+          "likeCount": 1,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T05:59:25.722Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "So it's a Western"
+          },
+          "replyCount": 0,
+          "repostCount": 0,
+          "uri": "at://did:plc:nyi7h4f4jy6dwbow7jkz5rv3/app.bsky.feed.post/3le4brdb5gk2g",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": []
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "all"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:n3m2vtoemu3mxso6fdcxq62o/bafkreia4pgzkbvhxs4zxyhd6yzbuncl742imjsas2vdrzsvcoczlhpfr6a@jpeg",
+            "createdAt": "2023-07-31T00:07:51.746Z",
+            "did": "did:plc:n3m2vtoemu3mxso6fdcxq62o",
+            "displayName": "sofia ",
+            "handle": "sofia.meangirls.online",
+            "labels": [
+              {
+                "cid": "bafyreibiehcfxnzf6var7lskqagz5i7jmkmkkknlov4g7s3dptcsatbib4",
+                "cts": "1970-01-01T00:00:00.000Z",
+                "src": "did:plc:n3m2vtoemu3mxso6fdcxq62o",
+                "uri": "at://did:plc:n3m2vtoemu3mxso6fdcxq62o/app.bsky.actor.profile/self",
+                "val": "!no-unauthenticated"
+              }
+            ],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreiewb2224owhhyg2cpkzyslxgsrtdvndlinrs35b5kpjjxwo34jcs4",
+          "indexedAt": "2024-12-25T03:30:00.326Z",
+          "labels": [],
+          "likeCount": 2,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T03:30:00.204Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "...I need to read the Nibelungenlied again, I did not catch on to any of this when I read it at like 16"
+          },
+          "replyCount": 0,
+          "repostCount": 0,
+          "uri": "at://did:plc:n3m2vtoemu3mxso6fdcxq62o/app.bsky.feed.post/3le3zg537rs2t",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": []
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "following"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:h43ixm7ek4pvtwi5uh3zt67p/bafkreifvintbyy3w3vogn3ewitknsz7nqolv6azlj3wag24se4txsvhn5m@jpeg",
+            "createdAt": "2024-02-06T17:05:49.937Z",
+            "did": "did:plc:h43ixm7ek4pvtwi5uh3zt67p",
+            "displayName": "notgordonallport",
+            "handle": "notgordonallport.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreihdixn5ydfhlxkfr2uxwocrpgaeuoz46owmrls5wp7bdrnzuioqki",
+          "indexedAt": "2024-12-25T04:16:14.119Z",
+          "labels": [],
+          "likeCount": 0,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T04:16:13.021Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "📌"
+          },
+          "replyCount": 0,
+          "repostCount": 0,
+          "uri": "at://did:plc:h43ixm7ek4pvtwi5uh3zt67p/app.bsky.feed.post/3le43yrgwtk23",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": []
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:fzdlvdc7am7xon6rusw4rgqh/bafkreifksomq23vkydazrg6wqdk5xouxrhbjwwh4ijyld2pi4u7v4dpdj4@jpeg",
+            "createdAt": "2024-12-07T22:19:50.208Z",
+            "did": "did:plc:fzdlvdc7am7xon6rusw4rgqh",
+            "displayName": "",
+            "handle": "colonel-jade.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreihacocy6ojchfubljxtblszz2oooz6j3bfoel5wejriw7rdfglefm",
+          "indexedAt": "2024-12-25T05:25:26.115Z",
+          "labels": [],
+          "likeCount": 1,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T05:25:24.712Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "On the strength of this post alone,I feel good continuing to follow your thoughts. I love this book and this is a great take on it"
+          },
+          "replyCount": 0,
+          "repostCount": 0,
+          "uri": "at://did:plc:fzdlvdc7am7xon6rusw4rgqh/app.bsky.feed.post/3le47uishm22x",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": []
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:fdrolzqkgva6bqnvqxvjvan2/bafkreibhn7cns6i6jqelxkwqb7zk7e6a7m6z4s24efptkgrzr4edcnvmua@jpeg",
+            "createdAt": "2023-04-30T22:01:26.864Z",
+            "did": "did:plc:fdrolzqkgva6bqnvqxvjvan2",
+            "displayName": "dr greg is historicising ✍️💫",
+            "handle": "thewastedworld.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreiez7y4n6jtuagjazttan3orkxepr4ozvrovjh2bubldc3cftjb7ca",
+          "indexedAt": "2024-12-25T06:05:08.722Z",
+          "labels": [],
+          "likeCount": 0,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T06:05:07.834Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "Do you have any opinions on English translations? I see Penguin has editions of both the Nibelungenlied and Wagner’s Cycle, but these likely aren’t scholarly…"
+          },
+          "replyCount": 1,
+          "repostCount": 0,
+          "uri": "at://did:plc:fdrolzqkgva6bqnvqxvjvan2/app.bsky.feed.post/3le4c3jjk7c22",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": [
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "author": {
+                "associated": {
+                  "chat": {
+                    "allowIncoming": "following"
+                  }
+                },
+                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                "createdAt": "2023-04-28T06:06:32.668Z",
+                "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                "displayName": "🦢swan kate wagner 🦢",
+                "handle": "katewagner.bsky.social",
+                "labels": [],
+                "viewer": {
+                  "blockedBy": false,
+                  "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                  "muted": false
+                }
+              },
+              "cid": "bafyreid3f3mm2ivewzzmunlpbxh7o4wzph2goeztj7ua4bktdpe4z45zjq",
+              "indexedAt": "2024-12-25T13:38:20.026Z",
+              "labels": [],
+              "likeCount": 1,
+              "quoteCount": 0,
+              "record": {
+                "$type": "app.bsky.feed.post",
+                "createdAt": "2024-12-25T13:38:19.893Z",
+                "langs": [
+                  "en"
+                ],
+                "reply": {
+                  "parent": {
+                    "cid": "bafyreiez7y4n6jtuagjazttan3orkxepr4ozvrovjh2bubldc3cftjb7ca",
+                    "uri": "at://did:plc:fdrolzqkgva6bqnvqxvjvan2/app.bsky.feed.post/3le4c3jjk7c22"
+                  },
+                  "root": {
+                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                  }
+                },
+                "text": "the penguin ring cycle isn’t very lyrical unfortunately (its extremely literal) and i think the Nibelungenlied is along that same spectrum. I haven’t read any other translations of the latter bc i don’t think there are many full ones. If you can get ahold of the Sabor ring box set it’s much better"
+              },
+              "replyCount": 0,
+              "repostCount": 0,
+              "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le53fvvecc2c",
+              "viewer": {
+                "embeddingDisabled": false,
+                "threadMuted": false
+              }
+            },
+            "replies": []
+          }
+        ]
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "associated": {
+              "chat": {
+                "allowIncoming": "following"
+              }
+            },
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+            "createdAt": "2023-04-28T06:06:32.668Z",
+            "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+            "displayName": "🦢swan kate wagner 🦢",
+            "handle": "katewagner.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+              "muted": false
+            }
+          },
+          "cid": "bafyreigi2lgkzg355kgmvjyvpbshhgnc3zltljqz6evlu6vbvhmsvnceeq",
+          "indexedAt": "2024-12-25T03:26:25.149Z",
+          "labels": [],
+          "likeCount": 27,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T03:26:24.938Z",
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "there is this insane 500 page book called rules of the endgame that is basically about nibelungian space, objects, structures, ethics, etc and it will lowkey only make you more insane bc this is truly a rabbit hole people spend their whole lives going down"
+          },
+          "replyCount": 1,
+          "repostCount": 0,
+          "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7ps7rk2o",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": [
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "author": {
+                "associated": {
+                  "chat": {
+                    "allowIncoming": "following"
+                  }
+                },
+                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                "createdAt": "2023-04-28T06:06:32.668Z",
+                "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                "displayName": "🦢swan kate wagner 🦢",
+                "handle": "katewagner.bsky.social",
+                "labels": [],
+                "viewer": {
+                  "blockedBy": false,
+                  "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                  "muted": false
+                }
+              },
+              "cid": "bafyreieyfh5gc7ora7ln6fuyymbjhh5mm35m6anewq5l4fus2krqy5erjq",
+              "indexedAt": "2024-12-25T03:26:25.168Z",
+              "labels": [],
+              "likeCount": 26,
+              "quoteCount": 0,
+              "record": {
+                "$type": "app.bsky.feed.post",
+                "createdAt": "2024-12-25T03:26:24.939Z",
+                "langs": [
+                  "en"
+                ],
+                "reply": {
+                  "parent": {
+                    "cid": "bafyreigi2lgkzg355kgmvjyvpbshhgnc3zltljqz6evlu6vbvhmsvnceeq",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7ps7rk2o"
+                  },
+                  "root": {
+                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                  }
+                },
+                "text": "and so nibelungenlied adaptations from lang to wagner try to break or suffuse this complex ethical tension in various ways, usually to partially exonerate siegfried, but none of them can actually do it. it merely redistributes that tension to other places, events, characters within the same bind"
+              },
+              "replyCount": 1,
+              "repostCount": 0,
+              "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7psaqs2o",
+              "viewer": {
+                "embeddingDisabled": false,
+                "threadMuted": false
+              }
+            },
+            "replies": [
+              {
+                "$type": "app.bsky.feed.defs#threadViewPost",
+                "post": {
+                  "author": {
+                    "associated": {
+                      "chat": {
+                        "allowIncoming": "following"
+                      }
+                    },
+                    "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                    "createdAt": "2023-04-28T06:06:32.668Z",
+                    "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                    "displayName": "🦢swan kate wagner 🦢",
+                    "handle": "katewagner.bsky.social",
+                    "labels": [],
+                    "viewer": {
+                      "blockedBy": false,
+                      "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                      "muted": false
+                    }
+                  },
+                  "cid": "bafyreie3qloxtvtwl6c65yfyqhmqcbvafqznqwovuz6lpzwvdf7kce7pny",
+                  "indexedAt": "2024-12-25T03:26:25.184Z",
+                  "labels": [],
+                  "likeCount": 36,
+                  "quoteCount": 1,
+                  "record": {
+                    "$type": "app.bsky.feed.post",
+                    "createdAt": "2024-12-25T03:26:24.940Z",
+                    "langs": [
+                      "en"
+                    ],
+                    "reply": {
+                      "parent": {
+                        "cid": "bafyreieyfh5gc7ora7ln6fuyymbjhh5mm35m6anewq5l4fus2krqy5erjq",
+                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7psaqs2o"
+                      },
+                      "root": {
+                        "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                      }
+                    },
+                    "text": "bc the truth about the nibelungenlied is that everyone is a terrible person. and if they are not, if they are righteous, they soon become terrible because they have been touched by the Situation. that's why they all die. that's actually the greatest similarity it shares with the ring cycle"
+                  },
+                  "replyCount": 3,
+                  "repostCount": 0,
+                  "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7psaqt2o",
+                  "viewer": {
+                    "embeddingDisabled": false,
+                    "threadMuted": false
+                  }
+                },
+                "replies": [
+                  {
+                    "$type": "app.bsky.feed.defs#threadViewPost",
+                    "post": {
+                      "author": {
+                        "associated": {
+                          "chat": {
+                            "allowIncoming": "all"
+                          }
+                        },
+                        "createdAt": "2023-09-19T16:36:32.312Z",
+                        "did": "did:plc:z5scabahbygsjibyrjgah5eg",
+                        "displayName": "Ben Fleuss",
+                        "handle": "enricodandolo.bsky.social",
+                        "labels": [],
+                        "viewer": {
+                          "blockedBy": false,
+                          "muted": false
+                        }
+                      },
+                      "cid": "bafyreieeynr34efceqcdj6ziixfrk7gjq2sgaobeyce7v7vac2nl77sk64",
+                      "indexedAt": "2024-12-25T10:17:11.218Z",
+                      "labels": [],
+                      "likeCount": 1,
+                      "quoteCount": 0,
+                      "record": {
+                        "$type": "app.bsky.feed.post",
+                        "createdAt": "2024-12-25T10:17:02.256Z",
+                        "langs": [
+                          "en"
+                        ],
+                        "reply": {
+                          "parent": {
+                            "cid": "bafyreie3qloxtvtwl6c65yfyqhmqcbvafqznqwovuz6lpzwvdf7kce7pny",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7psaqt2o"
+                          },
+                          "root": {
+                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                          }
+                        },
+                        "text": "It's been a long long time since I read it but I remember being intrigued by Etzel and Dietrich von Bern: they're both heroes and villains of their own stories, but in the Nibelungenlied they're helpless observers who don't know what's going on but are inexorably drawn into the maelstrom anyway."
+                      },
+                      "replyCount": 0,
+                      "repostCount": 0,
+                      "uri": "at://did:plc:z5scabahbygsjibyrjgah5eg/app.bsky.feed.post/3le4q5xr3ws2y",
+                      "viewer": {
+                        "embeddingDisabled": false,
+                        "threadMuted": false
+                      }
+                    },
+                    "replies": []
+                  },
+                  {
+                    "$type": "app.bsky.feed.defs#threadViewPost",
+                    "post": {
+                      "author": {
+                        "associated": {
+                          "chat": {
+                            "allowIncoming": "following"
+                          }
+                        },
+                        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:qbb5vdfntpvu2cevz7nbp5ik/bafkreia7lufcnra5hntczvmh3dsqozxieidklkomvn7tguadwidlby2s5a@jpeg",
+                        "createdAt": "2023-08-17T21:36:12.692Z",
+                        "did": "did:plc:qbb5vdfntpvu2cevz7nbp5ik",
+                        "displayName": "Kendra Preston Leonard (she/her)",
+                        "handle": "kleonardphd.bsky.social",
+                        "labels": [],
+                        "viewer": {
+                          "blockedBy": false,
+                          "muted": false
+                        }
+                      },
+                      "cid": "bafyreib4k37lyjacionepcb5r4y7gmtuxl2vegmmzsss6mtyoudgdhxoka",
+                      "indexedAt": "2024-12-25T03:34:59.619Z",
+                      "labels": [],
+                      "likeCount": 1,
+                      "quoteCount": 0,
+                      "record": {
+                        "$type": "app.bsky.feed.post",
+                        "createdAt": "2024-12-25T03:34:59.190Z",
+                        "langs": [
+                          "en"
+                        ],
+                        "reply": {
+                          "parent": {
+                            "cid": "bafyreie3qloxtvtwl6c65yfyqhmqcbvafqznqwovuz6lpzwvdf7kce7pny",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7psaqt2o"
+                          },
+                          "root": {
+                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                          }
+                        },
+                        "text": "It’s enormously cynical and misanthropic."
+                      },
+                      "replyCount": 0,
+                      "repostCount": 0,
+                      "uri": "at://did:plc:qbb5vdfntpvu2cevz7nbp5ik/app.bsky.feed.post/3le3zp27lbk2r",
+                      "viewer": {
+                        "embeddingDisabled": false,
+                        "threadMuted": false
+                      }
+                    },
+                    "replies": []
+                  },
+                  {
+                    "$type": "app.bsky.feed.defs#threadViewPost",
+                    "post": {
+                      "author": {
+                        "associated": {
+                          "chat": {
+                            "allowIncoming": "following"
+                          }
+                        },
+                        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                        "createdAt": "2023-04-28T06:06:32.668Z",
+                        "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                        "displayName": "🦢swan kate wagner 🦢",
+                        "handle": "katewagner.bsky.social",
+                        "labels": [],
+                        "viewer": {
+                          "blockedBy": false,
+                          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                          "muted": false
+                        }
+                      },
+                      "cid": "bafyreiaf3jccpgkvh77t4hljz6vadf5adonzfsvsnk3jcrowfgsr4aqyli",
+                      "indexedAt": "2024-12-25T03:38:03.822Z",
+                      "labels": [],
+                      "likeCount": 28,
+                      "quoteCount": 0,
+                      "record": {
+                        "$type": "app.bsky.feed.post",
+                        "createdAt": "2024-12-25T03:38:03.560Z",
+                        "langs": [
+                          "en"
+                        ],
+                        "reply": {
+                          "parent": {
+                            "cid": "bafyreie3qloxtvtwl6c65yfyqhmqcbvafqznqwovuz6lpzwvdf7kce7pny",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7psaqt2o"
+                          },
+                          "root": {
+                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                          }
+                        },
+                        "text": "& the thing about siegfried is he's simply the most fascinating linchpin in literature. a complete and total enigma. empty and elusive. why does he do anything? good, bad, anything, he just does it. less a man than a series of objects, he simply walks pleasantly into this dilemma that must kill him"
+                      },
+                      "replyCount": 5,
+                      "repostCount": 1,
+                      "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3zuk253d2o",
+                      "viewer": {
+                        "embeddingDisabled": false,
+                        "threadMuted": false
+                      }
+                    },
+                    "replies": [
+                      {
+                        "$type": "app.bsky.feed.defs#threadViewPost",
+                        "post": {
+                          "author": {
+                            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:nagizoefqco2kc5hnxsv4a2v/bafkreieihq2paddu77zvzb6gaobyerfowysbzumzzewdl2peem6z7eczxe@jpeg",
+                            "createdAt": "2024-12-13T21:31:41.314Z",
+                            "did": "did:plc:nagizoefqco2kc5hnxsv4a2v",
+                            "displayName": "",
+                            "handle": "unlmtdbredstix.bsky.social",
+                            "labels": [],
+                            "viewer": {
+                              "blockedBy": false,
+                              "muted": false
+                            }
+                          },
+                          "cid": "bafyreidkrxb7ynjbxpbjtmxe77shqyy34qa7mpjky5fdgzrdykoabppzwi",
+                          "indexedAt": "2024-12-25T18:58:58.025Z",
+                          "labels": [],
+                          "likeCount": 0,
+                          "quoteCount": 0,
+                          "record": {
+                            "$type": "app.bsky.feed.post",
+                            "createdAt": "2024-12-25T18:58:57.552Z",
+                            "langs": [
+                              "en"
+                            ],
+                            "reply": {
+                              "parent": {
+                                "cid": "bafyreiaf3jccpgkvh77t4hljz6vadf5adonzfsvsnk3jcrowfgsr4aqyli",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3zuk253d2o"
+                              },
+                              "root": {
+                                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                              }
+                            },
+                            "text": "For sure. I felt the same way about Aeneas. No internality to the guy at all."
+                          },
+                          "replyCount": 0,
+                          "repostCount": 0,
+                          "uri": "at://did:plc:nagizoefqco2kc5hnxsv4a2v/app.bsky.feed.post/3le5ndae5nc2x",
+                          "viewer": {
+                            "embeddingDisabled": false,
+                            "threadMuted": false
+                          }
+                        },
+                        "replies": []
+                      },
+                      {
+                        "$type": "app.bsky.feed.defs#threadViewPost",
+                        "post": {
+                          "author": {
+                            "associated": {
+                              "chat": {
+                                "allowIncoming": "following"
+                              }
+                            },
+                            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:mm7y56q3ksf4qbtnbjghr5ro/bafkreickpb2qnyjezzynhiv26piygkge5y5xx27faia7e4lul6wltvfine@jpeg",
+                            "createdAt": "2023-09-12T13:51:21.641Z",
+                            "did": "did:plc:mm7y56q3ksf4qbtnbjghr5ro",
+                            "displayName": "Andrew Sehmann",
+                            "handle": "andrewsehmann.com",
+                            "labels": [],
+                            "viewer": {
+                              "blockedBy": false,
+                              "muted": false
+                            }
+                          },
+                          "cid": "bafyreice633f554mzatqytzuxyajzjkwmjacvyimx2c7lho5bwp2yvo7vi",
+                          "indexedAt": "2024-12-25T03:41:37.817Z",
+                          "labels": [],
+                          "likeCount": 0,
+                          "quoteCount": 0,
+                          "record": {
+                            "$type": "app.bsky.feed.post",
+                            "createdAt": "2024-12-25T03:41:37.550Z",
+                            "langs": [
+                              "en"
+                            ],
+                            "reply": {
+                              "parent": {
+                                "cid": "bafyreiaf3jccpgkvh77t4hljz6vadf5adonzfsvsnk3jcrowfgsr4aqyli",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3zuk253d2o"
+                              },
+                              "root": {
+                                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                              }
+                            },
+                            "text": "I think it’s cause he’s dumb as a box of rocks."
+                          },
+                          "replyCount": 0,
+                          "repostCount": 0,
+                          "uri": "at://did:plc:mm7y56q3ksf4qbtnbjghr5ro/app.bsky.feed.post/3le422w4jqc2s",
+                          "viewer": {
+                            "embeddingDisabled": false,
+                            "threadMuted": false
+                          }
+                        },
+                        "replies": []
+                      },
+                      {
+                        "$type": "app.bsky.feed.defs#threadViewPost",
+                        "post": {
+                          "author": {
+                            "associated": {
+                              "chat": {
+                                "allowIncoming": "following"
+                              }
+                            },
+                            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:dpmysskwq62t4drxtjvjamxu/bafkreidrl24efe5th6qv5sz2evws4i7suugrror2raa4brb3amwcck3cqi@jpeg",
+                            "createdAt": "2024-03-20T19:23:02.040Z",
+                            "did": "did:plc:dpmysskwq62t4drxtjvjamxu",
+                            "displayName": "Philip Koop",
+                            "handle": "philkoop.bsky.social",
+                            "labels": [],
+                            "viewer": {
+                              "blockedBy": false,
+                              "muted": false
+                            }
+                          },
+                          "cid": "bafyreihcscrcrszcpdo7tmwx5xckkr4a3hpltbi262dqueqggcdnuxlweq",
+                          "embed": {
+                            "$type": "app.bsky.embed.external#view",
+                            "external": {
+                              "description": "",
+                              "title": "",
+                              "uri": "https://www.amazon.ca/Nothing-that-Natural-History-Zero/dp/0195142373"
+                            }
+                          },
+                          "indexedAt": "2024-12-25T05:52:21.519Z",
+                          "labels": [],
+                          "likeCount": 0,
+                          "quoteCount": 0,
+                          "record": {
+                            "$type": "app.bsky.feed.post",
+                            "createdAt": "2024-12-25T05:52:21.324Z",
+                            "embed": {
+                              "$type": "app.bsky.embed.external",
+                              "external": {
+                                "description": "",
+                                "title": "",
+                                "uri": "https://www.amazon.ca/Nothing-that-Natural-History-Zero/dp/0195142373"
+                              }
+                            },
+                            "facets": [
+                              {
+                                "features": [
+                                  {
+                                    "$type": "app.bsky.richtext.facet#link",
+                                    "uri": "https://www.amazon.ca/Nothing-that-Natural-History-Zero/dp/0195142373"
+                                  }
+                                ],
+                                "index": {
+                                  "byteEnd": 29,
+                                  "byteStart": 0
+                                }
+                              }
+                            ],
+                            "langs": [
+                              "en"
+                            ],
+                            "reply": {
+                              "parent": {
+                                "cid": "bafyreiaf3jccpgkvh77t4hljz6vadf5adonzfsvsnk3jcrowfgsr4aqyli",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3zuk253d2o"
+                              },
+                              "root": {
+                                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                              }
+                            },
+                            "text": "www.amazon.ca/Nothing-that..."
+                          },
+                          "replyCount": 0,
+                          "repostCount": 0,
+                          "uri": "at://did:plc:dpmysskwq62t4drxtjvjamxu/app.bsky.feed.post/3le4beojm7k2t",
+                          "viewer": {
+                            "embeddingDisabled": false,
+                            "threadMuted": false
+                          }
+                        },
+                        "replies": []
+                      },
+                      {
+                        "$type": "app.bsky.feed.defs#threadViewPost",
+                        "post": {
+                          "author": {
+                            "associated": {
+                              "chat": {
+                                "allowIncoming": "following"
+                              }
+                            },
+                            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                            "createdAt": "2023-04-28T06:06:32.668Z",
+                            "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                            "displayName": "🦢swan kate wagner 🦢",
+                            "handle": "katewagner.bsky.social",
+                            "labels": [],
+                            "viewer": {
+                              "blockedBy": false,
+                              "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                              "muted": false
+                            }
+                          },
+                          "cid": "bafyreib3u6adzaufjrdbubtvow7t4ai763pvqok5bnmrcraw5w7kobnmqi",
+                          "indexedAt": "2024-12-25T03:45:57.118Z",
+                          "labels": [],
+                          "likeCount": 27,
+                          "quoteCount": 1,
+                          "record": {
+                            "$type": "app.bsky.feed.post",
+                            "createdAt": "2024-12-25T03:45:56.761Z",
+                            "langs": [
+                              "en"
+                            ],
+                            "reply": {
+                              "parent": {
+                                "cid": "bafyreiaf3jccpgkvh77t4hljz6vadf5adonzfsvsnk3jcrowfgsr4aqyli",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3zuk253d2o"
+                              },
+                              "root": {
+                                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                              }
+                            },
+                            "text": "wagner solves this problem by making siegfried a fearless moron and lang solves it by making him beautiful and innocent but in the original text siegfried is not at all stupid. he's keen and uncanny. he moves from one scene to another. you can look in that well forever and not find an answer."
+                          },
+                          "replyCount": 3,
+                          "repostCount": 0,
+                          "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le42cnd2hd2o",
+                          "viewer": {
+                            "embeddingDisabled": false,
+                            "threadMuted": false
+                          }
+                        },
+                        "replies": [
+                          {
+                            "$type": "app.bsky.feed.defs#threadViewPost",
+                            "post": {
+                              "author": {
+                                "associated": {
+                                  "chat": {
+                                    "allowIncoming": "all"
+                                  }
+                                },
+                                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:odmm5x52x6ymjcji55q3ubm6/bafkreiaeyq7cz6xbz5omivdxamkjmarf7j7ssd4drysj4fbjmz3e2fca24@jpeg",
+                                "createdAt": "2023-08-02T16:08:18.505Z",
+                                "did": "did:plc:odmm5x52x6ymjcji55q3ubm6",
+                                "displayName": "Void Palace",
+                                "handle": "sadmoths.bsky.social",
+                                "labels": [],
+                                "viewer": {
+                                  "blockedBy": false,
+                                  "muted": false
+                                }
+                              },
+                              "cid": "bafyreihis63nh3p7uxwwzf7yum4etwlprdf44o2hekilfo7ow3sli2abgu",
+                              "indexedAt": "2024-12-25T04:01:28.521Z",
+                              "labels": [],
+                              "likeCount": 1,
+                              "quoteCount": 0,
+                              "record": {
+                                "$type": "app.bsky.feed.post",
+                                "createdAt": "2024-12-25T04:01:27.941Z",
+                                "langs": [
+                                  "en"
+                                ],
+                                "reply": {
+                                  "parent": {
+                                    "cid": "bafyreib3u6adzaufjrdbubtvow7t4ai763pvqok5bnmrcraw5w7kobnmqi",
+                                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le42cnd2hd2o"
+                                  },
+                                  "root": {
+                                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                  }
+                                },
+                                "text": "at risk of sounding kinda gamer brained, siegfried is sorta like a videogame charecter on a repeat playthrough looking for an alternate end. kinda nier: automata-ish."
+                              },
+                              "replyCount": 1,
+                              "repostCount": 0,
+                              "uri": "at://did:plc:odmm5x52x6ymjcji55q3ubm6/app.bsky.feed.post/3le436fefwc2b",
+                              "viewer": {
+                                "embeddingDisabled": false,
+                                "threadMuted": false
+                              }
+                            },
+                            "replies": [
+                              {
+                                "$type": "app.bsky.feed.defs#threadViewPost",
+                                "post": {
+                                  "author": {
+                                    "associated": {
+                                      "chat": {
+                                        "allowIncoming": "all"
+                                      }
+                                    },
+                                    "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:odmm5x52x6ymjcji55q3ubm6/bafkreiaeyq7cz6xbz5omivdxamkjmarf7j7ssd4drysj4fbjmz3e2fca24@jpeg",
+                                    "createdAt": "2023-08-02T16:08:18.505Z",
+                                    "did": "did:plc:odmm5x52x6ymjcji55q3ubm6",
+                                    "displayName": "Void Palace",
+                                    "handle": "sadmoths.bsky.social",
+                                    "labels": [],
+                                    "viewer": {
+                                      "blockedBy": false,
+                                      "muted": false
+                                    }
+                                  },
+                                  "cid": "bafyreiad3ahjyl5ht5avplxqefb5eapjzqr45kl5ia75s7s4vnztfcgor4",
+                                  "indexedAt": "2024-12-25T04:01:28.545Z",
+                                  "labels": [],
+                                  "likeCount": 3,
+                                  "quoteCount": 0,
+                                  "record": {
+                                    "$type": "app.bsky.feed.post",
+                                    "createdAt": "2024-12-25T04:01:27.942Z",
+                                    "langs": [
+                                      "en"
+                                    ],
+                                    "reply": {
+                                      "parent": {
+                                        "cid": "bafyreihis63nh3p7uxwwzf7yum4etwlprdf44o2hekilfo7ow3sli2abgu",
+                                        "uri": "at://did:plc:odmm5x52x6ymjcji55q3ubm6/app.bsky.feed.post/3le436fefwc2b"
+                                      },
+                                      "root": {
+                                        "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                      }
+                                    },
+                                    "text": "he's like making decisions without really being more than an avatar for something, seeking an end to things without engaging with them the way other people do"
+                                  },
+                                  "replyCount": 0,
+                                  "repostCount": 0,
+                                  "uri": "at://did:plc:odmm5x52x6ymjcji55q3ubm6/app.bsky.feed.post/3le436flgjs2b",
+                                  "viewer": {
+                                    "embeddingDisabled": false,
+                                    "threadMuted": false
+                                  }
+                                },
+                                "replies": []
+                              }
+                            ]
+                          },
+                          {
+                            "$type": "app.bsky.feed.defs#threadViewPost",
+                            "post": {
+                              "author": {
+                                "associated": {
+                                  "chat": {
+                                    "allowIncoming": "following"
+                                  }
+                                },
+                                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:gv3pxhyytw6rihwvunu4l6jy/bafkreib437k5lkwaiqgnkf333gph65wrgwyg7zgg3cxhwki5ctnkwtv3nq@jpeg",
+                                "createdAt": "2023-07-04T01:47:42.734Z",
+                                "did": "did:plc:gv3pxhyytw6rihwvunu4l6jy",
+                                "displayName": "Palomar",
+                                "handle": "palomar-qfwfq.bsky.social",
+                                "labels": [],
+                                "viewer": {
+                                  "blockedBy": false,
+                                  "muted": false
+                                }
+                              },
+                              "cid": "bafyreigp35eeitd5w35cpae5hgb47rgmhvhmglvoqi3rv3e243dn2xckaa",
+                              "indexedAt": "2024-12-25T03:49:34.423Z",
+                              "labels": [],
+                              "likeCount": 2,
+                              "quoteCount": 0,
+                              "record": {
+                                "$type": "app.bsky.feed.post",
+                                "createdAt": "2024-12-25T03:49:33.955Z",
+                                "langs": [
+                                  "en"
+                                ],
+                                "reply": {
+                                  "parent": {
+                                    "cid": "bafyreib3u6adzaufjrdbubtvow7t4ai763pvqok5bnmrcraw5w7kobnmqi",
+                                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le42cnd2hd2o"
+                                  },
+                                  "root": {
+                                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                  }
+                                },
+                                "text": "Does he simply Enjoy Situations, one wonders"
+                              },
+                              "replyCount": 1,
+                              "repostCount": 0,
+                              "uri": "at://did:plc:gv3pxhyytw6rihwvunu4l6jy/app.bsky.feed.post/3le42j4hcx22u",
+                              "viewer": {
+                                "embeddingDisabled": false,
+                                "threadMuted": false
+                              }
+                            },
+                            "replies": [
+                              {
+                                "$type": "app.bsky.feed.defs#threadViewPost",
+                                "post": {
+                                  "author": {
+                                    "associated": {
+                                      "chat": {
+                                        "allowIncoming": "following"
+                                      }
+                                    },
+                                    "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xo3754a3a6sxwceq3fur34yy/bafkreih33ms4oly6ii57lr5thl5zjlc55n3bybbi35ap7k7mrcenkydtkm@jpeg",
+                                    "createdAt": "2023-06-22T14:25:50.887Z",
+                                    "did": "did:plc:xo3754a3a6sxwceq3fur34yy",
+                                    "displayName": "Mom Friend 64",
+                                    "handle": "pengarr.postes.club",
+                                    "labels": [
+                                      {
+                                        "cid": "bafyreidbr77klnjh4eokverrxlnoebobxh4xhcvrfg6iz7ourg53ijmpva",
+                                        "cts": "1970-01-01T00:00:00.000Z",
+                                        "src": "did:plc:xo3754a3a6sxwceq3fur34yy",
+                                        "uri": "at://did:plc:xo3754a3a6sxwceq3fur34yy/app.bsky.actor.profile/self",
+                                        "val": "!no-unauthenticated"
+                                      }
+                                    ],
+                                    "viewer": {
+                                      "blockedBy": false,
+                                      "muted": false
+                                    }
+                                  },
+                                  "cid": "bafyreiae3d6cg3ljklawh5ehim7cqvsrtybvzteu46zbiauan5mpoc5izi",
+                                  "indexedAt": "2024-12-25T05:03:50.423Z",
+                                  "labels": [],
+                                  "likeCount": 2,
+                                  "quoteCount": 0,
+                                  "record": {
+                                    "$type": "app.bsky.feed.post",
+                                    "createdAt": "2024-12-25T05:03:50.318Z",
+                                    "langs": [
+                                      "en"
+                                    ],
+                                    "reply": {
+                                      "parent": {
+                                        "cid": "bafyreigp35eeitd5w35cpae5hgb47rgmhvhmglvoqi3rv3e243dn2xckaa",
+                                        "uri": "at://did:plc:gv3pxhyytw6rihwvunu4l6jy/app.bsky.feed.post/3le42j4hcx22u"
+                                      },
+                                      "root": {
+                                        "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                      }
+                                    },
+                                    "text": "He is a Messy Bitch who Loves Drama"
+                                  },
+                                  "replyCount": 1,
+                                  "repostCount": 0,
+                                  "uri": "at://did:plc:xo3754a3a6sxwceq3fur34yy/app.bsky.feed.post/3le46nwenyc2o",
+                                  "viewer": {
+                                    "embeddingDisabled": false,
+                                    "threadMuted": false
+                                  }
+                                },
+                                "replies": [
+                                  {
+                                    "$type": "app.bsky.feed.defs#threadViewPost",
+                                    "post": {
+                                      "author": {
+                                        "associated": {
+                                          "chat": {
+                                            "allowIncoming": "following"
+                                          }
+                                        },
+                                        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:gv3pxhyytw6rihwvunu4l6jy/bafkreib437k5lkwaiqgnkf333gph65wrgwyg7zgg3cxhwki5ctnkwtv3nq@jpeg",
+                                        "createdAt": "2023-07-04T01:47:42.734Z",
+                                        "did": "did:plc:gv3pxhyytw6rihwvunu4l6jy",
+                                        "displayName": "Palomar",
+                                        "handle": "palomar-qfwfq.bsky.social",
+                                        "labels": [],
+                                        "viewer": {
+                                          "blockedBy": false,
+                                          "muted": false
+                                        }
+                                      },
+                                      "cid": "bafyreidlrdf55kqco7utydp7ndxpyjb5p77deszvf5o5j6hrsfsnzx6ji4",
+                                      "indexedAt": "2024-12-25T05:13:35.116Z",
+                                      "labels": [],
+                                      "likeCount": 2,
+                                      "quoteCount": 0,
+                                      "record": {
+                                        "$type": "app.bsky.feed.post",
+                                        "createdAt": "2024-12-25T05:13:34.609Z",
+                                        "langs": [
+                                          "en"
+                                        ],
+                                        "reply": {
+                                          "parent": {
+                                            "cid": "bafyreiae3d6cg3ljklawh5ehim7cqvsrtybvzteu46zbiauan5mpoc5izi",
+                                            "uri": "at://did:plc:xo3754a3a6sxwceq3fur34yy/app.bsky.feed.post/3le46nwenyc2o"
+                                          },
+                                          "root": {
+                                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                          }
+                                        },
+                                        "text": "He and Loki/Loge, I guess 😄"
+                                      },
+                                      "replyCount": 0,
+                                      "repostCount": 0,
+                                      "uri": "at://did:plc:gv3pxhyytw6rihwvunu4l6jy/app.bsky.feed.post/3le477dlumk2f",
+                                      "viewer": {
+                                        "embeddingDisabled": false,
+                                        "threadMuted": false
+                                      }
+                                    },
+                                    "replies": []
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "$type": "app.bsky.feed.defs#threadViewPost",
+                            "post": {
+                              "author": {
+                                "associated": {
+                                  "chat": {
+                                    "allowIncoming": "following"
+                                  }
+                                },
+                                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                                "createdAt": "2023-04-28T06:06:32.668Z",
+                                "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                                "displayName": "🦢swan kate wagner 🦢",
+                                "handle": "katewagner.bsky.social",
+                                "labels": [],
+                                "viewer": {
+                                  "blockedBy": false,
+                                  "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                                  "muted": false
+                                }
+                              },
+                              "cid": "bafyreihxoo4mdefsp4aqn2jlcaxqitvukyilc7hrcfwxnr52nqdqih3sz4",
+                              "indexedAt": "2024-12-25T04:06:09.624Z",
+                              "labels": [],
+                              "likeCount": 18,
+                              "quoteCount": 0,
+                              "record": {
+                                "$type": "app.bsky.feed.post",
+                                "createdAt": "2024-12-25T04:06:09.442Z",
+                                "langs": [
+                                  "en"
+                                ],
+                                "reply": {
+                                  "parent": {
+                                    "cid": "bafyreib3u6adzaufjrdbubtvow7t4ai763pvqok5bnmrcraw5w7kobnmqi",
+                                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le42cnd2hd2o"
+                                  },
+                                  "root": {
+                                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                  }
+                                },
+                                "text": "it's somewhat important to note that in the other sagas (especially the thiedriksaga) siegfried is honestly kind of menacing! he's less like a beautiful little prince and more like a warrior or a mercenary, which really changes the sentiment of his demise. his luck simply runs out."
+                              },
+                              "replyCount": 1,
+                              "repostCount": 0,
+                              "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43grt4bd2o",
+                              "viewer": {
+                                "embeddingDisabled": false,
+                                "threadMuted": false
+                              }
+                            },
+                            "replies": [
+                              {
+                                "$type": "app.bsky.feed.defs#threadViewPost",
+                                "post": {
+                                  "author": {
+                                    "associated": {
+                                      "chat": {
+                                        "allowIncoming": "following"
+                                      }
+                                    },
+                                    "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                                    "createdAt": "2023-04-28T06:06:32.668Z",
+                                    "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                                    "displayName": "🦢swan kate wagner 🦢",
+                                    "handle": "katewagner.bsky.social",
+                                    "labels": [],
+                                    "viewer": {
+                                      "blockedBy": false,
+                                      "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                                      "muted": false
+                                    }
+                                  },
+                                  "cid": "bafyreie4u4qfbthu7t3bouf2dlhdr7b47bhd2a4klidn52yb2zr72c267u",
+                                  "indexedAt": "2024-12-25T04:10:55.222Z",
+                                  "labels": [],
+                                  "likeCount": 18,
+                                  "quoteCount": 0,
+                                  "record": {
+                                    "$type": "app.bsky.feed.post",
+                                    "createdAt": "2024-12-25T04:10:54.954Z",
+                                    "langs": [
+                                      "en"
+                                    ],
+                                    "reply": {
+                                      "parent": {
+                                        "cid": "bafyreihxoo4mdefsp4aqn2jlcaxqitvukyilc7hrcfwxnr52nqdqih3sz4",
+                                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43grt4bd2o"
+                                      },
+                                      "root": {
+                                        "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                      }
+                                    },
+                                    "text": "in the nibelungenlied, the courtly trappings of the burgundians etc do a lot to obscure violence in custom. much is displaced onto objects and rituals, which creates a rather fuguelike sensation of noble people following literary/social scripts while behaving not quite \"ignobly\" but anarchistically"
+                                  },
+                                  "replyCount": 1,
+                                  "repostCount": 1,
+                                  "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43pc4ald2o",
+                                  "viewer": {
+                                    "embeddingDisabled": false,
+                                    "threadMuted": false
+                                  }
+                                },
+                                "replies": [
+                                  {
+                                    "$type": "app.bsky.feed.defs#threadViewPost",
+                                    "post": {
+                                      "author": {
+                                        "associated": {
+                                          "chat": {
+                                            "allowIncoming": "following"
+                                          }
+                                        },
+                                        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                                        "createdAt": "2023-04-28T06:06:32.668Z",
+                                        "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                                        "displayName": "🦢swan kate wagner 🦢",
+                                        "handle": "katewagner.bsky.social",
+                                        "labels": [],
+                                        "viewer": {
+                                          "blockedBy": false,
+                                          "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                                          "muted": false
+                                        }
+                                      },
+                                      "cid": "bafyreid6gteaw4xwznd576olpwcpbzep6cdujc73ybp4lor6nsx2ww52sy",
+                                      "indexedAt": "2024-12-25T04:11:47.915Z",
+                                      "labels": [],
+                                      "likeCount": 20,
+                                      "quoteCount": 0,
+                                      "record": {
+                                        "$type": "app.bsky.feed.post",
+                                        "createdAt": "2024-12-25T04:11:47.619Z",
+                                        "langs": [
+                                          "en"
+                                        ],
+                                        "reply": {
+                                          "parent": {
+                                            "cid": "bafyreie4u4qfbthu7t3bouf2dlhdr7b47bhd2a4klidn52yb2zr72c267u",
+                                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43pc4ald2o"
+                                          },
+                                          "root": {
+                                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                          }
+                                        },
+                                        "text": "anyway despite the language being rote it is the weirdest medieval epic of all time and it will unquestionably drive you insane if you let it"
+                                      },
+                                      "replyCount": 1,
+                                      "repostCount": 0,
+                                      "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43qudhal2o",
+                                      "viewer": {
+                                        "embeddingDisabled": false,
+                                        "threadMuted": false
+                                      }
+                                    },
+                                    "replies": [
+                                      {
+                                        "$type": "app.bsky.feed.defs#threadViewPost",
+                                        "post": {
+                                          "author": {
+                                            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:ha6n6uwlohmaughumegc4awj/bafkreieszxy6t4ggiipbktgxamofotudrjbxhba6hzvcs7rm3anb2q5ubu@jpeg",
+                                            "createdAt": "2024-11-28T17:29:49.708Z",
+                                            "did": "did:plc:ha6n6uwlohmaughumegc4awj",
+                                            "displayName": "",
+                                            "handle": "nichrome77.bsky.social",
+                                            "labels": [],
+                                            "viewer": {
+                                              "blockedBy": false,
+                                              "muted": false
+                                            }
+                                          },
+                                          "cid": "bafyreib3dy37jiothwwn3jshzmn2gfma3hgoljqchs3gwggujidl6yvkvm",
+                                          "indexedAt": "2024-12-25T14:01:33.622Z",
+                                          "labels": [],
+                                          "likeCount": 1,
+                                          "quoteCount": 0,
+                                          "record": {
+                                            "$type": "app.bsky.feed.post",
+                                            "createdAt": "2024-12-25T14:01:32.433Z",
+                                            "langs": [
+                                              "en"
+                                            ],
+                                            "reply": {
+                                              "parent": {
+                                                "cid": "bafyreid6gteaw4xwznd576olpwcpbzep6cdujc73ybp4lor6nsx2ww52sy",
+                                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le43qudhal2o"
+                                              },
+                                              "root": {
+                                                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                                              }
+                                            },
+                                            "text": "Thank you for this beautiful post! I’m only vaguely familiar with the story thanks to Wagner’s operas, but your comments have piqued my curiosity, and got me thinking about the same themes as they emerge in other epics I’ve read (viz The Odyssey) and even contemporary ones (Maguire’s Wicked)."
+                                          },
+                                          "replyCount": 0,
+                                          "repostCount": 0,
+                                          "uri": "at://did:plc:ha6n6uwlohmaughumegc4awj/app.bsky.feed.post/3le54pfwdmo2i",
+                                          "viewer": {
+                                            "embeddingDisabled": false,
+                                            "threadMuted": false
+                                          }
+                                        },
+                                        "replies": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "$type": "app.bsky.feed.defs#threadViewPost",
+                        "post": {
+                          "author": {
+                            "associated": {
+                              "chat": {
+                                "allowIncoming": "all"
+                              }
+                            },
+                            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:7qh2ehoojuyr43fsmqg4xkg6/bafkreihvk5mgy2lesekxsshd77ow2fluxhjgycpjwxrmm34rpifkgl24du@jpeg",
+                            "createdAt": "2023-06-21T23:18:00.195Z",
+                            "did": "did:plc:7qh2ehoojuyr43fsmqg4xkg6",
+                            "displayName": "Colin Barrett",
+                            "handle": "cbarrett.bsky.social",
+                            "labels": [
+                              {
+                                "cid": "bafyreieyzdms5w2ucvhmcdqxo37ppgmc6bqyp2aj334n6i3mn2z5vhdipi",
+                                "cts": "1970-01-01T00:00:00.000Z",
+                                "src": "did:plc:7qh2ehoojuyr43fsmqg4xkg6",
+                                "uri": "at://did:plc:7qh2ehoojuyr43fsmqg4xkg6/app.bsky.actor.profile/self",
+                                "val": "!no-unauthenticated"
+                              }
+                            ],
+                            "viewer": {
+                              "blockedBy": false,
+                              "muted": false
+                            }
+                          },
+                          "cid": "bafyreid7uzq22yegp7jcpnfr4acjai4maq776cnmb36pletjvlic7rase4",
+                          "indexedAt": "2024-12-25T03:43:55.415Z",
+                          "labels": [],
+                          "likeCount": 3,
+                          "quoteCount": 0,
+                          "record": {
+                            "$type": "app.bsky.feed.post",
+                            "createdAt": "2024-12-25T03:43:54.624Z",
+                            "langs": [
+                              "en"
+                            ],
+                            "reply": {
+                              "parent": {
+                                "cid": "bafyreiaf3jccpgkvh77t4hljz6vadf5adonzfsvsnk3jcrowfgsr4aqyli",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3zuk253d2o"
+                              },
+                              "root": {
+                                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                              }
+                            },
+                            "text": "Yes!! Always took him as an id-like figure. Unburdened by ego or fear (of death)"
+                          },
+                          "replyCount": 0,
+                          "repostCount": 0,
+                          "uri": "at://did:plc:7qh2ehoojuyr43fsmqg4xkg6/app.bsky.feed.post/3le426ytq222r",
+                          "viewer": {
+                            "embeddingDisabled": false,
+                            "threadMuted": false
+                          }
+                        },
+                        "replies": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$type": "app.bsky.feed.defs#threadViewPost",
+        "post": {
+          "author": {
+            "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:5yenhugjc2bh3z5lpbchdsx3/bafkreiffn2vqziq5cgr6xqoga36icryqrybhn4txphrnfsyhyfieiqapfy@jpeg",
+            "createdAt": "2024-11-12T17:22:25.039Z",
+            "did": "did:plc:5yenhugjc2bh3z5lpbchdsx3",
+            "displayName": "Jake",
+            "handle": "jp1102.bsky.social",
+            "labels": [],
+            "viewer": {
+              "blockedBy": false,
+              "muted": false
+            }
+          },
+          "cid": "bafyreif5k4qnlhziqcltk2lrr4a6kcm3euwmhjlm3nc7qtajgfjaxyamoe",
+          "embed": {
+            "$type": "app.bsky.embed.images#view",
+            "images": [
+              {
+                "alt": "",
+                "aspectRatio": {
+                  "height": 596,
+                  "width": 794
+                },
+                "fullsize": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:5yenhugjc2bh3z5lpbchdsx3/bafkreibzozfsufz7biybtjicwblu72anvxdixtbjwvwomng2mcor3oeuky@jpeg",
+                "thumb": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:5yenhugjc2bh3z5lpbchdsx3/bafkreibzozfsufz7biybtjicwblu72anvxdixtbjwvwomng2mcor3oeuky@jpeg"
+              }
+            ]
+          },
+          "indexedAt": "2024-12-25T04:37:52.421Z",
+          "labels": [],
+          "likeCount": 0,
+          "quoteCount": 0,
+          "record": {
+            "$type": "app.bsky.feed.post",
+            "createdAt": "2024-12-25T04:37:51.741Z",
+            "embed": {
+              "$type": "app.bsky.embed.images",
+              "images": [
+                {
+                  "alt": "",
+                  "aspectRatio": {
+                    "height": 596,
+                    "width": 794
+                  },
+                  "image": {
+                    "$type": "blob",
+                    "mimeType": "image/jpeg",
+                    "ref": {
+                      "$link": "bafkreibzozfsufz7biybtjicwblu72anvxdixtbjwvwomng2mcor3oeuky"
+                    },
+                    "size": 448383
+                  }
+                }
+              ]
+            },
+            "langs": [
+              "en"
+            ],
+            "reply": {
+              "parent": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              },
+              "root": {
+                "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+              }
+            },
+            "text": "I believe this post was created with the help of…"
+          },
+          "replyCount": 1,
+          "repostCount": 0,
+          "uri": "at://did:plc:5yenhugjc2bh3z5lpbchdsx3/app.bsky.feed.post/3le457hyr2s2p",
+          "viewer": {
+            "embeddingDisabled": false,
+            "threadMuted": false
+          }
+        },
+        "replies": [
+          {
+            "$type": "app.bsky.feed.defs#threadViewPost",
+            "post": {
+              "author": {
+                "associated": {
+                  "chat": {
+                    "allowIncoming": "following"
+                  }
+                },
+                "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:di2xanilbluz4rmli3vf24mf/bafkreihbmryanspua5pwvnks43nzqb6ctyizirwqwwkaqyvkg7ri7pj4ui@jpeg",
+                "createdAt": "2023-04-28T06:06:32.668Z",
+                "did": "did:plc:di2xanilbluz4rmli3vf24mf",
+                "displayName": "🦢swan kate wagner 🦢",
+                "handle": "katewagner.bsky.social",
+                "labels": [],
+                "viewer": {
+                  "blockedBy": false,
+                  "following": "at://did:plc:mfv6fysngq5fkoiqozzlv642/app.bsky.graph.follow/3lapkujnhug2q",
+                  "muted": false
+                }
+              },
+              "cid": "bafyreieaotvgghjitns362ftzf6hyooocyd4rxbpa5ewaisebsky3bfjl4",
+              "indexedAt": "2024-12-25T04:38:30.920Z",
+              "labels": [],
+              "likeCount": 9,
+              "quoteCount": 0,
+              "record": {
+                "$type": "app.bsky.feed.post",
+                "createdAt": "2024-12-25T04:38:30.689Z",
+                "langs": [
+                  "en"
+                ],
+                "reply": {
+                  "parent": {
+                    "cid": "bafyreif5k4qnlhziqcltk2lrr4a6kcm3euwmhjlm3nc7qtajgfjaxyamoe",
+                    "uri": "at://did:plc:5yenhugjc2bh3z5lpbchdsx3/app.bsky.feed.post/3le457hyr2s2p"
+                  },
+                  "root": {
+                    "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                    "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                  }
+                },
+                "text": "just bc there’s one difficult word in there doesn’t mean it’s unclear"
+              },
+              "replyCount": 1,
+              "repostCount": 0,
+              "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le45an5cbc2c",
+              "viewer": {
+                "embeddingDisabled": false,
+                "threadMuted": false
+              }
+            },
+            "replies": [
+              {
+                "$type": "app.bsky.feed.defs#threadViewPost",
+                "post": {
+                  "author": {
+                    "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:5yenhugjc2bh3z5lpbchdsx3/bafkreiffn2vqziq5cgr6xqoga36icryqrybhn4txphrnfsyhyfieiqapfy@jpeg",
+                    "createdAt": "2024-11-12T17:22:25.039Z",
+                    "did": "did:plc:5yenhugjc2bh3z5lpbchdsx3",
+                    "displayName": "Jake",
+                    "handle": "jp1102.bsky.social",
+                    "labels": [],
+                    "viewer": {
+                      "blockedBy": false,
+                      "muted": false
+                    }
+                  },
+                  "cid": "bafyreih7mhlqiuvwqka5qsbzr2ge6jecx6n2lcjzm2amjdec3cwg4zxf64",
+                  "indexedAt": "2024-12-25T05:04:30.019Z",
+                  "labels": [],
+                  "likeCount": 0,
+                  "quoteCount": 0,
+                  "record": {
+                    "$type": "app.bsky.feed.post",
+                    "createdAt": "2024-12-25T05:04:29.573Z",
+                    "langs": [
+                      "en"
+                    ],
+                    "reply": {
+                      "parent": {
+                        "cid": "bafyreieaotvgghjitns362ftzf6hyooocyd4rxbpa5ewaisebsky3bfjl4",
+                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le45an5cbc2c"
+                      },
+                      "root": {
+                        "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                        "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                      }
+                    },
+                    "text": "I’m sorry. I’m the old idiot who had no idea what you were saying. Your gen will certainly “dig it.”"
+                  },
+                  "replyCount": 2,
+                  "repostCount": 0,
+                  "uri": "at://did:plc:5yenhugjc2bh3z5lpbchdsx3/app.bsky.feed.post/3le46p3smx62p",
+                  "viewer": {
+                    "embeddingDisabled": false,
+                    "threadMuted": false
+                  }
+                },
+                "replies": [
+                  {
+                    "$type": "app.bsky.feed.defs#threadViewPost",
+                    "post": {
+                      "author": {
+                        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:xzqd6xrfj5nbr6bdttkg42rk/bafkreibgp2lh5pwzff5b6kzo3o7xlv3hgzn62a4dqmzsw7ztfp4n427cki@jpeg",
+                        "createdAt": "2023-09-30T16:57:28.728Z",
+                        "did": "did:plc:xzqd6xrfj5nbr6bdttkg42rk",
+                        "displayName": "Jonas Viggo Pedersen",
+                        "handle": "jonasvp.bsky.social",
+                        "labels": [],
+                        "viewer": {
+                          "blockedBy": false,
+                          "muted": false
+                        }
+                      },
+                      "cid": "bafyreidg47fqg2guwisq4smkxdpq7xcrgddfohlsx25qpyxmte7u7o6zqe",
+                      "indexedAt": "2024-12-25T10:45:49.820Z",
+                      "labels": [],
+                      "likeCount": 1,
+                      "quoteCount": 0,
+                      "record": {
+                        "$type": "app.bsky.feed.post",
+                        "createdAt": "2024-12-25T10:45:49.129Z",
+                        "langs": [
+                          "en"
+                        ],
+                        "reply": {
+                          "parent": {
+                            "cid": "bafyreih7mhlqiuvwqka5qsbzr2ge6jecx6n2lcjzm2amjdec3cwg4zxf64",
+                            "uri": "at://did:plc:5yenhugjc2bh3z5lpbchdsx3/app.bsky.feed.post/3le46p3smx62p"
+                          },
+                          "root": {
+                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                          }
+                        },
+                        "text": "The post isn’t about you. Hush there."
+                      },
+                      "replyCount": 0,
+                      "repostCount": 0,
+                      "uri": "at://did:plc:xzqd6xrfj5nbr6bdttkg42rk/app.bsky.feed.post/3le4rrgn3e22i",
+                      "viewer": {
+                        "embeddingDisabled": false,
+                        "threadMuted": false
+                      }
+                    },
+                    "replies": []
+                  },
+                  {
+                    "$type": "app.bsky.feed.defs#threadViewPost",
+                    "post": {
+                      "author": {
+                        "associated": {
+                          "chat": {
+                            "allowIncoming": "following"
+                          }
+                        },
+                        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:a2x3jmj6ffsccbhrx4y4mwty/bafkreieohvjewcdk3cwvebrtajj3tib6lyvsfcqujn5xhvo54zb6wkxt4a@jpeg",
+                        "createdAt": "2023-08-21T12:25:11.236Z",
+                        "did": "did:plc:a2x3jmj6ffsccbhrx4y4mwty",
+                        "displayName": "Prof. Dr. Vanta Quiroga",
+                        "handle": "quiroga.bsky.social",
+                        "labels": [
+                          {
+                            "cid": "bafyreid7izwmdivmv5j6e2m4xdss6gififmvdovmwfvgyvfotpw6tcjzru",
+                            "cts": "1970-01-01T00:00:00.000Z",
+                            "src": "did:plc:a2x3jmj6ffsccbhrx4y4mwty",
+                            "uri": "at://did:plc:a2x3jmj6ffsccbhrx4y4mwty/app.bsky.actor.profile/self",
+                            "val": "!no-unauthenticated"
+                          }
+                        ],
+                        "viewer": {
+                          "blockedBy": false,
+                          "muted": false
+                        }
+                      },
+                      "cid": "bafyreifzsh6cghmxo4u7o3r4t3pz6r6inz52gji3hbizw4j3b53zbfrvxe",
+                      "indexedAt": "2024-12-25T06:02:05.418Z",
+                      "labels": [],
+                      "likeCount": 0,
+                      "quoteCount": 0,
+                      "record": {
+                        "$type": "app.bsky.feed.post",
+                        "createdAt": "2024-12-25T06:02:04.959Z",
+                        "langs": [
+                          "en"
+                        ],
+                        "reply": {
+                          "parent": {
+                            "cid": "bafyreih7mhlqiuvwqka5qsbzr2ge6jecx6n2lcjzm2amjdec3cwg4zxf64",
+                            "uri": "at://did:plc:5yenhugjc2bh3z5lpbchdsx3/app.bsky.feed.post/3le46p3smx62p"
+                          },
+                          "root": {
+                            "cid": "bafyreiflx7pit4ckxhg7zmh4xudm5wyfsuhshkrqau5zq4crkx6hkiduv4",
+                            "uri": "at://did:plc:di2xanilbluz4rmli3vf24mf/app.bsky.feed.post/3le3z7prt3c2o"
+                          }
+                        },
+                        "text": "Didn't you smirkingly hand out worksheets with \"reading strategies\" when you were a \"teacher\"?\nUse them."
+                      },
+                      "replyCount": 0,
+                      "repostCount": 0,
+                      "uri": "at://did:plc:a2x3jmj6ffsccbhrx4y4mwty/app.bsky.feed.post/3le4bw34ocs24",
+                      "viewer": {
+                        "embeddingDisabled": false,
+                        "threadMuted": false
+                      }
+                    },
+                    "replies": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

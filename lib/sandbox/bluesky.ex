@@ -275,7 +275,7 @@ defmodule Sandbox.Bluesky do
               query: Bluesky.nil_if_empty(Enum.at(matches, 3)),
               fragment: Bluesky.nil_if_empty(Enum.at(matches, 5))
             ]
-            |> Enum.filter(fn {_, v} -> !is_nil(v) end)
+            |> Enum.filter(&(!is_nil(elem(&1, 1))))
             |> Map.new()
 
           {:ok, relativep}
@@ -2090,15 +2090,15 @@ defmodule Sandbox.Bluesky do
 
   ## Options
 
-  `:level` - if supplied, limit domain parts to this number
+  `:depth` - if supplied, limit domain parts to this number
   """
   @spec get_domain(String.t(), Keyword.t()) :: String.t()
   def get_domain(url, opts \\ []) do
     uri = URI.parse(url)
 
-    case Keyword.get(opts, :level) do
-      level when is_integer(level) and level > 1 ->
-        String.split(uri.host, ".") |> Enum.take(-level) |> Enum.join(".")
+    case Keyword.get(opts, :depth) do
+      depth when is_integer(depth) and depth > 1 ->
+        String.split(uri.host, ".") |> Enum.take(-depth) |> Enum.join(".")
 
       _ ->
         uri.host
@@ -2205,7 +2205,7 @@ defmodule Sandbox.Bluesky do
   def nil_if_empty(value), do: value
 
   def nil_if_emptylist(list) when is_list(list) do
-    list = Enum.filter(list, fn item -> !is_nil(item) end)
+    list = Enum.filter(list, &(!is_nil(&1)))
 
     case list do
       [] -> nil

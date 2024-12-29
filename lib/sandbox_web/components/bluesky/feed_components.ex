@@ -75,7 +75,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
             alt={@post.author.display_name}
           />
         </div>
-        <%= if @post.next_thread? do %>
+        <%= if @post.thread_state == :thread_continues do %>
           <div class="flex-1 my-2 post-next-thread">
             <svg
               class="w-full h-full next-thread-line"
@@ -108,10 +108,10 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
           <span class="text-gray-500 post-date">{Bluesky.local_date(@post.date)}</span>
         </div>
         <div class="flex gap-2 post-uri">
-          <%= if @post.reply_level > 0 do %>
+          <%= if @post.depth > 0 do %>
             <div class="flex-none">
               <.icon class="small-icon" name="hero-list-bullet" />
-              {@post.reply_level}
+              {@post.depth}
             </div>
           <% end %>
           <%= if @post.reply_count > 0 do %>
@@ -138,10 +138,15 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
           <.post_images :if={Post.has_images?(@post)} images={Post.images(@post)} />
           <.post_video :if={Post.has_video?(@post)} video={Post.video(@post)} />
           <.post_external :if={Post.has_external?(@post)} external={Post.external(@post)} />
-          <.in_reply_to :if={Post.reply?(@post)} reply_parent={@post.reply_parent} />
+          <.in_reply_to :if={Post.reply?(@post)} parent={Post.reply(@post)} />
           <.quote_post :if={Post.quote_post?(@post)} post={Post.quoted_post(@post)} />
         </div>
       </div>
+      <%= if @post.thread_state == :thread_last do %>
+        <div class="col-span-2 my-2">
+          <hr class="text-bluesky" />
+        </div>
+      <% end %>
     </div>
     """
   end
@@ -197,19 +202,19 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
     """
   end
 
-  attr :reply_parent, PostInfo, required: true
+  attr :parent, PostInfo, required: true
 
   def in_reply_to(assigns) do
     ~H"""
-    <%= case @reply_parent.type do %>
+    <%= case @parent.type do %>
       <% :not_found -> %>
-        <.in_reply_to_basic uri={@reply_parent.uri} head="Reply to a post" />
+        <.in_reply_to_basic uri={@parent.uri} head="Reply to a post" />
       <% :blocked -> %>
         <.in_reply_to_basic head="Reply to a blocked post" />
       <% :detached -> %>
         <.in_reply_to_basic head="Reply to a detached post" />
       <% _author -> %>
-        <.in_reply_to_author author={@reply_parent.author} head="In reply to" />
+        <.in_reply_to_author author={@parent.author} head="In reply to" />
     <% end %>
     """
   end

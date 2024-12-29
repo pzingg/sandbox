@@ -88,8 +88,12 @@ defmodule SandboxWeb.FeedLive do
             )
             |> start_async(:feed, fn ->
               case Bluesky.get_post_thread(root_uri, user, depth: 50) do
-                {:ok, thread} -> Feed.decode_thread(thread, user, post_uri)
-                error -> error
+                {:ok, thread} ->
+                  posts = Feed.decode_thread(thread, user, focus_uri: post_uri)
+                  %{posts: posts, post: List.first(posts)}
+
+                error ->
+                  error
               end
             end)
           else
@@ -140,8 +144,12 @@ defmodule SandboxWeb.FeedLive do
       socket
       |> start_async(:modal, fn ->
         case Bluesky.get_post_thread(root_uri, user, depth: 50) do
-          {:ok, thread} -> Feed.decode_thread(thread, user, post_uri)
-          error -> error
+          {:ok, thread} ->
+            posts = Feed.decode_thread(thread, user, focus_uri: post_uri)
+            %{posts: posts, post: List.first(posts)}
+
+          error ->
+            error
         end
       end)
       |> assign(:show_modal, true)

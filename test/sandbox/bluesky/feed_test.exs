@@ -6,6 +6,8 @@ defmodule Sandbox.Bluesky.FeedTest do
   alias Sandbox.Bluesky
   alias Sandbox.Bluesky.{AppPassword, Feed}
 
+  @moduletag :skip
+
   setup_all do
     app_password = AppPassword.load!()
 
@@ -144,7 +146,6 @@ defmodule Sandbox.Bluesky.FeedTest do
              "Trending headlines from verified news organisations. Maintained by @aendra.com"
   end
 
-  @tag :skip
   test "brute force", context do
     auth = flunk_if_no_auth(context)
 
@@ -155,14 +156,12 @@ defmodule Sandbox.Bluesky.FeedTest do
     end)
   end
 
-  @tag :skip
   test "get timeline", context do
     auth = flunk_if_no_auth(context)
     assert {:ok, data} = Bluesky.get_timeline(auth, limit: 50)
     assert is_list(data["feed"])
   end
 
-  @tag :skip
   test "get discover feed", context do
     auth = flunk_if_no_auth(context)
     assert {:ok, data} = Bluesky.get_feed(auth, :discover, limit: 50)
@@ -193,7 +192,32 @@ defmodule Sandbox.Bluesky.FeedTest do
     # File.write("post-last.json", Jason.encode!(data, pretty: true))
   end
 
-  @tag :skip
+  @tag skip: false
+  test "splits a thread into branches", context do
+    auth = flunk_if_no_auth(context)
+    {:ok, contents} = File.read("test/support/fixtures/bluesky/thread-root-full.json")
+    {:ok, data} = Jason.decode(contents)
+    posts = Feed.decode_thread(data, auth, raw: true)
+    assert Enum.count(posts) == 37
+    zero_depth = Enum.filter(posts, fn post -> post.depth == 0 end)
+    parents = Enum.filter(posts, fn post -> post.depth < 0 end)
+    replies = Enum.filter(posts, fn post -> post.depth > 0 end)
+    assert Enum.count(zero_depth) == 1
+    assert Enum.count(parents) == 0
+    assert Enum.count(replies) == 36
+    assert Feed.max_depth(posts) == 9
+    assert [root] = Feed.roots(posts)
+    assert root.uri == hd(posts).uri
+    root_handle = hd(posts).author.handle
+    branches = Feed.build_branches(posts, root_handle)
+    # File.write("built-branches.json", Jason.encode!(branches, pretty: true))
+    branches = Feed.prune_branches(branches, root_handle)
+    # File.write("pruned-branches.json", Jason.encode!(branches, pretty: true))
+    posts = Feed.enumerate_branches(branches, posts)
+    # File.write("branched-posts.json", Jason.encode!(posts, pretty: true))
+    assert Enum.count(posts) == 37
+  end
+
   test "get list", context do
     auth = flunk_if_no_auth(context)
     list_uri = "at://did:plc:r2mpjf3gz2ygfaodkzzzfddg/app.bsky.graph.list/3lcvbzusxvc26"

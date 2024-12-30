@@ -51,7 +51,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
 
   def skeet(assigns) do
     ~H"""
-    <div class="grid gap-2 skeet top-level-post grid-cols-timeline-2">
+    <div class={border_last(@post) <> "grid gap-2 skeet top-level-post grid-cols-timeline-2"}>
       <!-- column 1 -->
       <div :if={Post.repost?(@post)}>
         &nbsp;
@@ -142,14 +142,12 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
           <.quote_post :if={Post.quote_post?(@post)} post={Post.quoted_post(@post)} />
         </div>
       </div>
-      <%= if @post.thread_state == :thread_last do %>
-        <div class="col-span-2 my-2">
-          <hr class="text-bluesky" />
-        </div>
-      <% end %>
     </div>
     """
   end
+
+  defp border_last(%{thread_state: :thread_last}), do: "mb-2 border-solid border-b-2 border-bluesky "
+  defp border_last(_post), do: ""
 
   attr :post, Post, required: true
 

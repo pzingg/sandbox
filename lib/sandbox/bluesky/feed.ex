@@ -61,6 +61,7 @@ defmodule Sandbox.Bluesky.Feed do
     @type t() :: %__MODULE__{
             type: Feed.post_view_type(),
             uri: String.t(),
+            cid: String.t(),
             author: Author.t() | nil,
             depth: integer(),
             not_found: boolean(),
@@ -74,6 +75,7 @@ defmodule Sandbox.Bluesky.Feed do
     defstruct [
       :type,
       :uri,
+      :cid,
       :author,
       depth: 0,
       not_found: false,
@@ -691,7 +693,7 @@ defmodule Sandbox.Bluesky.Feed do
     build_post(post, reply, reason, depth, auth)
   end
 
-  def decode_post(post, _reply, _reason, _level, _auth) do
+  def decode_post(post, _reply, _reason, _depth, _auth) do
     Logger.error("Mising uri or cid in post #{inspect(post)}")
     nil
   end
@@ -801,7 +803,7 @@ defmodule Sandbox.Bluesky.Feed do
     }
   end
 
-  def build_post(post, _reply, _reason, _level, _auth) do
+  def build_post(post, _reply, _reason, _depth, _auth) do
     Logger.error("No uri in post #{inspect(post)}")
     nil
   end
@@ -1194,7 +1196,7 @@ defmodule Sandbox.Bluesky.Feed do
 
   @post_info_types %{
     "app.bsky.feed.defs#postView" => [type: :author],
-    "app.bsky.feed.defs#blockedPost" => [type: :blocked, blocke: true],
+    "app.bsky.feed.defs#blockedPost" => [type: :blocked, blocked: true],
     "app.bsky.feed.defs#notFoundPost" => [type: :not_found, not_found: true],
     "app.bsky.embed.record#viewBlocked" => [type: :blocked, blocked: true],
     "app.bsky.embed.record#viewNotFound" => [type: :not_found, not_found: true],
@@ -1203,7 +1205,7 @@ defmodule Sandbox.Bluesky.Feed do
 
   def build_post_info(record, auth, depth \\ 0)
 
-  def build_post_info(nil, _auth, _level), do: nil
+  def build_post_info(nil, _auth, _depth), do: nil
 
   def build_post_info(%{"$type" => rtype} = record, auth, depth) do
     case Map.get(@post_info_types, rtype) do
@@ -1215,6 +1217,7 @@ defmodule Sandbox.Bluesky.Feed do
         opts =
           Keyword.merge(opts,
             uri: record["uri"],
+            cid: record["cid"],
             depth: depth,
             author: build_author(record["author"], auth)
           )
@@ -1223,8 +1226,17 @@ defmodule Sandbox.Bluesky.Feed do
     end
   end
 
-  def build_post_info(record, _auth, _level) do
-    Logger.error("No $type for post #{inspect(record)}")
+  def build_post_info(%{"uri" => uri} = record, auth, depth) do
+    %PostInfo{
+      uri: uri,
+      cid: record["cid"],
+      depth: depth,
+      author: build_author(record["author"], auth)
+    }
+  end
+
+  def build_post_info(record, _auth, _depth) do
+    Logger.error("No $type or uri for post #{inspect(record)}")
     nil
   end
 

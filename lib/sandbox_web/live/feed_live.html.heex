@@ -11,7 +11,7 @@
         <% :image -> %>
           <img class="w-full" src={modal.src} alt={modal.alt} />
         <% :thread -> %>
-          <ul id="thread" class="feed">
+          <ul id="thread" class="w-full feed">
             <li :for={{dom_id, post} <- modal.posts} id={dom_id}>
               <.skeet post={post} />
             </li>
@@ -42,7 +42,7 @@
     <% else %>
       <.feed_header count={feed.count} feed_name={@feed_name} />
     <% end %>
-    <ul id="feed" class="feed" phx-update="stream">
+    <ul id="feed" class="w-full feed" phx-update="stream">
       <li :for={{dom_id, post} <- @streams.posts} id={dom_id}>
         <.skeet post={post} phx-click="modal-thread" live_action={@live_action} />
       </li>

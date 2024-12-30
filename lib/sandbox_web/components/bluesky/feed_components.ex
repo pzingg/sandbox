@@ -120,7 +120,7 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
               {@post.reply_count}
             </div>
           <% end %>
-          <div class="flex-1 text-bluesky">{@post.uri}</div>
+          <div class="flex-1 text-bluesky">{elided(@post.uri)}</div>
         </div>
         <div class="my-2 post-body">
           <div class="post-text">
@@ -146,7 +146,11 @@ defmodule SandboxWeb.Bluesky.FeedComponents do
     """
   end
 
-  defp border_last(%{thread_state: :thread_last}), do: "mb-2 border-solid border-b-2 border-bluesky "
+  defp elided(uri), do: String.slice(uri, 0, 8) <> "..." <> String.slice(uri, -14, 14)
+
+  defp border_last(%{thread_state: :thread_last}),
+    do: "mb-2 border-solid border-b-2 border-bluesky "
+
   defp border_last(_post), do: ""
 
   attr :post, Post, required: true

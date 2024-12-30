@@ -786,7 +786,7 @@ defmodule Sandbox.Bluesky.Feed do
         {nil, nil, nil}
       end
 
-    %Post{
+    post = %Post{
       uri: uri,
       cid: post["cid"],
       author: build_author(post["author"], auth),
@@ -801,6 +801,14 @@ defmodule Sandbox.Bluesky.Feed do
       embeds: Bluesky.nil_if_emptylist(embeds),
       links: Bluesky.nil_if_emptylist(links)
     }
+
+    Cachex.put(
+      :bluesky,
+      "post|#{uri}",
+      Map.take(post, [:uri, :cid, :author, :reason, :reply_count])
+    )
+
+    post
   end
 
   def build_post(post, _reply, _reason, _depth, _auth) do
@@ -1227,12 +1235,36 @@ defmodule Sandbox.Bluesky.Feed do
   end
 
   def build_post_info(%{"uri" => uri} = record, auth, depth) do
-    %PostInfo{
-      uri: uri,
-      cid: record["cid"],
-      depth: depth,
-      author: build_author(record["author"], auth)
-    }
+    {author, _post} =
+      case Cachex.get(:bluesky, "post|#{uri}") do
+        {:ok, %{author: author}} ->
+          {author, nil}
+
+        _ ->
+          case Bluesky.get_posts([uri], auth) do
+            {:ok, %{"posts" => [post | _]}} ->
+              {build_author(post["author"], auth), post}
+
+            other ->
+              Logger.error("post #{uri} not resolved #{inspect(other)}")
+              {nil, nil}
+          end
+      end
+
+    case author do
+      %Author{} ->
+        %PostInfo{
+          type: :author,
+          uri: uri,
+          cid: record["cid"],
+          depth: depth,
+          author: author
+        }
+
+      _ ->
+        # TODO: inspect post
+        nil
+    end
   end
 
   def build_post_info(record, _auth, _depth) do

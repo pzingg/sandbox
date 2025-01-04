@@ -10,11 +10,14 @@ defmodule Sandbox.Bluesky.CAR do
   @type cidstring() :: String.t()
   @type didstring() :: String.t()
   @type tidstring() :: String.t()
+  @type timestring() :: String.t()
 
   defmodule Path do
     @moduledoc """
     A path value, split into the collection lexicon and the rkey.
     """
+
+    alias Sandbox.Bluesky.CAR
 
     @derive Jason.Encoder
     defstruct [:coll, :rkey, :rest]
@@ -31,6 +34,7 @@ defmodule Sandbox.Bluesky.CAR do
     An operation value.
     """
 
+    alias Sandbox.Bluesky.CAR
     alias Sandbox.Bluesky.CAR.Path
 
     @derive Jason.Encoder
@@ -119,6 +123,13 @@ defmodule Sandbox.Bluesky.CAR do
         {normalize_cbor(cbor), rest}
 
       {:error, reason} ->
+        reason =
+          reason
+          |> to_string()
+          |> String.replace("_", " ")
+          |> String.replace("cbor", "CBOR")
+          |> String.capitalize()
+
         raise ArgumentError, reason
     end
   end
@@ -254,16 +265,12 @@ defmodule Sandbox.Bluesky.CAR do
   end
 
   def decode_path!(data) do
-    case String.split(data, "/") do
-      [collection | [rkey | rest]] ->
-        rest =
-          case rest do
-            nil -> nil
-            [] -> nil
-            _ -> Enum.join(rest, "/")
-          end
-
+    case String.split(data, "/", parts: 3) do
+      [collection, rkey, rest] ->
         %Path{coll: collection, rkey: rkey, rest: rest}
+
+      [collection, rkey] ->
+        %Path{coll: collection, rkey: rkey, rest: nil}
 
       parts ->
         raise ArgumentError, "invalid path: #{inspect(parts)}"

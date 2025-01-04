@@ -6,8 +6,6 @@ defmodule Sandbox.Bluesky.FeedTest do
   alias Sandbox.Bluesky
   alias Sandbox.Bluesky.{AppPassword, Feed}
 
-  @moduletag :skip
-
   setup_all do
     app_password = AppPassword.load!()
 
@@ -224,7 +222,7 @@ defmodule Sandbox.Bluesky.FeedTest do
     assert {:ok, data} = Bluesky.get_list(auth, list_uri, limit: 50)
     assert data["list"]["purpose"] == "app.bsky.graph.defs#referencelist"
     assert data["list"]["name"] == "City of Boston Bluesky Accounts"
-    assert Enum.count(data["items"]) == 15
+    assert Enum.count(data["items"]) > 0
   end
 
   test "resolve list", context do

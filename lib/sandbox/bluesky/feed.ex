@@ -159,7 +159,7 @@ defmodule Sandbox.Bluesky.Feed do
     @type t() :: %__MODULE__{
             uri: String.t(),
             feeds: nonempty_list(Feed.FeedGenerator.t()) | nil,
-            list: Feed.List.t() | nil,
+            list: Feed.GraphList.t() | nil,
             creator: Feed.Author.t(),
             name: String.t(),
             description: String.t()
@@ -356,7 +356,7 @@ defmodule Sandbox.Bluesky.Feed do
             external: Feed.Attachment.t(),
             images: nonempty_list(Feed.Attachment.t()) | nil,
             video: Feed.Attachment.t() | nil,
-            list: Feed.List.t() | nil,
+            list: Feed.GraphList.t() | nil,
             feed_generator: Feed.FeedGenerator.t() | nil,
             starter_pack: Feed.StarterPack.t() | nil
           }
@@ -1553,7 +1553,7 @@ defmodule Sandbox.Bluesky.Feed do
   def min_depth(posts) do
     shallowest_post =
       posts
-      |> Enum.min(fn p1, p2 -> p1.depth < p2.depth end, %{depth: 999})
+      |> Enum.min(fn p1, p2 -> p1.depth < p2.depth end, fn -> %{depth: 999} end)
 
     shallowest_post.depth
   end
@@ -1561,7 +1561,7 @@ defmodule Sandbox.Bluesky.Feed do
   def max_depth(posts) do
     deepest_post =
       posts
-      |> Enum.max(fn p1, p2 -> p1.depth > p2.depth end, %{depth: 0})
+      |> Enum.max(fn p1, p2 -> p1.depth > p2.depth end, fn -> %{depth: 0} end)
 
     deepest_post.depth
   end

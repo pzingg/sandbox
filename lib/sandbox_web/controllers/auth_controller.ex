@@ -153,4 +153,6 @@ defmodule SandboxWeb.AuthController do
         error
     end
   end
+
+  defp get_user(provider, _params, _client), do: {:error, "Provider #{provider} is not available"}
 end

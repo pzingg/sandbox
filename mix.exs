@@ -1,15 +1,19 @@
 defmodule Sandbox.MixProject do
   use Mix.Project
 
+  # @source_url "https://github.com/pzingg/sandbox"
+  @version "0.1.0"
+
   def project do
     [
       app: :sandbox,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.17",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      dialyzer: dialyzer()
     ]
   end
 
@@ -26,6 +30,13 @@ defmodule Sandbox.MixProject do
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
+
+  defp dialyzer do
+    [
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"},
+      plt_add_apps: [:mix]
+    ]
+  end
 
   # Specifies your project dependencies.
   #
@@ -63,6 +74,7 @@ defmodule Sandbox.MixProject do
       {:cachex, "~> 4.0"},
       {:timex, "~> 3.7"},
       {:ecto, "~> 3.12"},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ngrok, "~> 1.0", only: [:dev, :test]}
     ]
   end

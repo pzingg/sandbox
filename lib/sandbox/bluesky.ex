@@ -81,6 +81,18 @@ defmodule Sandbox.Bluesky do
 
     use Ecto.Schema
 
+    @type t() :: %__MODULE__{
+            state: String.t(),
+            issuer: String.t(),
+            did: String.t(),
+            dpop_private_jwk: String.t(),
+            pkce_verifier: String.t(),
+            dpop_nonce: String.t(),
+            scope: String.t(),
+            request_uri: String.t(),
+            inserted_at: DateTime.t()
+          }
+
     @primary_key false
     @timestamps_opts [type: :utc_datetime]
     embedded_schema do
@@ -113,14 +125,29 @@ defmodule Sandbox.Bluesky do
 
     use Ecto.Schema
 
+    @type t() :: %__MODULE__{
+            did: String.t(),
+            handle: String.t(),
+            pds_url: String.t(),
+            auth_url: String.t(),
+            access_token: String.t(),
+            refresh_token: String.t(),
+            scope: String.t(),
+            expires_at: non_neg_integer(),
+            dpop_private_jwk: String.t(),
+            dpop_nonce: String.t(),
+            display_name: String.t() | nil,
+            avatar_url: String.t() | nil,
+            profile: String.t() | nil,
+            inserted_at: DateTime.t(),
+            updated_at: DateTime.t()
+          }
+
     @primary_key false
     @timestamps_opts [type: :utc_datetime]
     embedded_schema do
       field(:did, :string, primary_key: true)
       field(:handle, :string)
-      field(:display_name, :string)
-      field(:avatar_url, :string)
-      field(:profile, :string)
       field(:pds_url, :string)
       field(:auth_url, :string)
       field(:access_token, :string)
@@ -129,6 +156,9 @@ defmodule Sandbox.Bluesky do
       field(:expires_at, :integer)
       field(:dpop_private_jwk, :string)
       field(:dpop_nonce, :string)
+      field(:display_name, :string)
+      field(:avatar_url, :string)
+      field(:profile, :string)
 
       timestamps()
     end
@@ -143,6 +173,15 @@ defmodule Sandbox.Bluesky do
 
   defmodule AppPassword do
     use Ecto.Schema
+
+    @type t() :: %__MODULE__{
+            did: String.t(),
+            handle: String.t(),
+            pds_url: String.t(),
+            app_password: String.t(),
+            access_token: String.t(),
+            refresh_token: String.t()
+          }
 
     @primary_key false
     embedded_schema do
@@ -163,7 +202,7 @@ defmodule Sandbox.Bluesky do
 
     def load do
       case Cachex.get(:bluesky, "app_password") do
-        %AppPassword{} = password ->
+        {:ok, %AppPassword{} = password} ->
           {:ok, password}
 
         {:error, reason} ->
@@ -737,7 +776,14 @@ defmodule Sandbox.Bluesky do
       ) do
     case DPoP.proof(jwk, url, method: method, nonce: nonce) do
       {:ok, {dpop_token, _fields, _claims}} ->
-        res = apply(Client, func, [client, params, [{"DPoP", dpop_token}]])
+        headers = [{"DPoP", dpop_token}]
+
+        res =
+          if func == :refresh_token do
+            Client.refresh_token(client, params, headers)
+          else
+            Client.get_token(client, params, headers)
+          end
 
         case res do
           {:ok, client} ->
@@ -1205,24 +1251,28 @@ defmodule Sandbox.Bluesky do
   end
 
   defp xrpc_dpop_headers(method, url, jwk, auth, nonce) do
-    with {:authed, %{access_token: access_token, auth_url: issuer}} <- {:authed, auth},
-         {:jwk, true} <- {:jwk, is_map(jwk)},
+    with {:ok, auth} <- valid_auth(auth),
          ath_claims = %{
-           "iss" => issuer,
-           "ath" => base64_encoded_hash(access_token, "S256")
+           "iss" => auth.issuer,
+           "ath" => base64_encoded_hash(auth.access_token, "S256")
          },
          {:ok, {dpop_token, _fields, _claims}} <-
            DPoP.proof(jwk, url, method: method, nonce: nonce, claims: ath_claims) do
       {:ok,
        [
-         {"Authorization", "DPoP #{access_token}"},
+         {"Authorization", "DPoP #{auth.access_token}"},
          {"DPop", dpop_token}
        ]}
-    else
-      {:authed, _} -> {:error, "Missing auth data"}
-      {:jwk, _} -> {:error, "Invalid JWK"}
-      error -> error
     end
+  end
+
+  defp valid_auth(%{access_token: access_token, auth_url: issuer} = auth)
+       when is_binary(access_token) and is_binary(issuer) do
+    {:ok, auth}
+  end
+
+  defp valid_auth(_auth) do
+    {:error, "Missing auth data"}
   end
 
   defp xrpc_basic(method, url, params, req_headers) do
@@ -1282,7 +1332,6 @@ defmodule Sandbox.Bluesky do
   defp get_response_header(headers, key) do
     case List.keyfind(headers, key, 0) do
       {_, value} when is_binary(value) -> value
-      {_, [value | _]} when is_binary(value) -> value
       _ -> nil
     end
   end
@@ -1360,7 +1409,7 @@ defmodule Sandbox.Bluesky do
 
   Returns `nil` if the DID cannot be fetched.
   """
-  @spec resolve_handle_http(String.t()) :: map() | nil
+  @spec resolve_handle_http(String.t()) :: binary() | nil
   def resolve_handle_http(handle) do
     with {handle, _, _} <- normalize_handle(handle),
          url = "https://#{handle}/.well-known/atproto-did",
@@ -1377,7 +1426,7 @@ defmodule Sandbox.Bluesky do
 
   Returns `nil` if the DID cannot be fetched.
   """
-  @spec resolve_handle_dns(String.t()) :: map() | nil
+  @spec resolve_handle_dns(String.t()) :: String.t() | nil
   def resolve_handle_dns(handle) do
     with {handle, _, _} <- normalize_handle(handle),
          domain = String.to_charlist("_atproto.#{handle}"),
@@ -1482,7 +1531,7 @@ defmodule Sandbox.Bluesky do
 
   Accepts either a DID or DID document as argument.
   """
-  @spec get_authorization_server_metadata(String.t() | map()) :: map()
+  @spec get_authorization_server_metadata(String.t() | map()) :: map() | nil
   def get_authorization_server_metadata(did) when is_binary(did) do
     case resolve_did(did) do
       did_document when is_map(did_document) ->
@@ -1595,7 +1644,7 @@ defmodule Sandbox.Bluesky do
           AuthUser.decode_jwk!(u)
 
         _ ->
-          get_private_jwk()
+          get_private_jwk(did)
       end
 
     client =
@@ -1849,9 +1898,9 @@ defmodule Sandbox.Bluesky do
         pds_url: pds_url,
         auth_url: Keyword.get(opts, :issuer) || auth_url,
         access_token: access_token,
-        expires_at: token.expires_at,
-        scope: token.scope,
         refresh_token: token.refresh_token,
+        scope: token.scope,
+        expires_at: token.expires_at,
         dpop_private_jwk: OAuth2.JWK.to_json(jwk),
         dpop_nonce: nonce,
         inserted_at: dt,
@@ -1963,11 +2012,11 @@ defmodule Sandbox.Bluesky do
   and retrieve the client's private key for signing confidential assertions.
   """
   @spec get_private_jwk(String.t()) :: JOSE.JWK.t()
-  def get_private_jwk(did \\ nil)
+  def get_private_jwk(did)
 
-  def get_private_jwk(did) when is_binary(did) do
+  def get_private_jwk(did) do
     case Cachex.get(:bluesky, "jwk|#{did}") do
-      {:ok, jwk} when is_map(jwk) ->
+      {:ok, %JOSE.JWK{} = jwk} ->
         jwk
 
       _ ->
@@ -1975,10 +2024,6 @@ defmodule Sandbox.Bluesky do
         Cachex.put(:bluesky, "jwk|#{did}", jwk)
         jwk
     end
-  end
-
-  def get_private_jwk(_) do
-    OAuth2.JWK.generate_key!("ES256")
   end
 
   @symbols ~c"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-._~"
@@ -2116,9 +2161,7 @@ defmodule Sandbox.Bluesky do
 
     if uri.scheme != "https" ||
          is_nil(uri.host) ||
-         uri.host != uri.netloc ||
-         !is_nil(uri.username) ||
-         !is_nil(uri.password) ||
+         !is_nil(uri.userinfo) ||
          !is_nil(uri.port) do
       false
     else

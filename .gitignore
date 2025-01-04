@@ -45,3 +45,5 @@ _*.md
 
 # Secrets
 bsky-app-password.json
+
+.codegpt
